@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InFit - AI 산업 분석 통합 레포트</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- D3.js CDN for visualization -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        /* 기본 스타일 - 2페이지 스타일 기준 */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #F8F8F8;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 페이지 섹션 공통 스타일 */
+        .page-section {
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* 1페이지 스타일 - 2페이지 톤으로 수정 */
+        #page-1 {
+            background-color: #F8F8F8;
+        }
+
+        #page-1 .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        #page-1 .header-section {
+            background-color: #FFF9F2; /* Bubble Cream: 부드러운 크림 배경 */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem 2rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        #page-1 .whale-character {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            width: 80px;
+            height: 80px;
+            opacity: 0.9;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        #page-1 .whale-character:hover {
+            transform: scale(1.1) rotate(5deg);
+            opacity: 1;
+        }
+
+        #page-1 .header-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #85C1DC; /* Whale Sky: 차분한 하늘색 */
+            margin-bottom: 0.75rem;
+        }
+
+        #page-1 .header-section .slogan {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #4D5E70; /* Slate Ink: 읽기 좋은 어두운 그레이 */
+            margin-bottom: 1.5rem;
+        }
+
+        #page-1 .header-section .subtitle {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        #page-1 .card-news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid #E0E0E0;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            #page-1 .card-news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        #page-1 .card {
+            background-color: #FFF9F2; /* Bubble Cream: 부드러운 크림 배경 */
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7; /* Ocean Mint: 민트 테두리 */
+            overflow: hidden;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        #page-1 .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-1 .card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            padding: 1.5rem;
+            flex-grow: 1;
+            cursor: pointer;
+        }
+
+        #page-1 .card-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #4D5E70; /* Slate Ink: 가독성 좋은 어두운 색상 */
+            margin-bottom: 0.8rem;
+        }
+
+        #page-1 .card-summary {
+            font-size: 0.95rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        #page-1 .card-keywords {
+            font-size: 0.85rem;
+            color: #666;
+            font-weight: 500;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        #page-1 .card-keywords span {
+            background-color: #A8D8C7; /* Ocean Mint: 부드러운 민트 배경 */
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        #page-1 .section-title {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #85C1DC; /* Whale Sky: 메인 브랜딩 색상 */
+            margin-bottom: 2rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7; /* Ocean Mint: 민트 테두리 */
+            text-align: center;
+        }
+
+        #page-1 .keyword-section {
+            background-color: #FFF9F2; /* Bubble Cream: 부드러운 크림 배경 */
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7; /* Ocean Mint: 민트 테두리 */
+            padding: 25px;
+        }
+
+        #page-1 .keyword-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed #E0E0E0;
+        }
+
+        #page-1 .keyword-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        #page-1 .keyword-item h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70; /* Slate Ink: 강조 텍스트 색상 */
+            margin-bottom: 0.75rem;
+        }
+
+        #page-1 .keyword-item p {
+            font-size: 0.95em;
+            color: #444;
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+
+        #page-1 .visualization-container {
+            margin-top: 3rem;
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px dashed #E0E0E0;
+        }
+
+        #page-1 .visualization-container h3 {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #85C1DC; /* Whale Sky: 메인 브랜딩 색상 */
+            margin-bottom: 1.5rem;
+        }
+
+        #page-1 .chart-svg {
+            background-color: #F8F8F8;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 740px;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+        }
+
+        #page-1 .arc text {
+            font-size: 0.9rem;
+            font-weight: 500;
+            fill: #333;
+        }
+
+        #page-1 .arc path {
+            stroke: #fff;
+            stroke-width: 2px;
+        }
+
+        #page-1 .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        #page-1 .legend-color-box {
+            width: 18px;
+            height: 18px;
+            border-radius: 4px;
+            margin-right: 0.75rem;
+            border: 1px solid #ccc;
+        }
+
+        #page-1 .legend-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 2-4페이지 공통 레포트 스타일 */
+        .report-container {
+            width: 100%;
+            max-width: 960px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .header-section {
+            padding: 40px 30px;
+            text-align: center;
+            background-color: #FFF9F2; /* Bubble Cream: 헤더 배경 */
+            border-bottom: 1px solid #A8D8C7; /* Ocean Mint: 헤더 하단 테두리 */
+        }
+
+        .header-section h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .header-subtitle {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        .article-link {
+            font-size: 0.9em;
+            color: #F7A78F; /* Soft Coral: 링크 색상 */
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: 1px solid #A8D8C7; /* Ocean Mint: 테두리 */
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .article-link:hover {
+            background-color: #F7A78F; /* Soft Coral: 호버 배경 */
+            color: white;
+        }
+
+        .main-content-grid {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 25px;
+            padding: 30px;
+        }
+
+        .article-analysis-section, 
+        .keywords-section, 
+        .visualization-section {
+            background-color: #FFF9F2; /* Bubble Cream: 부드러운 섹션 배경 */
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7; /* Ocean Mint: 섹션 테두리 */
+        }
+
+        .article-analysis-section {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .keywords-section {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .visualization-section {
+            grid-column: 1 / -1;
+            grid-row: 2;
+        }
+
+        /* 레포트 공통 타이포그래피 */
+        #page-2 h2, #page-3 h2, #page-4 h2 {
+            font-size: 1.6em;
+            color: #85C1DC; /* Whale Sky: 메인 제목 색상 */
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7; /* Ocean Mint: 테두리 */
+            font-weight: 700;
+        }
+
+        #page-2 p, #page-3 p, #page-4 p {
+            font-size: 0.95em;
+            line-height: 1.7;
+            margin-bottom: 1em;
+            color: #444;
+        }
+
+        #page-2 h3, #page-3 h3, #page-4 h3 {
+            font-size: 1.2em;
+            color: #4D5E70; /* Slate Ink: 서브 제목 색상 */
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* 공통 리스트 스타일 */
+        .article-analysis-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 1em 0;
+        }
+
+        .article-analysis-section ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .article-analysis-section ul li::before {
+            content: '•';
+            color: #F7A78F; /* Soft Coral: 불릿 포인트 색상 */
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .keywords-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .keywords-section li {
+            margin-bottom: 15px;
+        }
+
+        .keywords-section li strong {
+            display: block;
+            font-size: 1.1em;
+            color: #4D5E70; /* Slate Ink: 키워드 제목 색상 */
+            margin-bottom: 5px;
+        }
+
+        .keywords-section li p {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        /* 공통 시각화 스타일 */
+        .visualization-section {
+            text-align: center;
+        }
+
+        .visualization-section h2 {
+            font-size: 1.4em;
+        }
+
+        .chart-container {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #F8F8F8;
+            border-radius: 8px;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .chart-title {
+            font-size: 1.1em;
+            color: #85C1DC; /* Whale Sky: 차트 제목 색상 */
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .bar-chart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 10px;
+        }
+
+        .bar-item {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .bar-label {
+            font-weight: bold;
+            color: #555;
+            text-align: right;
+            width: 80px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .bar-wrapper {
+            flex-grow: 1;
+            height: 35px;
+            background-color: #A8D8C7; /* Ocean Mint: 차트 배경 */
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background-color: #85C1DC; /* Whale Sky: 차트 바 색상 */
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            color: white;
+            font-weight: bold;
+            padding-right: 10px;
+            box-sizing: border-box;
+            transition: width 0.8s ease-out;
+        }
+
+        .bar-value {
+            margin-left: 15px;
+            font-weight: bold;
+            color: #4D5E70; /* Slate Ink: 차트 값 색상 */
+            font-size: 1.1em;
+            min-width: 80px;
+            text-align: left;
+            flex-shrink: 0;
+        }
+
+        .chart-note {
+            font-size: 0.8em;
+            color: #777;
+            margin-top: 20px;
+            text-align: left;
+            line-height: 1.4;
+        }
+
+        /* 4페이지 특화 스타일 */
+        #page-4 .main-content-section {
+            padding: 30px;
+        }
+
+        #page-4 .intro-text {
+            font-size: 1.1em;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        #page-4 .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        #page-4 .info-card {
+            background-color: #FFF9F2; /* Bubble Cream: 카드 배경 */
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7; /* Ocean Mint: 카드 테두리 */
+            padding: 1.5rem;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            cursor: pointer;
+        }
+
+        #page-4 .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-4 .info-card h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70; /* Slate Ink: 카드 제목 색상 */
+            margin-bottom: 0.75rem;
+        }
+
+        #page-4 .info-card p {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        #page-4 .info-card a {
+            color: #F7A78F; /* Soft Coral: 링크 색상 */
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        #page-4 .tip-box {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #FFF9F2; /* Bubble Cream: 부드러운 배경 */
+            border-left: 4px solid #85C1DC; /* Whale Sky: 강조 테두리 */
+            border-radius: 8px;
+            margin-bottom: 3rem;
+        }
+
+        #page-4 .tip-box h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70; /* Slate Ink: 제목 색상 */
+            margin-bottom: 0.75rem;
+        }
+
+        #page-4 .tip-box p {
+            color: #333;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        #page-4 .conclusion-box {
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: #FFF9F2; /* Bubble Cream: 부드러운 배경 */
+            border-radius: 8px;
+            border: 1px solid #A8D8C7; /* Ocean Mint: 테두리 */
+        }
+
+        #page-4 .conclusion-box h2 {
+            font-size: 1.4em;
+            color: #4D5E70; /* Slate Ink: 제목 색상 */
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        #page-4 .conclusion-box p {
+            color: #333;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .page-section {
+                padding: 10px;
+            }
+            
+            #page-1 .container {
+                padding: 1rem;
+            }
+            
+            #page-1 .card-news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #page-1 .whale-character {
+                width: 60px;
+                height: 60px;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .main-content-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+                padding: 20px;
+            }
+            
+            .article-analysis-section,
+            .keywords-section,
+            .visualization-section {
+                grid-column: 1 / -1;
+                grid-row: auto;
+            }
+
+            #page-4 .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #page-4 .main-content-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 1페이지 -->
+    <section id="page-1" class="page-section">
+        <div class="container">
+            <!-- Header Section with Branding -->
+            <header class="header-section">
+                <img src="infit_logo.png" alt="InFit 캐릭터" class="whale-character">
+                <h1>InFit</h1>
+                <p class="slogan">나에게 필요한 정보만, 스마트하게 인핏</p>
+                <p class="subtitle">
+                    <span class="font-semibold">산업 분석 전문가 리포트:</span> 금융권 AI 서비스 동향 및 증권사 AI 활용 분석
+                </p>
+            </header>
+
+            <!-- 카드 뉴스 섹션 -->
+            <section class="mb-12">
+                <h2 class="section-title">주요 금융권 AI 뉴스 요약</h2>
+                <div class="card-news-grid">
+                    <!-- 카드 1: 에코프로 -->
+                    <div class="card">
+                        <a href="https://news.nate.com/view/20250623n29109" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">에코프로, CEO-직원 소통 강화로 위기 극복 및 미래 도약 모색</h3>
+                            <p class="card-summary">
+                                에코프로 경영진이 임직원과의 소통을 강화하며 위기 극복과 미래 성장을 위한 비전을 공유하고 있습니다. 하반기 실적 반등과 해외 시장 확대, 포트폴리오 다변화를 추진하며 '현장 경영' DNA를 이어갑니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#에코프로</span> <span>#CEO소통</span> <span>#위기극복</span> <span>#현장경영</span> <span>#이차전지</span>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- 카드 2: 미국 이란 공습 -->
+                    <div class="card">
+                        <a href="https://www.moneys.co.kr/article/2025062310534824464" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">미-이란 긴장 고조, 중동 리스크에 한국 IT업계 '촉각'</h3>
+                            <p class="card-summary">
+                                미국 트럼프 행정부의 이란 핵시설 공습으로 중동 긴장이 고조되면서, 중동 시장에 진출한 한국 IT 기업들이 사업 불확실성 확산에 촉각을 세우고 있습니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#미국이란</span> <span>#중동리스크</span> <span>#IT업계</span> <span>#네이버</span> <span>#게임블록체인</span>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- 카드 3: SK텔레콤 -->
+                    <div class="card">
+                        <a href="https://v.daum.net/v/20250623204203530" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">SKT, 영업 재개 후 '돈폭탄' 예상…단통법 폐지·신제품 출시와 맞물려 경쟁 격화</h3>
+                            <p class="card-summary">
+                                SKT가 신규영업을 재개하며 이탈 고객 유치를 위해 대규모 지원금을 쏟아낼 것으로 예상됩니다. 단통법 폐지와 삼성 신제품 출시가 맞물려 통신 시장의 경쟁이 더욱 치열해질 전망입니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#SKT</span> <span>#영업재개</span> <span>#단통법폐지</span> <span>#통신시장</span> <span>#가입자유치</span>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- 카드 4: 증권사 AI -->
+                    <div class="card">
+                        <a href="https://v.daum.net/v/20250624142529987" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">증권사들, AI로 '초개인화 서비스' 강화 및 업무 효율화 박차</h3>
+                            <p class="card-summary">
+                                증권사들이 고객 맞춤형 서비스와 업무 효율화를 위해 AI 도입을 확대하고 있습니다. 미래에셋, KB, NH, 토스, 카카오페이 등 주요 증권사들이 다양한 AI 기반 서비스를 고도화 중입니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#증권사AI</span> <span>#금융AI</span> <span>#맞춤서비스</span> <span>#업무효율화</span> <span>#투자자문</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 키워드 분석 섹션 -->
+            <section class="keyword-section">
+                <h2 class="section-title">키워드 분석: 증권사 AI 서비스</h2>
+                <div class="keyword-analysis">
+                    <div class="keyword-item">
+                        <h3>1. 인력 효율화 및 운영 비용 절감</h3>
+                        <p>
+                            증권사들은 AI 도입을 통해 반복적이고 시간이 많이 소요되는 업무를 자동화하여 인력 효율성을 극대화하고 있습니다. 이는 단순 업무 처리부터 복잡한 데이터 분석까지 광범위하게 적용되어 운영 비용 절감에 기여합니다. 예를 들어, 콜센터 챗봇, 문서 분석, 백오피스 자동화 등이 있습니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>2. 새로운 비즈니스 기회 창출 및 서비스 확장</h3>
+                        <p>
+                            AI는 증권사에게 기존에 없던 새로운 서비스 모델을 개발하고 시장을 확장할 기회를 제공합니다. 개인 맞춤형 금융 상품 추천, AI 기반의 투자 자문 서비스, 비대면 채널 강화를 통한 고객 접점 확대 등이 여기에 해당합니다. 이는 고객 만족도를 높이고 새로운 수익원을 창출하는 동력이 됩니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>3. 개인 맞춤형 투자 정보 및 자문 서비스</h3>
+                        <p>
+                            KB증권의 '프라임 클럽'과 미래에셋증권의 'AI 투자비서' 사례에서 보듯이, AI는 고객의 투자 성향, 자산 규모, 시장 데이터를 분석하여 초개인화된 투자 정보를 제공하고 맞춤형 포트폴리오를 제안하는 핵심 도구로 활용되고 있습니다. 이는 고객의 합리적인 투자 결정을 돕고 만족도를 높이는 데 기여합니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>4. 투자 전략 수립 및 시장 분석 고도화</h3>
+                        <p>
+                            AI는 방대한 금융 데이터를 실시간으로 분석하여 복잡한 시장 동향을 예측하고, 최적의 투자 전략을 수립하는 데 활용됩니다. 이를 통해 인간 애널리스트가 놓칠 수 있는 미세한 신호까지 포착하여 더욱 정교하고 빠른 의사결정을 가능하게 합니다. 퀀트 투자, 리스크 관리, 이상 징후 탐지 등에 AI가 필수적으로 적용됩니다.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="visualization-container">
+                    <h3>📊 증권사 AI 서비스 주요 기술 활용 분야</h3>
+                    <div id="donut-chart-container" class="w-full flex justify-center">
+                        <svg class="chart-svg"></svg>
+                    </div>
+                    <div class="legend-container"></div>
+                    <p class="text-sm text-gray-500 mt-2">
+                        [위 도넛 차트는 금융권 AI 서비스 동향 기사들을 종합 분석하여 AI 서비스 주요 기술 활용 분야의 비중을 시각적으로 나타낸 자료입니다.]
+                    </p>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <!-- 2페이지 -->
+    <section id="page-2" class="page-section">
+    <div class="report-container">
+        <div class="header-section">
+            <h1>AI 정보전의 시대: 가디언AI와 인간정보의 창조적 결합으로 패러다임 전환</h1>
+            <div class="header-subtitle">발행일: 2025년 6월 23일</div>
+            <a href="https://n.news.naver.com/mnews/article/025/0003449561" target="_blank" class="article-link">원본 기사 읽기 (중앙일보)</a>
+        </div>
+
+        <div class="main-content-grid">
+            <div class="article-analysis-section">
+                <h2>기사 분석</h2>
+                <p>인공지능(AI)의 등장은 인류 문명의 패러다임을 변화시키는 중요한 전환점이며, 정보전 분야 역시 예외는 아닙니다. AI의 막대한 정보 처리 능력은 이미 'AI 대 AI 정보전'이라는 새로운 시대의 도래를 알리고 있습니다.</p>
+                
+                <h3>AI의 예측력과 정보 융합의 힘: 가디언AI 사례</h3>
+                <ul>
+                    <li>미국 민간 정보회사 롬버스파워의 '가디언AI'는 러시아-우크라이나 침공을 4개월 전에 예측하며 AI의 뛰어난 통찰력을 입증했습니다.</li>
+                    <li>상업위성 데이터, 언론/SNS 정보, 러시아 장교의 현금 인출량 변화 등 이질적이고 방대한 50여 개의 지표를 융합 분석하여 '80% 전쟁 가능성'을 제시했습니다.</li>
+                    <li>이는 서방 정보 당국의 초기 평가와 대조되는 결과로, AI가 기존 정보 분석의 한계를 극복하고 더 빠르고 정확한 통찰을 제공할 수 있음을 보여주었습니다.</li>
+                </ul>
+
+                <h3>다변화하는 AI 정보전의 양상</h3>
+                <ul>
+                    <li><strong>방첩:</strong> 중국의 AI와 안면인식 기술을 결합한 스파이 감시가 이미 일상화되고 있습니다.</li>
+                    <li><strong>여론전:</strong> AI가 개인의 정서와 신념을 파악, 맞춤형 메시지로 여론을 형성하고 조작하는 '소리 없는 무기'로 진화하고 있습니다.</li>
+                    <li><strong>사이버전:</strong> AI가 스스로 공격 루트를 찾고 방어하는 '자율형 정보전'이 등장했으며, 이는 AI 간의 해킹 대결인 'AI 대 AI 정보전'으로 고도화될 잠재력을 가집니다.</li>
+                </ul>
+
+                <h3>AI 시대의 과제와 인간의 역할: '창조적 결합'의 중요성</h3>
+                <ul>
+                    <li>AI 정보전의 급속한 발전은 윤리적 논란(예: 뇌파 해킹 시도)을 동반하며, 'AI 자율형 스파이' 시대의 가능성까지 제기됩니다.</li>
+                    <li>그러나 미 CIA 번스 국장이 강조했듯, AI는 뛰어난 수단일 뿐 인간의 '의지'나 '심리'와 같은 핵심적인 '나머지 20%'의 퍼즐은 결국 인간 정보(HUMINT)를 통해 파악되어야 합니다.</li>
+                    <li>따라서 AI 정보전의 성공은 AI와 인간의 창조적인 협업, 민간과 정보기관의 전략적 협력, 그리고 양질의 빅데이터 확보에 달려 있습니다.</li>
+                    <li>구시대적인 정보 칸막이를 걷어내고 새로운 정보 생태계를 구축하는 것이 시급한 과제입니다.</li>
+                </ul>
+            </div>
+
+            <div class="keywords-section">
+                <h2>핵심 키워드</h2>
+                <ul>
+                    <li>
+                        <strong>AI 정보전</strong>
+                        <p>인공지능 기술이 정보 수집, 분석, 확산, 방어 등 전 영역에 활용되는 새로운 차원의 정보 활동입니다.</p>
+                    </li>
+                    <li>
+                        <strong>가디언AI</strong>
+                        <p>다양한 이질적 빅데이터를 융합 분석하여 분쟁을 예측한 민간 AI 시스템의 실제 적용 사례입니다.</p>
+                    </li>
+                    <li>
+                        <strong>AI 대 AI 정보전</strong>
+                        <p>인공지능 시스템 간의 사이버 공격 및 방어, 또는 스파이 활동 등 상호작용하는 정보전 양상을 의미합니다.</p>
+                    </li>
+                    <li>
+                        <strong>인간정보(HUMINT)</strong>
+                        <p>AI가 파악하기 어려운 인간의 의지, 심리 등 비정형적 요소를 분석하는 데 필수적인 정보원입니다.</p>
+                    </li>
+                    <li>
+                        <strong>정보 융합</strong>
+                        <p>상업위성, 언론, SNS, 금융 데이터 등 이질적인 대량의 정보를 통합하여 분석하는 AI의 핵심 능력입니다.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="visualization-section">
+                <h2>군사용 AI 시장 성장 추이</h2>
+                <div class="chart-title">글로벌 군사용 AI 시장 규모 예측 (단위: 억 달러)</div>
+                <div class="chart-container">
+                    <div class="bar-chart">
+                        <div class="bar-item">
+                            <div class="bar-label">2022년</div>
+                            <div class="bar-wrapper">
+                                <div class="bar-fill" style="width: 24.85%;"></div>
+                            </div>
+                            <div class="bar-value">84억</div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-label">2032년</div>
+                            <div class="bar-wrapper">
+                                <div class="bar-fill" style="width: 100%;"></div>
+                            </div>
+                            <div class="bar-value">338억</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="chart-note">
+                    * 위 데이터는 Spherical Insights 보고서(Artificial Intelligence (AI) in Military Market Size, Share & Trends Analysis Report)를 기반으로 작성되었습니다.<br>
+                    * 보고서에 따르면 군사용 글로벌 인공지능(AI) 시장 규모는 2022년 84억 달러에서 2032년 338억 달러로 성장할 것으로 예상되며, 예상 기간(2022-2032) 동안 연평균 성장률(CAGR)은 14.9%입니다.
+                </p>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- 3페이지 -->
+    <section id="page-3" class="page-section">
+                <div class="report-container">
+            <div class="header-section">
+                <h1>AI 힘주는 증권가: 맞춤 서비스와 고도화 전략으로 금융 혁신 주도</h1>
+                <div class="header-subtitle">발행일: 2025년 6월 24일</div>
+                <a href="https://v.daum.net/v/20250624142529987" target="_blank" class="article-link">원본 기사 읽기 (다음뉴스)</a>
+            </div>
+
+            <div class="main-content-grid">
+                <div class="article-analysis-section">
+                    <h2>기사 분석</h2>
+                    <p>증권업계가 고객 서비스, 업무 효율화 등 전반적인 비즈니스 영역에서 인공지능(AI)을 적극적으로 도입하며 혁신을 주도하고 있습니다. 대형 증권사부터 핀테크 증권사에 이르기까지 각 사는 AI를 활용한 차별화된 서비스를 선보이고 있으며, 이는 금융 서비스의 고도화와 고객 경험 향상으로 이어지고 있습니다.</p>
+                    
+                    <h3>미래에셋증권: 생성형 AI 기반 글로벌 서비스 강화</h3>
+                    <ul>
+                        <li>해외 뉴스 번역·요약 및 한국/미국/일본/중국/홍콩 공시 원문 번역 서비스 (생성형 LLM 활용)</li>
+                        <li>AI 투자정보 서비스로 단기과열·시장경보, 외국인/기관 동시순매수 정보 제공</li>
+                        <li>챗GPT 및 레피니티브 스크립트를 활용한 미국 기업 어닝콜 요약·번역</li>
+                        <li>금융권 최초 AI 기반 신분증 사본 판별 시스템 도입</li>
+                    </ul>
+
+                    <h3>KB증권: AI 통합 플랫폼과 맞춤형 서비스</h3>
+                    <ul>
+                        <li>AI 통합 금융 플랫폼 '캐비 AI' 개발로 증권업무 Agent와 상담지원 Agent 구현</li>
+                        <li>업계 최초 생성형 AI 활용 맞춤형 투자 정보 'Stock AI' 서비스</li>
+                        <li>마이크로소프트 클라우드 기반 AI 오피스 솔루션 'M365·Copilot' 도입</li>
+                        <li>AI디지털본부 신설 및 전문 인력 지속 확대</li>
+                    </ul>
+
+                    <h3>NH투자증권: 업계 최초 AI 뉴스레터와 차트 분석</h3>
+                    <ul>
+                        <li>2023년 7월 업계 최초 AI 활용 뉴스레터 'GTP뉴스레터' 출시</li>
+                        <li>금융권 최초 생성형 AI 이미지 인식 기능 활용 차트 분석 서비스 '차분이'</li>
+                        <li>사내 메신저를 통한 AI 질의응답, 번역 및 요약 기능 제공</li>
+                        <li>외부 전문가 영입 및 다양한 외부업체 제휴 진행</li>
+                    </ul>
+
+                    <h3>토스증권: 자체 개발 금융 특화 AI 모델</h3>
+                    <ul>
+                        <li>국내 증권사 최초 해외기업 어닝콜 실시간 번역 서비스 (2024년 5월)</li>
+                        <li>자체 개발 금융 특화 번역 모델로 라이브 청취 및 실시간 번역 제공</li>
+                        <li>주가 영향 요인 분석 등 서비스 고도화 지속 진행</li>
+                        <li>2024년 하반기 AI 관련 인력 채용 확대 및 조직 강화</li>
+                    </ul>
+
+                    <h3>카카오페이증권: AI 서비스 센터 신설과 플랫폼 혁신</h3>
+                    <ul>
+                        <li>2024년 초 'AI 서비스 센터' 신설로 투자정보 비대칭 해소 추진</li>
+                        <li>생성형 AI, RPA, 자연어 처리 등 다양한 AI 기술 접목</li>
+                        <li>'손안의 블룸버그' 같은 투자정보 플랫폼으로 도약 목표</li>
+                        <li>사용자 편의성과 내부 운영 효율성 향상 동시 추구</li>
+                    </ul>
+
+                    <h3>증권업계 AI 도입의 의미와 미래</h3>
+                    <ul>
+                        <li>증권사들은 AI 기술을 고객 맞춤형 서비스 제공, 리스크 관리 강화, 운용 효율화 등 다양한 핵심 분야에 적극적으로 도입하고 있습니다.</li>
+                        <li>이는 투자 효율성을 높이고 고객에게 더욱 개인화된 서비스를 제공하는 중요한 업무 혁신으로 평가됩니다.</li>
+                        <li>AI는 증권업의 미래를 형성하는 핵심 동력이 될 것이며, 지속적인 기술 고도화와 투자 확대가 예상됩니다.</li>
+                    </ul>
+                </div>
+
+                <div class="keywords-section">
+                    <h2>핵심 키워드</h2>
+                    <ul>
+                        <li>
+                            <strong>생성형 LLM</strong>
+                            <p>대규모 텍스트 데이터를 학습하여 번역, 요약, 질의응답 등 다양한 금융 서비스에 활용되는 AI 모델입니다.</p>
+                        </li>
+                        <li>
+                            <strong>캐비 AI</strong>
+                            <p>KB증권의 AI 통합 금융 플랫폼으로, 증권 업무 및 상담 지원을 통해 고객 맞춤형 투자 관리를 목표로 합니다.</p>
+                        </li>
+                        <li>
+                            <strong>차분이</strong>
+                            <p>NH투자증권의 AI 기반 차트 분석 서비스로, 생성형 AI의 이미지 인식 기능을 활용한 차트 해석 도구입니다.</p>
+                        </li>
+                        <li>
+                            <strong>실시간 번역</strong>
+                            <p>해외 기업의 실시간 음성 데이터를 AI가 즉시 번역하여 글로벌 투자 정보를 제공하는 서비스입니다.</p>
+                        </li>
+                        <li>
+                            <strong>AI 서비스 센터</strong>
+                            <p>AI 기술을 활용하여 투자 정보 비대칭 해소 및 사용자 경험 혁신을 목표로 하는 조직입니다.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="visualization-section">
+                    <h2>증권업계 AI 시장 성장 전망</h2>
+                    <div class="chart-title">글로벌 금융 AI 시장 규모 예측 (단위: 억 달러)</div>
+                    <div class="chart-container">
+                        <div class="bar-chart">
+                            <div class="bar-item">
+                                <div class="bar-label">2023년</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar-fill" style="width: 8.17%;"></div>
+                                </div>
+                                <div class="bar-value">8.5억</div>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label">2024년</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar-fill" style="width: 9.61%;"></div>
+                                </div>
+                                <div class="bar-value">10억</div>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label">2033년</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar-fill" style="width: 100%;"></div>
+                                </div>
+                                <div class="bar-value">104억</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="chart-note">
+                        * 본 자료는 제공된 기사 및 관련 데이터를 바탕으로 증권업계의 AI 도입 현황과 미래 트렌드를 종합하여 시각화한 것입니다.<br>
+                        * 시장 성장 전망: 글로벌 금융 AI 시장은 2023년 8.5억 달러에서 2033년 104억 달러로 연평균 28.4% 성장할 것으로 예상됩니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- 4페이지 -->
+    <section id="page-4" class="page-section">
+
+            <div class="report-container">
+            <div class="header-section">
+                <h1>💡 AI 산업 분석: 참고 자료 및 심화 학습</h1>
+                <div class="header-subtitle">발행일: 2025년 6월 24일</div>
+            </div>
+
+            <div class="main-content-section">
+                <p class="intro-text">
+                    이 섹션은 AI 산업 관련 주요 키워드와 최신 트렌드를 깊이 있게 이해하는 데 도움이 될 만한 추천 자료들을 정리했습니다.
+                </p>
+
+                <h2>🔍 키워드별 추천 뉴스 및 심화 학습 자료</h2>
+                <p>
+                    AI 정보전 및 관련 핵심 키워드에 대한 이해를 돕기 위해, 신뢰도 높은 자료들을 엄선했습니다. 각 자료는 해당 키워드의 개념, 실제 적용 사례, 최신 동향 등을 다루고 있으니, 관심 있는 분야를 중심으로 탐독해 보시길 권합니다.
+                </p>
+
+                <div class="card-grid">
+                    <!-- AI 정보전 카드 -->
+                    <div class="info-card">
+                        <h3>AI 정보전: 개념 및 전장 활용</h3>
+                        <p>중앙일보/Daum 기사는 AI 정보전의 개념과 우크라이나 전장에서의 실제 활용 사례를 폭넓게 다룹니다.</p>
+                        <a href="https://v.daum.net/v/20250621160200467" target="_blank">기사 읽기 →</a>
+                    </div>
+
+                    <!-- 가디언AI 카드 -->
+                    <div class="info-card">
+                        <h3>가디언AI: 미국 정보 분야 적용</h3>
+                        <p>Tectonic Defense는 Rhombus Power의 Guardian AI가 우크라이나 전쟁 예측 및 미 공군에 어떻게 적용되는지 상세히 설명합니다.</p>
+                        <a href="https://www.tectonicdefense.com/meet-the-ai-helping-to-shape-us-intelligence/" target="_blank">기사 읽기 →</a>
+                    </div>
+
+                    <!-- AI 대 AI 정보전 카드 -->
+                    <div class="info-card">
+                        <h3>AI 대 AI 정보전: 사이버 공격 및 방어</h3>
+                        <p>조선일보 기사는 AI가 주도하는 사이버 공격과 방어, 그리고 AI 대 AI 실시간 정보전의 양상을 다룹니다.</p>
+                        <a href="https://www.chosun.com/economy/tech_it/2025/04/02/RGNZOJVT2BA23PPGDQQUQU4DGU/" target="_blank">기사 읽기 →</a>
+                    </div>
+
+                    <!-- 인간정보(HUMINT) 카드 -->
+                    <div class="info-card">
+                        <h3>인간정보(HUMINT): 정의 및 수행 방식</h3>
+                        <p>Intel Operators는 HUMINT의 정의와 실무적 해설을 제공합니다.</p>
+                        <a href="https://www.inteloperators.com/post/인간정보-humint-에-입문하기" target="_blank">기사 읽기 →</a>
+                    </div>
+                </div>
+
+                <!-- 활용 팁 -->
+                <div class="tip-box">
+                    <h3>💡 활용 팁:</h3>
+                    <p>
+                        각 키워드의 <strong>기본 개념</strong>은 블로그나 위키백과 등의 기초 자료에서, <strong>최신 사례 및 실제 적용</strong>은 언론 기사나 전문 보고서에서, 그리고 <strong>기술적 세부 사항</strong>은 논문이나 전문 기술 블로그에서 찾아보시면 더욱 효과적인 학습이 가능합니다.
+                    </p>
+                </div>
+
+                <h2>📰 AI 산업과 관련된 산업의 주요 이슈</h2>
+                <p>
+                    AI 산업 자체가 아닌, AI와 밀접하게 연관되어 혁신과 변화가 일어나고 있는 주요 산업(제조, 의료, 헬스케어, 엔터테인먼트, 마케팅 등)의 최신 이슈를 아래와 같이 정리합니다.
+                </p>
+
+                <div class="card-grid">
+                    <!-- 제조업 카드 -->
+                    <div class="info-card">
+                        <h3>제조업: 생산성 혁신</h3>
+                        <p>AI 도입으로 제조업의 생산성 향상과 비용 절감이 기대되며, 일자리 구조 변화도 동반될 전망입니다.</p>
+                        <a href="https://smarttechkorea.com/pressrelease/?bmode=view&idx=135300190" target="_blank">자료 보기 →</a>
+                    </div>
+
+                    <!-- 의료 헬스케어 카드 -->
+                    <div class="info-card">
+                        <h3>의료·헬스케어: 진단·치료 혁신</h3>
+                        <p>AI는 의료 영상 분석, 질병 예측, 신약 개발 등 다양한 분야에서 의료 서비스 혁신을 이끌고 있습니다.</p>
+                        <a href="https://botpress.com/ko/blog/top-artificial-intelligence-trends" target="_blank">자료 보기 →</a>
+                    </div>
+
+                    <!-- 엔터테인먼트 마케팅 카드 -->
+                    <div class="info-card">
+                        <h3>엔터·마케팅: 초개인화·콘텐츠</h3>
+                        <p>생성형 AI는 엔터테인먼트와 마케팅 산업에서 새로운 콘텐츠 제작과 초개인화된 고객 경험을 주도합니다.</p>
+                        <a href="https://ettrends.etri.re.kr/ettrends/212/0905212008/" target="_blank">자료 보기 →</a>
+                    </div>
+
+                    <!-- 사회적 윤리적 이슈 카드 -->
+                    <div class="info-card">
+                        <h3>AI 확산: 사회적·윤리적 이슈</h3>
+                        <p>AI 기술 확산에 따라 데이터 프라이버시, 신뢰성, 투명성, 저작권 등 다양한 사회적 이슈가 부상하고 있습니다.</p>
+                        <a href="https://www.aitimes.kr/news/articleView.html?idxno=33131" target="_blank">자료 보기 →</a>
+                    </div>
+                </div>
+
+                <!-- 마무리 섹션 -->
+                <div class="conclusion-box">
+                    <h2>마무리하며:</h2>
+                    <p>
+                        2025년 현재, AI 산업과 직접적으로 연결된 제조, 의료, 헬스케어, 엔터테인먼트, 마케팅 등 다양한 산업에서 AI의 도입과 혁신이 가속화되고 있습니다. 생산성 증대, 비용 절감, 맞춤형 서비스, 콘텐츠 혁신이 주요 트렌드이며, 이에 따른 일자리 변화와 윤리·사회적 이슈도 함께 대두되고 있습니다. 각 산업은 AI 기술의 확산에 발맞춰 새로운 기회를 창출함과 동시에, 신뢰와 안전, 규제 대응에도 집중하고 있습니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript 통합 -->
+    <script>
+        // D3.js를 사용하여 도넛 차트를 생성하는 스크립트
+        window.onload = function() {
+            const chartData = [
+                { category: '개인 맞춤형 자산관리', value: 25 },
+                { category: '리서치 및 보고서 자동화', value: 20 },
+                { category: '생성형 AI 투자 정보/상담', value: 30 },
+                { category: '차트 해석 및 시각화', value: 15 },
+                { category: '내부 업무 효율화', value: 10 }
+            ];
+
+            const width = 740;
+            const height = 400;
+            const radius = Math.min(width, height) / 2 - 20;
+
+            // Remove existing SVG to prevent duplicates on redraws
+            d3.select("#donut-chart-container .chart-svg").html("");
+            d3.select(".legend-container").html("");
+
+            const svg = d3.select("#donut-chart-container .chart-svg")
+                .attr("viewBox", `0 0 ${width} ${height}`)
+                .attr("preserveAspectRatio", "xMidYMid meet")
+                .append("g")
+                .attr("transform", `translate(${width / 2}, ${height / 2})`);
+
+            const color = d3.scaleOrdinal()
+                .domain(chartData.map(d => d.category))
+                .range(d3.schemeCategory10);
+
+            const pie = d3.pie()
+                .sort(null)
+                .value(d => d.value);
+
+            const arc = d3.arc()
+                .innerRadius(radius * 0.6)
+                .outerRadius(radius);
+
+            const outerArc = d3.arc()
+                .innerRadius(radius * 0.9)
+                .outerRadius(radius * 0.9);
+
+            // Create arcs (slices)
+            const arcs = svg.selectAll(".arc")
+                .data(pie(chartData))
+                .enter()
+                .append("g")
+                .attr("class", "arc");
+
+            // Append paths (the donut slices)
+            arcs.append("path")
+                .attr("d", arc)
+                .attr("fill", d => color(d.data.category))
+                .transition()
+                .ease(d3.easeLinear)
+                .duration(500)
+                .attrTween("d", function(d) {
+                    var i = d3.interpolate(d.startAngle, d.endAngle);
+                    return function(t) {
+                        d.endAngle = i(t);
+                        return arc(d);
+                    }
+                });
+
+            // Add text labels (percentage) inside the donut slices
+            arcs.append("text")
+                .attr("transform", d => `translate(${arc.centroid(d)})`)
+                .attr("text-anchor", "middle")
+                .text(d => `${d.data.value}%`)
+                .style("fill", "#fff")
+                .style("font-size", "0.9rem")
+                .style("font-weight", "bold");
+
+            // Add legend
+            const legendContainer = d3.select(".legend-container");
+
+            const legend = legendContainer.selectAll(".legend-item")
+                .data(chartData)
+                .enter()
+                .append("div")
+                .attr("class", "legend-item");
+
+            legend.append("div")
+                .attr("class", "legend-color-box")
+                .style("background-color", d => color(d.category));
+
+            legend.append("span")
+                .text(d => d.category);
+        };
+
+        // Add resize event listener to redraw chart on window resize
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                window.onload();
+            }, 250);
+        });
+
+        // Page scroll navigation (optional enhancement)
+        function scrollToPage(pageId) {
+            document.getElementById(pageId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
