@@ -251,15 +251,6 @@
     <script>
         window.addEventListener('DOMContentLoaded', () => {
             document.getElementById('nav-main').classList.add('active');
-
-            const logoImg = document.querySelector('.navbar-logo img');
-            if (!logoImg.complete || logoImg.naturalHeight === 0) {
-                const fallbackIcon = document.querySelector('.fallback-icon');
-                if (fallbackIcon) {
-                    logoImg.style.display = 'none';
-                    fallbackIcon.style.display = 'inline';
-                }
-            }
         });
     </script>
 </head>
@@ -268,7 +259,6 @@
         <div class="navbar-container">
             <a href="index.html" class="navbar-logo">
                 <img src="infit_logo.png" alt="InFit 캐릭터" style="height:38px; margin-right:0.5rem;">
-                <span class="fallback-icon" style="display:none">🎯</span>
                 <span style="font-size:1.3rem;font-weight:700;color:#4D5E70;">InFit</span>
             </a>
             <div class="navbar-menu">
