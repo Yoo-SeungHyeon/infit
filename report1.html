@@ -8,6 +8,52 @@
     <!-- D3.js CDN for visualization -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <style>
+        .navbar {
+            width: 100%;
+            background: #FFF9F2;
+            border-bottom: 1.5px solid #A8D8C7;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            position: sticky;
+            top: 0;
+            z-index: 1000; /* report1의 다른 요소들 위에 오도록 z-index 조정 */
+        }
+        .navbar-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 960px; /* report1의 컨테이너 너비와 맞춤 */
+            margin: 0 auto;
+            padding: 0.7rem 1.5rem;
+        }
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            text-decoration: none;
+        }
+        .navbar-logo img {
+            height: 38px;
+            max-width: 100%;
+            object-fit: contain;
+        }
+        .navbar-menu {
+            display: flex;
+            gap: 1rem;
+        }
+        .navbar-menu a {
+            text-decoration: none;
+            color: #4D5E70;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.3rem 1.1rem;
+            border-radius: 6px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .navbar-menu a.active, .navbar-menu a:hover {
+            background: #A8D8C7;
+            color: #fff;
+        }
+
         /* 기본 스타일 - 2페이지 스타일 기준 */
         body {
             font-family: 'Noto Sans KR', sans-serif;
@@ -25,6 +71,7 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
+            padding-top: 40px; /* 네비게이션바 높이만큼 여백 추가 */
         }
 
         /* 1페이지 스타일 - 2페이지 톤으로 수정 */
@@ -650,8 +697,26 @@
             }
         }
     </style>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('nav-column').classList.add('active');
+        });
+    </script>
 </head>
 <body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">
+                <img src="infit_logo.png" alt="InFit 캐릭터" style="height:38px; margin-right:0.5rem;">
+                <span style="font-size:1.3rem;font-weight:700;color:#4D5E70;">InFit</span>
+            </a>
+            <div class="navbar-menu">
+                <a id="nav-main" href="index.html">메인</a>
+                <a id="nav-column" href="column.html">칼럼</a>
+            </div>
+        </div>
+    </nav>
+
     <!-- 1페이지 -->
     <section id="page-1" class="page-section">
         <div class="container">
