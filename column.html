@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InFit - 전략적 인텔리전스 플랫폼</title>
+    <title>InFit - 칼럼</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -12,6 +12,9 @@
             margin: 0;
             color: #333;
             overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         .navbar {
             width: 100%;
@@ -64,80 +67,10 @@
             background: #A8D8C7;
             color: #fff;
         }
-        .main-section {
-            max-width: 900px;
-            margin: 2.5rem auto 0 auto;
-            background: #FFF9F2;
-            border-radius: 14px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            padding: 2.5rem 2rem 2rem 2rem;
-        }
-        .main-section h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #85C1DC;
-            margin-bottom: 1.2rem;
-            text-align: center;
-        }
-        .main-section .slogan {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #4D5E70;
-            margin-bottom: 1.2rem;
-            text-align: center;
-        }
-        .main-section .desc {
-            font-size: 1.08rem;
-            color: #444;
-            margin-bottom: 2.2rem;
-            text-align: center;
-        }
-        .feature-list {
-            margin: 2.5rem 0 2rem 0;
-            padding: 0;
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        .feature-list li {
-            font-size: 1.08rem;
-            background: #F8F8F8;
-            border-radius: 8px;
-            border: 1px solid #A8D8C7;
-            padding: 1.1rem 1.5rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-        .feature-list li span {
-            font-size: 1.5rem;
-            margin-right: 0.7rem;
-        }
-        .beta-section {
-            background: #FFF;
-            border-radius: 10px;
-            border: 1px solid #A8D8C7;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-            padding: 1.5rem 1.2rem;
-            margin-top: 2.5rem;
-            text-align: center;
-        }
-        .beta-section h2 {
-            font-size: 1.3rem;
-            color: #85C1DC;
-            font-weight: 700;
-            margin-bottom: 0.7rem;
-        }
-        .beta-section p {
-            color: #444;
-            font-size: 1.05rem;
-            margin-bottom: 0.5rem;
-        }
         .column-section {
             max-width: 900px;
             margin: 3.5rem auto 2rem auto;
+            flex-grow: 1;
         }
         .column-title {
             font-size: 1.6rem;
@@ -240,7 +173,7 @@
             }
         }
         @media (max-width: 600px) {
-            .main-section, .column-section {
+            .column-section {
                 padding: 1rem 0.3rem;
             }
             .navbar-container {
@@ -250,16 +183,7 @@
     </style>
     <script>
         window.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('nav-main').classList.add('active');
-
-            const logoImg = document.querySelector('.navbar-logo img');
-            if (!logoImg.complete || logoImg.naturalHeight === 0) {
-                const fallbackIcon = document.querySelector('.fallback-icon');
-                if (fallbackIcon) {
-                    logoImg.style.display = 'none';
-                    fallbackIcon.style.display = 'inline';
-                }
-            }
+            document.getElementById('nav-column').classList.add('active');
         });
     </script>
 </head>
@@ -268,7 +192,7 @@
         <div class="navbar-container">
             <a href="index.html" class="navbar-logo">
                 <img src="infit_logo.png" alt="InFit 캐릭터" style="height:38px; margin-right:0.5rem;">
-                <span class="fallback-icon" style="display:none">🎯</span>
+                <span class="fallback-icon">🎯</span>
                 <span style="font-size:1.3rem;font-weight:700;color:#4D5E70;">InFit</span>
             </a>
             <div class="navbar-menu">
@@ -277,28 +201,24 @@
             </div>
         </div>
     </nav>
-    <section id="main-section" class="main-section">
-        <h1>학우 여러분, 정보의 홍수 속에서 길을 잃고 있진 않나요?</h1>
-        <div class="slogan">당신만을 위한 전략적 인텔리전스 파트너, InFit</div>
-        <div class="desc">
-            매일 쏟아지는 뉴스, 논문, 보고서 속에서<br>
-            나에게 꼭 필요한 핵심 인사이트를 찾느라 시간을 허비하고 계시진 않나요?<br>
-            InFit은 여러분의 소중한 시간을 절약하고, 급변하는 세상에서 한 발 앞서나갈 수 있도록 돕는 서비스입니다.
-        </div>
-        <ul class="feature-list">
-            <li><span>🗂️</span> <b>정보 과부하 해결:</b> 전 세계 방대한 데이터를 AI가 실시간으로 수집·분류. 더 이상 헤매지 마세요!</li>
-            <li><span>🧠</span> <b>심층 분석:</b> 단순 요약을 넘어, AI 엔진이 인간관계·숨겨진 트렌드·산업 간 연결고리까지 분석!</li>
-            <li><span>📡</span> <b>초개인화 리포트:</b> 전공·관심사·미래 목표에 맞춘 완전히 맞춤형 주간 리포트 제공!</li>
-            <li><span>📊</span> <b>시각화된 정보:</b> 복잡한 분석 결과도 한눈에 이해할 수 있게 시각 자료로 제공!</li>
-        </ul>
-        <div class="beta-section">
-            <h2>✨ 지금 바로 'InFit' 베타 리포트를 경험하고, 당신의 미래를 준비하세요!</h2>
-            <p>베타 사용자분들의 솔직한 피드백을 기다리고 있습니다.<br>
-            설문에 참여해주신 분들 중 추첨을 통해 소정의 기프티콘도 드려요!</p>
-            <p style="color:#F7A78F;font-weight:600;">여러분의 빛나는 미래를 InFit과 함께 만들어 나가길 진심으로 바랍니다.</p>
+    <section id="column-section" class="column-section">
+        <div class="column-title">InFit 칼럼</div>
+        <div class="card-grid">
+            <div class="column-card" onclick="window.location.href='report1.html'">
+                <div class="column-card-image"></div>
+                <div class="column-card-content">
+                    <div class="column-card-title">AI 산업 분석 통합 리포트</div>
+                    <div class="column-card-desc">최신 AI 산업 트렌드와 인사이트를 한눈에! 데이터 기반의 심층 분석 리포트입니다.</div>
+                    <div class="column-card-tags">
+                        <span>#AI</span>
+                        <span>#산업분석</span>
+                        <span>#리포트</span>
+                    </div>
+                </div>
+            </div>
+            <!-- 추후 report2.html 등 추가 칼럼 카드 배치 가능 -->
         </div>
     </section>
-
     <footer class="footer">
         <p>InFit 서비스 개선을 위해 여러분의 소중한 의견을 들려주세요!</p>
         <a href="#" class="survey-button">설문조사 하러 가기</a>
