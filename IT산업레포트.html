@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InFit - AI 산업 분석 통합 레포트</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 기본 스타일 - 2페이지 스타일 기준 */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #F8F8F8;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 페이지 섹션 공통 스타일 */
+        .page-section {
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* 1페이지 스타일 - 2페이지 톤으로 수정 */
+        #page-1 {
+            background-color: #F8F8F8;
+        }
+
+        #page-1 .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        #page-1 .header-section {
+            background-color: #FFF9F2; /* Bubble Cream: 부드러운 크림 배경 */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem 2rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        #page-1 .whale-character {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            width: 80px;
+            height: 80px;
+            opacity: 0.9;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        #page-1 .whale-character:hover {
+            transform: scale(1.1) rotate(5deg);
+            opacity: 1;
+        }
+
+        #page-1 .header-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #85C1DC; /* Whale Sky: 차분한 하늘색 */
+            margin-bottom: 0.75rem;
+        }
+
+        #page-1 .header-section .slogan {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #4D5E70; /* Slate Ink: 읽기 좋은 어두운 그레이 */
+            margin-bottom: 1.5rem;
+        }
+
+        #page-1 .header-section .subtitle {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        #page-1 .card-news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid #E0E0E0;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            #page-1 .card-news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        #page-1 .card {
+            background-color: #FFF9F2; /* Bubble Cream: 부드러운 크림 배경 */
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7; /* Ocean Mint: 민트 테두리 */
+            overflow: hidden;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        #page-1 .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-1 .card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
+        #page-1 .card-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #4D5E70; /* Slate Ink: 가독성 좋은 어두운 색상 */
+            margin-bottom: 0.8rem;
+        }
+
+        #page-1 .card-summary {
+            font-size: 0.95rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        #page-1 .card-keywords {
+            font-size: 0.85rem;
+            color: #666;
+            font-weight: 500;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        #page-1 .card-keywords span {
+            background-color: #A8D8C7; /* Ocean Mint: 부드러운 민트 배경 */
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        #page-1 .section-title {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #85C1DC; /* Whale Sky: 메인 브랜딩 색상 */
+            margin-bottom: 2rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7; /* Ocean Mint: 민트 테두리 */
+            text-align: center;
+        }
+
+        #page-1 .keyword-section {
+            background-color: #FFF9F2; /* Bubble Cream: 부드러운 크림 배경 */
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7; /* Ocean Mint: 민트 테두리 */
+            padding: 25px;
+        }
+
+        #page-1 .keyword-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed #E0E0E0;
+        }
+
+        #page-1 .keyword-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        #page-1 .keyword-item h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70; /* Slate Ink: 강조 텍스트 색상 */
+            margin-bottom: 0.75rem;
+        }
+
+        #page-1 .keyword-item p {
+            font-size: 0.95em;
+            color: #444;
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+
+        #page-1 .visualization-container {
+            margin-top: 3rem;
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px dashed #E0E0E0;
+        }
+
+        #page-1 .visualization-container h3 {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #85C1DC; /* Whale Sky: 메인 브랜딩 색상 */
+            margin-bottom: 1.5rem;
+        }
+        
+        /* 새로운 가로 막대그래프 스타일 */
+        .metric-chart-container {
+            width: 100%;
+            max-width: 740px;
+            margin: 0 auto;
+            background-color: #F8F8F8;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .metric-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .metric-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .metric-label {
+            width: 140px;
+            text-align: right;
+            padding-right: 15px;
+            font-weight: 600;
+            color: #4D5E70;
+            flex-shrink: 0;
+        }
+
+        .metric-bar-wrapper {
+            flex-grow: 1;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            height: 25px;
+        }
+
+        .metric-bar-fill {
+            height: 100%;
+            background-color: #85C1DC;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            color: white;
+            font-weight: bold;
+            padding-right: 10px;
+            box-sizing: border-box;
+            transition: width 1s ease-out;
+        }
+        
+        .metric-value {
+             font-size: 1.1em;
+             font-weight: 700;
+             color: #4D5E70;
+             margin-left: 15px;
+             min-width: 60px;
+        }
+        
+        @keyframes fill-bar {
+            from { width: 0; }
+        }
+
+        .metric-bar-fill {
+            animation: fill-bar 1s ease-out forwards;
+        }
+
+        /* 2-4페이지 공통 레포트 스타일 */
+        .report-container {
+            width: 100%;
+            max-width: 960px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .header-section {
+            padding: 40px 30px;
+            text-align: center;
+            background-color: #FFF9F2; /* Bubble Cream: 헤더 배경 */
+            border-bottom: 1px solid #A8D8C7; /* Ocean Mint: 헤더 하단 테두리 */
+        }
+
+        .header-section h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .header-subtitle {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        .article-link {
+            font-size: 0.9em;
+            color: #F7A78F; /* Soft Coral: 링크 색상 */
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: 1px solid #A8D8C7; /* Ocean Mint: 테두리 */
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .article-link:hover {
+            background-color: #F7A78F; /* Soft Coral: 호버 배경 */
+            color: white;
+        }
+
+        .main-content-grid {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 25px;
+            padding: 30px;
+        }
+
+        .article-analysis-section, 
+        .keywords-section, 
+        .visualization-section {
+            background-color: #FFF9F2; /* Bubble Cream: 부드러운 섹션 배경 */
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7; /* Ocean Mint: 섹션 테두리 */
+        }
+
+        .article-analysis-section {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .keywords-section {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .visualization-section {
+            grid-column: 1 / -1;
+            grid-row: 2;
+        }
+
+        /* 레포트 공통 타이포그래피 */
+        #page-2 h2, #page-3 h2, #page-4 h2 {
+            font-size: 1.6em;
+            color: #85C1DC; /* Whale Sky: 메인 제목 색상 */
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7; /* Ocean Mint: 테두리 */
+            font-weight: 700;
+        }
+
+        #page-2 p, #page-3 p, #page-4 p {
+            font-size: 0.95em;
+            line-height: 1.7;
+            margin-bottom: 1em;
+            color: #444;
+        }
+
+        #page-2 h3, #page-3 h3, #page-4 h3 {
+            font-size: 1.2em;
+            color: #4D5E70; /* Slate Ink: 서브 제목 색상 */
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* 공통 리스트 스타일 */
+        .article-analysis-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 1em 0;
+        }
+
+        .article-analysis-section ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .article-analysis-section ul li::before {
+            content: '•';
+            color: #F7A78F; /* Soft Coral: 불릿 포인트 색상 */
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .keywords-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .keywords-section li {
+            margin-bottom: 15px;
+        }
+
+        .keywords-section li strong {
+            display: block;
+            font-size: 1.1em;
+            color: #4D5E70; /* Slate Ink: 키워드 제목 색상 */
+            margin-bottom: 5px;
+        }
+
+        .keywords-section li p {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        /* 공통 시각화 스타일 */
+        .visualization-section {
+            text-align: center;
+        }
+
+        .visualization-section h2 {
+            font-size: 1.4em;
+        }
+
+        .chart-container {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #F8F8F8;
+            border-radius: 8px;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .chart-title {
+            font-size: 1.1em;
+            color: #85C1DC; /* Whale Sky: 차트 제목 색상 */
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .bar-chart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 10px;
+        }
+
+        .bar-item {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .bar-label {
+            font-weight: bold;
+            color: #555;
+            text-align: right;
+            width: 100px; /* 라벨 너비 조정 */
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .bar-wrapper {
+            flex-grow: 1;
+            height: 35px;
+            background-color: #A8D8C7; /* Ocean Mint: 차트 배경 */
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background-color: #85C1DC; /* Whale Sky: 차트 바 색상 */
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            color: white;
+            font-weight: bold;
+            padding-right: 10px;
+            box-sizing: border-box;
+            transition: width 0.8s ease-out;
+        }
+
+        .bar-value {
+            margin-left: 15px;
+            font-weight: bold;
+            color: #4D5E70; /* Slate Ink: 차트 값 색상 */
+            font-size: 1.1em;
+            min-width: 100px; /* 값 너비 조정 */
+            text-align: left;
+            flex-shrink: 0;
+        }
+
+        .chart-note {
+            font-size: 0.8em;
+            color: #777;
+            margin-top: 20px;
+            text-align: left;
+            line-height: 1.4;
+        }
+
+        /* 4페이지 특화 스타일 */
+        #page-4 .main-content-section {
+            padding: 30px;
+        }
+
+        #page-4 .intro-text {
+            font-size: 1.1em;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        #page-4 .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        #page-4 .info-card {
+            background-color: #FFF9F2; /* Bubble Cream: 카드 배경 */
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7; /* Ocean Mint: 카드 테두리 */
+            padding: 1.5rem;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #page-4 .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-4 .info-card h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70; /* Slate Ink: 카드 제목 색상 */
+            margin-bottom: 0.75rem;
+            margin-top: 0;
+        }
+
+        #page-4 .info-card p {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        #page-4 .info-card a {
+            color: #F7A78F; /* Soft Coral: 링크 색상 */
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            display: block;
+            margin-top: auto;
+        }
+
+        #page-4 .tip-box {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #FFF9F2; /* Bubble Cream: 부드러운 배경 */
+            border-left: 4px solid #85C1DC; /* Whale Sky: 강조 테두리 */
+            border-radius: 8px;
+            margin-bottom: 3rem;
+        }
+
+        #page-4 .tip-box h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70; /* Slate Ink: 제목 색상 */
+            margin-bottom: 0.75rem;
+        }
+
+        #page-4 .tip-box p {
+            color: #333;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        #page-4 .conclusion-box {
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: #FFF9F2; /* Bubble Cream: 부드러운 배경 */
+            border-radius: 8px;
+            border: 1px solid #A8D8C7; /* Ocean Mint: 테두리 */
+        }
+
+        #page-4 .conclusion-box h2 {
+            font-size: 1.4em;
+            color: #4D5E70; /* Slate Ink: 제목 색상 */
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        #page-4 .conclusion-box p {
+            color: #333;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .page-section {
+                padding: 10px;
+            }
+            
+            #page-1 .container {
+                padding: 1rem;
+            }
+            
+            #page-1 .card-news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #page-1 .whale-character {
+                width: 60px;
+                height: 60px;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .main-content-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+                padding: 20px;
+            }
+            
+            .article-analysis-section,
+            .keywords-section,
+            .visualization-section {
+                grid-column: 1 / -1;
+                grid-row: auto;
+            }
+
+            #page-4 .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #page-4 .main-content-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 1페이지 -->
+    <section id="page-1" class="page-section">
+        <div class="container">
+            <!-- Header Section with Branding -->
+            <header class="header-section">
+                <img src="../whale.png" alt="InFit 캐릭터" class="whale-character">
+                <h1>InFit</h1>
+                <p class="slogan">나에게 필요한 정보만, 스마트하게 인핏</p>
+                <p class="subtitle">
+                    <span class="font-semibold">2025년 6월 4주차 IT 산업 분석:</span> 자율형 AI 에이전트와 산업 생태계 변화
+                </p>
+            </header>
+
+            <!-- 카드 뉴스 섹션 -->
+            <section class="mb-12">
+                <h2 class="section-title">주간 IT 핵심 뉴스 요약</h2>
+                <div class="card-news-grid">
+                    <!-- 카드 1: 자율형 AI 에이전트 -->
+                    <div class="card">
+                        <a href="https://brunch.co.kr/@bambooinvesting/5" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">에이전트 시대의 서막: 글로벌 빅테크, 기업용 자율형 AI 솔루션 출시</h3>
+                            <p class="card-summary">
+                                OpenAI, IBM 등이 복잡한 비즈니스 프로세스를 자동화하는 자율형 AI 에이전트 상용화를 발표했습니다. 이는 AI가 단순 '생성' 도구에서 프로세스 '자동화' 엔진으로 진화하는 결정적 변곡점입니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#자율형AI</span> <span>#AI에이전트</span> <span>#프로세스자동화</span> <span>#생산성향상</span> <span>#OpenAI</span>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- 카드 2: LG 엑사원 딥 공개 -->
+                    <div class="card">
+                        <a href="https://www.newstheai.com/news/articleView.html?idxno=7442" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">한국의 AI 반격: LG AI연구원, 초고효율 추론 모델 '엑사원 딥' 공개</h3>
+                            <p class="card-summary">
+                                LG가 적은 자원으로 높은 성능을 내는 추론 전용 AI 모델 '엑사원 딥'을 오픈소스로 공개했습니다. 이는 해외 기술 종속에서 벗어나 국내 AI 생태계를 주도하려는 전략적 움직임입니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#LG_AI</span> <span>#엑사원딥</span> <span>#오픈소스</span> <span>#추론AI</span> <span>#기술독립</span>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- 카드 3: 삼성 클라인 도입 -->
+                    <div class="card">
+                        <a href="https://www.yna.co.kr/view/AKR20250605140800003" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">기업의 AI 딜레마: 삼성전자, '보안 우선' AI 코딩 비서 '클라인' 도입</h3>
+                            <p class="card-summary">
+                                삼성전자가 데이터 유출 우려에 대응해 내부망에서만 작동하는 AI 코딩 비서 '클라인'을 도입했습니다. 이는 '생산성'과 '보안' 사이의 균형을 맞추는 중요한 사례입니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#삼성전자</span> <span>#AI보안</span> <span>#클라인</span> <span>#내부AI</span> <span>#데이터보호</span>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- 카드 4: AI 기본법 -->
+                    <div class="card">
+                        <a href="https://fkii.org/bbs/board.php?tbl=ictdata&mode=VIEW&num=1398&chr=&category=&findType=&findWord=&sort1=&sort2=&page=1" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">미래를 규율하다: 대한민국 'AI 기본법', 핵심 조항 구체화 착수</h3>
+                            <p class="card-summary">
+                                2026년 시행될 'AI 기본법'의 '고영향 AI' 정의를 둘러싸고 정부와 산업계의 논의가 본격화되었습니다. 혁신과 사회적 책임 사이의 균형점을 찾는 과정에 국제적 관심이 집중되고 있습니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#AI기본법</span> <span>#AI규제</span> <span>#고영향AI</span> <span>#AI거버넌스</span> <span>#과기정통부</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 키워드 분석 섹션 -->
+            <section class="keyword-section">
+                <h2 class="section-title">핵심 키워드 분석: 자율형 AI 에이전트</h2>
+                <div class="keyword-analysis">
+                    <div class="keyword-item">
+                        <h3>1. 정의 및 중요성: '어시스턴트'를 넘어 '행위자'로</h3>
+                        <p>
+                            자율형 AI 에이전트는 목표를 주면 스스로 계획하고 도구를 사용해 과업을 완수하는 '행위자'입니다. 이는 개별 업무 보조를 넘어 기업의 전체 '프로세스'를 자동화하며 디지털 전환의 다음 단계를 열고 있습니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>2. 기술적 맥락: LLM과 핵심 기술의 결합</h3>
+                        <p>
+                            고도의 추론 능력을 갖춘 LLM을 중심으로, AI가 필요한 도구를 찾게 돕는 '모델 컨텍스트 프로토콜(MCP)', 비즈니스 맥락을 이해시키는 '온톨로지' 기술이 결합되어 에이전트의 자율적 행동을 가능하게 합니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>3. 시장/산업적 영향: 생산성 혁명과 시장 재편</h3>
+                        <p>
+                            AI 에이전트는 운영 효율성을 폭발적으로 증가시키며(예: 보험 심사 2주 → 3시간), 기업용 소프트웨어, IT 서비스, 인프라 시장의 판도를 근본적으로 바꾸는 파괴적 혁신을 일으키고 있습니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>4. 사회적/경제적 파급 효과: 노동 시장의 변화</h3>
+                        <p>
+                            전 세계 약 24억 명으로 추산되는 사무직 노동자의 업무를 자동화하며, 대규모 일자리 전환과 인력 재교육의 필요성이라는 중대한 사회적 과제를 제기하고 있습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="visualization-container">
+                    <h3>📊 자율형 AI 에이전트 핵심 지표</h3>
+                    <div class="metric-chart-container">
+                        <div class="metric-item">
+                            <div class="metric-label">프로세스 단축 효과</div>
+                            <div class="metric-bar-wrapper">
+                                <div class="metric-bar-fill" style="width: 99%;"></div>
+                            </div>
+                            <div class="metric-value">99%</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">기업 도입률 (2025)</div>
+                            <div class="metric-bar-wrapper">
+                                <div class="metric-bar-fill" style="width: 51%;"></div>
+                            </div>
+                             <div class="metric-value">51%</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">NIA 트렌드 순위</div>
+                            <div class="metric-bar-wrapper">
+                                <div class="metric-bar-fill" style="width: 100%;"></div>
+                            </div>
+                            <div class="metric-value">1위</div>
+                        </div>
+                    </div>
+                     <p class="text-sm text-gray-500 mt-2" style="text-align: center; font-size: 0.8em; color: #777; margin-top: 15px;">
+                        [위 차트는 NIA, LangChainAI 보고서 데이터를 바탕으로 자율형 AI 에이전트의 주요 지표를 시각화한 자료입니다.]
+                    </p>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <!-- 2페이지 -->
+    <section id="page-2" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>심층 분석 1: 오픈소스의 진화와 IT 산업 생태계 영향</h1>
+                <div class="header-subtitle">기준일: 2025년 6월 30일</div>
+                <a href="https://www.oss.kr/news/show/8f29838f-7c86-4e67-ad3e-49192ba61ef4" target="_blank" class="article-link">참고 자료: NIPA 오픈소스 실태조사</a>
+            </div>
+    
+            <div class="main-content-grid">
+                <div class="article-analysis-section">
+                    <h2>분석: 소비에서 '전략적 기여'로의 전환</h2>
+                    <p>오픈소스(OSS)는 더 이상 비용 절감 대안이 아닌, AI와 클라우드 시대의 핵심 동력입니다. 2025년은 국내 기업들이 단순한 오픈소스 소비자를 넘어, 생태계에 전략적으로 기여하고 시장을 주도하려는 움직임이 본격화되는 원년으로 기록될 것입니다.</p>
+                    
+                    <h3>최신 오픈소스 트렌드 (2025년 기준)</h3>
+                    <ul>
+                        <li><strong>AI 혁명의 근간:</strong> PyTorch, Llama, EXAONE 등 AI 혁신은 오픈소스 위에서 이뤄지고 있으며, GitHub에는 연간 7만 개 이상의 AI 프로젝트가 생성됩니다.</li>
+                        <li><strong>보안 및 컴플라이언스 문제:</strong> 기업의 OSS 활용률은 96%에 달하지만, 91%의 코드베이스가 낡은 버전을 사용하고 있어 보안 리스크가 심각한 난제로 남아있습니다.</li>
+                    </ul>
+    
+                    <h3>국내 기업의 전략 변화: IP 공개로 생태계 주도</h3>
+                    <ul>
+                        <li><strong>삼성전자 (내부화 전략):</strong> 강력한 내부 거버넌스를 기반으로 AI 코딩 비서 '클라인' 등 내부 생산성 극대화에 초점을 맞추고 있습니다.</li>
+                        <li><strong>SK텔레콤 (생태계 구축자 전략):</strong> 'KoBERT', '메타트론' 등 핵심 기술을 공개하여 자사 플랫폼 중심의 개발자 커뮤니티를 구축하고 있습니다.</li>
+                        <li><strong>LG AI연구원 (기술 리더십 확보):</strong> 고효율 추론 모델 '엑사원 딥'을 공개하여 비용 효율적인 AI 분야에서 글로벌 리더십 확보를 목표로 합니다.</li>
+                        <li><strong>네이버/카카오 (LLM 생태계 경쟁):</strong> 자체 LLM을 공개하며 글로벌 빅테크에 맞서 국내 AI 플랫폼의 영향력 확대를 위한 생태계 경쟁을 벌이고 있습니다.</li>
+                    </ul>
+    
+                    <h3>법적/윤리적 쟁점과 OSPO의 부상</h3>
+                    <ul>
+                        <li>복잡한 라이선스 준수 의무와 EU '사이버 복원력 법' 등 공급망 보안 규제가 강화되고 있습니다.</li>
+                        <li>이에 따라 기업 내 오픈소스 전담 조직인 'OSPO(Open Source Program Office)'를 설립하여 거버넌스를 강화하는 것이 글로벌 표준으로 자리 잡고 있습니다.</li>
+                    </ul>
+                </div>
+    
+                <div class="keywords-section">
+                    <h2>핵심 키워드</h2>
+                    <ul>
+                        <li>
+                            <strong>오픈소스 거버넌스</strong>
+                            <p>오픈소스 활용, 기여, 공개 정책을 체계적으로 관리하여 비즈니스 가치를 높이고 리스크를 최소화하는 전략 체계입니다.</p>
+                        </li>
+                        <li>
+                            <strong>라이선스 컴플라이언스</strong>
+                            <p>GPL, MIT 등 각 라이선스의 의무사항을 준수하여 법적 분쟁을 예방하는 활동을 의미합니다.</p>
+                        </li>
+                        <li>
+                            <strong>클라우드 네이티브</strong>
+                            <p>클라우드 환경에 최적화된 애플리케이션 개발 방식으로, 쿠버네티스와 같은 오픈소스 기술에 크게 의존합니다.</p>
+                        </li>
+                        <li>
+                            <strong>컨트리뷰션</strong>
+                            <p>프로젝트에 코드나 문서를 기여하며 수동적 사용자에서 능동적 생태계 참여자로 전환하는 것을 의미합니다.</p>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="visualization-section">
+                    <h2>대한민국 오픈소스 시장 성장 추이</h2>
+                    <div class="chart-title">국내 오픈소스 SW 시장 규모 전망 (단위: 억 원)</div>
+                    <div class="chart-container">
+                        <div class="bar-chart">
+                            <div class="bar-item">
+                                <div class="bar-label">2024년 말 추정</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar-fill" style="width: 52.88%;"></div>
+                                </div>
+                                <div class="bar-value">4,682억</div>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label">2025년 6월 추정</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar-fill" style="width: 100%;"></div>
+                                </div>
+                                <div class="bar-value">8,854억</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="chart-note">
+                        * 위 데이터는 정보통신산업진흥원(NIPA)의 '오픈소스 SW 실태조사'를 기반으로 작성되었습니다.<br>
+                        * 불과 6개월 만에 시장 규모 추정치가 약 89% 급증했으며, 이는 AI를 중심으로 한 시장의 폭발적인 성장을 반영합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 3페이지 -->
+    <section id="page-3" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>심층 분석 2: AI 산업 성장과 규제 동향</h1>
+                <div class="header-subtitle">기준일: 2025년 6월 30일</div>
+                <a href="https://www.spri.kr/posts/view/23545?code=data_all&study_type=&board_type=research" target="_blank" class="article-link">참고 자료: SPRI EU AI Act 분석</a>
+            </div>
+    
+            <div class="main-content-grid">
+                <div class="article-analysis-section">
+                    <h2>분석: 성장과 규제, 균형점을 찾아서</h2>
+                    <p>2025년 중반, AI 산업은 과도한 기대를 넘어 실질적인 가치를 증명해야 하는 성숙기에 접어들었습니다. 폭발적인 성장세와 함께 AI의 사회적 영향을 통제하려는 글로벌 규제 움직임이 동시에 강화되면서, 기술 발전과 규제 사이의 균형을 찾는 것이 산업의 핵심 과제로 부상했습니다.</p>
+                    
+                    <h3>AI 산업 최신 트렌드 (2025년 중반 기준)</h3>
+                    <ul>
+                        <li><strong>실용적 가치에 집중:</strong> 가트너 하이프 사이클의 '환멸의 계곡'에 진입하며, 시장의 관심이 신기함에서 벗어나 측정 가능한 ROI 중심으로 이동하고 있습니다.</li>
+                        <li><strong>경량 모델(SLM)과 엣지 AI의 부상:</strong> LLM의 막대한 비용에 대한 대안으로, 작고 효율적인 SLM과 온디바이스 AI가 비용, 속도, 프라이버시 문제를 해결하며 주목받고 있습니다.</li>
+                        <li><strong>국내 기업의 기술 내재화:</strong> 네이버, 카카오, SKT, 삼성, LG 등 국내 대기업들이 자체 LLM 생태계 확장 및 특화 모델 개발에 총력을 기울이고 있습니다.</li>
+                    </ul>
+    
+                    <h3>전 세계 AI 규제 동향 및 주요 쟁점</h3>
+                    <ul>
+                        <li><strong>규제의 양대 산맥 (EU vs. 대한민국):</strong> EU의 AI Act는 '사전 예방' 원칙의 강력한 규제를, 대한민국의 AI 기본법은 '선육성, 후규제' 원칙의 혁신 친화적 기조를 보입니다.</li>
+                        <li><strong>'고영향 AI' 정의 논쟁:</strong> 국내 규제의 핵심은 '고영향 AI'의 구체적인 범위 설정입니다. 산업계는 정의가 모호할 경우 혁신이 저해될 수 있다고 우려하며, 정부와 산업계의 논의가 진행 중입니다.</li>
+                        <li><strong>AI 거버넌스의 보편화:</strong> 법률과 무관하게 책임성, 투명성, 공정성 등 AI 거버넌스 원칙은 기업의 사회적 책무와 신뢰 확보를 위한 글로벌 표준으로 자리 잡고 있습니다.</li>
+                    </ul>
+                </div>
+    
+                <div class="keywords-section">
+                    <h2>핵심 키워드</h2>
+                    <ul>
+                        <li>
+                            <strong>생성형 AI</strong>
+                            <p>텍스트, 이미지 등 새로운 콘텐츠를 창조하는 AI. 2025년에는 구체적인 비즈니스 가치 입증에 초점이 맞춰집니다.</p>
+                        </li>
+                        <li>
+                            <strong>LLM / SLM</strong>
+                            <p>AI의 근간이 되는 거대/경량 언어 모델. 효율성을 높인 SLM이 새로운 대안으로 부상 중입니다.</p>
+                        </li>
+                        <li>
+                            <strong>AI 거버넌스</strong>
+                            <p>AI가 책임감 있고 윤리적으로 사용되도록 보장하기 위한 규칙과 프로세스의 총체입니다.</p>
+                        </li>
+                        <li>
+                            <strong>AI Act (EU)</strong>
+                            <p>세계 최초의 포괄적인 AI 규제법으로, 위험 기반 접근 방식을 채택하여 전 세계에 영향을 미치고 있습니다.</p>
+                        </li>
+                        <li>
+                            <strong>환각 (Hallucination)</strong>
+                            <p>AI가 사실과 다른 내용을 생성하는 현상으로, 기술의 신뢰성을 저해하는 핵심 한계점입니다.</p>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="visualization-section">
+                    <h2>대한민국 AI 시장 성장 전망</h2>
+                    <div class="chart-title">국내 AI 시장 규모 예측 (단위: 조 원)</div>
+                    <div class="chart-container">
+                        <div class="bar-chart">
+                            <div class="bar-item">
+                                <div class="bar-label">2023년</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar-fill" style="width: 58.29%;"></div>
+                                </div>
+                                <div class="bar-value">2.6조</div>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar-label">2027년 전망</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar-fill" style="width: 100%;"></div>
+                                </div>
+                                <div class="bar-value">4.46조</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="chart-note">
+                        * 위 데이터는 한국IDC의 '국내 AI 시장 전망 보고서'를 기반으로 작성되었습니다.<br>
+                        * 국내 AI 시장은 연평균 14.9%의 견조한 성장세를 보이며, 2027년 약 4.46조 원 규모에 이를 것으로 전망됩니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 4페이지 -->
+    <section id="page-4" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>💡 IT 산업 분석: 참고 자료 및 심화 학습</h1>
+                <div class="header-subtitle">발행일: 2025년 6월 30일</div>
+            </div>
+    
+            <div class="main-content-section">
+                <p class="intro-text">
+                    이 섹션은 본 보고서에서 다룬 오픈소스 및 AI 산업 동향을 더 깊이 있게 이해하는 데 도움이 될 만한 신뢰도 높은 외부 자료들을 정리했습니다.
+                </p>
+    
+                <h2>🔍 심층 분석 주제별 추천 자료</h2>
+                <p>
+                    오픈소스 생태계와 AI 산업 및 규제에 대한 이해를 돕기 위해, 가장 핵심적인 국내외 보고서와 가이드를 엄선했습니다. 각 자료는 해당 분야의 현황과 미래를 조망하는 데 필수적인 통찰을 제공합니다.
+                </p>
+    
+                <div class="card-grid">
+                    <!-- 오픈소스 실태조사 -->
+                    <div class="info-card">
+                        <h3>[국내] NIPA 오픈소스 SW 실태조사</h3>
+                        <p>국내 오픈소스 시장 규모, 도입률, 활용 패턴 등 대한민국 오픈소스 생태계에 대한 가장 최신의 공식 통계 보고서입니다.</p>
+                        <a href="https://www.oss.kr/news/show/8f29838f-7c86-4e67-ad3e-49192ba61ef4" target="_blank">자료 보기 →</a>
+                    </div>
+    
+                    <!-- AI 기본법 자료 -->
+                    <div class="info-card">
+                        <h3>[국내] AI 기본법 하위법령 공청회 자료</h3>
+                        <p>'고영향 AI'의 정의, 기업 의무 등 AI 기본법의 세부 내용에 대한 정부의 입법 방향과 산업계의 의견을 확인할 수 있습니다.</p>
+                        <a href="https://www.etnews.com/20250414000260" target="_blank">자료 보기 →</a>
+                    </div>
+    
+                    <!-- 오픈소스 거버넌스 가이드 -->
+                    <div class="info-card">
+                        <h3>[국내] 기업 오픈소스 거버넌스 가이드</h3>
+                        <p>국내 기업이 오픈소스 전담조직(OSPO)을 구성하고 라이선스 및 보안 리스크를 관리하기 위한 실무 방법론을 제시합니다.</p>
+                        <a href="https://www.oss.kr/oss_guide/show/9a73fa3c-c233-4e8b-8527-7d57ed7218f7" target="_blank">자료 보기 →</a>
+                    </div>
+    
+                    <!-- 은행권 AI 활용 전망 -->
+                    <div class="info-card">
+                        <h3>[국내] 2025년 은행권 AI 활용 전망</h3>
+                        <p>국내 주요 은행들의 구체적인 AI 도입 사례와 향후 전망을 상세히 분석하여 특정 산업의 AI 비즈니스 가치 창출을 보여줍니다.</p>
+                        <a href="https://www.samsungsds.com/kr/insights/ai-in-banking-in-2025.html" target="_blank">자료 보기 →</a>
+                    </div>
+
+                    <!-- 글로벌 오픈소스 보고서 -->
+                    <div class="info-card">
+                        <h3>[해외] 2025 State of Open Source Report</h3>
+                        <p>글로벌 오픈소스 도입률, 보안 문제, 관리 현황 등 최신 글로벌 트렌드를 파악하고 국내 현황과 비교 분석할 수 있습니다.</p>
+                        <a href="https://opensource.org/blog/key-insights-from-the-2025-state-of-open-source-report" target="_blank">자료 보기 →</a>
+                    </div>
+
+                    <!-- EU AI Act 분석 -->
+                    <div class="info-card">
+                        <h3>[해외] EU AI Act 주요 내용 분석</h3>
+                        <p>EU AI Act의 위험 기반 접근 방식, 등급별 의무사항 등을 상세하게 분석하여 글로벌 비즈니스에 대한 시사점을 제공합니다.</p>
+                        <a href="https://www.spri.kr/posts/view/23545" target="_blank">자료 보기 →</a>
+                    </div>
+                </div>
+    
+                <h2>📰 IT 기술 연관 산업 주요 이슈</h2>
+                <p>
+                    IT 기술은 다양한 산업 분야와 융합하며 혁신을 주도하고 있습니다. IT 기술로 인해 변화하고 있는 주요 연관 산업의 이슈를 보여주는 참고 자료를 아래와 같이 제시합니다.
+                </p>
+    
+                <div class="card-grid">
+                    <!-- 제조업 카드 -->
+                    <div class="info-card">
+                        <h3>제조업: 스마트 팩토리 혁신</h3>
+                        <p>AI 기반 디지털 트윈, 예측 유지보수, 품질 관리 시스템이 도입되어 생산 효율성을 높이고 다운타임을 줄이는 사례입니다.</p>
+                        <a href="https://www.samsungsds.com/kr/insights/ai_use_cases.html" target="_blank">자료 보기 →</a>
+                    </div>
+    
+                    <!-- 금융 카드 -->
+                    <div class="info-card">
+                        <h3>금융: AI 기반 서비스 활성화</h3>
+                        <p>정부의 '금융권 AI 플랫폼' 구축, 규제 샌드박스 운영 등 금융 분야 AI 도입을 촉진하기 위한 정책적 지원 방향입니다.</p>
+                        <a href="https://www.samsungsds.com/kr/insights/ai-in-banking-in-2025.html" target="_blank">자료 보기 →</a>
+                    </div>
+    
+                    <!-- 헬스케어 카드 -->
+                    <div class="info-card">
+                        <h3>헬스케어: 진단 및 신약 개발 혁신</h3>
+                        <p>AI가 의료 영상을 분석해 조기 진단을 돕고, 신약 개발 과정의 시간과 비용을 획기적으로 단축하는 데 활용됩니다.</p>
+                        <a href="http://m.yakup.com/news/index.html?mode=view&nid=285602" target="_blank">자료 보기 →</a>
+                    </div>
+    
+                    <!-- 자동차 카드 -->
+                    <div class="info-card">
+                        <h3>자동차: 생성형 디자인 도입</h3>
+                        <p>AI 기반 '생성형 디자인' 기술을 활용해 더 가볍고 강한 부품을 설계하여 개발 주기를 단축하고 성능을 개선합니다.</p>
+                        <a href="https://www.ibm.com/kr-ko/think/topics/ai-in-manufacturing" target="_blank">자료 보기 →</a>
+                    </div>
+
+                    <!-- 미디어/콘텐츠 카드 -->
+                    <div class="info-card">
+                        <h3>미디어/콘텐츠: AI 콘텐츠 창작</h3>
+                        <p>한국어 특화 생성형 AI 모델이 챗봇 개발, 텍스트 요약, 창의적 콘텐츠 생성 등 미디어 산업의 혁신을 촉진합니다.</p>
+                        <a href="https://sktelecom.github.io/" target="_blank">자료 보기 →</a>
+                    </div>
+
+                    <!-- 교육 카드 -->
+                    <div class="info-card">
+                        <h3>교육: 윤리적 AI 활용 논의</h3>
+                        <p>AI 기반 학습 관리 및 평가 시스템 도입 시, EU AI Act에서도 '고위험'으로 분류된 교육 분야의 윤리적 활용이 중요합니다.</p>
+                        <a href="https://ethics.moe.edu.tw/resource/ebook/redirect/?pid=1&l=1" target="_blank">자료 보기 →</a>
+                    </div>
+                </div>
+    
+                <!-- 마무리 섹션 -->
+                <div class="conclusion-box">
+                    <h2>마무리하며:</h2>
+                    <p>
+                        2025년 6월 4주차 IT 산업은 '자율형 AI 에이전트'가 실험 단계를 넘어 비즈니스 프로세스에 깊숙이 통합되는 전략적 전환기를 맞았습니다. 동시에, AI 기술의 사회적 영향을 관리하기 위한 국내외 'AI 규제'가 구체화되면서, 기업들은 '생산성 혁신'과 '데이터 보안 및 법규 준수'라는 두 가지 과제에 동시에 직면하고 있습니다. 향후 IT 산업의 경쟁력은 이 'AI 트릴레마'를 어떻게 해결하느냐에 따라 결정될 것입니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- JavaScript 통합 -->
+    <script>
+        // 시각화 관련 스크립트는 별도로 필요하지 않으므로 제거합니다.
+        // 모든 시각화는 HTML과 CSS로 구현되었습니다.
+    </script>
+</body>
+</html>
