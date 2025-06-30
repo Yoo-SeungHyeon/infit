@@ -4,224 +4,136 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InFit - 칼럼</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Noto Sans KR', sans-serif;
-            background-color: #F8F8F8;
-            margin: 0;
-            color: #333;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
         }
-        .navbar {
-            width: 100%;
-            background: #FFF9F2;
-            border-bottom: 1.5px solid #A8D8C7;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-            position: sticky;
-            top: 0;
-            z-index: 10;
+        :root {
+            --whale-sky: #85C1DC;
+            --bubble-cream: #FFF9F2;
+            --soft-coral: #F7A78F;
+            --ocean-mint: #A8D8C7;
+            --slate-ink: #4D5E70;
+            --sunny-yellow: #FFD983;
         }
-        .navbar-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0.7rem 1.5rem;
+        .bg-whale-sky { background-color: var(--whale-sky); }
+        .text-whale-sky { color: var(--whale-sky); }
+        .border-whale-sky { border-color: var(--whale-sky); }
+        .bg-bubble-cream { background-color: var(--bubble-cream); }
+        .text-bubble-cream { color: var(--bubble-cream); }
+        .bg-soft-coral { background-color: var(--soft-coral); }
+        .text-soft-coral { color: var(--soft-coral); }
+        .bg-ocean-mint { background-color: var(--ocean-mint); }
+        .text-ocean-mint { color: var(--ocean-mint); }
+        .bg-slate-ink { background-color: var(--slate-ink); }
+        .text-slate-ink { color: var(--slate-ink); }
+        .bg-sunny-yellow { background-color: var(--sunny-yellow); }
+        .text-sunny-yellow { color: var(--sunny-yellow); }
+        
+        .report-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .navbar-logo {
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            text-decoration: none;
-        }
-        .navbar-logo img {
-            height: 38px;
-            max-width: 100%;
-            object-fit: contain;
-        }
-        .navbar-logo .fallback-icon {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #4D5E70;
-            display: none;
-        }
-        .navbar-menu {
-            display: flex;
-            gap: 1rem;
-        }
-        .navbar-menu a {
-            text-decoration: none;
-            color: #4D5E70;
-            font-weight: 600;
-            font-size: 1.1rem;
-            padding: 0.3rem 1.1rem;
-            border-radius: 6px;
-            transition: background 0.2s, color 0.2s;
-        }
-        .navbar-menu a.active, .navbar-menu a:hover {
-            background: #A8D8C7;
-            color: #fff;
-        }
-        .column-section {
-            max-width: 900px;
-            margin: 3.5rem auto 2rem auto;
-            flex-grow: 1;
-        }
-        .column-title {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #85C1DC;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-        }
-        .column-card {
-            background: #FFF9F2;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            border: 1px solid #A8D8C7;
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-        .column-card:hover {
+        .report-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-        }
-        .column-card-image {
-            height: 160px;
-            background-color: #A8D8C7;
-            background-image: url('https://via.placeholder.com/400x200/A8D8C7/FFFFFF?text=InFit+Report');
-            background-size: cover;
-            background-position: center;
-        }
-        .column-card-content {
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            flex-grow: 1;
-        }
-        .column-card-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #4D5E70;
-        }
-        .column-card-desc {
-            font-size: 0.98rem;
-            color: #444;
-            flex-grow: 1;
-            line-height: 1.6;
-        }
-        .column-card-tags {
-            display: flex;
-            gap: 0.6rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-        .column-card-tags span {
-            background-color: #E7F3F0;
-            color: #4D5E70;
-            font-size: 0.8rem;
-            font-weight: 600;
-            padding: 0.4rem 0.8rem;
-            border-radius: 14px;
-        }
-        .footer {
-            background-color: #FFF9F2;
-            border-top: 1.5px solid #A8D8C7;
-            padding: 3rem 1.5rem;
-            text-align: center;
-            margin-top: 3.5rem;
-        }
-        .footer p {
-            font-size: 1.1rem;
-            color: #4D5E70;
-            margin-bottom: 1.5rem;
-        }
-        .survey-button {
-            display: inline-block;
-            background: #85C1DC;
-            color: #fff;
-            padding: 0.9rem 2.2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 1.15rem;
-            font-weight: 700;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
-        }
-        .survey-button:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 20px rgba(133, 193, 220, 0.4);
-            background-color: #7ab8d4;
-        }
-        @media (max-width: 900px) {
-            .navbar-container {
-                padding: 0.7rem 1.5rem;
-            }
-        }
-        @media (max-width: 600px) {
-            .column-section {
-                padding: 1rem 0.3rem;
-            }
-            .navbar-container {
-                padding: 0.7rem 0.7rem;
-            }
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
         }
     </style>
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('nav-column').classList.add('active');
-        });
-    </script>
 </head>
-<body>
-    <nav class="navbar">
-        <div class="navbar-container">
-            <a href="index.html" class="navbar-logo">
-                <img src="infit_logo.png" alt="InFit 캐릭터" style="height:38px; margin-right:0.5rem;">
-                <span class="fallback-icon">🎯</span>
-                <span style="font-size:1.3rem;font-weight:700;color:#4D5E70;">InFit</span>
+<body class="bg-white text-slate-ink flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-bubble-cream/80 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="infit_logo.png" alt="InFit Logo" class="h-9">
+                <span class="text-2xl font-bold text-whale-sky">InFit</span>
             </a>
-            <div class="navbar-menu">
-                <a id="nav-main" href="index.html">메인</a>
-                <a id="nav-column" href="column.html">칼럼</a>
+            <div>
+                <a href="index.html" class="text-slate-ink/80 font-medium py-2 px-4 rounded-lg hover:text-ocean-mint transition">메인</a>
+                <a href="column.html" class="font-bold text-ocean-mint py-2 px-4 rounded-lg">칼럼</a>
+                <a href="index.html#cta" class="bg-soft-coral text-white font-bold py-2 px-5 rounded-full hover:opacity-90 transition-opacity ml-4">
+                    베타 소식 받기
+                </a>
             </div>
-        </div>
-    </nav>
-    <section id="column-section" class="column-section">
-        <div class="column-title">InFit 칼럼</div>
-        <div class="card-grid">
-            <div class="column-card" onclick="window.location.href='report1.html'">
-                <div class="column-card-image"></div>
-                <div class="column-card-content">
-                    <div class="column-card-title">AI 산업 분석 통합 리포트</div>
-                    <div class="column-card-desc">최신 AI 산업 트렌드와 인사이트를 한눈에! 데이터 기반의 심층 분석 리포트입니다.</div>
-                    <div class="column-card-tags">
-                        <span>#AI</span>
-                        <span>#산업분석</span>
-                        <span>#리포트</span>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <section class="py-16 md:py-24 bg-bubble-cream">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 md:mb-16">
+                    <h1 class="text-3xl md:text-5xl font-extrabold text-slate-ink">InFit 산업 분석 리포트</h1>
+                    <p class="mt-4 max-w-2xl mx-auto text-slate-ink/80 text-lg">최신 산업 트렌드와 인사이트를 한눈에! 데이터 기반의 심층 분석 리포트를 만나보세요.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                    <!-- Report Card 1 -->
+                    <a href="report1.html" class="block bg-white rounded-2xl shadow-lg border border-ocean-mint/30 overflow-hidden report-card">
+                        <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop')"></div>
+                        <div class="p-6">
+                            <h2 class="text-xl font-bold text-slate-ink mb-2">AI 산업 분석 통합 리포트</h2>
+                            <p class="text-slate-ink/70 mb-4">최신 AI 산업 트렌드와 인사이트를 한눈에! 데이터 기반의 심층 분석 리포트입니다.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-ocean-mint/20 text-ocean-mint text-xs font-semibold px-3 py-1 rounded-full">#AI</span>
+                                <span class="bg-ocean-mint/20 text-ocean-mint text-xs font-semibold px-3 py-1 rounded-full">#산업분석</span>
+                                <span class="bg-ocean-mint/20 text-ocean-mint text-xs font-semibold px-3 py-1 rounded-full">#리포트</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Placeholder Card 2 -->
+                    <div class="block bg-white rounded-2xl shadow-lg border border-gray-200/80 overflow-hidden report-card">
+                        <div class="h-48 bg-gray-200 flex items-center justify-center">
+                             <span class="text-gray-400">리포트 준비 중</span>
+                        </div>
+                        <div class="p-6">
+                            <h2 class="text-xl font-bold text-gray-400 mb-2">바이오 산업 리포트</h2>
+                            <p class="text-gray-400/70 mb-4">곧 공개될 바이오 산업의 동향과 미래 전망을 기대해주세요.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-200 text-gray-400 text-xs font-semibold px-3 py-1 rounded-full">#바이오</span>
+                                <span class="bg-gray-200 text-gray-400 text-xs font-semibold px-3 py-1 rounded-full">#준비중</span>
+                            </div>
+                        </div>
                     </div>
+                    
+                    <!-- Placeholder Card 3 -->
+                    <div class="block bg-white rounded-2xl shadow-lg border border-gray-200/80 overflow-hidden report-card">
+                        <div class="h-48 bg-gray-200 flex items-center justify-center">
+                            <span class="text-gray-400">리포트 준비 중</span>
+                        </div>
+                        <div class="p-6">
+                            <h2 class="text-xl font-bold text-gray-400 mb-2">금융 산업 리포트</h2>
+                            <p class="text-gray-400/70 mb-4">금융 시장의 변화를 주도하는 핵심 동인들을 분석합니다.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-200 text-gray-400 text-xs font-semibold px-3 py-1 rounded-full">#금융</span>
+                                <span class="bg-gray-200 text-gray-400 text-xs font-semibold px-3 py-1 rounded-full">#준비중</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-            <!-- 추후 report2.html 등 추가 칼럼 카드 배치 가능 -->
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-ink text-white py-16">
+        <div class="container mx-auto px-6 text-center">
+            <a href="index.html" class="flex items-center justify-center gap-2">
+                <img src="infit_logo.png" alt="InFit Logo" class="h-9">
+                <span class="text-2xl font-bold text-white">InFit</span>
+            </a>
+            <p class="mt-4 text-sm text-bubble-cream/70">
+                정보를 넘어 인사이트를. 당신의 성공적인 의사결정을 위한 파트너.
+            </p>
+            <p class="text-xs mt-8 text-bubble-cream/50">
+                &copy; 2024 InFit. All Rights Reserved.
+            </p>
         </div>
-    </section>
-    <footer class="footer">
-        <p>InFit 서비스 개선을 위해 여러분의 소중한 의견을 들려주세요!</p>
-        <a href="#" class="survey-button">설문조사 하러 가기</a>
     </footer>
+
 </body>
 </html> 

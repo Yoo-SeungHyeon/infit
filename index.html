@@ -3,295 +3,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InFit - 전략적 인텔리전스 플랫폼</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>InFit - 당신의 AI 전략가</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Noto Sans KR', sans-serif;
-            background-color: #F8F8F8;
-            margin: 0;
-            color: #333;
-            overflow-x: hidden;
         }
-        .navbar {
-            width: 100%;
-            background: #FFF9F2;
-            border-bottom: 1.5px solid #A8D8C7;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-            position: sticky;
-            top: 0;
-            z-index: 10;
+        /* 브랜드 컬러 시스템을 CSS 변수로 정의 */
+        :root {
+            --whale-sky: #85C1DC;
+            --bubble-cream: #FFF9F2;
+            --soft-coral: #F7A78F;
+            --ocean-mint: #A8D8C7;
+            --slate-ink: #4D5E70;
+            --sunny-yellow: #FFD983;
         }
-        .navbar-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0.7rem 1.5rem;
+        .bg-whale-sky { background-color: var(--whale-sky); }
+        .text-whale-sky { color: var(--whale-sky); }
+        .border-whale-sky { border-color: var(--whale-sky); }
+
+        .bg-bubble-cream { background-color: var(--bubble-cream); }
+        .text-bubble-cream { color: var(--bubble-cream); }
+
+        .bg-soft-coral { background-color: var(--soft-coral); }
+        .text-soft-coral { color: var(--soft-coral); }
+
+        .bg-ocean-mint { background-color: var(--ocean-mint); }
+        .text-ocean-mint { color: var(--ocean-mint); }
+
+        .bg-slate-ink { background-color: var(--slate-ink); }
+        .text-slate-ink { color: var(--slate-ink); }
+
+        .bg-sunny-yellow { background-color: var(--sunny-yellow); }
+        .text-sunny-yellow { color: var(--sunny-yellow); }
+        
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .navbar-logo {
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            text-decoration: none;
-        }
-        .navbar-logo img {
-            height: 38px;
-            max-width: 100%;
-            object-fit: contain;
-        }
-        .navbar-logo .fallback-icon {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #4D5E70;
-            display: none;
-        }
-        .navbar-menu {
-            display: flex;
-            gap: 1rem;
-        }
-        .navbar-menu a {
-            text-decoration: none;
-            color: #4D5E70;
-            font-weight: 600;
-            font-size: 1.1rem;
-            padding: 0.3rem 1.1rem;
-            border-radius: 6px;
-            transition: background 0.2s, color 0.2s;
-        }
-        .navbar-menu a.active, .navbar-menu a:hover {
-            background: #A8D8C7;
-            color: #fff;
-        }
-        .main-section {
-            max-width: 900px;
-            margin: 2.5rem auto 0 auto;
-            background: #FFF9F2;
-            border-radius: 14px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            padding: 2.5rem 2rem 2rem 2rem;
-        }
-        .main-section h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #85C1DC;
-            margin-bottom: 1.2rem;
-            text-align: center;
-        }
-        .main-section .slogan {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #4D5E70;
-            margin-bottom: 1.2rem;
-            text-align: center;
-        }
-        .main-section .desc {
-            font-size: 1.08rem;
-            color: #444;
-            margin-bottom: 2.2rem;
-            text-align: center;
-        }
-        .feature-list {
-            margin: 2.5rem 0 2rem 0;
-            padding: 0;
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        .feature-list li {
-            font-size: 1.08rem;
-            background: #F8F8F8;
-            border-radius: 8px;
-            border: 1px solid #A8D8C7;
-            padding: 1.1rem 1.5rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-        .feature-list li span {
-            font-size: 1.5rem;
-            margin-right: 0.7rem;
-        }
-        .beta-section {
-            background: #FFF;
-            border-radius: 10px;
-            border: 1px solid #A8D8C7;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-            padding: 1.5rem 1.2rem;
-            margin-top: 2.5rem;
-            text-align: center;
-        }
-        .beta-section h2 {
-            font-size: 1.3rem;
-            color: #85C1DC;
-            font-weight: 700;
-            margin-bottom: 0.7rem;
-        }
-        .beta-section p {
-            color: #444;
-            font-size: 1.05rem;
-            margin-bottom: 0.5rem;
-        }
-        .column-section {
-            max-width: 900px;
-            margin: 3.5rem auto 2rem auto;
-        }
-        .column-title {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #85C1DC;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-        }
-        .column-card {
-            background: #FFF9F2;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            border: 1px solid #A8D8C7;
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-        .column-card:hover {
+        .feature-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-        }
-        .column-card-image {
-            height: 160px;
-            background-color: #A8D8C7;
-            background-image: url('https://via.placeholder.com/400x200/A8D8C7/FFFFFF?text=InFit+Report');
-            background-size: cover;
-            background-position: center;
-        }
-        .column-card-content {
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            flex-grow: 1;
-        }
-        .column-card-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #4D5E70;
-        }
-        .column-card-desc {
-            font-size: 0.98rem;
-            color: #444;
-            flex-grow: 1;
-            line-height: 1.6;
-        }
-        .column-card-tags {
-            display: flex;
-            gap: 0.6rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-        .column-card-tags span {
-            background-color: #E7F3F0;
-            color: #4D5E70;
-            font-size: 0.8rem;
-            font-weight: 600;
-            padding: 0.4rem 0.8rem;
-            border-radius: 14px;
-        }
-        .footer {
-            background-color: #FFF9F2;
-            border-top: 1.5px solid #A8D8C7;
-            padding: 3rem 1.5rem;
-            text-align: center;
-            margin-top: 3.5rem;
-        }
-        .footer p {
-            font-size: 1.1rem;
-            color: #4D5E70;
-            margin-bottom: 1.5rem;
-        }
-        .survey-button {
-            display: inline-block;
-            background: #85C1DC;
-            color: #fff;
-            padding: 0.9rem 2.2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 1.15rem;
-            font-weight: 700;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
-        }
-        .survey-button:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 20px rgba(133, 193, 220, 0.4);
-            background-color: #7ab8d4;
-        }
-        @media (max-width: 900px) {
-            .navbar-container {
-                padding: 0.7rem 1.5rem;
-            }
-        }
-        @media (max-width: 600px) {
-            .main-section, .column-section {
-                padding: 1rem 0.3rem;
-            }
-            .navbar-container {
-                padding: 0.7rem 0.7rem;
-            }
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
         }
     </style>
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('nav-main').classList.add('active');
-        });
-    </script>
 </head>
-<body>
-    <nav class="navbar">
-        <div class="navbar-container">
-            <a href="index.html" class="navbar-logo">
-                <img src="infit_logo.png" alt="InFit 캐릭터" style="height:38px; margin-right:0.5rem;">
-                <span style="font-size:1.3rem;font-weight:700;color:#4D5E70;">InFit</span>
+<body class="bg-bubble-cream text-slate-ink">
+
+    <!-- Header -->
+    <header class="bg-bubble-cream/80 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <img src="infit_logo.png" alt="InFit Logo" class="h-9">
+                <span class="text-2xl font-bold text-whale-sky">InFit</span>
             </a>
-            <div class="navbar-menu">
-                <a id="nav-main" href="index.html">메인</a>
-                <a id="nav-column" href="column.html">칼럼</a>
+            <div>
+                <a href="index.html" class="font-bold text-ocean-mint py-2 px-4 rounded-lg">메인</a>
+                <a href="column.html" class="text-slate-ink/80 font-medium py-2 px-4 rounded-lg hover:text-ocean-mint transition">칼럼</a>
+                <a href="#cta" class="bg-soft-coral text-white font-bold py-2 px-5 rounded-full hover:opacity-90 transition-opacity ml-4">
+                    베타 소식 받기
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="text-center py-24 px-6">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-slate-ink leading-tight">
+                정보의 홍수 속에서<br>
+                <span class="text-whale-sky">가장 중요한 단 하나의 인사이트</span>
+            </h1>
+            <p class="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-slate-ink/80">
+                InFit은 AI 기술로 매일 쏟아지는 데이터를 분석하여, 당신의 성공에 필요한 핵심만 담은 주간 산업 리포트를 제공하는 '개인형 AI 전략가'입니다.
+            </p>
+            <div class="mt-10">
+                <a href="#features" class="bg-whale-sky text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:bg-soft-coral transition-colors duration-300">
+                    InFit의 특별함 알아보기
+                </a>
+            </div>
+        </section>
+
+        <!-- Why InFit Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold mb-4">당신의 시간은 소중하니까요.</h2>
+                <p class="max-w-3xl mx-auto text-slate-ink/80 text-lg mb-12">
+                    수많은 뉴스를 읽고, 정리하고, 분석하는 데 얼마나 많은 시간을 쓰고 계신가요?<br>InFit은 그 모든 과정을 대신하여 당신이 더 중요한 '결정'에 집중할 수 있도록 돕습니다.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <div class="p-6">
+                        <div class="text-5xl mb-4">🌪️</div>
+                        <h3 class="text-xl font-bold mb-2">정보 과부하</h3>
+                        <p class="text-slate-ink/70">매일 쏟아지는 무의미한 정보 속에서 진짜 중요한 시그널을 놓칩니다.</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-5xl mb-4">⏱️</div>
+                        <h3 class="text-xl font-bold mb-2">시간 낭비</h3>
+                        <p class="text-slate-ink/70">데이터를 찾고 분석하는데 너무 많은 시간을 허비하여 정작 중요한 결정을 미룹니다.</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-5xl mb-4">🎯</div>
+                        <h3 class="text-xl font-bold mb-2">인사이트 부재</h3>
+                        <p class="text-slate-ink/70">표면적인 사실 너머의 '왜'와 '그래서 무엇을'에 대한 깊이 있는 통찰이 부족합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-20 bg-bubble-cream">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-ink">InFit 리포트가 제공하는 것</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-slate-ink/80 text-lg">단순 요약을 넘어, 구조화된 분석을 통해 복잡한 산업의 흐름을 한눈에 파악하게 합니다.</p>
+                </div>
+
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    <!-- Feature List -->
+                    <div class="w-full lg:w-1/2 space-y-8">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-ocean-mint text-white rounded-full h-8 w-8 flex-shrink-0 flex items-center justify-center font-bold mt-1">1</div>
+                            <div>
+                                <h3 class="text-xl font-bold">핵심 뉴스 브리핑</h3>
+                                <p class="text-slate-ink/80">한 주간 가장 중요했던 산업 뉴스를 선별하고, 그 의미와 파급력을 요약하여 제공합니다.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="bg-ocean-mint text-white rounded-full h-8 w-8 flex-shrink-0 flex items-center justify-center font-bold mt-1">2</div>
+                            <div>
+                                <h3 class="text-xl font-bold">키워드 심층 분석</h3>
+                                <p class="text-slate-ink/80">시장을 움직이는 핵심 키워드의 기술적, 산업적, 사회적 맥락을 깊이 있게 분석합니다.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="bg-ocean-mint text-white rounded-full h-8 w-8 flex-shrink-0 flex items-center justify-center font-bold mt-1">3</div>
+                            <div>
+                                <h3 class="text-xl font-bold">데이터 기반 시각화</h3>
+                                <p class="text-slate-ink/80">복잡한 통계와 수치를 직관적인 차트와 그래프로 시각화하여 빠른 이해를 돕습니다.</p>
+                            </div>
+                        </div>
+                         <div class="flex items-start gap-4">
+                            <div class="bg-ocean-mint text-white rounded-full h-8 w-8 flex-shrink-0 flex items-center justify-center font-bold mt-1">4</div>
+                            <div>
+                                <h3 class="text-xl font-bold">연관 산업 이슈 트래킹</h3>
+                                <p class="text-slate-ink/80">분석 대상 산업이 다른 분야에 미치는 영향을 추적하여 거시적인 비즈니스 관점을 제공합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Character Placeholder -->
+                    <div class="w-full lg:w-1/2">
+                        <div class="bg-white rounded-2xl shadow-xl p-8 border-4 border-whale-sky/50 feature-card">
+                            <div class="w-full h-80 rounded-lg flex items-center justify-center">
+                                <img src="infit_logo.png" alt="InFit AI 캐릭터" class="max-h-full">
+                            </div>
+                            <h4 class="text-center text-xl font-bold mt-6 text-slate-ink">AI 전략가 'InFit'</h4>
+                            <p class="text-center text-slate-ink/70 mt-2">당신을 위해 24시간 일하며<br>가장 날카로운 인사이트를 찾아냅니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Roadmap Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-ink">InFit의 미래: 당신만을 위한 인텔리전스</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-slate-ink/80 text-lg">InFit은 단순한 리포트 제공을 넘어, 당신의 성장을 돕는 진정한 파트너로 진화합니다.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-bubble-cream p-8 rounded-xl feature-card border border-ocean-mint/50">
+                        <div class="text-3xl font-bold text-soft-coral mb-4">Phase 1</div>
+                        <h3 class="text-2xl font-bold mb-3">다양한 산업 리포트</h3>
+                        <p class="text-slate-ink/80">금융을 넘어 IT, 바이오, 유통 등 관심 있는 모든 산업의 전문 분석 리포트를 '칼럼' 페이지에서 만나보세요.</p>
+                    </div>
+                    <div class="bg-bubble-cream p-8 rounded-xl feature-card border border-ocean-mint/50">
+                        <div class="text-3xl font-bold text-soft-coral mb-4">Phase 2</div>
+                        <h3 class="text-2xl font-bold mb-3">사용자 활동 기반 학습</h3>
+                        <p class="text-slate-ink/80">리포트를 읽고, 저장하고, 댓글을 다는 당신의 모든 활동을 AI가 학습하여 당신의 관심사를 파악합니다.</p>
+                    </div>
+                    <div class="bg-bubble-cream p-8 rounded-xl feature-card border border-ocean-mint/50">
+                        <div class="text-3xl font-bold text-soft-coral mb-4">Phase 3</div>
+                        <h3 class="text-2xl font-bold mb-3">초개인화 리포트 발송</h3>
+                        <p class="text-slate-ink/80">궁극적으로 InFit은 당신이 가장 궁금해할 내용만 담아, 세상에 단 하나뿐인 맞춤형 리포트를 매주 당신의 이메일로 보내드립니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section id="cta" class="py-24 bg-whale-sky text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold">미래를 먼저 읽는 습관, InFit과 함께 시작하세요.</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-bubble-cream/80 text-lg">
+                    가장 먼저 InFit의 베타 서비스를 경험하고, 개인 맞춤형 인텔리전스의 시대를 열어갈 기회를 놓치지 마세요.
+                </p>
+                <div class="mt-10">
+                    <form class="flex flex-col md:flex-row justify-center items-center gap-4 max-w-lg mx-auto">
+                        <input type="email" placeholder="your-email@example.com" class="w-full md:w-auto flex-grow px-5 py-3 rounded-full text-slate-ink focus:outline-none focus:ring-4 focus:ring-sunny-yellow/50 transition" required>
+                        <button type="submit" class="w-full md:w-auto bg-soft-coral text-white font-bold py-3 px-8 rounded-full shadow-lg hover:opacity-90 transition-opacity">
+                            베타 소식 받기
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-ink text-white py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-bubble-cream">저희 서비스에 대한 여러분의 소중한 의견을 들려주세요!</h2>
+            <p class="mt-6 max-w-3xl mx-auto text-bubble-cream/80 leading-relaxed text-lg">
+                'InFit'은 여러분의 피드백을 바탕으로 더욱 발전할 수 있습니다. 
+                잠시 시간을 내어 설문조사에 참여해 주시면 감사하겠습니다. 
+                설문에 참여해 주신 분들 중 <span class="font-bold text-soft-coral">추첨을 통해 N분께 소정의 기프티콘</span>을 선물로 드립니다!
+            </p>
+            <div class="mt-10">
+                <a href="#" class="inline-block bg-soft-coral text-white font-bold py-3 px-8 rounded-full shadow-lg hover:opacity-90 hover:-translate-y-0.5 transition-transform duration-300 transform">
+                    설문 참여하기
+                </a>
+            </div>
+            <div class="mt-16 border-t border-bubble-cream/20 pt-10">
+                 <a href="index.html" class="flex items-center justify-center gap-2">
+                    <img src="infit_logo.png" alt="InFit Logo" class="h-9">
+                    <span class="text-2xl font-bold text-white">InFit</span>
+                </a>
+                <p class="mt-4 text-sm text-bubble-cream/70">
+                    정보를 넘어 인사이트를. 당신의 성공적인 의사결정을 위한 파트너.
+                </p>
+                <p class="text-xs mt-8 text-bubble-cream/50">
+                    &copy; 2024 InFit. All Rights Reserved.
+                </p>
             </div>
         </div>
-    </nav>
-    <section id="main-section" class="main-section">
-        <h1>학우 여러분, 정보의 홍수 속에서 길을 잃고 있진 않나요?</h1>
-        <div class="slogan">당신만을 위한 전략적 인텔리전스 파트너, InFit</div>
-        <div class="desc">
-            매일 쏟아지는 뉴스, 논문, 보고서 속에서<br>
-            나에게 꼭 필요한 핵심 인사이트를 찾느라 시간을 허비하고 계시진 않나요?<br>
-            InFit은 여러분의 소중한 시간을 절약하고, 급변하는 세상에서 한 발 앞서나갈 수 있도록 돕는 서비스입니다.
-        </div>
-        <ul class="feature-list">
-            <li><span>🗂️</span> <b>정보 과부하 해결:</b> 전 세계 방대한 데이터를 AI가 실시간으로 수집·분류. 더 이상 헤매지 마세요!</li>
-            <li><span>🧠</span> <b>심층 분석:</b> 단순 요약을 넘어, AI 엔진이 인간관계·숨겨진 트렌드·산업 간 연결고리까지 분석!</li>
-            <li><span>📡</span> <b>초개인화 리포트:</b> 전공·관심사·미래 목표에 맞춘 완전히 맞춤형 주간 리포트 제공!</li>
-            <li><span>📊</span> <b>시각화된 정보:</b> 복잡한 분석 결과도 한눈에 이해할 수 있게 시각 자료로 제공!</li>
-        </ul>
-        <div class="beta-section">
-            <h2>✨ 지금 바로 'InFit' 베타 리포트를 경험하고, 당신의 미래를 준비하세요!</h2>
-            <p>베타 사용자분들의 솔직한 피드백을 기다리고 있습니다.<br>
-            설문에 참여해주신 분들 중 추첨을 통해 소정의 기프티콘도 드려요!</p>
-            <p style="color:#F7A78F;font-weight:600;">여러분의 빛나는 미래를 InFit과 함께 만들어 나가길 진심으로 바랍니다.</p>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <p>InFit 서비스 개선을 위해 여러분의 소중한 의견을 들려주세요!</p>
-        <a href="#" class="survey-button">설문조사 하러 가기</a>
     </footer>
+
 </body>
 </html> 
