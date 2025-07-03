@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InFit - 자동차 산업 분석 통합 레포트</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 기본 스타일 */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #F8F8F8;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 페이지 섹션 공통 스타일 */
+        .page-section {
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* 1페이지 스타일 */
+        #page-1 {
+            background-color: #F8F8F8;
+        }
+
+        #page-1 .container {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        #page-1 .header-section {
+            background-color: #FFF9F2; /* Bubble Cream: 부드러운 크림 배경 */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem 2rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        #page-1 .whale-character {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            width: 80px;
+            height: 80px;
+            opacity: 0.9;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        #page-1 .whale-character:hover {
+            transform: scale(1.1) rotate(5deg);
+            opacity: 1;
+        }
+
+        #page-1 .header-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #85C1DC; /* Whale Sky: 차분한 하늘색 */
+            margin-bottom: 0.75rem;
+        }
+
+        #page-1 .header-section .slogan {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #4D5E70; /* Slate Ink: 읽기 좋은 어두운 그레이 */
+            margin-bottom: 1.5rem;
+        }
+
+        #page-1 .header-section .subtitle {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        #page-1 .card-news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid #E0E0E0;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            #page-1 .card-news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        #page-1 .card {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            overflow: hidden;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        #page-1 .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-1 .card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
+        #page-1 .card-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #4D5E70;
+            margin-bottom: 0.8rem;
+        }
+
+        #page-1 .card-summary {
+            font-size: 0.95rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        #page-1 .card-keywords {
+            font-size: 0.85rem;
+            color: #666;
+            font-weight: 500;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        #page-1 .card-keywords span {
+            background-color: #A8D8C7;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        #page-1 .section-title {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #85C1DC;
+            margin-bottom: 2rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            text-align: center;
+        }
+
+        #page-1 .keyword-section {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            padding: 25px;
+        }
+        
+        .keyword-analysis {
+            padding-bottom: 1.5rem;
+        }
+
+        #page-1 .keyword-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed #E0E0E0;
+        }
+
+        #page-1 .keyword-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        #page-1 .keyword-item h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70;
+            margin-bottom: 0.75rem;
+        }
+
+        #page-1 .keyword-item p {
+            font-size: 0.95em;
+            color: #444;
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+        
+        .visualization-container {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px dashed #E0E0E0;
+        }
+        .visualization-container h3 {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #85C1DC;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+
+        /* 2-4페이지 공통 레포트 스타일 */
+        .report-container {
+            width: 100%;
+            max-width: 960px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .header-section {
+            padding: 40px 30px;
+            text-align: center;
+            background-color: #FFF9F2;
+            border-bottom: 1px solid #A8D8C7;
+        }
+
+        .header-section h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .header-subtitle {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        .article-link {
+            font-size: 0.9em;
+            color: #F7A78F;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: 1px solid #A8D8C7;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .article-link:hover {
+            background-color: #F7A78F;
+            color: white;
+        }
+
+        .main-content-grid {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 25px;
+            padding: 30px;
+        }
+
+        .article-analysis-section, 
+        .keywords-section, 
+        .visualization-section {
+            background-color: #FFF9F2;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+        }
+        
+        .comparison-table-section {
+            background-color: #FFF9F2;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            grid-column: 1 / -1;
+            grid-row: 3;
+        }
+        
+        .comparison-table-section h2 {
+             font-size: 1.6em;
+            color: #85C1DC;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            font-weight: 700;
+        }
+
+        .article-analysis-section {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .keywords-section {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .visualization-section {
+            grid-column: 1 / -1;
+            grid-row: 2;
+        }
+
+        /* 레포트 공통 타이포그래피 */
+        #page-2 h2, #page-3 h2, #page-4 h2 {
+            font-size: 1.6em;
+            color: #85C1DC;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            font-weight: 700;
+        }
+
+        #page-2 p, #page-3 p, #page-4 p {
+            font-size: 0.95em;
+            line-height: 1.7;
+            margin-bottom: 1em;
+            color: #444;
+        }
+
+        #page-2 h3, #page-3 h3, #page-4 h3 {
+            font-size: 1.2em;
+            color: #4D5E70;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* 공통 리스트 스타일 */
+        .article-analysis-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 1em 0;
+        }
+
+        .article-analysis-section ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .article-analysis-section ul li::before {
+            content: '•';
+            color: #F7A78F;
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .keywords-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .keywords-section li {
+            margin-bottom: 15px;
+        }
+
+        .keywords-section li strong {
+            display: block;
+            font-size: 1.1em;
+            color: #4D5E70;
+            margin-bottom: 5px;
+        }
+
+        .keywords-section li p {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        /* 공통 시각화 스타일 */
+        .visualization-section {
+            text-align: center;
+        }
+
+        .visualization-section h2 {
+            font-size: 1.4em;
+        }
+
+        .chart-container {
+            margin-top: 20px;
+            padding: 25px 15px 15px 15px;
+            background-color: #F8F8F8;
+            border-radius: 8px;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .chart-title {
+            font-size: 1.1em;
+            color: #85C1DC;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .chart-note {
+            font-size: 0.8em;
+            color: #777;
+            margin-top: 30px;
+            text-align: left;
+            line-height: 1.5;
+            padding: 0 15px;
+        }
+        
+        /* 그룹형 막대그래프 스타일 (공통) */
+        .grouped-bar-chart {
+            display: flex;
+            justify-content: space-around;
+            height: 280px;
+            padding-top: 20px;
+            align-items: flex-end;
+        }
+        .bar-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            text-align: center;
+            height: 100%;
+        }
+        .bar-pair {
+             display: flex;
+             align-items: flex-end;
+             height: 100%;
+             gap: 8px;
+             flex-grow: 1;
+        }
+        .bar-group .bar {
+            width: 40px;
+            position: relative;
+            animation: grow-bar 1.2s ease-out forwards;
+            transition: background-color 0.3s ease;
+        }
+        .bar-group .bar .bar-value {
+            position: absolute;
+            top: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #4D5E70;
+        }
+        .bar-group .group-label {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+            font-size: 0.9em;
+        }
+        .legend {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 0 15px;
+        }
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            margin-right: 8px;
+            border-radius: 3px;
+        }
+
+        /* 가로 막대그래프 스타일 (공통) */
+        @keyframes fill-bar {
+            from { width: 0; }
+        }
+        .horizontal-bar-chart {
+            padding-top: 10px;
+            max-width: 500px; /* 차트의 최대 너비를 제한 */
+            margin: 0 auto; /* 차트를 부모 요소 안에서 중앙 정렬 */
+        }
+        .horizontal-bar-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        .horizontal-bar-label {
+            width: 100px;
+            text-align: right;
+            padding-right: 15px;
+            font-weight: 600;
+            color: #4D5E70;
+            flex-shrink: 0;
+        }
+        .horizontal-bar-wrapper {
+            flex-grow: 1;
+            background-color: #e9e9e9;
+            border-radius: 5px;
+            height: 30px;
+        }
+        .horizontal-bar-fill {
+            height: 100%;
+            background-color: #85C1DC;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+            padding-left: 10px;
+            box-sizing: border-box;
+            animation: fill-bar 1.2s ease-out forwards;
+            width: var(--bar-width, 0%);
+            white-space: nowrap;
+        }
+         .horizontal-bar-fill:hover {
+            background-color: #F7A78F;
+        }
+
+
+        /* 4페이지 특화 스타일 */
+        #page-4 .main-content-section {
+            padding: 30px;
+        }
+
+        #page-4 .intro-text {
+            font-size: 1.1em;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        #page-4 .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        #page-4 .info-card {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            padding: 1.5rem;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #page-4 .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-4 .info-card h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70;
+            margin-bottom: 0.75rem;
+            margin-top: 0;
+        }
+
+        #page-4 .info-card p {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        #page-4 .info-card a {
+            color: #F7A78F;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            display: block;
+            margin-top: auto;
+        }
+
+        #page-4 .conclusion-box {
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            border: 1px solid #A8D8C7;
+        }
+
+        #page-4 .conclusion-box h2 {
+            font-size: 1.4em;
+            color: #4D5E70;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        #page-4 .conclusion-box p {
+            color: #333;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* 애니메이션 공통 */
+        @keyframes grow-bar {
+            from { height: 0; }
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .page-section {
+                padding: 10px;
+            }
+            
+            #page-1 .container {
+                padding: 1rem;
+            }
+            
+            #page-1 .card-news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #page-1 .whale-character {
+                width: 60px;
+                height: 60px;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .main-content-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+                padding: 20px;
+            }
+            
+            .article-analysis-section,
+            .keywords-section,
+            .visualization-section,
+            .comparison-table-section {
+                grid-column: 1 / -1;
+                grid-row: auto;
+            }
+
+            #page-4 .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #page-4 .main-content-section {
+                padding: 20px;
+            }
+            
+            .bar-group .bar {
+                width: 30px;
+            }
+
+            .split-chart-group .bar {
+                width: 30px;
+            }
+
+            /* 모바일 차트 스타일 */
+            .horizontal-bar-label {
+                width: 100px;
+                font-size: 0.9em;
+            }
+            
+            /* 비교 테이블 모바일 스타일 */
+            .comparison-table {
+                font-size: 0.8em;
+            }
+            .comparison-table th, .comparison-table td {
+                padding: 8px;
+            }
+        }
+
+        /* Line Chart Specific Styles (for Page 3) */
+        @keyframes draw-line {
+            to { stroke-dashoffset: 0; }
+        }
+        .line-chart-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            padding-top: 20px;
+        }
+        .line-chart-container svg {
+            width: 100%;
+            height: 100%;
+            overflow: visible; /* Prevent clipping of tooltips or points */
+        }
+        .line-chart-container .grid-line {
+            stroke: #e0e0e0;
+            stroke-dasharray: 2, 3;
+        }
+        .line-chart-container .axis-line {
+            stroke: #ccc;
+            stroke-width: 1px;
+        }
+        .line-chart-container .axis-text {
+            font-size: 0.85em;
+            fill: #666;
+        }
+        .line-chart-container .line-path {
+            fill: none;
+            stroke-width: 3px;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw-line 2s ease-out forwards;
+        }
+        .line-chart-container .data-point {
+            r: 5;
+            fill: white;
+            stroke-width: 2;
+            transition: r 0.2s ease, fill 0.2s ease;
+            cursor: pointer;
+        }
+        .line-chart-container .data-point:hover {
+            r: 7;
+        }
+        .line-chart-container .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.75);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s, transform 0.2s;
+            white-space: nowrap;
+        }
+
+        /* Comparison Table Specific Styles (for Page 3) */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #A8D8C7;
+            padding: 12px;
+            text-align: left;
+            font-size: 0.9em;
+            color: #444;
+        }
+        .comparison-table thead th {
+            background-color: #f2f9f6;
+            color: #4D5E70;
+            font-weight: 700;
+            text-align: center;
+        }
+        .comparison-table tbody tr:nth-child(even) {
+            background-color: #fafdfc;
+        }
+        .comparison-table tbody tr:hover {
+            background-color: #e8f5f0;
+        }
+        .comparison-table td:first-child {
+            font-weight: 600;
+            color: #4D5E70;
+            width: 25%;
+        }
+
+        /* Specific fix for chart 1 text wrapping */
+        #page-1 .bar-group .bar-value,
+        #page-1 .bar-group .group-label {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <section id="page-1" class="page-section">
+        <div class="container">
+            <header class="header-section">
+                <img src="../infit_logo.png" alt="InFit 캐릭터" class="whale-character">
+                <h1>K-Auto In Transition</h1>
+                <p class="slogan">대한민국 자동차 산업, 전략적 전환의 기로에 서다</p>
+                <p class="subtitle">
+                    <span style="font-weight: 600;">자동차 산업 분석 보고서 (2025년 6월 4주차)</span><br>위기와 기회가 공존하는 거대한 패러다임 전환
+                </p>
+            </header>
+
+            <section>
+                <h2 class="section-title">주간 자동차 산업 핵심 동향 요약</h2>
+                <div class="card-news-grid">
+                    <div class="card">
+                        <a href="https://www.donga.com/news/Economy/article/all/20250629/131904536/2" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">현대차그룹, E-GMP 기반 전기차 100만대 판매 돌파</h3>
+                            <p class="card-summary">
+                                현대차그룹이 전기차 전용 플랫폼 E-GMP 기반 모델의 글로벌 누적 판매 100만 대를 돌파했습니다. 아이오닉 5 출시 후 약 4년 4개월 만의 성과로, 해외 판매 비중이 77%에 달합니다. 이는 전동화 초기 전용 플랫폼에 투자한 전략의 성공을 입증합니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#E-GMP</span> <span>#전기차</span> <span>#현대차그룹</span> <span>#전동화전환</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148941215" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">정부, 2025년 자동차 산업 정책 패키지 확정</h3>
+                            <p class="card-summary">
+                                정부가 개별소비세 인하 재시행, 성능 중심의 전기차 보조금 개편, 하이브리드 혜택 축소 등을 포함한 정책 패키지를 확정했습니다. 이는 내수 시장 연착륙을 유도하며 고부가가치 기술 개발을 촉진하려는 정교한 산업 전략으로 분석됩니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#자동차정책</span> <span>#전기차보조금</span> <span>#개별소비세</span> <span>#산업전략</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://www.etnews.com/20250701000164" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">6월 자동차 수출액 사상 최대, 중고차 수출이 견인</h3>
+                            <p class="card-summary">
+                                6월 자동차 수출액이 63억 달러로 역대 최고치를 기록했으나, 신차 수출 증가세는 둔화된 반면 중고차 수출이 67.9% 급증하며 실적을 이끌었습니다. 이는 한국산 중고차의 경쟁력 상승과 수출 포트폴리오의 구조적 변화를 시사합니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#자동차수출</span> <span>#중고차</span> <span>#수출포트폴리오</span> <span>#신흥시장</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://www.g-enews.com/article/General-News/2025/07/2025070109394243058fbfc802b3_1" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">경기도, 세계 최초 자율주행차에 양자암호통신 실증</h3>
+                            <p class="card-summary">
+                                경기도가 판교 자율주행 셔틀에 양자암호통신 기술을 적용하는 실증 사업에 착수했습니다. 이는 미래 해킹 위협을 원천 차단하는 보안 기술을 실제 V2X 통신에 적용하는 첫 사례로, 자율주행 보안 분야의 글로벌 리더십 확보를 위한 전략입니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#자율주행</span> <span>#양자암호통신</span> <span>#V2X</span> <span>#사이버보안</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="keyword-section">
+                <h2 class="section-title">핵심 키워드 분석: 전략적 전환 (Strategic Transition)</h2>
+                <div class="keyword-analysis">
+                    <div class="keyword-item">
+                        <h3>1. 정의 및 중요성</h3>
+                        <p>
+                            '전략적 전환'은 대한민국 자동차 산업이 단순히 외부 변화에 수동적으로 대응하는 것을 넘어, 동시다발적으로 발생하는 여러 전선에서의 변화를 능동적이고 의도적으로 관리하고 있음을 의미합니다. 이는 기존의 하드웨어 중심, 내연기관 기반의 비즈니스 모델에서 벗어나 소프트웨어 중심의 전기차 기반 생태계로 이동하는 체계적인 과정입니다. 이 전환은 제품 포트폴리오, 기술 스택, 시장 전략, 공급망 등 네 가지 차원에서 복합적으로 진행되며, 그 성공 여부는 대한민국이 미래 자동차 산업의 리더십을 유지할 수 있을지를 결정하는 가장 중요한 변수입니다. 단일 기술 도입이 아닌, 기술, 시장, 정책, 공급망이 모두 연계된 총체적인 혁신을 요구하는 복잡한 과제입니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>2. 기술적 맥락</h3>
+                        <p>
+                            이 전환의 기술적 토대는 현대차그룹 E-GMP 플랫폼의 성공에서 명확히 드러납니다. 이는 다양한 전기차 라인업을 효율적으로 생산할 수 있는 기반을 제공했습니다. 또한 배터리 기술은 고성능 NCM과 보급형 LFP 배터리를 모두 아우르는 포트폴리오 다각화, 그리고 미래 시장 선점을 위한 전고체 배터리 연구개발 등 전략적 헤징이 이루어지고 있습니다. 하지만 가장 근본적인 변화는 '소프트웨어 정의 차량(SDV)'으로의 이동입니다. 포티투닷의 역할과 정부의 자율주행 보안 기술 투자는 자동차가 더 이상 기계 부품의 조합이 아닌, 중앙집중화된 소프트웨어 플랫폼으로 진화하고 있음을 명확하게 보여주는 사례로, 미래 기술 경쟁의 핵심이 하드웨어에서 소프트웨어로 넘어가고 있음을 시사합니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>3. 시장/산업적 영향</h3>
+                        <p>
+                            정부의 2025년 정책 패키지는 이러한 전환 과정을 관리하기 위한 명백한 시도입니다. 개별소비세 인하는 기존 시장의 충격을 완화하는 '가교' 역할을, 성능 기반의 전기차 보조금은 미래 시장을 향한 '견인' 역할을 합니다. 이로 인해 국내 시장은 당분간 내연기관과 전기차가 공존하며 경쟁하는 이중 구조를 유지할 것입니다. 이 전환기 속에서 현대차의 대규모 프로모션은 테슬라, BYD 등 강력한 경쟁자들의 공세에 대한 직접적인 대응이며, 국내 시장이 글로벌 기업들의 전략적 각축장으로 변모하고 있음을 보여줍니다. 이러한 변화는 기업의 투자가 전동화와 소프트웨어에 집중되게 하고, 기존 내연기관 부품 협력업체들에게는 고통스러운 구조조정과 사업 전환을 강요하고 있습니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>4. 사회적/경제적 파급 효과</h3>
+                        <p>
+                            '전략적 전환'은 대한민국 사회와 경제 전반에 광범위한 영향을 미칩니다. 가장 즉각적인 변화는 고용 시장에서 나타나고 있습니다. 내연기관 중심의 기계공학 인력 수요는 감소하는 반면, 배터리, AI, 소프트웨어 개발 인력 수요는 폭발적으로 증가하고 있어 국가 차원의 대대적인 인력 양성 시스템 개편이 요구됩니다. 또한, 이 전환의 성공은 대한민국의 '2050 탄소 중립' 목표 달성과 직결됩니다. 경제 기여 방식도 변화하고 있습니다. 신차 수출이 여전히 큰 축을 담당하지만, 중고차 수출의 급부상과 미래 SDV를 통해 창출될 소프트웨어 및 서비스 기반의 새로운 부가가치는 대한민국 경제의 새로운 성장 동력이 될 강력한 잠재력을 지니고 있습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="visualization-container">
+                    <h3>📊 '전략적 전환' 핵심 지표 (2025년 상반기)</h3>
+                    <div class="chart-container">
+                        <div class="grouped-bar-chart">
+                            <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 100%; background-color: #85C1DC;"><span class="bar-value">63억$</span></div>
+                                </div>
+                                <div class="group-label">총 자동차 수출액</div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 10.6%; background-color: #A8D8C7;"><span class="bar-value">6.7억$</span></div>
+                                </div>
+                                <div class="group-label">중고차 수출액</div>
+                            </div>
+                             <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 82.5%; background-color: #85C1DC;"><span class="bar-value">52%</span></div>
+                                </div>
+                                <div class="group-label">친환경차 내수 비중</div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-pair">
+                                     <div class="bar" style="height: 4.6%; background-color: #F7A78F; animation: grow-bar 1.2s ease-out forwards;"><span class="bar-value">-2.9%</span></div>
+                                </div>
+                                <div class="group-label">내수 판매 증감률</div>
+                            </div>
+                        </div>
+                        <div class="legend">
+                            <div class="legend-item"><div class="legend-color" style="background-color: #85C1DC;"></div>긍정 지표</div>
+                            <div class="legend-item"><div class="legend-color" style="background-color: #A8D8C7;"></div>구조 변화 지표</div>
+                            <div class="legend-item"><div class="legend-color" style="background-color: #F7A78F;"></div>부정 지표</div>
+                        </div>
+                         <p class="chart-note">
+                            * 위 데이터는 보고서 내 '전략적 전환 핵심 지표'를 기반으로 재구성되었습니다.<br>
+                            * 총 수출액과 친환경차 비중은 긍정적이나, 내수 시장은 여전히 부진(-2.9%)합니다. 특히 중고차 수출(6.7억 달러, +67.9%)의 급증은 전체 수출 포트폴리오의 구조적 변화가 일어나고 있음을 명확히 보여줍니다.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <section id="page-2" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>심층 분석 1: 전기차(EV) 시장의 확장과 배터리 기술 경쟁</h1>
+                <div class="header-subtitle">발행일: 2025년 6월 4주차</div>
+                <a href="http://sitec21.com/shop/item.php?it_id=1744160712" target="_blank" class="article-link" rel="noopener noreferrer">관련 보고서: 2025 미래형자동차 산업동향</a>
+            </div>
+    
+            <div class="main-content-grid">
+                <div class="article-analysis-section">
+                    <h2>분석: '캐즘' 넘어 '대중화'로, 배터리가 승부처</h2>
+                    <p>글로벌 전기차 시장은 '캐즘(일시적 수요 정체)'이라는 성장통을 겪으면서도 꾸준히 확장하며, 이제는 미래의 선택지가 아닌 현재의 주류로 자리 잡고 있습니다. 2025년 시장의 핵심 화두는 '다각화'와 '기술 고도화'로 요약됩니다. 초기 얼리어답터 시장을 지나 대중 시장으로 확산되면서, 소비자들은 더 합리적인 가격, 더 긴 주행거리, 더 빠른 충전 속도, 그리고 검증된 안전성을 요구하고 있습니다. 이러한 시장의 요구는 전기차의 성능, 가격, 안전을 결정하는 핵심 경쟁력인 '배터리 기술'의 진화를 촉진하는 가장 강력한 동력입니다. 국내 시장의 경쟁 구도는 현대차그룹이 높은 점유율을 유지하고 있지만, 테슬라의 가격 공세와 세계 1위 BYD의 공식 진출 예고로 인해 그 어느 때보다 치열해지고 있습니다. 특히 BYD는 저가 이미지를 탈피하기 위한 '고급화 전략'을 내세우고 있어, 국내 기업들에게는 상당한 위협으로 작용할 전망입니다. 이러한 배경 속에서 대한민국 완성차 및 배터리 기업들은 이 치열한 기술 전쟁의 중심에서 생존과 성장을 위한 중대한 전략적 선택에 직면해 있습니다.</p>
+                    
+                    <h3>핵심 플레이어 전략 및 기술 동향</h3>
+                    <ul>
+                        <li><strong>현대차·기아의 유연한 대응:</strong> '풀라인업' 전략으로 소형 EV3부터 대형 EV9까지 다양한 차급을 선보이며 소비자 선택권을 넓히고 있습니다. 동시에, 내연기관차와 전기차를 함께 생산하는 '혼류 생산 시스템'을 도입하여 시장 수요 변동에 유연하게 대응하고 수익성을 방어하는 전략적 유연성을 확보했습니다.</li>
+                        <li><strong>LFP 배터리의 부상:</strong> 과거 고성능 NCM 배터리에 주력하던 국내 배터리 3사(LG에너지솔루션, 삼성SDI, SK온)가 가격 경쟁력이 높은 LFP 배터리 개발 및 양산에 본격적으로 나서고 있습니다. 이는 테슬라가 LFP 배터리를 탑재한 모델 Y로 국내 시장에서 성공을 거두면서, LFP에 대한 인식이 긍정적으로 변화했기 때문입니다.</li>
+                        <li><strong>'꿈의 배터리' 전고체 경쟁:</strong> 화재 위험을 원천 차단하고 에너지 밀도를 극대화할 수 있는 전고체 배터리 상용화 경쟁이 치열합니다. 삼성SDI가 2027년 상용화를 목표로 가장 앞서나가고 있으며, LG엔솔과 SK온 역시 각각 충전 속도 개선, 소재 다각화 등 차별화된 기술로 추격하고 있습니다. 전고체 배터리는 장기적으로 전기차 시장의 판도를 바꿀 '게임 체인저'가 될 것입니다.</li>
+                    </ul>
+    
+                    <h3>규제와 공급망 리스크</h3>
+                    <ul>
+                        <li><strong>기회와 위기의 IRA:</strong> 미국의 인플레이션 감축법(IRA)은 중국을 배터리 공급망에서 배제하는 것을 목표로 합니다. 이는 국내 기업들에게 북미 시장에서의 기회를 제공하지만, 동시에 중국산 원자재 및 부품 의존도가 높았던 기업들에게는 공급망을 재편해야 하는 막대한 비용 부담과 과제를 안겨주고 있습니다.</li>
+                        <li><strong>정부의 정책적 지원:</strong> 한국 정부는 성능과 안전에 연동된 2025년 전기차 보조금 정책을 통해 국내 기업들이 고부가가치 기술 개발에 집중하도록 유도하고 있습니다. 이는 제조사의 가격 인하 노력을 유도하고, 배터리 관련 정보를 투명하게 제공하는 차량에 인센티브를 부여하여 국내 산업의 체질 개선을 지원합니다.</li>
+                    </ul>
+                </div>
+    
+                <div class="keywords-section">
+                    <h2>핵심 키워드</h2>
+                    <ul>
+                        <li>
+                            <strong>배터리 포트폴리오</strong>
+                            <p>고성능 NCM(삼원계), 가격 중심의 LFP(인산철), 차세대 전고체 배터리 등 시장 수요에 맞춰 다양한 배터리 기술을 확보하는 전략.</p>
+                        </li>
+                        <li>
+                            <strong>전고체 배터리</strong>
+                            <p>액체 전해질을 고체로 대체하여 안전성과 에너지 밀도를 획기적으로 높인 '꿈의 배터리'. 상용화 시 게임 체인저로 평가됨.</p>
+                        </li>
+                        <li>
+                            <strong>IRA (인플레이션 감축법)</strong>
+                            <p>미국의 자국 산업 보호 및 공급망 재편 법안. 특히 '해외우려기관(FEOC)' 규정으로 중국을 배터리 공급망에서 배제하는 효과.</p>
+                        </li>
+                         <li>
+                            <strong>충전 인프라</strong>
+                            <p>전기차 대중화의 선결 과제. 충전기의 절대적인 수량 확보와 함께, 고장률 관리 및 급속 충전기 보급 등 질적 개선이 중요.</p>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="visualization-section">
+                    <h2>글로벌 전기차 배터리 시장 점유율 (2025년 1-4월)</h2>
+                    <div class="chart-title">중국 기업의 지배력 강화 속 K-배터리의 도전</div>
+                     <div class="chart-container">
+                        <div class="horizontal-bar-chart">
+                             <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">CATL (중국)</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 38.3%;">38.3%</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">BYD (중국)</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 15.8%;">15.8%</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">LG에너지솔루션</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 10.7%; background-color: #A8D8C7;">10.7%</div>
+                                </div>
+                            </div>
+                             <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">SK온</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 4.7%; background-color: #A8D8C7;">4.7%</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">삼성SDI</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 3.3%; background-color: #A8D8C7;">3.3%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="chart-note">
+                        * 위 데이터는 SNE리서치 '2025년 1-4월 글로벌 전기차 배터리 사용량' 자료를 기반으로 작성되었습니다.<br>
+                        * 중국의 CATL과 BYD가 합산 점유율 54.1%로 시장을 압도하고 있습니다. 반면, 국내 3사(LG에너지솔루션, SK온, 삼성SDI)의 합산 점유율은 18.7%로, 중국 업체들의 거센 도전에 직면해 있습니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="page-3" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>심층 분석 2: 자율주행 기술 상용화와 모빌리티 혁신</h1>
+                <div class="header-subtitle">발행일: 2025년 6월 4주차</div>
+                <a href="https://spri.kr/posts/view/23869?code=research" target="_blank" class="article-link" rel="noopener noreferrer">참고 자료: SDV 산업 경쟁력 강화 방안 연구</a>
+            </div>
+    
+            <div class="main-content-grid">
+                <div class="article-analysis-section">
+                    <h2>분석: 'SDV'로의 전환, 소프트웨어가 미래를 정의한다</h2>
+                    <p>자율주행 기술은 단순한 운전 보조 기능을 넘어, 이동의 개념 자체를 바꾸는 미래 자동차 산업의 핵심 동력입니다. 그러나 2025년 현재, 산업의 흐름은 특정 조건에서 시스템이 주행을 책임지는 '레벨 3' 상용화 경쟁에서, 보다 근본적인 기술 기반을 다지는 '플랫폼 구축'으로 무게 중심이 이동하고 있습니다. 현대차그룹이 레벨 3 기능 출시를 거듭 연기한 것은, 기술적 한계와 사고 시의 복잡한 책임 소재 문제에 대한 업계의 깊은 고민을 보여줍니다. 이에 따라 현재 기술 개발의 핵심은 '소프트웨어 정의 차량(SDV, Software Defined Vehicle)' 아키텍처로의 전환에 집중되고 있습니다. SDV는 차량의 기능이 중앙집중형 컴퓨터와 통합 OS를 통해 제어되는 구조로, 무선 업데이트(OTA)를 통해 지속적으로 차량 성능을 개선하는, 말 그대로 '바퀴 달린 스마트폰'을 구현하는 기술입니다. 이는 고도화된 자율주행 기능을 구현하기 위한 필수 전제 조건이며, 대부분의 글로벌 완성차 업체들은 2025년을 SDV 전환의 원년으로 삼고 있습니다. 결국, 미래 모빌리티 시장의 승패는 최고의 하드웨어를 만드는 것을 넘어, 가장 안정적이고 확장성 있는 소프트웨어 플랫폼을 선점하는 데 달리게 될 것입니다.</p>
+                    
+                    <h3>핵심 플레이어 전략 및 기술 동향</h3>
+                    <ul>
+                        <li><strong>현대차그룹과 포티투닷(42dot):</strong> 현대차그룹의 SDV 전략 핵심에는 자회사 '포티투닷'이 있습니다. 이들은 단순 자율주행 SW 개발을 넘어, 차량용 OS부터 AI 비서, 모빌리티 플랫폼에 이르는 '풀스택(Full-stack)' 솔루션을 개발하며 미래 모빌리티 생태계 전체를 아우르는 플랫폼 선점을 목표로 하고 있습니다.</li>
+                        <li><strong>V2X 통신과 양자 보안:</strong> 차량이 외부와 통신하는 V2X 기술은 협력적 자율주행의 핵심입니다. 최근 경기도에서 시작된 양자암호통신 실증 사업은, 미래의 해킹 위협까지 원천 차단하여 V2X 통신망의 보안을 최고 수준으로 끌어올리려는 시도로, 자율주행 상용화의 신뢰성을 담보하기 위한 선제적 노력입니다.</li>
+                        <li><strong>센서 퓨전 기술의 고도화:</strong> 라이다, 레이다, 카메라 등 다양한 센서의 데이터를 융합하여 주변 환경을 정밀하게 인식하는 '센서 퓨전' 기술이 고도화되고 있습니다. 특히 국내 기업들은 카메라-라이다 융합 기술 분야에서 활발한 특허를 출원하며 기술 경쟁력을 확보하고 있습니다.</li>
+                    </ul>
+    
+                    <h3>기회와 도전 과제</h3>
+                    <ul>
+                        <li><strong>기회:</strong> 자율주행 기술은 교통사고의 획기적 감소, 물류 효율성 증대와 더불어, 운전에서 해방된 시간을 활용하는 새로운 인포테인먼트 및 서비스 시장 창출이라는 막대한 잠재력을 가지고 있습니다. SDV를 통해 창출될 소프트웨어 및 서비스는 새로운 부가가치의 원천이 될 것입니다.</li>
+                        <li><strong>도전 과제:</strong> 상용화의 가장 큰 걸림돌은 여전히 '법적 책임' 문제입니다. 사고 발생 시 책임 소재를 명확히 할 법·제도 마련이 시급합니다. 또한, 고가의 시스템으로 인한 '비용 문제'와 기술에 대한 '소비자 신뢰' 확보, 그리고 차량이 수집하는 방대한 데이터의 '보안 및 프라이버시' 문제 역시 반드시 해결해야 할 핵심 과제입니다.</li>
+                    </ul>
+                </div>
+    
+                <div class="keywords-section">
+                    <h2>핵심 키워드</h2>
+                    <ul>
+                        <li>
+                            <strong>SDV (소프트웨어 정의 차량)</strong>
+                            <p>소프트웨어를 통해 주행 성능, 편의/안전 기능이 정의되고 무선 업데이트(OTA)로 지속 개선되는 자동차. 미래차의 핵심 아키텍처.</p>
+                        </li>
+                        <li>
+                            <strong>자율주행 레벨</strong>
+                            <p>미국 자동차공학회(SAE) 기준 0~5단계로 구분. 레벨 3부터 조건부 자율주행, 레벨 4부터는 운전자 개입이 불필요한 고도 자율주행.</p>
+                        </li>
+                         <li>
+                            <strong>V2X (Vehicle-to-Everything)</strong>
+                            <p>차량이 유무선망을 통해 다른 차량, 보행자, 교통 인프라 등과 정보를 실시간으로 교환하는 기술. 협력적 자율주행의 기반.</p>
+                        </li>
+                        <li>
+                            <strong>센서 퓨전(Sensor Fusion)</strong>
+                            <p>라이다, 레이다, 카메라 등 각기 다른 센서의 장점을 결합하고 단점을 보완하여 주변 환경 인식의 정확성과 신뢰도를 높이는 기술.</p>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="visualization-section">
+                    <h2>글로벌 자율주행 시장 규모 전망 (레벨 3 이상)</h2>
+                    <div class="chart-title">2030년을 기점으로 폭발적 성장이 예상되는 시장</div>
+                     <div class="chart-container">
+                        <div class="line-chart-container">
+                            <svg id="autonomous-market-chart"></svg>
+                            <div id="autonomous-tooltip" class="tooltip"></div>
+                        </div>
+                    </div>
+                     <div class="legend">
+                        <div class="legend-item"><div class="legend-color" style="background-color: #85C1DC;"></div>시장 규모 (억 달러)</div>
+                    </div>
+                    <p class="chart-note">
+                        * 위 데이터는 보고서 내 '글로벌 자율주행 시장 규모 전망'을 기반으로 작성되었습니다.<br>
+                        * 2025년 1,500억 달러 규모의 시장은 연평균 약 22% 성장하여 2035년에는 1조 1,000억 달러에 이를 것으로 전망됩니다. 초기 기술 성숙기와 법제도 마련 시기를 거쳐 2030년 이후 시장이 급격하게 성장하는 J-커브 형태를 보일 것으로 예상됩니다.
+                    </p>
+                </div>
+                
+                 <div class="comparison-table-section">
+                    <h2>대한민국 정부 자율주행 상용화 로드맵</h2>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>목표 시점</th>
+                                <th>상용화 목표</th>
+                                <th>관련 정책 및 지원</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2025년</td>
+                                <td>레벨 4 자율주행 버스·셔틀 상용화</td>
+                                <td><strong>인프라 중심:</strong> 전국 시범운행지구 확대, 규제 샌드박스 활성화</td>
+                            </tr>
+                            <tr>
+                                <td>2027년</td>
+                                <td>레벨 4 자율주행 승용차 상용화</td>
+                                <td><strong>제도·기술 병행:</strong> 레벨 4 안전기준 및 보험제도 마련, AI·컴퓨팅 R&D 지원</td>
+                            </tr>
+                            <tr>
+                                <td>2030년</td>
+                                <td>주요 도로 완전자율주행(레벨4) 보편화</td>
+                                <td><strong>전면 확산:</strong> 모빌리티 혁신 고속도로 구축, V2X 인프라 전국 확대</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                 </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <section id="page-4" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>💡 자동차 산업 분석: 참고 자료 및 심화 학습</h1>
+            </div>
+    
+            <div class="main-content-section">
+                <p class="intro-text">
+                    본 보고서에서 심층 분석한 '전기차(EV) 및 배터리 기술'과 '자율주행 및 SDV' 이슈와 관련하여 더 깊이 학습하거나 참고할 수 있는 신뢰도 높은 외부 전문 자료들을 정리했습니다.
+                </p>
+    
+                <h2>🔍 심층 분석 주제별 추천 자료</h2>
+                <div class="card-grid">
+                    <div class="info-card">
+                        <h3>[기술 보고서] 2025 미래형자동차 산업동향</h3>
+                        <p>전기차의 핵심 부품(통합 구동 시스템, BMS 등)과 차세대 배터리(전고체, LFP) 기술, 미래 모빌리티 기술 동향을 심도 있게 다룹니다.</p>
+                        <a href="http://sitec21.com/shop/item.php?it_id=1744160712" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[정책 보고서] SDV 산업 경쟁력 강화 방안</h3>
+                        <p>SDV 전환이 가져오는 산업 구조 변화를 분석하고, 국내 자동차 및 SW 산업의 경쟁력 강화를 위한 정책적 대안을 제시합니다.</p>
+                        <a href="https://spri.kr/posts/view/23869?code=research" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[정부 계획] 모빌리티 혁신 로드맵</h3>
+                        <p>2027년 레벨 4 완전자율주행 상용화 등 대한민국의 미래 모빌리티에 대한 정부의 공식적인 비전과 목표, 추진 전략을 담고 있습니다.</p>
+                        <a href="https://brunch.co.kr/@tireger/500" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[컨퍼런스 자료] 인터배터리 2025</h3>
+                        <p>국내 배터리 3사의 CTO들이 직접 발표하는 최신 기술 로드맵과 R&D 현황을 담아, 차세대 기술에 대한 가장 시의성 있는 정보를 제공합니다.</p>
+                        <a href="https://www.getnews.co.kr/news/articleView.html?idxno=811745" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>[규제 분석] 미국 IRA FEOC 세부 규정</h3>
+                        <p>미국 IRA의 해외우려기관(FEOC) 규정이 국내 배터리 및 소재 산업 공급망에 미치는 영향을 법적, 경제적 관점에서 상세히 분석합니다.</p>
+                        <a href="https://ssl.pstatic.net/imgstock/upload/research/industry/1701646049612.pdf" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>[실증 현황] 자율주행차 시범운행지구 지정 현황</h3>
+                        <p>정부가 자율주행 기술 실증 및 상용화를 위해 지정한 전국의 시범운행지구 현황과 운영 계획을 담아, 구체적인 실증 동향을 파악할 수 있습니다.</p>
+                        <a href="https://itskorea.kr/downloadFile.do?fileId=FILE_000000000095645&fileSn=0" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                </div>
+    
+                <h2>📰 자동차 연관 산업 주요 이슈</h2>
+                <div class="card-grid">
+                    <div class="info-card">
+                        <h3>배터리 산업: 중국 LFP 시장 구조조정</h3>
+                        <p>LFP 배터리 공급망의 핵심인 중국 내에서 벌어지는 치열한 경쟁과 구조조정 현황을 보여주며, 국내 기업의 진출 전략에 영향을 미칩니다.</p>
+                        <a href="https://www.thelec.kr/news/articleView.html?idxno=37259" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>IT/소프트웨어: SDV 시장 성장 전망</h3>
+                        <p>자동차가 '움직이는 데이터 센터'로 변모하면서 차량용 OS, AI, 클라우드, 사이버 보안 등 고부가가치 SW 기술 수요가 급증하고 있습니다.</p>
+                        <a href="https://zdnet.co.kr/view/?no=20240523165500" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>충전 인프라: 정부 2025년 지원 계획</h3>
+                        <p>정부의 2025년 충전 인프라 예산(6,187억원)의 구체적인 지원 방향(급속충전기 확대, 안전 기준 강화 등)을 담고 있습니다.</p>
+                        <a href="https://me.go.kr/home/file/readDownloadFile.do?fileId=215204&fileSeq=6" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>중고차 시장: 중고 전기차 거래 급증</h3>
+                        <p>중고 전기차 거래가 급증하면서 배터리 성능 평가, 잔존 가치 산정 등 기존 내연기관 중고차 시장에는 없었던 새로운 이슈들이 부상하고 있습니다.</p>
+                        <a href="https://www.chosun.com/economy/auto/2025/06/09/XH3HCI2YH5DNLBSRC33ZHZOPZQ/" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>부품 산업: 소프트웨어 역량의 중요성</h3>
+                        <p>패러다임이 하드웨어에서 소프트웨어로 이동함에 따라, 전통적인 부품업체들은 단순 부품 제조를 넘어 SW 개발 역량을 갖춰야 생존할 수 있습니다.</p>
+                        <a href="https://www.autoelectronics.co.kr/article/articleView.asp?idx=5702" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>보험 산업: 전기차 수리 기준 연구</h3>
+                        <p>사고 시 고가의 배터리 교체 비용 문제를 해결하기 위해, 보험업계가 합리적인 전기차 보험료 산정과 수리·교환 기준 마련에 착수했습니다.</p>
+                        <a href="https://www.kfpa.or.kr/webzine/202302/disaster3.html" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                </div>
+    
+                <div class="conclusion-box">
+                    <h2>마무리하며:</h2>
+                    <p>
+                        대한민국 자동차 산업은 전동화와 자율주행이라는 거대한 파도 위에서 '전략적 전환'을 성공적으로 수행해야 하는 중대한 기로에 서 있습니다. 이는 단순히 기술을 개발하는 것을 넘어 시장의 변화에 유연하게 대응하고, 글로벌 규제의 파고를 넘으며, 새로운 산업 생태계를 구축하는 총체적인 과제입니다. 도전과 기회가 공존하는 이 전환의 시대에서, 대한민국 자동차 산업이 지속 가능한 성장 동력을 확보하고 미래 모빌리티 강국으로 도약할 수 있을지 귀추가 주목됩니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Autonomous Driving Market Line Chart (Page 3)
+            const autonomousData = [
+                { year: 2025, value: 1500 },
+                { year: 2030, value: 4000 }, // Interpolated for a smoother curve
+                { year: 2035, value: 11000 },
+            ];
+
+            const autoSvgElement = document.getElementById("autonomous-market-chart");
+            if (autoSvgElement) {
+                const autoSvg = d3.select(autoSvgElement);
+                const autoTooltip = d3.select("#autonomous-tooltip");
+                
+                const width = autoSvgElement.clientWidth;
+                const height = autoSvgElement.clientHeight;
+                const margin = { top: 20, right: 30, bottom: 40, left: 60 };
+
+                const x = d3.scaleLinear()
+                    .domain(d3.extent(autonomousData, d => d.year))
+                    .range([margin.left, width - margin.right]);
+
+                const y = d3.scaleLinear()
+                    .domain([0, d3.max(autonomousData, d => d.value)]).nice()
+                    .range([height - margin.bottom, margin.top]);
+
+                // Axes
+                autoSvg.append("g")
+                    .attr("transform", `translate(0,${height - margin.bottom})`)
+                    .call(d3.axisBottom(x).tickFormat(d3.format("d")).ticks(autonomousData.length))
+                    .selectAll("text")
+                    .style("font-family", "'Noto Sans KR', sans-serif")
+                    .style("font-size", "12px");
+                
+                autoSvg.append("g")
+                    .attr("transform", `translate(${margin.left},0)`)
+                    .call(d3.axisLeft(y).ticks(5).tickFormat(d => `${d/1000}k`)) // e.g., 10k for 10000
+                    .selectAll("text")
+                    .style("font-family", "'Noto Sans KR', sans-serif")
+                    .style("font-size", "12px");
+
+                // Grid lines
+                autoSvg.append("g")
+                    .attr("class", "grid")
+                    .attr("transform", `translate(${margin.left},0)`)
+                    .call(d3.axisLeft(y).ticks(5).tickSize(-width + margin.left + margin.right).tickFormat(""))
+                    .selectAll(".tick line")
+                    .attr("stroke", "#e0e0e0")
+                    .attr("stroke-dasharray", "2,3");
+                
+                // Tooltip functions
+                const mouseover = (event, d) => {
+                    autoTooltip.style("opacity", 1);
+                };
+                const mousemove = (event, d) => {
+                    const [xPos, yPos] = d3.pointer(event, autoSvg.node());
+                    autoTooltip
+                        .html(`<b>${d.year}년</b><br>${d3.format(",")(d.value)} 억 달러`)
+                        .style("left", `${xPos + 15}px`)
+                        .style("top", `${yPos}px`)
+                        .style("transform", "translateY(-50%)");
+                };
+                const mouseleave = (event, d) => {
+                    autoTooltip.style("opacity", 0);
+                };
+
+                // Market Line
+                const line = d3.line()
+                    .x(d => x(d.year))
+                    .y(d => y(d.value))
+                    .curve(d3.curveMonotoneX); // Makes the line smooth
+                
+                autoSvg.append("path")
+                    .datum(autonomousData)
+                    .attr("fill", "none")
+                    .attr("stroke", "#85C1DC")
+                    .attr("stroke-width", 3)
+                    .attr("stroke-linecap", "round")
+                    .attr("stroke-linejoin", "round")
+                    .attr("d", line)
+                    .style("stroke-dasharray", "1000")
+                    .style("stroke-dashoffset", "1000")
+                    .transition()
+                    .duration(2000)
+                    .ease(d3.easeCubicOut)
+                    .style("stroke-dashoffset", 0);
+
+                // Data Points (for tooltips)
+                autoSvg.selectAll("circle.data-point")
+                    .data(autonomousData)
+                    .enter()
+                    .append("circle")
+                    .attr("class", "data-point")
+                    .attr("cx", d => x(d.year))
+                    .attr("cy", d => y(d.value))
+                    .attr("r", 5)
+                    .attr("fill", "white")
+                    .attr("stroke", "#85C1DC")
+                    .attr("stroke-width", 2)
+                    .on("mouseover", mouseover)
+                    .on("mousemove", mousemove)
+                    .on("mouseleave", mouseleave);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InFit - 건설/플랜트 산업 분석 통합 레포트</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 기본 스타일 */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #F8F8F8;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 페이지 섹션 공통 스타일 */
+        .page-section {
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* 1페이지 스타일 */
+        #page-1 {
+            background-color: #F8F8F8;
+        }
+
+        #page-1 .container {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        #page-1 .header-section {
+            background-color: #FFF9F2; /* Bubble Cream: 부드러운 크림 배경 */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem 2rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        #page-1 .whale-character {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            width: 80px;
+            height: 80px;
+            opacity: 0.9;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        #page-1 .whale-character:hover {
+            transform: scale(1.1) rotate(5deg);
+            opacity: 1;
+        }
+
+        #page-1 .header-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #85C1DC; /* Whale Sky: 차분한 하늘색 */
+            margin-bottom: 0.75rem;
+        }
+
+        #page-1 .header-section .slogan {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #4D5E70; /* Slate Ink: 읽기 좋은 어두운 그레이 */
+            margin-bottom: 1.5rem;
+        }
+
+        #page-1 .header-section .subtitle {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        #page-1 .card-news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid #E0E0E0;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            #page-1 .card-news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        #page-1 .card {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            overflow: hidden;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        #page-1 .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-1 .card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
+        #page-1 .card-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #4D5E70;
+            margin-bottom: 0.8rem;
+        }
+
+        #page-1 .card-summary {
+            font-size: 0.95rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        #page-1 .card-keywords {
+            font-size: 0.85rem;
+            color: #666;
+            font-weight: 500;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        #page-1 .card-keywords span {
+            background-color: #A8D8C7;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        #page-1 .section-title {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #85C1DC;
+            margin-bottom: 2rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            text-align: center;
+        }
+
+        #page-1 .keyword-section {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            padding: 25px;
+        }
+        
+        .keyword-analysis {
+            padding-bottom: 1.5rem;
+        }
+
+        #page-1 .keyword-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed #E0E0E0;
+        }
+
+        #page-1 .keyword-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        #page-1 .keyword-item h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70;
+            margin-bottom: 0.75rem;
+        }
+
+        #page-1 .keyword-item p {
+            font-size: 0.95em;
+            color: #444;
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+        
+        .visualization-container {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px dashed #E0E0E0;
+        }
+        .visualization-container h3 {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #85C1DC;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+
+        /* 2-4페이지 공통 레포트 스타일 */
+        .report-container {
+            width: 100%;
+            max-width: 960px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .header-section {
+            padding: 40px 30px;
+            text-align: center;
+            background-color: #FFF9F2;
+            border-bottom: 1px solid #A8D8C7;
+        }
+
+        .header-section h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .header-subtitle {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        .article-link {
+            font-size: 0.9em;
+            color: #F7A78F;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: 1px solid #A8D8C7;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .article-link:hover {
+            background-color: #F7A78F;
+            color: white;
+        }
+
+        .main-content-grid {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 25px;
+            padding: 30px;
+        }
+
+        .article-analysis-section, 
+        .keywords-section, 
+        .visualization-section {
+            background-color: #FFF9F2;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+        }
+        
+        .comparison-table-section {
+            background-color: #FFF9F2;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            grid-column: 1 / -1;
+            grid-row: 3;
+        }
+        
+        .comparison-table-section h2 {
+             font-size: 1.6em;
+            color: #85C1DC;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            font-weight: 700;
+        }
+
+        .article-analysis-section {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .keywords-section {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .visualization-section {
+            grid-column: 1 / -1;
+            grid-row: 2;
+        }
+
+        /* 레포트 공통 타이포그래피 */
+        #page-2 h2, #page-3 h2, #page-4 h2 {
+            font-size: 1.6em;
+            color: #85C1DC;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            font-weight: 700;
+        }
+
+        #page-2 p, #page-3 p, #page-4 p {
+            font-size: 0.95em;
+            line-height: 1.7;
+            margin-bottom: 1em;
+            color: #444;
+        }
+
+        #page-2 h3, #page-3 h3, #page-4 h3 {
+            font-size: 1.2em;
+            color: #4D5E70;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* 공통 리스트 스타일 */
+        .article-analysis-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 1em 0;
+        }
+
+        .article-analysis-section ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .article-analysis-section ul li::before {
+            content: '•';
+            color: #F7A78F;
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .keywords-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .keywords-section li {
+            margin-bottom: 15px;
+        }
+
+        .keywords-section li strong {
+            display: block;
+            font-size: 1.1em;
+            color: #4D5E70;
+            margin-bottom: 5px;
+        }
+
+        .keywords-section li p {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        /* 공통 시각화 스타일 */
+        .visualization-section {
+            text-align: center;
+        }
+
+        .visualization-section h2 {
+            font-size: 1.4em;
+        }
+
+        .chart-container {
+            margin-top: 20px;
+            padding: 25px 15px 15px 15px;
+            background-color: #F8F8F8;
+            border-radius: 8px;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .chart-title {
+            font-size: 1.1em;
+            color: #85C1DC;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .chart-note {
+            font-size: 0.8em;
+            color: #777;
+            margin-top: 30px;
+            text-align: left;
+            line-height: 1.5;
+            padding: 0 15px;
+        }
+        
+        /* 그룹형 막대그래프 스타일 (공통) */
+        .grouped-bar-chart {
+            display: flex;
+            justify-content: space-around;
+            height: 280px;
+            padding-top: 20px;
+            align-items: flex-end;
+        }
+        .bar-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            text-align: center;
+            height: 100%;
+            width: 45%;
+        }
+        .bar-pair {
+             display: flex;
+             align-items: flex-end;
+             height: 100%;
+             gap: 8px;
+             flex-grow: 1;
+             justify-content: center;
+        }
+        .bar-group .bar {
+            width: 50px;
+            position: relative;
+            animation: grow-bar 1.2s ease-out forwards;
+            transition: background-color 0.3s ease;
+        }
+        .bar-group .bar .bar-value {
+            position: absolute;
+            top: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #4D5E70;
+            white-space: nowrap;
+        }
+        .bar-group .group-label {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+        .legend {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 0 15px;
+        }
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            margin-right: 8px;
+            border-radius: 3px;
+        }
+
+        /* 가로 막대그래프 스타일 (공통) */
+        @keyframes fill-bar {
+            from { width: 0; }
+        }
+        .horizontal-bar-chart {
+            padding-top: 10px;
+            max-width: 500px; /* 차트의 최대 너비를 제한 */
+            margin: 0 auto; /* 차트를 부모 요소 안에서 중앙 정렬 */
+        }
+        .horizontal-bar-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        .horizontal-bar-label {
+            width: 100px;
+            text-align: right;
+            padding-right: 15px;
+            font-weight: 600;
+            color: #4D5E70;
+            flex-shrink: 0;
+            font-size: 0.9em;
+        }
+        .horizontal-bar-wrapper {
+            flex-grow: 1;
+            background-color: #e9e9e9;
+            border-radius: 5px;
+            height: 30px;
+            position: relative;
+        }
+        .horizontal-bar-fill {
+            height: 100%;
+            background-color: #85C1DC;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+            padding-left: 10px;
+            box-sizing: border-box;
+            animation: fill-bar 1.2s ease-out forwards;
+            animation-fill-mode: forwards;
+            width: var(--bar-width, 0%);
+            white-space: nowrap;
+        }
+        .horizontal-bar-fill.negative {
+            background-color: #F7A78F;
+            justify-content: flex-end;
+            padding-right: 10px;
+            border-radius: 5px;
+        }
+        .horizontal-bar-wrapper .zero-line {
+            position: absolute;
+            left: calc(var(--zero-offset, 20%) - 1px);
+            top: -5px;
+            bottom: -5px;
+            width: 2px;
+            background-color: #999;
+        }
+         .horizontal-bar-fill:hover {
+            opacity: 0.8;
+        }
+
+        /* 분기형 막대그래프 스타일 (수정됨) */
+        .diverging-bar-container {
+            padding-top: 10px;
+            width: 100%;
+        }
+
+        .diverging-bar-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            min-height: 28px;
+        }
+
+        .diverging-bar-label {
+            width: 130px;
+            flex-shrink: 0;
+            font-weight: 600;
+            color: #4D5E70;
+            font-size: 0.9em;
+            text-align: right;
+            padding-right: 15px;
+        }
+
+        .diverging-bar-wrapper {
+            flex-grow: 1;
+            position: relative;
+            height: 28px;
+        }
+        
+        .diverging-bar-fill {
+            height: 100%;
+            position: absolute;
+            top: 0;
+            animation: fill-bar 1.2s ease-out forwards;
+            animation-fill-mode: forwards;
+            display: flex;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            box-sizing: border-box;
+        }
+
+        .diverging-bar-fill.positive {
+            background-color: #85C1DC; /* Whale Sky */
+            left: 50%;
+            transform: translateX(1px); /* 2px 간격 생성 (오른쪽) */
+            border-radius: 0 4px 4px 0;
+            justify-content: flex-start;
+            padding-left: 8px;
+            width: var(--bar-width, 0%);
+        }
+
+        .diverging-bar-fill.negative {
+            background-color: #F7A78F; /* Salmon pink */
+            right: 50%;
+            transform: translateX(-1px); /* 2px 간격 생성 (왼쪽) */
+            border-radius: 4px 0 0 4px;
+            justify-content: flex-end;
+            padding-right: 8px;
+            width: var(--bar-width, 0%);
+        }
+        
+        /* 4페이지 특화 스타일 */
+        #page-4 .main-content-section {
+            padding: 30px;
+        }
+
+        #page-4 .intro-text {
+            font-size: 1.1em;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        #page-4 .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        #page-4 .info-card {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            padding: 1.5rem;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #page-4 .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-4 .info-card h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70;
+            margin-bottom: 0.75rem;
+            margin-top: 0;
+        }
+
+        #page-4 .info-card p {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        #page-4 .info-card a {
+            color: #F7A78F;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            display: block;
+            margin-top: auto;
+        }
+
+        #page-4 .conclusion-box {
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            border: 1px solid #A8D8C7;
+        }
+
+        #page-4 .conclusion-box h2 {
+            font-size: 1.4em;
+            color: #4D5E70;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        #page-4 .conclusion-box p {
+            color: #333;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* 애니메이션 공통 */
+        @keyframes grow-bar {
+            from { height: 0; }
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .page-section {
+                padding: 10px;
+            }
+            
+            #page-1 .container {
+                padding: 1rem;
+            }
+            
+            #page-1 .card-news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #page-1 .whale-character {
+                width: 60px;
+                height: 60px;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .main-content-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+                padding: 20px;
+            }
+            
+            .article-analysis-section,
+            .keywords-section,
+            .visualization-section,
+            .comparison-table-section {
+                grid-column: 1 / -1;
+                grid-row: auto;
+            }
+
+            #page-4 .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #page-4 .main-content-section {
+                padding: 20px;
+            }
+            
+            .bar-group .bar {
+                width: 35px;
+            }
+
+            /* 모바일 차트 스타일 */
+            .horizontal-bar-label {
+                width: 80px;
+                font-size: 0.8em;
+            }
+            
+            /* 비교 테이블 모바일 스타일 */
+            .comparison-table {
+                font-size: 0.8em;
+            }
+            .comparison-table th, .comparison-table td {
+                padding: 8px;
+            }
+        }
+
+        /* Line Chart Specific Styles (for Page 3) */
+        @keyframes draw-line {
+            to { stroke-dashoffset: 0; }
+        }
+        .line-chart-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            padding-top: 20px;
+        }
+        .line-chart-container svg {
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+        }
+        .line-chart-container .grid-line {
+            stroke: #e0e0e0;
+            stroke-dasharray: 2, 3;
+        }
+        .line-chart-container .axis-line {
+            stroke: #ccc;
+            stroke-width: 1px;
+        }
+        .line-chart-container .axis-text {
+            font-size: 0.85em;
+            fill: #666;
+        }
+        .line-chart-container .line-path {
+            fill: none;
+            stroke-width: 3px;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw-line 2s ease-out forwards;
+        }
+        .line-chart-container .data-point {
+            r: 5;
+            fill: white;
+            stroke-width: 2;
+            transition: r 0.2s ease, fill 0.2s ease;
+            cursor: pointer;
+        }
+        .line-chart-container .data-point:hover {
+            r: 7;
+        }
+        .line-chart-container .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.75);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s, transform 0.2s;
+            white-space: nowrap;
+        }
+
+        /* Comparison Table Specific Styles (for Page 3) */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #A8D8C7;
+            padding: 12px;
+            text-align: left;
+            font-size: 0.9em;
+            color: #444;
+        }
+        .comparison-table thead th {
+            background-color: #f2f9f6;
+            color: #4D5E70;
+            font-weight: 700;
+            text-align: center;
+        }
+        .comparison-table tbody tr:nth-child(even) {
+            background-color: #fafdfc;
+        }
+        .comparison-table tbody tr:hover {
+            background-color: #e8f5f0;
+        }
+        .comparison-table td:first-child {
+            font-weight: 600;
+            color: #4D5E70;
+            width: 25%;
+        }
+    </style>
+</head>
+<body>
+    <section id="page-1" class="page-section">
+        <div class="container">
+            <header class="header-section">
+                <img src="../infit_logo.png" alt="InFit 캐릭터" class="whale-character">
+                <h1>K-Construction Paradigm Shift</h1>
+                <p class="slogan">위기와 기회 속, 기술과 글로벌로 생존을 증명하다</p>
+                <p class="subtitle">
+                    <span style="font-weight: 600;">건설/플랜트 산업 분석 보고서 (2025년 6월 4주차)</span><br>이중과제 속 패러다임 전환의 가속화
+                </p>
+            </header>
+
+            <section>
+                <h2 class="section-title">주간 건설/플랜트 핵심 동향 요약</h2>
+                <div class="card-news-grid">
+                    <div class="card">
+                        <a href="https://www.fsc.go.kr/no010101/84824" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">정부, 수도권 중심 가계부채 관리 강화 방안 발표</h3>
+                            <p class="card-summary">
+                                정부가 6월 28일 수도권 생애 최초 주택담보대출의 LTV를 80%에서 70%로 하향 조정하는 등 가계부채 관리 강화책을 발표했습니다. 이는 위축된 민간 주택 시장의 구매 수요를 더욱 감소시켜 건설사의 신규 사업 부담과 미분양 리스크를 가중시킬 전망입니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#가계부채</span> <span>#LTV하향</span> <span>#부동산규제</span> <span>#주택시장침체</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="http://www.cerik.re.kr/file/download/report/2980" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">건설경기 침체 장기화: 4월 수주액 16.7% 급감</h3>
+                            <p class="card-summary">
+                                4월 국내 건설수주액이 전년 동월 대비 16.7% 감소하고, 실제 시공 실적인 건설기성은 12개월 연속 감소하며 1997년 통계 작성 이래 최악의 부진을 기록했습니다. 이는 건설 경기가 구조적 침체 국면에 진입했으며, 연관 산업 전반의 위기로 확산되고 있음을 시사합니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#건설수주감소</span> <span>#구조적침체</span> <span>#건설기성</span> <span>#연관산업위기</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://www.yna.co.kr/view/AKR20250630147000003" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">현대건설, '스마트 건설기술 시연회'로 기술 혁신 선도</h3>
+                            <p class="card-summary">
+                                현대건설이 실제 공사 현장에서 디지털 트윈, 자율주행 드론 등 25종의 첨단 기술을 시연했습니다. 이는 스마트 건설 기술이 실험 단계를 넘어 생산성 향상과 안전 확보를 위한 핵심 경영 전략으로 자리 잡았으며, 기술력이 기업 생존의 핵심 경쟁력이 될 것임을 보여줍니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#스마트건설</span> <span>#디지털전환</span> <span>#현대건설</span> <span>#기술혁신</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://eiec.kdi.re.kr/policy/callDownload.do?num=264594&filenum=1&dtime=20250321155931" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">정부, 2025년 해외 플랜트 수주 목표 350억 달러 제시</h3>
+                            <p class="card-summary">
+                                산업통상자원부가 올해 해외 플랜트 수주 목표액을 350억 달러로 상향 제시하며 강력한 지원 의지를 밝혔습니다. 침체된 국내 시장과 달리 해외 플랜트 시장이 우리 경제의 핵심 활로임이 재확인되었으며, 민관 '팀 코리아' 전략을 통한 시장 공략이 가속화될 전망입니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#해외수주</span> <span>#플랜트</span> <span>#성장동력</span> <span>#팀코리아</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="keyword-section">
+                <h2 class="section-title">핵심 키워드 분석: 건설산업 패러다임 전환</h2>
+                <div class="keyword-analysis">
+                    <div class="keyword-item">
+                        <h3>1. 정의 및 중요성</h3>
+                        <p>
+                            '건설산업 패러다임 전환'은 전통적인 노동·자본 집약적, 내수 중심의 건설 모델이 한계에 봉착하면서, 기술(Digital), 친환경(Green), 글로벌 경쟁력(Global)을 핵심으로 하는 새로운 성장 모델로 이동하는 구조적 변화를 의미합니다. 이는 단순한 경기 순환을 넘어 산업의 생존 방식 자체가 바뀌는 것입니다. 국내 주택 시장의 구조적 침체, 강화되는 안전·환경 규제, 그리고 글로벌 시장의 질적 변화라는 복합적인 도전 속에서 이 전환은 더 이상 선택이 아닌 생존을 위한 유일한 전략입니다. 이 전환의 성공 여부가 향후 대한민국 건설산업의 글로벌 위상을 결정할 것입니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>2. 기술적 맥락</h3>
+                        <p>
+                            패러다임 전환의 핵심 동력은 '디지털'과 '그린'이라는 두 가지 기술 혁신입니다. 디지털 전환은 BIM, AI, 로봇, 디지털 트윈 등을 건설 전 과정에 통합하는 '스마트 건설'로 대표됩니다. 이는 생산성과 안전성을 획기적으로 개선하는 것을 목표로 합니다. 그린 전환은 국내 제로에너지건축 의무화와 같은 환경 규제 강화와, 글로벌 시장의 탈탄소 수요에 의해 동시에 추동됩니다. 전통적인 화공 플랜트에서 나아가 수소, 암모니아, 탄소 포집·저장(CCUS) 등 친환경 플랜트 시장이 새로운 블루오션으로 떠오르며 고도의 엔지니어링 기술력을 요구하고 있습니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>3. 시장/산업적 영향</h3>
+                        <p>
+                            패러다임 전환은 산업 내 극심한 양극화를 초래하고 있습니다. 해외 고부가가치 사업과 첨단 기술에 투자할 여력이 있는 대형 건설사들은 위기를 기회로 삼아 경쟁력을 강화하는 반면, 내수 침체에 직격탄을 맞은 중소·중견 건설사들은 생존의 기로에 놓였습니다. 이러한 변화는 연관 산업에도 큰 영향을 미칩니다. 건자재 업계는 저탄소 시멘트 같은 친환경·고성능 자재 개발 압박을 받고 있으며, 엔지니어링 업계는 BIM 기반의 디지털 설계 역량 확보가 필수 과제가 되었습니다. 또한, 건설 현장의 디지털화는 IT 서비스라는 새로운 시장을 창출하며 산업 간 융복합을 가속화하고 있습니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>4. 사회/경제적 파급 효과</h3>
+                        <p>
+                            성공적인 패러다임 전환은 대한민국 경제 전반에 긍정적 효과를 가져올 잠재력을 지닙니다. 해외 플랜트 수주 확대는 경상수지 흑자와 외화 획득에 직접 기여하는 효자 산업입니다. 건축물의 그린 전환은 국가 탄소 중립 목표 달성에 필수적입니다. 또한, 스마트 건설 기술은 고질적인 낮은 생산성과 높은 재해율을 개선할 근본적인 해결책입니다. 위험한 육체노동을 로봇이 대체함으로써 건설 현장의 고질적인 인력난을 해소하고, 디지털 기술에 익숙한 청년층의 유입을 유도해 산업의 고령화 문제 해결에도 기여할 수 있습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="visualization-container">
+                    <h3>📊 극명하게 엇갈리는 국내 vs 해외 건설 경기 ('이중 시장' 현실)</h3>
+                    <div class="chart-container" style="max-width: 600px;">
+                        <div class="diverging-bar-container">
+                            <div class="diverging-bar-item">
+                                <div class="diverging-bar-label">해외 수주 (유럽)</div>
+                                <div class="diverging-bar-wrapper">
+                                    <div class="diverging-bar-fill positive" style="--bar-width: 50%;">+139.7%</div>
+                                </div>
+                            </div>
+                            <div class="diverging-bar-item">
+                                <div class="diverging-bar-label">국내 수주 (전체)</div>
+                                <div class="diverging-bar-wrapper">
+                                    <div class="diverging-bar-fill negative" style="--bar-width: 20.875%;">-16.7%</div>
+                                </div>
+                            </div>
+                             <div class="diverging-bar-item">
+                                <div class="diverging-bar-label">국내 고용 (취업자)</div>
+                                <div class="diverging-bar-wrapper">
+                                    <div class="diverging-bar-fill negative" style="--bar-width: 8.875%;">-7.1%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <p class="chart-note">
+                        * 위 데이터는 보고서 내 국내외 건설 시장 지표(2025년 4월 기준, 전년 동월 대비)를 기반으로 재구성되었습니다.<br>
+                        * 국내 건설 수주액과 고용이 큰 폭으로 감소하며 심각한 침체를 겪는 반면, 해외 시장(유럽 사례)은 폭발적인 성장세를 보이며 극명한 대조를 이룹니다. 이는 국내 건설사들이 왜 해외로 눈을 돌릴 수밖에 없는지를 명확히 보여주는 '이중 시장(Dual Market)'의 단면입니다.
+                    </p>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <section id="page-2" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>심층 분석 1: 스마트 건설 기술 도입과 생산성 혁명</h1>
+                <div class="header-subtitle">발행일: 2025년 6월 4주차</div>
+                <a href="https://scienceon.kisti.re.kr/srch/selectPORSrchReport.do?cn=TRKO202100022010" target="_blank" class="article-link" rel="noopener noreferrer">관련 보고서: 스마트 건설기술 개발역량 강화 연구(KICT)</a>
+            </div>
+    
+            <div class="main-content-grid">
+                <div class="article-analysis-section">
+                    <h2>분석: '생존'을 위한 필수 전략, 스마트 건설</h2>
+                    <p>전통적인 건설 방식이 생산성 저하, 안전 문제, 인력난 심화라는 3대 난제에 직면하면서, 스마트 건설 기술은 더 이상 일부 선도 기업의 전유물이 아닌 산업 전체의 생존과 직결된 필수 요소로 부상하고 있습니다. 정부의 강력한 정책 지원과 시장의 필요가 맞물리면서, 건설 프로젝트 전 과정에 BIM, AI, 로봇, 디지털 트윈 등 4차 산업혁명 기술을 융합하는 디지털 전환이 가속화되고 있습니다. 2025년 현재, 국내 스마트 건설 기술은 개별 기술의 시범 적용 단계를 넘어, 기술 간 융합과 플랫폼화를 통해 현장 적용성을 높이는 방향으로 진화하고 있습니다. 이는 단순한 효율성 개선을 넘어, 건설산업의 비즈니스 모델과 일하는 방식 자체를 근본적으로 바꾸는 거대한 흐름입니다. 특히 선도 건설사들은 단순 기술 도입을 넘어, 각자의 강점을 바탕으로 한 차별화된 전략을 통해 치열한 기술 경쟁을 벌이고 있습니다. 이는 미래 시장의 주도권을 잡기 위한 선제적 투자이며, 기술 격차가 곧 기업의 생존을 결정짓는 시대가 도래했음을 보여줍니다.</p>
+                    
+                    <h3>주요 플레이어 기술 전략 분화</h3>
+                    <ul>
+                        <li><strong>현대건설 (통합 플랫폼 전략):</strong> 개별 기술을 유기적으로 연동하는 '통합 플랫폼' 구축에 집중합니다. 최근 남양주 현장 시연회에서 선보인 디지털 트윈 기반 통합 관제 시스템은, 모든 데이터를 한 곳에서 실시간으로 모니터링하고 의사결정을 지원하는 '스마트 건설의 지향점'을 보여줍니다. 현장의 문제를 해결하는 표준화된 솔루션을 만들어 기술을 전 현장에 확산시키는 것이 핵심입니다.</li>
+                        <li><strong>삼성물산 (로보틱스 선도 전략):</strong> 건설 로봇 분야에서 가장 가시적인 성과를 내고 있습니다. 자체 개발한 시공 로봇을 반도체 공장 등 하이테크 현장에 성공적으로 적용하여 사이클 타임을 45% 단축하고 인력을 43% 절감하는 등, 로봇 기술이 현재의 생산성을 담보하는 '실용 기술'임을 입증했습니다. 정밀성과 안전성이 요구되는 작업을 자동화하는 데 집중합니다.</li>
+                        <li><strong>대우건설 (조직 내재화 전략):</strong> 기술 개발과 함께 조직 내 협업 체계를 강화하여 스마트 건설 기술을 전사적으로 내재화하는 데 주력하고 있습니다. '대우 스마트건설 얼라이언스'를 출범시켜 사업본부 간 기술과 노하우를 공유하고, AI 계약 분석 시스템 등 업무 프로세스 자체를 디지털화하며 일하는 방식의 근본적인 변화를 추구합니다.</li>
+                    </ul>
+    
+                    <h3>기회와 도전 과제</h3>
+                    <ul>
+                        <li><strong>기회:</strong> 스마트 건설 시장은 정부의 강력한 육성 정책에 힘입어 연평균 16.5%의 높은 성장률이 전망되는 블루오션입니다. 기술 도입을 통해 생산성을 25% 향상하고 재해율을 25% 감축하려는 정부 목표는 산업의 체질을 근본적으로 개선할 기회입니다.</li>
+                        <li><strong>도전 과제:</strong> 가장 큰 장벽은 대기업과 중소기업 간의 '디지털 격차(Digital Divide)'입니다. 높은 초기 투자 비용 때문에 중소기업의 기술 도입이 더디며, 이는 산업 생태계 전반의 경쟁력 약화로 이어질 수 있습니다. 또한, 기술 도입을 위한 법·제도적 기반과 적정 공사비 산정 기준 마련이 시급한 과제입니다.</li>
+                    </ul>
+                </div>
+    
+                <div class="keywords-section">
+                    <h2>핵심 키워드</h2>
+                    <ul>
+                        <li>
+                            <strong>스마트 건설</strong>
+                            <p>건설 전 과정에 BIM, AI, 로봇, 드론 등 4차 산업혁명 기술을 융합하여 생산성, 안전성, 품질을 혁신하는 새로운 패러다임.</p>
+                        </li>
+                        <li>
+                            <strong>BIM</strong>
+                            <p>3차원 모델 기반으로 건축물의 전 생애주기 정보를 통합 관리하는 기술. 스마트 건설의 핵심 기반(Backbone) 기술.</p>
+                        </li>
+                        <li>
+                            <strong>디지털 트윈</strong>
+                            <p>현실의 물리적 자산을 가상 공간에 동일하게 구현하고, 실시간 데이터로 시뮬레이션 및 예측을 수행하는 기술.</p>
+                        </li>
+                        <li>
+                            <strong>모듈러 건축 (OSC)</strong>
+                            <p>주요 부재를 공장에서 제작 후 현장에서 조립하는 '탈현장 건설' 방식. 공기 단축, 품질 균일화, 폐기물 저감에 효과적.</p>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="visualization-section">
+                    <h2>국내 건설기업 스마트 기술 도입 격차 ('디지털 격차' 현주소)</h2>
+                    <div class="chart-title">대기업과 중소기업 간 기술 활용 수준의 극명한 차이</div>
+                    <div class="chart-container">
+                        <div class="grouped-bar-chart">
+                            <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 24.5%; background-color: #F7A78F;"><span class="bar-value">19.9%</span></div>
+                                    <div class="bar" style="height: 100%; background-color: #85C1DC;"><span class="bar-value">81.2%</span></div>
+                                </div>
+                                <div class="group-label">드론</div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 18.9%; background-color: #F7A78F;"><span class="bar-value">15.4%</span></div>
+                                    <div class="bar" style="height: 84.6%; background-color: #85C1DC;"><span class="bar-value">68.7%</span></div>
+                                </div>
+                                <div class="group-label">BIM</div>
+                            </div>
+                             <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 14%; background-color: #F7A78F;"><span class="bar-value">11.4%</span></div>
+                                    <div class="bar" style="height: 61.5%; background-color: #85C1DC;"><span class="bar-value">50.0%</span></div>
+                                </div>
+                                <div class="group-label">빅데이터/AI</div>
+                            </div>
+                        </div>
+                        <div class="legend">
+                            <div class="legend-item"><div class="legend-color" style="background-color: #F7A78F;"></div>전체 기업</div>
+                            <div class="legend-item"><div class="legend-color" style="background-color: #85C1DC;"></div>대형 기업</div>
+                        </div>
+                         <p class="chart-note">
+                            * 위 데이터는 한국건설산업연구원의 '국내 건설기업 스마트 기술 활용 현황' 보고서(2023)를 기반으로 재구성되었습니다.<br>
+                            * 모든 기술 분야에서 대형 기업의 활용률이 전체 기업 평균을 압도적으로 상회하며, 심각한 '디지털 격차'가 존재함을 보여줍니다. 이는 정부의 중소기업 맞춤형 지원 정책과 기술 확산 생태계 조성이 왜 중요한지를 명확히 시사합니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="page-3" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>심층 분석 2: 해외 플랜트 시장의 구조 변화와 생존 전략</h1>
+                <div class="header-subtitle">발행일: 2025년 6월 4주차</div>
+                <a href="https://www.fntimes.com/html/view.php?ud=202309261340386492ee0209bd21_18" target="_blank" class="article-link" rel="noopener noreferrer">참고 자료: 해외 플랜트 정책금융 지원 사례</a>
+            </div>
+    
+            <div class="main-content-grid">
+                <div class="article-analysis-section">
+                    <h2>분석: '친환경'과 '기술'로 재편되는 글로벌 수주 전쟁</h2>
+                    <p>글로벌 에너지 전환과 지정학적 불확실성은 해외 플랜트 시장의 지형을 근본적으로 바꾸고 있습니다. 과거의 대규모 정유·화공 플랜트 중심 시장은 이제 LNG, 수소, 암모니아, CCUS 등 친환경·저탄소 에너지 인프라 중심으로 빠르게 재편되고 있습니다. 이러한 구조적 변화는 우리 플랜트 기업들에게 새로운 성장의 기회를 제공하는 동시에, 고도의 기술력과 정교한 리스크 관리 능력을 요구하는 거대한 도전 과제를 안겨줍니다. 2025년 현재 시장의 트렌드는 '에너지 전환의 주류화', '중동 발주처의 대규모 투자 재개', 그리고 단순 시공(EPC)을 넘어 기본설계(FEED)부터 참여하는 '기술력 기반 질적 경쟁으로의 전환'으로 요약됩니다. 특히, 프로젝트의 수익성과 방향을 결정하는 핵심 단계인 FEED 역량을 확보하는 것이 저가 수주 경쟁에서 벗어나 질적 성장을 이루기 위한 핵심 과제로 떠올랐습니다. 국내 기업들은 과거 화공 플랜트에서 축적한 역량을 바탕으로 친환경 신사업으로 빠르게 전환하며 이 변화에 대응하고 있습니다.</p>
+                    
+                    <h3>국내 기업의 핵심 수주 전략</h3>
+                    <ul>
+                        <li><strong>전략적 피보팅 (Pivoting):</strong> 기존의 정유·화공 플랜트 설계 및 시공(EPC) 역량을 기반으로, 고부가가치 친환경 신사업 분야로 빠르게 사업 포트폴리오를 전환하고 있습니다. 삼성엔지니어링이 정유 플랜트 경험을 활용해 말레이시아에서 지속가능항공유(SAF) 생산 시설을 수주한 것이 대표적인 성공 사례입니다.</li>
+                        <li><strong>FEED 역량 강화 집중:</strong> 수익성 높은 양질의 프로젝트를 선점하기 위해 FEED 역량 강화에 사활을 걸고 있습니다. 프로젝트 초기 단계부터 발주처와 긴밀한 관계를 형성하고 기술 표준을 주도함으로써, EPC 단계에서 발생할 수 있는 리스크를 줄이고 수익성을 극대화하는 전략입니다. 이는 과거의 저가 수주 경쟁에서 벗어나려는 중요한 변화입니다.</li>
+                        <li><strong>친환경 핵심 기술 내재화:</strong> 수전해 기반 그린수소 생산, 암모니아 분해, 이산화탄소 포집 등 미래 친환경 플랜트의 핵심 기술을 확보하기 위한 R&D 투자와 글로벌 기술 기업과의 전략적 제휴를 확대하고 있습니다. 이는 미래 시장의 기술 종속을 피하고 독자적인 경쟁력을 확보하기 위한 필수적인 노력입니다.</li>
+                    </ul>
+    
+                    <h3>기회와 도전 과제</h3>
+                    <ul>
+                        <li><strong>기회:</strong> 에너지 전환이라는 거대한 흐름은 향후 수십 년간 지속될 새로운 성장 동력을 제공합니다. 특히 수소, CCUS 등 초기 시장을 선점할 경우 글로벌 표준을 주도할 수 있습니다. 정부의 '팀 코리아'를 통한 강력한 외교 및 금융 지원 역시 우리 기업의 수주 활동에 매우 긍정적인 요인입니다.</li>
+                        <li><strong>도전 과제:</strong> 글로벌 선진 기업과의 기술 경쟁은 더욱 치열해지고, 가격 경쟁력을 앞세운 중국의 추격도 거셉니다. 유가·환율 변동성, 원자재 가격 급등, 지정학적 리스크 등 해외 프로젝트의 고유한 위험 관리가 수익성의 핵심 변수이며, 수십억 달러 규모의 메가 프로젝트를 위한 복잡한 금융 조달 능력 확보가 필수적입니다.</li>
+                    </ul>
+                </div>
+    
+                <div class="keywords-section">
+                    <h2>핵심 키워드</h2>
+                    <ul>
+                        <li>
+                            <strong>EPC</strong>
+                            <p>설계(Engineering), 조달(Procurement), 시공(Construction)까지 전 과정을 일괄 수행하는 사업 방식. 한국 기업의 전통적 강점 분야.</p>
+                        </li>
+                        <li>
+                            <strong>FEED</strong>
+                            <p>기본설계. 상세설계(EPC) 착수 전, 플랜트의 기술 사양과 투자비가 구체화되는 핵심 단계. 프로젝트 수익성을 좌우하는 고부가가치 영역.</p>
+                        </li>
+                         <li>
+                            <strong>CCUS</strong>
+                            <p>탄소 포집·활용·저장 기술. 발전소나 산업시설에서 배출되는 이산화탄소를 포집하여 활용하거나 저장하는 탄소중립 시대의 핵심 기술.</p>
+                        </li>
+                        <li>
+                            <strong>프로젝트 파이낸싱 (PF)</strong>
+                            <p>특정 프로젝트의 미래 현금흐름을 담보로 자금을 조달하는 금융 기법. 대규모 플랜트 사업의 필수적인 자금 조달 방식.</p>
+                        </li>
+                    </ul>
+                </div>
+    
+                 <div class="visualization-section">
+                    <h2>미래 먹거리, 글로벌 친환경 플랜트 시장 성장 잠재력</h2>
+                    <div class="chart-title">폭발적인 성장이 예상되는 차세대 플랜트 시장</div>
+                     <div class="chart-container" style="max-width: 550px;">
+                        <div class="horizontal-bar-chart">
+                             <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">CCUS</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 100%;">연평균 29.0% 성장</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">청정 수소</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 33.4%;">연평균 9.7% 성장</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="chart-note">
+                        * 위 데이터는 글로벌 시장조사기관(Industria Arc, VMR 등)의 전망치를 기반으로 재구성되었습니다. (조사기관별로 수치는 상이할 수 있음)<br>
+                        * 강력한 탄소 감축 규제에 힘입어 CCUS 시장은 연평균 29%라는 폭발적인 성장이 예상됩니다. 청정 수소 시장 역시 각국의 로드맵에 따라 꾸준히 성장하며, 이 두 분야가 미래 플랜트 시장의 핵심 성장 동력이 될 것임을 보여줍니다.
+                    </p>
+                </div>
+
+                 <div class="comparison-table-section">
+                    <h2>대한민국 주요 해외 플랜트 수주 실적 분석 (2024~2025년)</h2>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>프로젝트명</th>
+                                <th>국가/지역</th>
+                                <th>플랜트 유형</th>
+                                <th>시사점</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>파딜리 가스 플랜트 증설</strong></td>
+                                <td>사우디/중동</td>
+                                <td>가스 처리</td>
+                                <td>역대 3위 규모, 중동 시장의 건재함과 가스 플랜트 강점 재확인</td>
+                            </tr>
+                            <tr>
+                                <td><strong>피닉스 바이오 정유 시설</strong></td>
+                                <td>말레이시아/동남아</td>
+                                <td>SAF (지속가능항공유)</td>
+                                <td>화공 기술력 기반 친환경 신사업(바이오) 분야 진출 성공</td>
+                            </tr>
+                            <tr>
+                                <td><strong>세르비아 태양광 발전소</strong></td>
+                                <td>세르비아/동유럽</td>
+                                <td>신재생에너지 (태양광)</td>
+                                <td>유럽 신재생 시장 개척 및 수주 시장 다변화 성공</td>
+                            </tr>
+                             <tr>
+                                <td><strong>안마 해상풍력 하부구조물</strong></td>
+                                <td>대한민국</td>
+                                <td>신재생에너지 (해상풍력)</td>
+                                <td>국내 해상풍력 시장 본격화 및 기자재 수출 경쟁력 확보</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                 </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <section id="page-4" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>💡 건설/플랜트 산업 분석: 참고 자료 및 심화 학습</h1>
+            </div>
+    
+            <div class="main-content-section">
+                <p class="intro-text">
+                    본 보고서에서 심층 분석한 '스마트 건설 기술' 및 '해외 플랜트 수주 환경' 주제와 관련하여 더 깊이 학습하거나 참고할 수 있는 신뢰도 높은 외부 전문 자료들을 정리했습니다.
+                </p>
+    
+                <h2>🔍 심층 분석 주제별 추천 자료</h2>
+                <div class="card-grid">
+                    <div class="info-card">
+                        <h3>[스마트건설 정책] 스마트 건설 활성화 방안</h3>
+                        <p>대한민국 정부의 스마트 건설 정책의 근간이 되는 공식 로드맵. BIM 전면 도입, OSC 활성화 등 정부 정책의 방향과 규제 동향을 파악하는 데 가장 정확한 자료입니다.</p>
+                        <a href="https://www.molit.go.kr/USR/NEWS/m_71/dtl.jsp?lcmspage=1&id=155558129" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[스마트건설 현황] 국내 건설기업 스마트 기술 활용 현황</h3>
+                        <p>국내 건설기업의 기술 도입 현황을 대기업과 중소기업으로 나누어 분석, '디지털 격차'의 현실을 데이터로 보여줍니다. 산업 현장의 문제점을 진단하는 데 유용합니다.</p>
+                        <a href="https://cerik.re.kr/uploads/report/2330/%EA%B5%AD%EB%82%B4%EA%B1%B4%EC%84%A4%EA%B8%B0%EC%97%85%EC%9D%98%20%EC%8A%A4%EB%A7%88%ED%8A%B8%20%EA%B8%B0%EC%88%A0%20%ED%99%9C%EC%9A%A9%20%ED%98%84%ED%99%99%EA%B3%BC%20%ED%99%9C%EC%84%B1%ED%99%94%20%EB%B0%A9%ED%96%A5.pdf" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[해외수주 정책] 해외건설·플랜트 수주 선진화 방안</h3>
+                        <p>우리 기업의 해외 수주 경쟁력 강화를 위한 정부의 종합 지원 대책. 특히 '팀 코리아'를 통한 금융 지원 체계의 근간을 설명하여 프로젝트 금융 구조를 이해하는 데 도움이 됩니다.</p>
+                        <a href="https://www.prism.go.kr/homepage/entire/retrieveEntireDetail.do?cond_research_name=&cond_research_start_date=&cond_research_end_date=&research_id=1160000-201300021&pageIndex=9628&leftMenuLevel=110" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[지정학 리스크] 지정학적 리스크 지표 분석 및 시사점</h3>
+                        <p>전쟁, 국가 간 갈등 등 지정학적 리스크가 경제에 미치는 영향을 계량 분석한 보고서. 변동성이 큰 해외 프로젝트의 잠재적 리스크를 평가하고 관리하는 데 이론적 배경을 제공합니다.</p>
+                        <a href="https://www.kif.re.kr/kif4/publication/report_view?report_no=36199" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>[글로벌 트렌드] Global Infrastructure Insights</h3>
+                        <p>글로벌 컨설팅 그룹 맥킨지의 인프라/에너지 전환 관련 최신 분석. 해외 플랜트 시장의 거시적 변화와 글로벌 경쟁 환경을 파악하는 데 필수적인 외부 관점을 제공합니다.</p>
+                        <a href="https://www.mckinsey.com/industries/infrastructure/our-insights" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>[스마트건설 R&D] 스마트 건설기술 개발사업 계획</h3>
+                        <p>정부가 약 2,000억 원을 투자하는 스마트 건설 R&D 프로젝트의 상세 계획. 정부가 어떤 핵심 원천 기술 확보에 집중하고 있는지 파악할 수 있는 기초 자료입니다.</p>
+                        <a href="http://www.molit.go.kr/LCMS/DWN.jsp?fold=koreaNews/mobile/file&fileName=200120%28%EC%A1%B0%EA%B0%84%292025%EB%85%84%EA%B9%8C%EC%A7%80+%EC%8A%A4%EB%A7%88%ED%8A%B8+%EA%B1%B4%EC%84%A4+%ED%95%B5%EC%8B%AC%EA%B8%B0%EC%88%A0+%EC%83%81%EC%9A%A9%ED%99%94+%EC%8B%A4%ED%98%84%28%EA%B8%B0%EC%88%A0%EC%A0%95%EC%B1%85%EA%B3%BC%29.pdf" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                </div>
+    
+                <h2>📰 건설/플랜트 연관 산업 주요 이슈</h2>
+                <div class="card-grid">
+                    <div class="info-card">
+                        <h3>철강/시멘트 산업: 건설 경기와 후방산업 수요</h3>
+                        <p>국내 건설 경기 침체가 철근, 시멘트 등 핵심 자재의 수요, 생산, 재고에 미치는 영향을 구체적인 통계로 보여줍니다. 건설업 불황이 후방 산업의 위기로 어떻게 전이되는지 파악할 수 있습니다.</p>
+                        <a href="https://www.cerik.re.kr/uploads/report/2700/%EA%B1%B4%EC%84%A4%20%EA%B2%BD%EA%B8%B0%20%EB%B3%80%ED%99%94%EC%97%90%20%EB%94%B0%EB%A5%B8%20%EC%A3%BC%EC%9A%94%20%EA%B1%B4%EC%84%A4%EC%9E%90%EC%9E%AC%20%EC%88%98%EC%9A%94%20%EB%B3%80%ED%99%94%20%EC%97%B0%EA%B5%AC.pdf" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>기계/장비 산업: 지능형 건설 장비 개발 동향</h3>
+                        <p>굴착기, 지게차 등 건설기계의 내수 및 수출 실적을 통해 건설 경기의 '이중 시장' 현황을 간접적으로 보여줍니다. 스마트 건설 기술 도입에 따른 지능형·자동화 장비 개발 동향을 파악할 수 있습니다.</p>
+                        <a href="https://www.kocema.org/web/Kocema/news/news_s_v.jsp?board_cd=4&page=1&b_no=3084" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>엔지니어링 산업: 엔지니어링 기업 경기 실사 지수(BSI)</h3>
+                        <p>엔지니어링 기업들이 체감하는 경기 전망을 지수화한 자료로, 건설/플랜트 산업의 선행지표 역할을 합니다. 특히 FEED와 같은 고부가가치 분야의 업황을 통해 산업의 질적 변화를 가늠할 수 있습니다.</p>
+                        <a href="https://www.kenca.or.kr/bbs/board.php?bo_table=B24&wr_id=533" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>IT/소프트웨어 산업: 스마트건설 얼라이언스 동향</h3>
+                        <p>건설산업의 디지털 전환 과정에서 발생하는 IT/소프트웨어 수요를 보여주는 대표적인 자료. BIM 데이터 표준화, 플랫폼 구축 등 건설과 IT 기술이 융합되는 현장의 구체적인 논의를 담고 있습니다.</p>
+                        <a href="https://www.smartcona.co.kr/" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>부동산 산업: 주택사업경기전망지수(HSSI)</h3>
+                        <p>주택 공급자의 입장에서 향후 건설 경기를 어떻게 전망하는지 보여주는 핵심 심리 지표입니다. 이는 국내 주택 건설 부문의 사업 환경을 결정하는 가장 근본적인 요인으로, 건설 경기 예측의 기초 자료가 됩니다.</p>
+                        <a href="https://www.hiri.re.kr/board/reportView.asp?b_gubun=21&num=41457" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>에너지 산업: 국가 탄소중립 시나리오와 건물 부문</h3>
+                        <p>건축물이 국가 온실가스 배출의 상당 부분을 차지하는 만큼, 제로에너지건축 등 그린 리모델링이 2050 국가 탄소 중립 목표 달성에 얼마나 중요한지 설명합니다. 그린 전환의 당위성을 보여주는 자료입니다.</p>
+                        <a href="https://www.gihoo.or.kr/zerobuilding/business/outline.do" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                </div>
+    
+                <div class="conclusion-box">
+                    <h2>마무리하며:</h2>
+                    <p>
+                        2025년 대한민국 건설/플랜트 산업은 국내 시장의 깊은 침체와 해외 시장의 역동적인 성장이 공존하는 '이중 시장' 구조 속에서 중대한 변곡점을 맞이했습니다. 산업의 생존과 미래는 결국 '디지털 전환(스마트 건설)'과 '그린 전환(친환경 플랜트)'이라는 두 가지 패러다임 변화에 얼마나 성공적으로 적응하는가에 달려있습니다. 위기는 곧 기회이며, 이러한 전환기에 정부의 일관된 정책 지원, 기업의 과감한 기술 투자, 그리고 산업 생태계 전반의 협력은 그 어느 때보다 중요합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        // No script needed as all charts and interactions are implemented with HTML/CSS.
+    </script>
+</body>
+</html>

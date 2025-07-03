@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InFit - 로봇 산업 분석 통합 레포트</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 기본 스타일 */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #F8F8F8;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 페이지 섹션 공통 스타일 */
+        .page-section {
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* 1페이지 스타일 */
+        #page-1 {
+            background-color: #F8F8F8;
+        }
+
+        #page-1 .container {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        #page-1 .header-section {
+            background-color: #FFF9F2; /* Bubble Cream: 부드러운 크림 배경 */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem 2rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        #page-1 .whale-character {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            width: 80px;
+            height: 80px;
+            opacity: 0.9;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        #page-1 .whale-character:hover {
+            transform: scale(1.1) rotate(5deg);
+            opacity: 1;
+        }
+
+        #page-1 .header-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #85C1DC; /* Whale Sky: 차분한 하늘색 */
+            margin-bottom: 0.75rem;
+        }
+
+        #page-1 .header-section .slogan {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #4D5E70; /* Slate Ink: 읽기 좋은 어두운 그레이 */
+            margin-bottom: 1.5rem;
+        }
+
+        #page-1 .header-section .subtitle {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        #page-1 .card-news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid #E0E0E0;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            #page-1 .card-news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        #page-1 .card {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            overflow: hidden;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        #page-1 .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-1 .card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
+        #page-1 .card-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #4D5E70;
+            margin-bottom: 0.8rem;
+        }
+
+        #page-1 .card-summary {
+            font-size: 0.95rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        #page-1 .card-keywords {
+            font-size: 0.85rem;
+            color: #666;
+            font-weight: 500;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        #page-1 .card-keywords span {
+            background-color: #A8D8C7;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        #page-1 .section-title {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #85C1DC;
+            margin-bottom: 2rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            text-align: center;
+        }
+
+        #page-1 .keyword-section {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            padding: 25px;
+        }
+        
+        .keyword-analysis {
+            padding-bottom: 1.5rem;
+        }
+
+        #page-1 .keyword-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed #E0E0E0;
+        }
+
+        #page-1 .keyword-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        #page-1 .keyword-item h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70;
+            margin-bottom: 0.75rem;
+        }
+
+        #page-1 .keyword-item p {
+            font-size: 0.95em;
+            color: #444;
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+        
+        .visualization-container {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px dashed #E0E0E0;
+        }
+        .visualization-container h3 {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #85C1DC;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+
+        /* 2-4페이지 공통 레포트 스타일 */
+        .report-container {
+            width: 100%;
+            max-width: 960px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .header-section {
+            padding: 40px 30px;
+            text-align: center;
+            background-color: #FFF9F2;
+            border-bottom: 1px solid #A8D8C7;
+        }
+
+        .header-section h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .header-subtitle {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        .article-link {
+            font-size: 0.9em;
+            color: #F7A78F;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: 1px solid #A8D8C7;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .article-link:hover {
+            background-color: #F7A78F;
+            color: white;
+        }
+
+        .main-content-grid {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 25px;
+            padding: 30px;
+        }
+
+        .article-analysis-section, 
+        .keywords-section, 
+        .visualization-section {
+            background-color: #FFF9F2;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+        }
+        
+        .comparison-table-section {
+            background-color: #FFF9F2;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            grid-column: 1 / -1;
+            grid-row: 3;
+        }
+        
+        .comparison-table-section h2 {
+             font-size: 1.6em;
+            color: #85C1DC;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            font-weight: 700;
+        }
+
+        .article-analysis-section {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .keywords-section {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .visualization-section {
+            grid-column: 1 / -1;
+            grid-row: 2;
+        }
+
+        /* 레포트 공통 타이포그래피 */
+        #page-2 h2, #page-3 h2, #page-4 h2 {
+            font-size: 1.6em;
+            color: #85C1DC;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            font-weight: 700;
+        }
+
+        #page-2 p, #page-3 p, #page-4 p {
+            font-size: 0.95em;
+            line-height: 1.7;
+            margin-bottom: 1em;
+            color: #444;
+        }
+
+        #page-2 h3, #page-3 h3, #page-4 h3 {
+            font-size: 1.2em;
+            color: #4D5E70;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* 공통 리스트 스타일 */
+        .article-analysis-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 1em 0;
+        }
+
+        .article-analysis-section ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .article-analysis-section ul li::before {
+            content: '•';
+            color: #F7A78F;
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .keywords-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .keywords-section li {
+            margin-bottom: 15px;
+        }
+
+        .keywords-section li strong {
+            display: block;
+            font-size: 1.1em;
+            color: #4D5E70;
+            margin-bottom: 5px;
+        }
+
+        .keywords-section li p {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        /* 공통 시각화 스타일 */
+        .visualization-section {
+            text-align: center;
+        }
+
+        .visualization-section h2 {
+            font-size: 1.4em;
+        }
+
+        .chart-container {
+            margin-top: 20px;
+            padding: 25px 15px 15px 15px;
+            background-color: #F8F8F8;
+            border-radius: 8px;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .chart-title {
+            font-size: 1.1em;
+            color: #85C1DC;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .chart-note {
+            font-size: 0.8em;
+            color: #777;
+            margin-top: 30px;
+            text-align: left;
+            line-height: 1.5;
+            padding: 0 15px;
+        }
+        
+        /* 그룹형 막대그래프 스타일 (공통) */
+        .grouped-bar-chart {
+            display: flex;
+            justify-content: space-around;
+            height: 280px;
+            padding-top: 20px;
+            align-items: flex-end;
+        }
+        .bar-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            text-align: center;
+            height: 100%;
+        }
+        .bar-pair {
+             display: flex;
+             align-items: flex-end;
+             height: 100%;
+             gap: 8px;
+             flex-grow: 1;
+        }
+        .bar-group .bar {
+            width: 40px;
+            position: relative;
+            animation: grow-bar 1.2s ease-out forwards;
+            transition: background-color 0.3s ease;
+        }
+        .bar-group .bar .bar-value {
+            position: absolute;
+            top: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #4D5E70;
+        }
+        .bar-group .group-label {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+            font-size: 0.9em;
+        }
+        .legend {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 0 15px;
+        }
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            margin-right: 8px;
+            border-radius: 3px;
+        }
+
+        /* 가로 막대그래프 스타일 (공통) */
+        @keyframes fill-bar {
+            from { width: 0; }
+        }
+        .horizontal-bar-chart {
+            padding-top: 10px;
+            max-width: 500px; /* 차트의 최대 너비를 제한 */
+            margin: 0 auto; /* 차트를 부모 요소 안에서 중앙 정렬 */
+        }
+        .horizontal-bar-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        .horizontal-bar-label {
+            width: 100px;
+            text-align: right;
+            padding-right: 15px;
+            font-weight: 600;
+            color: #4D5E70;
+            flex-shrink: 0;
+        }
+        .horizontal-bar-wrapper {
+            flex-grow: 1;
+            background-color: #e9e9e9;
+            border-radius: 5px;
+            height: 30px;
+        }
+        .horizontal-bar-fill {
+            height: 100%;
+            background-color: #85C1DC;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+            padding-left: 10px;
+            box-sizing: border-box;
+            animation: fill-bar 1.2s ease-out forwards;
+            width: var(--bar-width, 0%);
+            white-space: nowrap;
+        }
+         .horizontal-bar-fill:hover {
+            background-color: #F7A78F;
+        }
+
+
+        /* 4페이지 특화 스타일 */
+        #page-4 .main-content-section {
+            padding: 30px;
+        }
+
+        #page-4 .intro-text {
+            font-size: 1.1em;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        #page-4 .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        #page-4 .info-card {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            padding: 1.5rem;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #page-4 .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-4 .info-card h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70;
+            margin-bottom: 0.75rem;
+            margin-top: 0;
+        }
+
+        #page-4 .info-card p {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        #page-4 .info-card a {
+            color: #F7A78F;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            display: block;
+            margin-top: auto;
+        }
+
+        #page-4 .conclusion-box {
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            border: 1px solid #A8D8C7;
+        }
+
+        #page-4 .conclusion-box h2 {
+            font-size: 1.4em;
+            color: #4D5E70;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        #page-4 .conclusion-box p {
+            color: #333;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* 애니메이션 공통 */
+        @keyframes grow-bar {
+            from { height: 0; }
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .page-section {
+                padding: 10px;
+            }
+            
+            #page-1 .container {
+                padding: 1rem;
+            }
+            
+            #page-1 .card-news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #page-1 .whale-character {
+                width: 60px;
+                height: 60px;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .main-content-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+                padding: 20px;
+            }
+            
+            .article-analysis-section,
+            .keywords-section,
+            .visualization-section,
+            .comparison-table-section {
+                grid-column: 1 / -1;
+                grid-row: auto;
+            }
+
+            #page-4 .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #page-4 .main-content-section {
+                padding: 20px;
+            }
+            
+            .bar-group .bar {
+                width: 30px;
+            }
+
+            .split-chart-group .bar {
+                width: 30px;
+            }
+
+            /* 모바일 차트 스타일 */
+            .horizontal-bar-label {
+                width: 100px;
+                font-size: 0.9em;
+            }
+            
+            /* 비교 테이블 모바일 스타일 */
+            .comparison-table {
+                font-size: 0.8em;
+            }
+            .comparison-table th, .comparison-table td {
+                padding: 8px;
+            }
+        }
+
+        /* Line Chart Specific Styles (for Page 3) */
+        @keyframes draw-line {
+            to { stroke-dashoffset: 0; }
+        }
+        .line-chart-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            padding-top: 20px;
+        }
+        .line-chart-container svg {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .line-chart-container .grid-line {
+            stroke: #e0e0e0;
+            stroke-dasharray: 2, 3;
+        }
+        .line-chart-container .axis-line {
+            stroke: #ccc;
+            stroke-width: 1px;
+        }
+        .line-chart-container .axis-text {
+            font-size: 0.85em;
+            fill: #666;
+        }
+        .line-chart-container .line-path {
+            fill: none;
+            stroke-width: 3px;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw-line 2s ease-out forwards;
+        }
+        .line-chart-container .data-point {
+            r: 5;
+            fill: white;
+            stroke-width: 2;
+            transition: r 0.2s ease, fill 0.2s ease;
+            cursor: pointer;
+        }
+        .line-chart-container .data-point:hover {
+            r: 7;
+        }
+        .line-chart-container .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.75);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s, transform 0.2s;
+            white-space: nowrap;
+        }
+
+        /* Comparison Table Specific Styles (for Page 3) */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #A8D8C7;
+            padding: 12px;
+            text-align: left;
+            font-size: 0.9em;
+            color: #444;
+        }
+        .comparison-table thead th {
+            background-color: #f2f9f6;
+            color: #4D5E70;
+            font-weight: 700;
+            text-align: center;
+        }
+        .comparison-table tbody tr:nth-child(even) {
+            background-color: #fafdfc;
+        }
+        .comparison-table tbody tr:hover {
+            background-color: #e8f5f0;
+        }
+        .comparison-table td:first-child {
+            font-weight: 600;
+            color: #4D5E70;
+            width: 25%;
+        }
+
+        /* Specific fix for chart 1 text wrapping */
+        #page-1 .bar-group .bar-value,
+        #page-1 .bar-group .group-label {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <section id="page-1" class="page-section">
+        <div class="container">
+            <header class="header-section">
+                <img src="infit_logo.png" alt="InFit 캐릭터" class="whale-character">
+                <h1>K-로봇 혁명</h1>
+                <p class="slogan">AI 지능화와 서비스 로봇, 미래 산업을 재편하다</p>
+                <p class="subtitle">
+                    <span style="font-weight: 600;">로봇 산업 분석 보고서 (2025년 6월 4주차)</span><br>인간과 로봇의 공존, 새로운 시대를 열다
+                </p>
+            </header>
+
+            <section>
+                <h2 class="section-title">주간 로봇 산업 핵심 동향 요약</h2>
+                <div class="card-news-grid">
+                    <div class="card">
+                        <a href="https://www.yna.co.kr/view/AKR20250623023400030" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">우아한형제들, 배달 로봇 '딜리' 신모델 공개로 서비스 가속</h3>
+                            <p class="card-summary">
+                                배달의민족이 8월 투입 예정인 신규 '딜리' 모델을 공개했습니다. 험지 주행 능력을 개선하고 배민B마트를 넘어 일반 음식 배달까지 영역을 확장하며, 실외이동로봇 안전인증을 기반으로 본격적인 라스트마일 배송 혁신을 예고하고 있습니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#서비스로봇</span> <span>#배달로봇</span> <span>#라스트마일</span> <span>#규제개선</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://motie.go.kr/kor/article/ATCLf724eb567/212200/view" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">정부, 국가로봇테스트필드 사업으로 '신뢰성' 확보 총력</h3>
+                            <p class="card-summary">
+                                산업통상자원부가 '국가로봇테스트필드' 2차 과제 공고를 마감했습니다. 로봇 상용화의 핵심인 신뢰성과 안전성 평가 기술 개발에 13.7억 원을 투입하며, 대구를 중심으로 한 로봇 산업 클러스터 육성 의지를 명확히 했습니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#정부정책</span> <span>#로봇인프라</span> <span>#안전인증</span> <span>#R&D</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://contents.premium.naver.com/themiilk/business/contents/250616182428908lg" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">'스마트테크 코리아 2025', 유통 산업 AI 전환 생존 문제로 부상</h3>
+                            <p class="card-summary">
+                                정부가 유통 산업의 AI 전환을 생존 문제로 규정하고 '유통 AI 얼라이언스' 출범 등 전방위적 지원을 약속했습니다. 이는 물류 및 재고관리 로봇 등 관련 서비스 로봇의 폭발적인 수요 증가를 견인할 핵심 동력으로 작용할 전망입니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#AI전환</span> <span>#유통</span> <span>#물류로봇</span> <span>#스마트리테일</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://www.mtnews.net/news/articleView.html?idxno=21987" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">두산로보틱스, AI 기반 지능형 로봇 솔루션으로 패러다임 전환</h3>
+                            <p class="card-summary">
+                                두산로보틱스가 '오토매티카 2025'에서 음성인식 기반 제어(Voice to Real) 등 AI 솔루션을 대거 공개했습니다. 하드웨어 중심에서 AI 소프트웨어 통합 솔루션 기업으로의 전환을 선언하며 산업용 로봇 시장의 미래 방향성을 제시했습니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#두산로보틱스</span> <span>#AI로봇</span> <span>#협동로봇</span> <span>#소프트웨어</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="keyword-section">
+                <h2 class="section-title">핵심 키워드 분석: AI 기반 로봇 지능화</h2>
+                <div class="keyword-analysis">
+                    <div class="keyword-item">
+                        <h3>1. 정의 및 중요성</h3>
+                        <p>
+                            'AI 기반 로봇 지능화'는 로봇에 머신러닝, LLM 등 AI 기술을 통합하여 단순 반복 작업을 넘어 스스로 환경을 인식하고, 상황을 판단하며, 인간과 자연스럽게 상호작용하게 만드는 기술 혁신입니다. 2025년은 휴머노이드 로봇 상용화의 원년으로 평가되며, AI 지능화는 이러한 로봇들이 실제 환경에서 복잡한 임무를 수행하는 데 필수적인 기반 기술입니다. 이는 고령화와 인력난 해소, 생산성 혁신 등 국가적 과제를 해결하고 새로운 서비스 시장을 창출하는 핵심 동력으로 부상하며 그 중요성이 날로 커지고 있습니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>2. 기술적 맥락</h3>
+                        <p>
+                            국내 기업들은 AI 기술을 로봇에 접목하는 데 총력을 기울이고 있습니다. 삼성 '볼리', LG 'Q9' 등 대기업의 AI 집사 로봇은 가정 환경에서 사용자와 교감하며 학습하는 파트너를 지향합니다. 산업 현장에서는 두산로보틱스가 AWS, Nvidia와 협력하여 음성으로 로봇을 제어하고 가상 환경에서 동작을 최적화하는 'Sim to Real' 기술을 선보였습니다. 현대로보틱스 역시 3D 시뮬레이션 기반의 티칭 자동화를 추진 중입니다. ETRI는 로봇 안내견 '에디'를 통해 HRI 기술력을 과시하며, 국내 AI 로봇 기술의 빠른 발전을 증명하고 있습니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>3. 시장/산업적 영향</h3>
+                        <p>
+                            AI 지능화는 산업용 로봇의 고도화와 서비스 로봇 시장의 폭발적 성장을 동시에 견인하고 있습니다. 특히 2025년부터 글로벌 로봇 시장은 서비스 로봇 중심으로 재편될 전망이며, 국내에서도 물류, 서빙, 의료, 개인 서비스 분야의 급성장이 예상됩니다. 제조업에서는 AI 비전 시스템이 스마트 팩토리 전환을 가속화하고, 유통 산업에서는 정부 주도의 AI 도입 정책이 물류 로봇의 새로운 시장을 열고 있습니다. KT의 '로봇 플랫폼'과 같은 새로운 서비스 모델은 로봇 대중화와 산업 전반의 효율성 향상을 이끌 것입니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>4. 사회적/경제적 파급 효과</h3>
+                        <p>
+                           AI 로봇은 고령화와 인력난에 직면한 대한민국 산업 현장의 핵심 해결책으로 부상하고 있습니다. 로봇 도입은 생산성을 획기적으로 높이고, 위험 작업을 대체하여 산업 안전을 강화합니다. 물론, 단순 반복 직무 감소에 따른 고용 구조 변화와 재교육의 필요성이 대두되지만, 동시에 로봇 운영, AI 개발 등 고숙련 신규 일자리를 창출하고 있습니다. 삼성전자의 로봇 사업 진출에 따른 대규모 R&D 인력 채용 전망과 정부의 100조 원 규모 AI 산업 투자 계획은 관련 산업의 성장과 국가 경제의 체질 개선을 이끌 강력한 동력이 될 것입니다.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="visualization-container">
+                    <h3>📊 로봇 도입에 따른 생산성 및 효율성 향상 효과 (%)</h3>
+                    <div class="chart-container">
+                        <div class="grouped-bar-chart">
+                            <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 65%; background-color: #85C1DC;"><span class="bar-value">56.5%</span></div>
+                                    <div class="bar" style="height: 32%; background-color: #A8D8C7;"><span class="bar-value">28%</span></div>
+                                </div>
+                                <div class="group-label">생산성/시간</div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 67%; background-color: #85C1DC;"><span class="bar-value">58.4%</span></div>
+                                    <div class="bar" style="height: 48%; background-color: #A8D8C7;"><span class="bar-value">42%</span></div>
+                                </div>
+                                <div class="group-label">품질/비용</div>
+                            </div>
+                        </div>
+                        <div class="legend">
+                            <div class="legend-item"><div class="legend-color" style="background-color: #85C1DC;"></div>긍정 효과 (향상/감소)</div>
+                            <div class="legend-item"><div class="legend-color" style="background-color: #A8D8C7;"></div>부정 효과 (감축/절감)</div>
+                        </div>
+                         <p class="chart-note">
+                            * 위 데이터는 보고서 내 '산업용 로봇 도입을 통한 국내 제조 기업의 효과' 통계를 기반으로 재구성되었습니다. (출처: 한국로봇산업진흥원, 중소벤처기업부)<br>
+                            * <b>생산성/시간:</b> 생산성 56.5% 향상, 작업 시간 28% 감축<br>
+                            * <b>품질/비용:</b> 불량률 58.4% 감소, 원가 42% 절감
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <section id="page-2" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>심층 분석 1: 서비스 로봇 시장의 급성장과 HRI 기술의 진화</h1>
+                <div class="header-subtitle">발행일: 2025년 6월 4주차</div>
+                <a href="https://ifr.org/worldrobotics" target="_blank" class="article-link" rel="noopener noreferrer">관련 보고서: IFR World Robotics 2024 – Service Robots</a>
+            </div>
+    
+            <div class="main-content-grid">
+                <div class="article-analysis-section">
+                    <h2>분석: 일상으로 들어온 로봇, 산업의 판도를 바꾸다</h2>
+                    <p>2025년 대한민국 로봇 산업의 패러다임이 제조업 중심에서 서비스 분야로 빠르게 이동하고 있습니다. 글로벌 시장 역시 2025년을 기점으로 산업용 로봇보다 서비스 로봇이 성장을 주도할 것이라는 전망이 지배적입니다. 이러한 거대한 변화의 중심에는 인간과 로봇의 자연스러운 소통을 가능하게 하는 인간-로봇 상호작용(HRI) 기술의 발전이 자리하고 있습니다. 우아한형제들의 배달 로봇 '딜리'가 단순 배송을 넘어 험지 주행과 음식 배달까지 영역을 넓히고, 90%에 달하는 높은 재이용 의사를 확보한 것은 서비스 로봇이 더 이상 기술 시연 단계를 넘어 대중의 일상에 성공적으로 안착하고 있음을 보여주는 상징적인 사건입니다. 정부의 적극적인 규제 개선과 안전 인증 제도 마련은 이러한 상용화 흐름에 날개를 달아주고 있습니다. 이제 시장의 경쟁력은 단순히 로봇 하드웨어를 만드는 것을 넘어, 사용자의 의도를 정확히 파악하고(음성/표정 인식), 상황에 맞는 서비스를 제공하며(AI 판단), 지속적인 데이터 학습을 통해 스스로 진화하는 '지능형 솔루션'을 제공하는 능력에 의해 좌우될 것입니다. 이는 국내 로봇 산업 생태계가 하드웨어 제조에서 소프트웨어, 플랫폼, 서비스 중심으로 재편되고 있음을 의미합니다.</p>
+                    
+                    <h3>주요 플레이어 전략 분화</h3>
+                    <ul>
+                        <li><strong>삼성전자/LG전자:</strong> 글로벌 가전 시장에서의 브랜드 인지도와 AI 기술력을 바탕으로 '볼리', 'Q9'과 같은 AI 집사 로봇을 통해 B2C 개인 서비스 로봇 시장을 정조준하고 있습니다. 이들은 단순 가사 보조를 넘어 사용자와 교감하는 '가정의 파트너'를 목표로 합니다.</li>
+                        <li><strong>우아한형제들 (배달의민족):</strong> 국내 최대 배달 플랫폼이라는 강력한 기반을 활용하여 '딜리' 로봇을 통해 라스트마일 배송 시장의 혁신을 주도합니다. 실제 서비스 운영을 통해 축적한 방대한 데이터는 기술 고도화의 핵심 자산입니다.</li>
+                        <li><strong>KT:</strong> 통신사로서 보유한 AI, 5G, 클라우드 인프라를 다양한 로봇 제조사의 하드웨어와 결합하는 '로봇 플랫폼' 사업을 추진합니다. 특정 로봇이 아닌, 로봇 서비스 생태계 자체를 장악하려는 전략입니다.</li>
+                        <li><strong>전문 로봇 기업 (두산/유진/레인보우):</strong> 각자의 기술적 강점을 바탕으로 특정 분야를 공략합니다. 두산은 협동로봇의 AI 솔루션화를, 유진로봇은 자율주행(AMR) 기반의 물류 자동화를, 레인보우로보틱스는 휴머노이드 플랫폼 기술을 중심으로 시장 경쟁력을 강화하고 있습니다.</li>
+                    </ul>
+    
+                    <h3>기회와 도전 과제</h3>
+                    <ul>
+                        <li><strong>기회:</strong> 글로벌 서비스 로봇 시장은 2030년 190조 원 규모로 연평균 25% 이상의 폭발적인 성장이 예상됩니다. 특히 의료, 헬스케어, 물류 분야는 새로운 블루오션으로 떠오르고 있으며, 로봇 구독 모델 등 새로운 비즈니스 모델이 초기 도입 비용의 장벽을 낮추고 있습니다.</li>
+                        <li><strong>도전 과제:</strong> 높은 초기 도입 비용은 여전히 중소기업에게 부담이며, 로봇 오작동 시 발생할 수 있는 안전 문제와 로봇이 수집하는 데이터의 프라이버시 보호는 반드시 해결해야 할 사회적, 기술적 과제입니다.</li>
+                    </ul>
+                </div>
+    
+                <div class="keywords-section">
+                    <h2>핵심 키워드</h2>
+                    <ul>
+                        <li>
+                            <strong>서비스 로봇</strong>
+                            <p>물류, 서빙, 의료, 개인 서비스 등 비제조업 환경에서 인간을 돕는 로봇. 산업의 새로운 성장 동력.</p>
+                        </li>
+                        <li>
+                            <strong>HRI</strong>
+                            <p>인간-로봇 상호작용. 음성, 제스처, 표정 등을 통해 인간과 로봇이 자연스럽게 소통하고 협업하는 기술.</p>
+                        </li>
+                        <li>
+                            <strong>라스트마일 배송</strong>
+                            <p>물류센터에서 최종 소비자에게 상품을 전달하는 마지막 단계. 배달 로봇 도입이 가장 활발한 분야.</p>
+                        </li>
+                        <li>
+                            <strong>로봇 구독 서비스</strong>
+                            <p>로봇을 구매하는 대신 월정액을 내고 이용하는 모델. 초기 투자 비용 부담을 줄여 로봇 보급을 확산.</p>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="visualization-section">
+                    <h2>서비스 로봇 도입의 경제적 효과 (농업 분야 사례)</h2>
+                    <div class="chart-title">로봇착유기 도입 시 연간 추가 수익/절감액 (단위: 만 원)</div>
+                     <div class="chart-container">
+                        <div class="horizontal-bar-chart">
+                             <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">생산량 증가</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 100%;">4,500</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">인건비 절감</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 66.7%;">3,000</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">품질 향상</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 26.7%;">1,200</div>
+                                </div>
+                            </div>
+                             <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">질병 감소</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 17.8%;">800</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="chart-note">
+                        * 위 데이터는 보고서 내 '국내 서비스 로봇 도입을 통한 경제적 효과 사례'를 기반으로 작성되었습니다. (출처: 재능넷)<br>
+                        * 로봇 도입은 단순 인건비 절감을 넘어 생산량, 품질, 비용 절감 등 다방면에서 부가가치를 창출하여 총 9,500만 원의 연간 추가 수익을 발생시켰습니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="page-3" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>심층 분석 2: 산업용 로봇 고도화, 스마트 팩토리를 완성하다</h1>
+                <div class="header-subtitle">발행일: 2025년 6월 4주차</div>
+                <a href="https://www.motie.go.kr/kor/article/ATCLf724eb567/211979/view" target="_blank" class="article-link" rel="noopener noreferrer">관련 보고서: 제4차 지능형 로봇 기본계획</a>
+            </div>
+    
+            <div class="main-content-grid">
+                <div class="article-analysis-section">
+                    <h2>분석: 제조업의 미래, AI 로봇과 디지털 트윈에 달리다</h2>
+                    <p>대한민국은 이미 직원 1만 명당 로봇 1,012대를 사용하는 세계 1위의 로봇 밀도 국가로, 제조업 경쟁력은 산업용 로봇의 활용 수준에 달려있다고 해도 과언이 아닙니다. 이제 경쟁의 축은 단순히 로봇을 몇 대 도입했는지를 넘어, '얼마나 더 똑똑하게 활용하는가'로 이동하고 있습니다. 이러한 고도화의 핵심에는 'AI 기반 지능화'와 '디지털 트윈'이 있습니다. 두산로보틱스가 자동차 부품의 미세한 흠집을 AI 비전으로 검수하고, 현대로보틱스가 조선소의 복잡한 용접 경로를 가상공간에서 미리 시뮬레이션하고 최적화하는 것은 더 이상 미래 기술이 아닌 현실입니다. 이러한 기술은 과거 인간의 감각과 경험에 의존했던 고난이도 비정형 작업을 자동화 영역으로 끌어들여, 스마트 팩토리의 수준을 한 단계 끌어올리고 있습니다. 특히 인간과 같은 공간에서 협업하는 '협동 로봇' 시장이 연평균 44% 이상 성장하는 것은, 로봇이 인간을 대체하는 것을 넘어 생산성과 유연성을 동시에 높이는 핵심 파트너로 자리매김하고 있음을 보여줍니다. 정부 역시 스마트 팩토리 지원 사업에서 AI와 디지털 트윈 적용을 필수화하며 이러한 기술 전환을 강력하게 유도하고 있습니다.</p>
+                    
+                    <h3>주요 플레이어 전략 분화</h3>
+                    <ul>
+                        <li><strong>현대로보틱스:</strong> 국내 산업용 로봇 시장 1위 기업으로서, 자동차, 조선 등 그룹 내 강력한 수요처를 기반으로 안정적인 성장을 추구합니다. 로봇의 가반하중(들 수 있는 무게)을 늘리는 등 하드웨어 성능 강화와 동시에 AI 통합 및 소프트웨어 플랫폼 확장을 통해 기술 리더십을 공고히 하고 있습니다.</li>
+                        <li><strong>두산로보틱스:</strong> 협동 로봇 분야의 강자로, 하드웨어 판매 중심에서 벗어나 AWS, Nvidia 등 글로벌 빅테크와 협력하여 AI 기반의 '지능형 로봇 솔루션' 제공 기업으로의 전환을 선언했습니다. 이는 소프트웨어와 AI의 가치를 극대화하려는 전략입니다.</li>
+                        <li><strong>레인보우로보틱스:</strong> 로봇 핵심 부품부터 제어 알고리즘까지 독자적인 기술력을 보유한 '기술 강소기업'입니다. 삼성전자의 대규모 투자를 발판으로 휴머노이드 로봇 등 차세대 기술 개발에 집중하며 글로벌 시장을 공략하고 있습니다.</li>
+                    </ul>
+    
+                    <h3>기회와 도전 과제</h3>
+                    <ul>
+                        <li><strong>기회:</strong> 로봇 도입은 국내 제조기업의 생산성을 56%, 불량률을 58% 개선하는 등 명확한 효과를 입증했습니다. 정부의 '제4차 지능형 로봇 기본계획'에 따른 민관 합동 3조 원 이상의 투자는 산업 전반에 새로운 활력을 불어넣을 것입니다.</li>
+                        <li><strong>도전 과제:</strong> 2021년 기준 44.4%에 불과한 로봇 핵심 부품의 낮은 국산화율은 가격 경쟁력을 저해하는 고질적인 문제입니다. 정부는 2030년까지 이를 80%로 끌어올릴 계획이지만, 기술 격차 해소에는 시간이 필요합니다. 또한 높은 초기 투자 비용과 숙련된 운영 인력 부족은 중소기업의 도입을 가로막는 주요 장벽으로 남아있습니다.</li>
+                    </ul>
+                </div>
+    
+                <div class="keywords-section">
+                    <h2>핵심 키워드</h2>
+                    <ul>
+                        <li>
+                            <strong>협동 로봇 (코봇)</strong>
+                            <p>안전 펜스 없이 인간과 같은 공간에서 협업할 수 있는 로봇. 유연한 생산 라인 구축에 필수적.</p>
+                        </li>
+                        <li>
+                            <strong>스마트 팩토리</strong>
+                            <p>ICT 기술을 활용해 생산 전 과정이 자동화·지능화된 공장. 산업용 로봇 고도화의 목표.</p>
+                        </li>
+                         <li>
+                            <strong>로봇 밀도</strong>
+                            <p>제조업 근로자 1만 명당 로봇 대수. 국가의 자동화 수준을 보여주는 핵심 지표. 한국은 세계 1위.</p>
+                        </li>
+                        <li>
+                            <strong>디지털 트윈</strong>
+                            <p>현실의 공정을 가상 공간에 복제해 시뮬레이션 및 최적화를 수행하는 기술. 스마트 팩토리의 핵심.</p>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="visualization-section">
+                    <h2>글로벌 산업용 로봇 시장 규모 전망 (2022-2032년)</h2>
+                    <div class="chart-title">안정적이고 가파른 성장이 예상되는 핵심 산업</div>
+                     <div class="chart-container">
+                        <div class="line-chart-container">
+                            <svg id="aam-market-chart"></svg>
+                            <div id="aam-tooltip" class="tooltip"></div>
+                        </div>
+                    </div>
+                     <div class="legend">
+                        <div class="legend-item"><div class="legend-color" style="background-color: #85C1DC;"></div>글로벌 시장 (억 달러)</div>
+                    </div>
+                    <p class="chart-note">
+                        * 위 데이터는 보고서 내 '글로벌 산업용 로봇 시장 규모 및 예측'을 기반으로 작성되었습니다. (출처: Goover)<br>
+                        * 연평균 12.3%의 견조한 성장세를 보이며, 2030년을 넘어서도 지속적인 성장이 기대됩니다. 이는 전 세계적인 제조업 자동화 및 지능화 트렌드가 더욱 가속화될 것임을 시사합니다.
+                    </p>
+                </div>
+                
+                 <div class="comparison-table-section">
+                    <h2>국내 주요 산업용 로봇 기업 비교</h2>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>기업</th>
+                                <th>핵심 역량 / 전략적 초점</th>
+                                <th>주요 기술 / 제품</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>현대로보틱스</td>
+                                <td><strong>제조 기반 및 라인업:</strong> 국내 시장 1위, 그룹사 연계, 고하중 로봇</td>
+                                <td>산업용 다관절 로봇, 용접/핸들링 솔루션, 소프트웨어 플랫폼 확장</td>
+                            </tr>
+                            <tr>
+                                <td>두산로보틱스</td>
+                                <td><strong>솔루션 및 생태계:</strong> 협동로봇 강자, AI 솔루션 전환, 글로벌 빅테크 협력</td>
+                                <td>협동 로봇, AI 비전 솔루션, Voice to Real, Sim to Real</td>
+                            </tr>
+                            <tr>
+                                <td>레인보우로보틱스</td>
+                                <td><strong>핵심 기술 내재화:</strong> 부품부터 완제품까지, 삼성 투자 기반 차세대 기술</td>
+                                <td>협동 로봇, 이족/사족보행 로봇, 휴머노이드 플랫폼 'HUBO'</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                 </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <section id="page-4" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>💡 로봇 산업 분석: 참고 자료 및 심화 학습</h1>
+            </div>
+    
+            <div class="main-content-section">
+                <p class="intro-text">
+                    본 보고서에서 심층 분석한 '서비스 로봇'과 '산업용 로봇(스마트 팩토리)' 이슈와 관련하여 더 깊이 학습하거나 참고할 수 있는 신뢰도 높은 외부 전문 자료들을 정리했습니다.
+                </p>
+    
+                <h2>🔍 심층 분석 주제별 추천 자료</h2>
+                <div class="card-grid">
+                    <div class="info-card">
+                        <h3>[산업 통계] IFR World Robotics 2024</h3>
+                        <p>국제로봇연맹(IFR)의 연례 보고서. 전 세계 산업용/서비스 로봇 시장의 최신 통계, 동향, 국가별 로봇 밀도 등 가장 권위 있는 데이터를 제공합니다.</p>
+                        <a href="https://ifr.org/worldrobotics" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[정부 계획] 제4차 지능형 로봇 기본계획</h3>
+                        <p>산업통상자원부가 발표한 중장기 로봇 산업 육성 전략. 국내 로봇 산업의 비전, 3조원 투자 계획, 인력 양성 등 정부 정책의 방향성을 파악할 수 있습니다.</p>
+                        <a href="https://www.motie.go.kr/kor/article/ATCLf724eb567/211979/view" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[기술 동향] KEIT 이슈픽: 휴머노이드와 AI 자율제조</h3>
+                        <p>한국산업기술평가관리원(KEIT)의 심층 보고서. 휴머노이드 로봇과 AI 기반 자율제조 기술의 최신 동향과 산업적 파급 효과를 전문적으로 분석합니다.</p>
+                        <a href="https://www.pacst.go.kr/jsp/board/boardView.jsp?post_id=2744&board_id=6" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[시장 분석] 전문 서비스 로봇 시장 보고서</h3>
+                        <p>글로벌 시장조사기관의 보고서로, 서비스 로봇 시장 규모, 유형별 성장률 예측(의료, 물류 등), 주요 플레이어 분석 등 상세한 시장 데이터를 제공합니다.</p>
+                        <a href="https://www.edaily.co.kr/News/Read?newsId=04696966642166624&mediaCodeNo=257" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>[정부 사업] 스마트 제조혁신 지원사업 공고</h3>
+                        <p>중소벤처기업부의 스마트 팩토리 보급 및 로봇 도입 지원 정책의 구체적인 내용과 지원 규모, 신청 자격 등을 확인할 수 있는 원문 자료입니다.</p>
+                        <a href="https://www.mss.go.kr/common/board/Download.do?bcIdx=1053672&cbIdx=310&streFileNm=b04984a9-83ea-4486-92a0-94bc11192cd4.pdf" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>[R&D 현황] ETRI Conference 2025</h3>
+                        <p>한국전자통신연구원(ETRI)의 연례 기술 컨퍼런스. AI 로봇, HRI, 디지털 트윈 등 국내 최고 수준의 로봇 및 AI 관련 최신 연구 동향을 파악할 수 있습니다.</p>
+                        <a href="https://etri-conference.org/" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                </div>
+    
+                <h2>📰 로봇 산업 연관 산업 주요 이슈</h2>
+                <div class="card-grid">
+                    <div class="info-card">
+                        <h3>물류: 배달 로봇 '딜리'의 서비스 확장</h3>
+                        <p>우아한형제들의 배달 로봇 서비스 확대는 라스트마일 배송 분야의 자동화 트렌드와 로봇을 통한 인력난 해소 및 서비스 경쟁력 강화 이슈를 보여줍니다.</p>
+                        <a href="https://www.yna.co.kr/view/AKR20250623023400030" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>AI/소프트웨어: 유통 산업의 AI 전환</h3>
+                        <p>유통 산업의 AI 전환은 로봇 운영체제, AI 알고리즘, 클라우드 로봇 등 소프트웨어 기술 수요를 폭발적으로 증가시켜 관련 기업에 새로운 기회를 제공합니다.</p>
+                        <a href="https://contents.premium.naver.com/themiilk/business/contents/250616182428908lg" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>산업 자동화: 두산의 '지능형 로봇 솔루션'</h3>
+                        <p>두산로보틱스의 AI 기반 솔루션으로의 사업 전환은 산업 자동화 시장이 하드웨어 공급을 넘어 고부가가치 소프트웨어 통합으로 진화하고 있음을 보여줍니다.</p>
+                        <a href="https://www.mtnews.net/news/articleView.html?idxno=21987" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>반도체: 삼성의 AI 로봇 사업 가속화</h3>
+                        <p>삼성전자의 로봇 사업 본격화는 휴머노이드 등 고도화된 로봇 구동에 필수적인 고성능 AI 칩 및 제어용 반도체 수요 급증을 예고하며 반도체 산업에 새로운 성장 동력을 제공합니다.</p>
+                        <a href="https://news.dealsitetv.com/articles/129374" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>헬스케어: 의료 로봇 시장의 높은 성장률</h3>
+                        <p>전문 서비스 로봇 시장에서 의료/헬스케어 분야가 가장 높은 성장률을 보이는 것은, 수술, 재활, 돌봄 등에서 로봇 기술을 통한 혁신이 가속화될 것임을 나타냅니다.</p>
+                        <a href="https://www.edaily.co.kr/News/Read?newsId=04696966642166624&mediaCodeNo=257" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>스마트 팩토리: 중기부의 제조혁신 지원</h3>
+                        <p>중소벤처기업부의 지원 사업은 스마트 팩토리 솔루션, 자동화 설비, 시스템 통합(SI) 기업 등 관련 산업 생태계 전반의 동반 성장을 견인합니다.</p>
+                        <a href="https://www.mss.go.kr/common/board/Download.do?bcIdx=1053672&cbIdx=310&streFileNm=b04984a9-83ea-4486-92a0-94bc11192cd4.pdf" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                </div>
+    
+                <div class="conclusion-box">
+                    <h2>마무리하며:</h2>
+                    <p>
+                        2025년 대한민국 로봇 산업은 'AI 기반 지능화'라는 엔진을 장착하고 '서비스 로봇'이라는 새로운 항로를 개척하고 있습니다. 산업 현장에서는 스마트 팩토리 고도화를 통해 제조업의 패러다임을 바꾸고 있으며, 일상에서는 배달, 서빙, 돌봄 로봇이 삶의 질을 높이고 있습니다. 낮은 부품 국산화율, 전문 인력 부족 등 해결해야 할 과제도 분명하지만, 정부의 강력한 육성 의지와 민간의 과감한 투자가 결합하여 대한민국이 로봇 강국으로 도약할 수 있는 중요한 전환점을 맞이하고 있습니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Industrial Robot Market Line Chart (Page 3)
+            const data = [
+                { year: 2022, value: 167.8 },
+                { year: 2026, value: 289.0 }, // Interpolated value for better curve
+                { year: 2030, value: 410.2 },
+                { year: 2032, value: 1929.1 } // Note: This is a long-term projection and causes a steep jump. Let's cap the Y-axis for better visualization of the mid-term trend and represent the 2032 value differently if possible. Let's plot it as is to show the explosive potential.
+            ];
+
+            const svgElement = document.getElementById("aam-market-chart");
+            if (svgElement) {
+                const svg = d3.select(svgElement);
+                const tooltip = d3.select("#aam-tooltip");
+                
+                const width = svgElement.clientWidth;
+                const height = svgElement.clientHeight;
+                const margin = { top: 20, right: 30, bottom: 40, left: 60 }; // Increased left margin for larger numbers
+
+                const x = d3.scaleLinear()
+                    .domain(d3.extent(data, d => d.year))
+                    .range([margin.left, width - margin.right]);
+
+                const y = d3.scaleLinear()
+                    .domain([0, d3.max(data, d => d.value)]).nice()
+                    .range([height - margin.bottom, margin.top]);
+
+                // Axes
+                svg.append("g")
+                    .attr("transform", `translate(0,${height - margin.bottom})`)
+                    .call(d3.axisBottom(x).tickFormat(d3.format("d")).ticks(5))
+                    .selectAll("text")
+                    .style("font-family", "'Noto Sans KR', sans-serif")
+                    .style("font-size", "12px");
+                
+                svg.append("g")
+                    .attr("transform", `translate(${margin.left},0)`)
+                    .call(d3.axisLeft(y).ticks(5))
+                    .selectAll("text")
+                    .style("font-family", "'Noto Sans KR', sans-serif")
+                    .style("font-size", "12px");
+
+                // Grid lines
+                svg.append("g")
+                    .attr("class", "grid")
+                    .attr("transform", `translate(${margin.left},0)`)
+                    .call(d3.axisLeft(y).ticks(5).tickSize(-width + margin.left + margin.right).tickFormat(""))
+                    .selectAll(".tick line")
+                    .attr("stroke", "#e0e0e0")
+                    .attr("stroke-dasharray", "2,3");
+                
+                // Tooltip functions
+                const mouseover = (event, d) => {
+                    tooltip.style("opacity", 1);
+                };
+                const mousemove = (event, d) => {
+                    const [xPos, yPos] = d3.pointer(event, svg.node());
+                    tooltip
+                        .html(`<b>${d.year}년</b><br>${d.value.toFixed(1)} 억 달러`)
+                        .style("left", `${xPos + 15}px`)
+                        .style("top", `${yPos}px`)
+                        .style("transform", "translateY(-50%)");
+                };
+                const mouseleave = (event, d) => {
+                    tooltip.style("opacity", 0);
+                };
+
+                // Market Line
+                const line = d3.line()
+                    .x(d => x(d.year))
+                    .y(d => y(d.value))
+                    .curve(d3.curveMonotoneX); // To make the line smoother
+                
+                svg.append("path")
+                    .datum(data)
+                    .attr("fill", "none")
+                    .attr("stroke", "#85C1DC")
+                    .attr("stroke-width", 3)
+                    .attr("stroke-linecap", "round")
+                    .attr("stroke-linejoin", "round")
+                    .attr("d", line)
+                    .style("stroke-dasharray", "1000")
+                    .style("stroke-dashoffset", "1000")
+                    .transition()
+                    .duration(2000)
+                    .ease(d3.easeCubicOut)
+                    .style("stroke-dashoffset", 0);
+
+                // Data Points (for tooltips)
+                svg.selectAll("circle.data-point")
+                    .data(data)
+                    .enter()
+                    .append("circle")
+                    .attr("class", "data-point")
+                    .attr("cx", d => x(d.year))
+                    .attr("cy", d => y(d.value))
+                    .attr("r", 5)
+                    .attr("fill", "white")
+                    .attr("stroke", "#85C1DC")
+                    .attr("stroke-width", 2)
+                    .on("mouseover", mouseover)
+                    .on("mousemove", mousemove)
+                    .on("mouseleave", mouseleave);
+            }
+        });
+
+    </script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</body>
+</html>

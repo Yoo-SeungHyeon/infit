@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InFit - 조선/해양플랜트 산업 분석 통합 레포트</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 기본 스타일 */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #F8F8F8;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 페이지 섹션 공통 스타일 */
+        .page-section {
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* 1페이지 스타일 */
+        #page-1 {
+            background-color: #F8F8F8;
+        }
+
+        #page-1 .container {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        #page-1 .header-section {
+            background-color: #FFF9F2; /* Bubble Cream: 부드러운 크림 배경 */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem 2rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        #page-1 .whale-character {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            width: 80px;
+            height: 80px;
+            opacity: 0.9;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        #page-1 .whale-character:hover {
+            transform: scale(1.1) rotate(5deg);
+            opacity: 1;
+        }
+
+        #page-1 .header-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #85C1DC; /* Whale Sky: 차분한 하늘색 */
+            margin-bottom: 0.75rem;
+        }
+
+        #page-1 .header-section .slogan {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #4D5E70; /* Slate Ink: 읽기 좋은 어두운 그레이 */
+            margin-bottom: 1.5rem;
+        }
+
+        #page-1 .header-section .subtitle {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        #page-1 .card-news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid #E0E0E0;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            #page-1 .card-news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        #page-1 .card {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            overflow: hidden;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        #page-1 .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-1 .card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
+        #page-1 .card-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #4D5E70;
+            margin-bottom: 0.8rem;
+        }
+
+        #page-1 .card-summary {
+            font-size: 0.95rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        #page-1 .card-keywords {
+            font-size: 0.85rem;
+            color: #666;
+            font-weight: 500;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        #page-1 .card-keywords span {
+            background-color: #A8D8C7;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        #page-1 .section-title {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #85C1DC;
+            margin-bottom: 2rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            text-align: center;
+        }
+
+        #page-1 .keyword-section {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            padding: 25px;
+        }
+        
+        .keyword-analysis {
+            padding-bottom: 1.5rem;
+        }
+
+        #page-1 .keyword-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed #E0E0E0;
+        }
+
+        #page-1 .keyword-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        #page-1 .keyword-item h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70;
+            margin-bottom: 0.75rem;
+        }
+
+        #page-1 .keyword-item p {
+            font-size: 0.95em;
+            color: #444;
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+        
+        .visualization-container {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px dashed #E0E0E0;
+        }
+        .visualization-container h3 {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #85C1DC;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+
+        /* 2-4페이지 공통 레포트 스타일 */
+        .report-container {
+            width: 100%;
+            max-width: 960px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .header-section {
+            padding: 40px 30px;
+            text-align: center;
+            background-color: #FFF9F2;
+            border-bottom: 1px solid #A8D8C7;
+        }
+
+        .header-section h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .header-subtitle {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        .article-link {
+            font-size: 0.9em;
+            color: #F7A78F;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: 1px solid #A8D8C7;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .article-link:hover {
+            background-color: #F7A78F;
+            color: white;
+        }
+
+        .main-content-grid {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 25px;
+            padding: 30px;
+        }
+
+        .article-analysis-section, 
+        .keywords-section, 
+        .visualization-section {
+            background-color: #FFF9F2;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+        }
+        
+        .comparison-table-section {
+            background-color: #FFF9F2;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            grid-column: 1 / -1;
+            grid-row: 3;
+        }
+        
+        .comparison-table-section h2 {
+             font-size: 1.6em;
+            color: #85C1DC;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            font-weight: 700;
+        }
+
+        .article-analysis-section {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .keywords-section {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .visualization-section {
+            grid-column: 1 / -1;
+            grid-row: 2;
+        }
+
+        /* 레포트 공통 타이포그래피 */
+        #page-2 h2, #page-3 h2, #page-4 h2 {
+            font-size: 1.6em;
+            color: #85C1DC;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            font-weight: 700;
+        }
+
+        #page-2 p, #page-3 p, #page-4 p {
+            font-size: 0.95em;
+            line-height: 1.7;
+            margin-bottom: 1em;
+            color: #444;
+        }
+
+        #page-2 h3, #page-3 h3, #page-4 h3 {
+            font-size: 1.2em;
+            color: #4D5E70;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* 공통 리스트 스타일 */
+        .article-analysis-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 1em 0;
+        }
+
+        .article-analysis-section ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .article-analysis-section ul li::before {
+            content: '•';
+            color: #F7A78F;
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .keywords-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .keywords-section li {
+            margin-bottom: 15px;
+        }
+
+        .keywords-section li strong {
+            display: block;
+            font-size: 1.1em;
+            color: #4D5E70;
+            margin-bottom: 5px;
+        }
+
+        .keywords-section li p {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        /* 공통 시각화 스타일 */
+        .visualization-section {
+            text-align: center;
+        }
+
+        .visualization-section h2 {
+            font-size: 1.4em;
+        }
+
+        .chart-container {
+            margin-top: 20px;
+            padding: 25px 15px 15px 15px;
+            background-color: #F8F8F8;
+            border-radius: 8px;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .chart-title {
+            font-size: 1.1em;
+            color: #85C1DC;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .chart-note {
+            font-size: 0.8em;
+            color: #777;
+            margin-top: 30px;
+            text-align: left;
+            line-height: 1.5;
+            padding: 0 15px;
+        }
+        
+        /* 그룹형 막대그래프 스타일 (공통) */
+        .grouped-bar-chart {
+            display: flex;
+            justify-content: space-around;
+            height: 280px;
+            padding-top: 20px;
+            align-items: flex-end;
+        }
+        .bar-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            text-align: center;
+            height: 100%;
+            width: 30%;
+        }
+        .bar-pair {
+             display: flex;
+             align-items: flex-end;
+             height: 100%;
+             gap: 8px;
+             flex-grow: 1;
+             justify-content: center;
+        }
+        .bar-group .bar {
+            width: 40px;
+            position: relative;
+            animation: grow-bar 1.2s ease-out forwards;
+            transition: background-color 0.3s ease;
+        }
+        .bar-group .bar .bar-value {
+            position: absolute;
+            top: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #4D5E70;
+            white-space: nowrap;
+        }
+        .bar-group .group-label {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+        .legend {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 0 15px;
+        }
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            margin-right: 8px;
+            border-radius: 3px;
+        }
+
+        /* 가로 막대그래프 스타일 (공통) */
+        @keyframes fill-bar {
+            from { width: 0; }
+        }
+        .horizontal-bar-chart {
+            padding-top: 10px;
+            max-width: 500px; /* 차트의 최대 너비를 제한 */
+            margin: 0 auto; /* 차트를 부모 요소 안에서 중앙 정렬 */
+        }
+        .horizontal-bar-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        .horizontal-bar-label {
+            width: 120px; /* 레이블 너비 조정 */
+            text-align: right;
+            padding-right: 15px;
+            font-weight: 600;
+            color: #4D5E70;
+            flex-shrink: 0;
+        }
+        .horizontal-bar-wrapper {
+            flex-grow: 1;
+            background-color: #e9e9e9;
+            border-radius: 5px;
+            height: 30px;
+        }
+        .horizontal-bar-fill {
+            height: 100%;
+            background-color: #85C1DC;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+            padding-left: 10px;
+            box-sizing: border-box;
+            animation: fill-bar 1.2s ease-out forwards;
+            width: var(--bar-width, 0%);
+            white-space: nowrap;
+        }
+         .horizontal-bar-fill:hover {
+            background-color: #F7A78F;
+        }
+
+
+        /* 4페이지 특화 스타일 */
+        #page-4 .main-content-section {
+            padding: 30px;
+        }
+
+        #page-4 .intro-text {
+            font-size: 1.1em;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        #page-4 .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        #page-4 .info-card {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            padding: 1.5rem;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #page-4 .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-4 .info-card h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70;
+            margin-bottom: 0.75rem;
+            margin-top: 0;
+        }
+
+        #page-4 .info-card p {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        #page-4 .info-card a {
+            color: #F7A78F;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            display: block;
+            margin-top: auto;
+        }
+
+        #page-4 .conclusion-box {
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            border: 1px solid #A8D8C7;
+        }
+
+        #page-4 .conclusion-box h2 {
+            font-size: 1.4em;
+            color: #4D5E70;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        #page-4 .conclusion-box p {
+            color: #333;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* 애니메이션 공통 */
+        @keyframes grow-bar {
+            from { height: 0; }
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .page-section {
+                padding: 10px;
+            }
+            
+            #page-1 .container {
+                padding: 1rem;
+            }
+            
+            #page-1 .card-news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #page-1 .whale-character {
+                width: 60px;
+                height: 60px;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .main-content-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+                padding: 20px;
+            }
+            
+            .article-analysis-section,
+            .keywords-section,
+            .visualization-section,
+            .comparison-table-section {
+                grid-column: 1 / -1;
+                grid-row: auto;
+            }
+
+            #page-4 .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #page-4 .main-content-section {
+                padding: 20px;
+            }
+            
+            .bar-group .bar {
+                width: 30px;
+            }
+
+            .split-chart-group .bar {
+                width: 30px;
+            }
+
+            /* 모바일 차트 스타일 */
+            .horizontal-bar-label {
+                width: 100px;
+                font-size: 0.9em;
+            }
+            
+            /* 비교 테이블 모바일 스타일 */
+            .comparison-table {
+                font-size: 0.8em;
+            }
+            .comparison-table th, .comparison-table td {
+                padding: 8px;
+            }
+        }
+
+        /* Line Chart Specific Styles (for Page 3) */
+        @keyframes draw-line {
+            to { stroke-dashoffset: 0; }
+        }
+        .line-chart-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            padding-top: 20px;
+        }
+        .line-chart-container svg {
+            width: 100%;
+            height: 100%;
+            overflow: visible; /* Prevent clipping of points/tooltips */
+        }
+        .line-chart-container .grid-line {
+            stroke: #e0e0e0;
+            stroke-dasharray: 2, 3;
+        }
+        .line-chart-container .axis-line {
+            stroke: #ccc;
+            stroke-width: 1px;
+        }
+        .line-chart-container .axis-text {
+            font-size: 0.85em;
+            fill: #666;
+        }
+        .line-chart-container .line-path {
+            fill: none;
+            stroke-width: 3px;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw-line 2s ease-out forwards;
+        }
+        .line-chart-container .data-point {
+            r: 5;
+            fill: white;
+            stroke-width: 2;
+            transition: r 0.2s ease, fill 0.2s ease;
+            cursor: pointer;
+        }
+        .line-chart-container .data-point:hover {
+            r: 7;
+        }
+        .line-chart-container .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.75);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s, transform 0.2s;
+            white-space: nowrap;
+        }
+
+        /* Comparison Table Specific Styles (for Page 3) */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #A8D8C7;
+            padding: 12px;
+            text-align: left;
+            font-size: 0.9em;
+            color: #444;
+        }
+        .comparison-table thead th {
+            background-color: #f2f9f6;
+            color: #4D5E70;
+            font-weight: 700;
+            text-align: center;
+        }
+        .comparison-table tbody tr:nth-child(even) {
+            background-color: #fafdfc;
+        }
+        .comparison-table tbody tr:hover {
+            background-color: #e8f5f0;
+        }
+        .comparison-table td:first-child {
+            font-weight: 600;
+            color: #4D5E70;
+            width: 30%; /* Adjusted width */
+        }
+
+        /* Specific fix for chart 1 text wrapping */
+        #page-1 .bar-group .bar-value,
+        #page-1 .bar-group .group-label {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <section id="page-1" class="page-section">
+        <div class="container">
+            <header class="header-section">
+                <img src="../infit_logo.png" alt="InFit 캐릭터" class="whale-character">
+                <h1>K-Shipbuilding Triumph</h1>
+                <p class="slogan">탈탄소와 디지털, 두 개의 엔진으로 미래를 건조하다</p>
+                <p class="subtitle">
+                    <span style="font-weight: 600;">조선/해양플랜트 산업 분석 보고서 (2025년 6월 4주차)</span><br>기술 초격차로 이끄는 패러다임 전환의 항해
+                </p>
+            </header>
+
+            <section>
+                <h2 class="section-title">주간 조선/해양플랜트 핵심 동향 요약</h2>
+                <div class="card-news-grid">
+                    <div class="card">
+                        <a href="https://www.businesspost.co.kr/BP?command=article_view&num=400946" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">HD한국조선해양, 1.4조원 규모 LNG 운반선 4척 수주 성공</h3>
+                            <p class="card-summary">
+                                HD한국조선해양이 오세아니아 선사로부터 1.4조원 규모의 LNG 운반선 4척을 수주하며, 연간 목표의 58.2%를 상반기에 달성했습니다. 척당 3,500억 원의 높은 선가는 수익성 중심의 '고부가가치 선별 수주' 전략이 성공적으로 작동하고 있음을 증명합니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#LNG운반선</span> <span>#고부가가치</span> <span>#선별수주</span> <span>#수익성</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://biz.chosun.com/industry/company/2025/06/23/6AUNUXOOUNBI5N2YIXJAMC5WQU/" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">HD현대, 세계 최초 중형 암모니아 추진선 상용화 임박</h3>
+                            <p class="card-summary">
+                                HD현대미포가 건조 중인 암모니아 추진선에 세계 최초로 개발된 암모니아 이중연료(DF) 엔진이 성공적으로 탑재되었습니다. 이는 R&D 단계를 넘어 미래 친환경 선박 시장의 상용화를 알리는 역사적 이정표로, 기술 표준 선점의 기반이 될 것입니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#암모니아추진선</span> <span>#세계최초</span> <span>#친환경선박</span> <span>#상용화</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://www.shippingnewsnet.com/news/articleView.html?idxno=65433" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">정부, '자율운항선박 실증 및 안전성 평가 사업' 본격화</h3>
+                            <p class="card-summary">
+                                세계 최초 '자율운항선박법' 시행에 이어, 정부가 민간 기업의 기술 실증 및 상용화를 위한 구체적인 지원 절차에 착수했습니다. 이는 기술 개발과 상용화 사이의 '죽음의 계곡'을 극복하고, 한국이 미래 시장의 '규칙 제정자'로 자리매김하기 위한 전략입니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#자율운항선박</span> <span>#정부지원</span> <span>#상용화</span> <span>#규제혁신</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://biz.chosun.com/industry/company/2024/09/23/HY35Z52KGZACNLW6FZSSBQ3YMQ/" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">조선-철강업계, 하반기 후판 가격 협상 난항</h3>
+                            <p class="card-summary">
+                                선박 원가의 20%를 차지하는 후판 가격을 두고 조선업계와 철강업계의 협상이 난항을 겪고 있습니다. 이 갈등은 수주 호황의 최종 수익성을 결정하는 핵심 변수이자, 전후방 산업 생태계의 구조적 문제를 드러내는 중요한 이슈입니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#후판</span> <span>#원자재</span> <span>#수익성</span> <span>#산업생태계</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="keyword-section">
+                <h2 class="section-title">핵심 키워드 분석: 고부가가치 선별 수주</h2>
+                <div class="keyword-analysis">
+                    <div class="keyword-item">
+                        <h3>1. 정의 및 중요성</h3>
+                        <p>
+                            '고부가가치 선별 수주'는 단순히 많은 선박을 계약하는 양적 경쟁에서 벗어나, 기술 난이도가 높고 척당 가격이 월등히 비싼 선박에 집중하는 질적 성장 전략입니다. LNG 운반선, 차세대 친환경 연료 추진선 등이 대표적입니다. 국내 조선 3사가 약 4년치의 풍부한 수주잔고를 확보한 덕분에, 이제는 무리한 저가 수주 대신 선주와의 협상에서 우위를 점하며 수익성을 극대화할 수 있게 되었습니다. 이는 막대한 내수 물량을 바탕으로 저가 공세를 펼치는 중국 조선업에 효과적으로 대응하고, K-조선만의 프리미엄 시장을 구축하는 핵심 생존 전략입니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>2. 기술적 맥락</h3>
+                        <p>
+                            고부가가치 선박의 가격 프리미엄은 모방하기 어려운 '초격차 기술'에서 나옵니다. 친환경 기술 측면에서는 LNG를 영하 163℃ 극저온으로 운송하는 화물창 기술, 독성 제어가 핵심인 암모니아 연료공급 시스템 등이 높은 기술 장벽을 형성합니다. 디지털 기술 측면에서는 AI가 최적 항로를 추천하는 자율운항 시스템, 현실 선박을 가상에 복제하는 디지털 트윈 기술 등이 선박의 운영 효율을 획기적으로 높입니다. 이러한 기술력은 선주에게 단순한 선박을 넘어 '종합 운항 솔루션'이라는 추가 가치를 제공하며, 이는 신조선가에 직접 반영됩니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>3. 시장/산업적 영향</h3>
+                        <p>
+                            이 전략은 국내 조선사들의 포트폴리오 차별화를 이끌고 있습니다. HD한국조선해양은 LNG선 등 주력 선종에서 압도적 실적을 내고 있으며, 삼성중공업과 한화오션은 하반기 FLNG 등 초대형 해양플랜트 수주를 노리고 있습니다. 이 전략은 글로벌 신조선가 상승을 견인하는 핵심 동력으로, 국내 조선사들의 실적 개선으로 직결되고 있습니다. 또한, 고압·극저온 밸브, 특수 단열재 등 고부가가치 기자재 수요를 폭발적으로 증가시켜 관련 기술을 보유한 국내 중소·중견 기업에게 동반 성장의 기회를 제공하며 산업 생태계 전반의 경쟁력을 강화하고 있습니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>4. 사회적/경제적 파급 효과</h3>
+                        <p>
+                           고부가가치 선박은 척당 수천억 원에 달해 국가 수출 증대에 크게 기여하며, 경남, 울산 등 조선업 밀집 지역 경제를 활성화합니다. 또한 고난도 기술을 요구하는 만큼, 고숙련 용접공, 특수 배관공 등 양질의 일자리를 창출하는 긍정적 측면이 있습니다. 하지만 동시에 숙련 인력 부족 문제를 심화시켜 체계적인 인력 양성 정책의 필요성을 제기하기도 합니다. 더 나아가, LNG, 암모니아 등 미래 에너지 자원 운송선을 국내 기술로 건조하고 운영하는 것은 글로벌 에너지 공급망의 불확실성이 커지는 상황에서 국가 에너지 안보를 확보하는 중요한 전략적 가치를 지닙니다.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="visualization-container">
+                    <h3>📊 2025년 상반기 국내 조선 3사 수주 실적 비교</h3>
+                    <div class="chart-container">
+                        <div class="grouped-bar-chart">
+                            <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 100%; background-color: #85C1DC;"><span class="bar-value">180.5억$</span></div>
+                                    <div class="bar" style="height: 58.2%; background-color: #A8D8C7;"><span class="bar-value">105억$</span></div>
+                                </div>
+                                <div class="group-label">HD한국조선해양</div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 52.6%; background-color: #85C1DC;"><span class="bar-value">95억$</span></div>
+                                    <div class="bar" style="height: 21.0%; background-color: #A8D8C7;"><span class="bar-value">38억$</span></div>
+                                </div>
+                                <div class="group-label">삼성중공업</div>
+                            </div>
+                             <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 55.4%; background-color: #85C1DC;"><span class="bar-value">100억$</span></div>
+                                    <div class="bar" style="height: 16.6%; background-color: #A8D8C7;"><span class="bar-value">30억$</span></div>
+                                </div>
+                                <div class="group-label">한화오션</div>
+                            </div>
+                        </div>
+                        <div class="legend">
+                            <div class="legend-item"><div class="legend-color" style="background-color: #85C1DC;"></div>연간 수주 목표</div>
+                            <div class="legend-item"><div class="legend-color" style="background-color: #A8D8C7;"></div>상반기 누적 수주액</div>
+                        </div>
+                         <p class="chart-note">
+                            * 위 데이터는 보고서 내 '2025년 상반기 국내 조선 3사 수주 실적 및 목표 달성률 비교' 테이블을 기반으로 재구성되었습니다.<br>
+                            * HD한국조선해양이 압도적인 실적으로 목표의 절반 이상을 달성하며 순항 중인 반면, 삼성중공업과 한화오션은 하반기 대형 프로젝트 수주를 통해 실적 만회를 노리는 전략을 취하고 있음을 보여줍니다.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <section id="page-2" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>심층 분석 1: 친환경 선박 시장의 확대와 기술 선점 경쟁</h1>
+                <div class="header-subtitle">발행일: 2025년 6월 4주차</div>
+                <a href="https://www.mof.go.kr/doc/ko/selectDoc.do?docSeq=60244&menuSeq=1067&bbsSeq=81" target="_blank" class="article-link" rel="noopener noreferrer">관련 보고서: 2025년 친환경선박 보급 시행계획</a>
+            </div>
+    
+            <div class="main-content-grid">
+                <div class="article-analysis-section">
+                    <h2>분석: 규제가 창출한 거대한 전환, '탈탄소' 항해의 선두는?</h2>
+                    <p>국제해사기구(IMO)가 2050년 해운 산업 '넷제로'라는 야심 찬 목표를 설정하면서, 조선업의 핵심 경쟁력은 '가격'에서 '친환경 기술력'으로 완전히 이동했습니다. 특히 2027년부터 유력한 선박 탄소세 도입은 전 세계 선주들에게 노후 선박을 친환경 선박으로 교체해야 하는 강력하고 직접적인 동기를 부여하고 있습니다. 이는 단순한 규제 강화를 넘어, 수십 년에 걸친 거대한 '선박 교체 사이클'의 시작을 의미하며, 이 전환 시장을 선점하는 것이 K-조선의 미래 성장성을 담보하는 최우선 과제가 되었습니다. 현재 시장은 다양한 대체 연료들이 기술 성숙도와 인프라 구축 수준에 따라 각축을 벌이는 양상이며, 국내 조선 3사는 각 연료 분야에서 선도적인 기술 로드맵을 통해 시장을 주도하고 있습니다. 한국은 기술력과 신뢰도에서 중국 등 경쟁국을 압도하고 있으며, 이는 'First Mover'로서 미래 시장의 기술 표준과 초기 시장을 독점할 강력한 기반이 되고 있습니다. 정부 역시 K-조선 초격차 비전과 막대한 R&D 투자를 통해 이러한 전환을 적극 지원하며 위기를 기회로 바꾸고 있습니다.</p>
+                    
+                    <h3>주요 연료별 기술 동향 및 K-조선 전략</h3>
+                    <ul>
+                        <li><strong>LNG (상용화 단계):</strong> 현재 가장 현실적인 대안으로, 2025년 신규 발주 시장의 60% 이상을 차지할 전망입니다. 국내 조선 3사 모두 이 분야에서 압도적인 건조 경험과 세계 최고의 기술력으로 글로벌 시장을 석권하고 있습니다.</li>
+                        <li><strong>메탄올 (상용화 초기):</strong> 상온 저장이 용이해 컨테이너선을 중심으로 빠르게 시장을 확대하고 있습니다. HD현대가 세계 최초로 초대형 메탄올 추진선을 인도하며 상용화의 포문을 열었고, HMM 등 국내 선사들도 발주를 이어가고 있습니다.</li>
+                        <li><strong>암모니아 (상용화 직전):</strong> 연소 시 탄소를 배출하지 않는 '무탄소 연료'로, 탈탄소 시대의 유력한 최종 해결책으로 꼽힙니다. HD현대가 세계 최초로 암모니아 추진선의 상용화 단계에 진입하며, K-조선의 초격차 기술력을 전 세계에 각인시켰습니다.</li>
+                        <li><strong>수소 (기술 개발 단계):</strong> 궁극의 친환경 연료지만 기술적 난제가 많습니다. 삼성중공업이 액화수소 운반선의 핵심인 화물창 기술을 독자 개발하는 등 미래 수소 운송 시장의 기술 표준을 선점하기 위한 경쟁에 나서고 있습니다.</li>
+                    </ul>
+    
+                    <h3>기회와 도전 과제</h3>
+                    <ul>
+                        <li><strong>기회:</strong> 친환경 선박으로의 전환은 국내 조선 산업의 포트폴리오를 고부가가치 중심으로 재편하고, 관련 기자재 산업의 동반 성장을 이끄는 선순환 구조를 만들고 있습니다.</li>
+                        <li><strong>도전 과제:</strong> 선박 기술이 완성되더라도 그린 암모니아/수소 등 연료의 대규모 생산 및 글로벌 공급망이 아직 불확실합니다. 또한 다양한 대체 연료 기술 중 어떤 것이 미래 주류가 될지 모르는 상황에서 특정 기술에 대한 과잉 투자는 '좌초자산' 리스크를 내포하고 있습니다.</li>
+                    </ul>
+                </div>
+    
+                <div class="keywords-section">
+                    <h2>핵심 키워드</h2>
+                    <ul>
+                        <li>
+                            <strong>탈탄소화</strong>
+                            <p>경제 및 산업 활동에서 발생하는 탄소 배출량을 '0'으로 줄이는 과정. IMO의 넷제로 목표가 핵심 동인.</p>
+                        </li>
+                        <li>
+                            <strong>암모니아 추진선</strong>
+                            <p>연소 시 이산화탄소를 배출하지 않는 무수 암모니아를 연료로 사용하는 선박. 유력한 무탄소 선박 후보 기술.</p>
+                        </li>
+                        <li>
+                            <strong>이중연료(DF)선</strong>
+                            <p>전통 연료와 LNG, 메탄올 등 친환경 연료를 모두 사용할 수 있는 엔진을 탑재한 선박. 연료 공급 유연성을 확보.</p>
+                        </li>
+                         <li>
+                            <strong>IMO 규제</strong>
+                            <p>선박의 탄소 배출을 규제하는 국제해사기구의 규칙. EEDI, CII, 탄소세 등이 있으며 친환경 선박 발주를 촉진.</p>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="visualization-section">
+                    <h2>글로벌 친환경 선박 연료별 수주 비중 변화</h2>
+                    <div class="chart-title">LNG 주도 속 차세대 연료의 부상</div>
+                     <div class="chart-container">
+                        <div class="grouped-bar-chart">
+                             <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 73.3%; background-color: #85C1DC;"><span class="bar-value">55%</span></div>
+                                    <div class="bar" style="height: 80.0%; background-color: #A8D8C7;"><span class="bar-value">60%</span></div>
+                                </div>
+                                <div class="group-label">LNG</div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 10.7%; background-color: #85C1DC;"><span class="bar-value">8%</span></div>
+                                    <div class="bar" style="height: 16.0%; background-color: #A8D8C7;"><span class="bar-value">12%</span></div>
+                                </div>
+                                <div class="group-label">메탄올</div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 1.3%; background-color: #85C1DC;"><span class="bar-value">&lt;1%</span></div>
+                                    <div class="bar" style="height: 2.7%; background-color: #A8D8C7;"><span class="bar-value">2%</span></div>
+                                </div>
+                                <div class="group-label">암모니아</div>
+                            </div>
+                             <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 38.7%; background-color: #85C1DC;"><span class="bar-value">29%</span></div>
+                                    <div class="bar" style="height: 25.3%; background-color: #A8D8C7;"><span class="bar-value">19%</span></div>
+                                </div>
+                                <div class="group-label">전통 연료</div>
+                            </div>
+                        </div>
+                        <div class="legend">
+                            <div class="legend-item"><div class="legend-color" style="background-color: #85C1DC;"></div>2023년 비중</div>
+                            <div class="legend-item"><div class="legend-color" style="background-color: #A8D8C7;"></div>2025년 H1 비중(추정)</div>
+                        </div>
+                    </div>
+                    <p class="chart-note">
+                        * 위 데이터는 보고서 내 '글로벌 친환경 선박 연료별 수주 비중 변화 추이' 테이블을 기반으로 작성되었습니다.<br>
+                        * LNG가 여전히 시장을 주도하는 가운데, 메탄올의 비중이 눈에 띄게 증가하고 있으며 암모니아 역시 점유율을 확보하기 시작했습니다. 반면, 전통 연료의 비중은 감소 추세가 뚜렷해, 시장의 패러다임이 친환경으로 빠르게 전환되고 있음을 보여줍니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="page-3" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>심층 분석 2: 스마트 선박 및 자율운항 기술 발전과 조선 산업의 미래</h1>
+                <div class="header-subtitle">발행일: 2025년 6월 4주차</div>
+                <a href="https://www.law.go.kr/lsInfoP.do?lsiSeq=257803" target="_blank" class="article-link" rel="noopener noreferrer">관련 법률: 자율운항선박 개발 및 상용화 촉진에 관한 법률</a>
+            </div>
+    
+            <div class="main-content-grid">
+                <div class="article-analysis-section">
+                    <h2>분석: 선박이 '움직이는 데이터 플랫폼'으로 진화하다</h2>
+                    <p>조선 산업의 디지털 전환은 단순히 운항을 자동화하는 것을 넘어, 선박을 데이터의 생성, 수집, 분석, 활용이 실시간으로 이루어지는 '움직이는 데이터 플랫폼'으로 근본적으로 변모시키는 과정입니다. AI, 빅데이터, IoT, 디지털 트윈 기술이 융합된 스마트 선박은 해상 운송의 효율성과 안전성을 극대화할 뿐만 아니라, 조선업의 비즈니스 모델 자체를 전통적인 '하드웨어 제조업'에서 데이터 기반의 '종합 솔루션 서비스업'으로 확장시키는 거대한 게임 체인저입니다. 대한민국은 세계 최초로 '자율운항선박법'을 시행하고, 정부 주도 하에 기술 실증 및 안전성 평가 사업을 본격화하며 이 미래 시장을 선도하고 있습니다. 이는 민간 기업이 기술 개발의 불확실성을 해소하고 과감한 투자를 할 수 있는 '안전한 운동장'을 제공하며, 향후 글로벌 시장에서 한국 기술의 신뢰도를 확보하는 데 결정적인 역할을 할 것입니다. 현재 국내 조선 3사는 각자의 강점을 살린 독자적인 스마트십 플랫폼을 고도화하며 치열한 기술 경쟁을 벌이고 있습니다.</p>
+                    
+                    <h3>K-스마트십 플랫폼 경쟁 구도</h3>
+                    <ul>
+                        <li><strong>HD현대 (Hi-SDS):</strong> 운항 최적화, 기기 상태 진단, 온실가스 관리 등 선박 운용의 모든 기능을 통합한 '통합 스마트십 솔루션(ISS)'을 제공합니다. 육상 관제 플랫폼과 연동하여 선단 전체를 효율적으로 관리하는 기능이 강점입니다.</li>
+                        <li><strong>삼성중공업 (SVESSEL):</strong> 아마존웹서비스(AWS) 클라우드를 기반으로 선박의 전 생애주기 데이터를 안정적으로 관리합니다. 이를 바탕으로 AI 기반 고장 진단 및 원격 유지보수 지원 기능을 고도화하여 실질적인 운영 효율 개선 성과를 거두고 있습니다.</li>
+                        <li><strong>한화오션 (HS4):</strong> IMO의 탄소집약도(CII) 규제에 효과적으로 대응하는 '친환경 운항 솔루션'에 특화되어 있습니다. 탄소 배출량을 실시간 모니터링하고 최적의 운항 가이드를 제공하여 친환경과 경제성을 동시에 잡는 데 주력합니다.</li>
+                    </ul>
+    
+                    <h3>기회와 도전 과제</h3>
+                    <ul>
+                        <li><strong>기회:</strong> 선박 인도 후에도 유지보수, 데이터 분석, 소프트웨어 업그레이드 등 고부가가치 서비스를 제공하는 '애프터마켓' 창출이 가능합니다. 또한, 해양 사고의 약 80%가 인적 과실로 발생하므로 자율운항 기술은 안전성을 획기적으로 높일 수 있습니다.</li>
+                        <li><strong>도전 과제:</strong> 선박이 네트워크에 연결되면서 해킹 등 '사이버 보안' 위협에 노출됩니다. 또한 사고 발생 시 책임 소재를 가릴 '법적, 제도적 공백'이 상용화의 큰 걸림돌이며, 각기 다른 플랫폼 간의 '국제 표준화' 경쟁도 치열하게 전개될 것입니다.</li>
+                    </ul>
+                </div>
+    
+                <div class="keywords-section">
+                    <h2>핵심 키워드</h2>
+                    <ul>
+                        <li>
+                            <strong>스마트 선박</strong>
+                            <p>AI, IoT, 빅데이터 등 디지털 기술을 활용하여 운항 효율성, 안전성, 편의성을 극대화한 차세대 선박.</p>
+                        </li>
+                         <li>
+                            <strong>자율운항선박 (MASS)</strong>
+                            <p>사람의 개입 없이 또는 최소한의 개입으로 스스로 항해하는 선박. IMO는 개입 수준에 따라 4단계로 구분.</p>
+                        </li>
+                        <li>
+                            <strong>디지털 트윈</strong>
+                            <p>현실의 선박을 가상 공간에 동일하게 복제하여 시뮬레이션, 분석, 원격 제어 등에 활용하는 핵심 기술.</p>
+                        </li>
+                        <li>
+                            <strong>예방 정비</strong>
+                            <p>IoT 센서로 장비 데이터를 분석하여 고장이 발생하기 전에 미리 예측하고 정비하는 기술. 운항 안정성을 크게 향상.</p>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="visualization-section">
+                    <h2>스마트/자율운항 선박 시장 규모 전망 (2025-2032년)</h2>
+                    <div class="chart-title">연평균 10% 이상 성장하는 고부가가치 시장</div>
+                     <div class="chart-container">
+                        <div class="line-chart-container">
+                            <svg id="smartship-market-chart"></svg>
+                            <div id="smartship-tooltip" class="tooltip"></div>
+                        </div>
+                    </div>
+                     <div class="legend">
+                        <div class="legend-item"><div class="legend-color" style="background-color: #85C1DC;"></div>글로벌 시장 (억 달러)</div>
+                        <div class="legend-item"><div class="legend-color" style="background-color: #F7A78F;"></div>국내 시장 (조 원)</div>
+                    </div>
+                    <p class="chart-note">
+                        * 위 데이터는 보고서 내 '글로벌 및 국내 스마트/자율운항 선박 시장 규모 및 전망' 테이블을 기반으로 작성되었습니다.<br>
+                        * 글로벌 및 국내 시장 모두 꾸준한 성장이 예측되며, 특히 국내 시장의 연평균 성장률이 글로벌 평균을 상회할 것으로 전망됩니다. 이는 정부의 선도적인 정책 지원과 국내 조선 3사의 기술 경쟁력에 기인한 것으로 분석됩니다.
+                    </p>
+                </div>
+                
+                 <div class="comparison-table-section">
+                    <h2>국내 조선 3사 스마트십 플랫폼 비교</h2>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>플랫폼</th>
+                                <th>개발사</th>
+                                <th>핵심 특징 및 전략적 초점</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Hi-SDS (Hyundai intelligent-Digital Ship Solution)</td>
+                                <td>HD현대</td>
+                                <td><strong>통합 솔루션:</strong> 운항, 기기관리, 배출가스 등 모든 기능을 통합 제공하는 포괄적 플랫폼. 선단 관리 기능에 강점.</td>
+                            </tr>
+                            <tr>
+                                <td>SVESSEL</td>
+                                <td>삼성중공업</td>
+                                <td><strong>클라우드 및 AI:</strong> AWS 클라우드 기반의 안정적인 데이터 관리 및 AI 활용 고장 진단/원격 유지보수 기능에 특화.</td>
+                            </tr>
+                            <tr>
+                                <td>HS4 (Hanwha SmartShip Solution & Service)</td>
+                                <td>한화오션</td>
+                                <td><strong>친환경 운항 최적화:</strong> IMO 탄소집약도(CII) 규제 대응에 특화. 에너지 절감장치 연동을 통한 시너지 극대화.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                 </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <section id="page-4" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>💡 조선/해양플랜트 산업 분석: 참고 자료 및 심화 학습</h1>
+            </div>
+    
+            <div class="main-content-section">
+                <p class="intro-text">
+                    본 보고서에서 심층 분석한 '친환경 선박'과 '스마트 선박' 이슈와 관련하여 더 깊이 학습하거나 참고할 수 있는 신뢰도 높은 외부 전문 자료들을 정리했습니다.
+                </p>
+    
+                <h2>🔍 심층 분석 주제별 추천 자료</h2>
+                <div class="card-grid">
+                    <div class="info-card">
+                        <h3>[정부 계획] K-조선 초격차 비전 2040</h3>
+                        <p>2040년까지 대한민국 조선 산업이 나아갈 방향을 제시하는 정부의 공식 중장기 기술 로드맵. 친환경, 디지털 분야의 핵심 기술 청사진을 이해하는 데 필수적입니다.</p>
+                        <a href="https://www.korea.kr/news/policyNewsView.do?newsId=148930994" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[정부 정책] 2025년 친환경선박 보급 시행계획</h3>
+                        <p>정부의 연간 정책 방향, 금융 지원, 보조금 사업, 인프라 구축 계획 등 시장 참여자들이 활용할 수 있는 실질적인 지원책을 담은 공식 공고문입니다.</p>
+                        <a href="https://www.mof.go.kr/doc/ko/selectDoc.do?docSeq=60244&menuSeq=1067&bbsSeq=81" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[기술 표준] 자율운항선박 지침 (Guidance for Autonomous Ships)</h3>
+                        <p>한국선급(KR)이 제정한 자율운항선박의 설계, 건조, 시험, 인증에 대한 구체적인 기술 요구사항과 절차를 규정한 핵심 기술 문서입니다.</p>
+                        <a href="https://www.krs.co.kr/KRRules/KRRules2025/data/data_other/korean/%EC%9E%90%EC%9C%A8%EC%9A%B4%ED%95%AD%EC%84%A0%EB%B0%95%20%EC%A7%80%EC%B9%A8_2025.pdf" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[연구 보고서] 한국형 암모니아 연료 공급망 구축 전략</h3>
+                        <p>친환경 선박 시대의 핵심 과제인 암모니아 연료의 안정적 확보를 위한 국내 공급망(수입-저장-벙커링) 구축의 필요성과 정책 방향을 제시한 심층 연구 보고서입니다.</p>
+                        <a href="http://www.haesanews.com/news/articleView.html?idxno=139268" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>[기업 보고서] 2023 HD한국조선해양 통합보고서</h3>
+                        <p>기업의 ESG 경영 전략, 친환경 기술 개발 성과, 기후변화 대응 노력 등을 담고 있어, 기업 관점에서 산업 패러다임 변화에 어떻게 대응하는지 파악할 수 있습니다.</p>
+                        <a href="https://kind.krx.co.kr/external/2024/07/01/000336/20240627000560/2023%20HD%ED%95%9C%EA%B5%AD%EC%A1%B0%EC%84%A0%ED%95%B4%EC%96%91%20%ED%86%B5%ED%95%A9%EB%B3%B4%EA%B3%A0%EC%84%9C.pdf" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>[글로벌 동향] Nor-Shipping 기술 동향 보고서</h3>
+                        <p>선박해양플랜트연구소(KRISO)가 세계 3대 조선해양 박람회에서 발표된 최신 자율운항 및 친환경 선박 기술과 글로벌 경쟁 구도를 분석한 현장감 있는 자료입니다.</p>
+                        <a href="https://www.kriso.re.kr/menu.es?mid=a10403000000" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                </div>
+    
+                <h2>⛓️ 조선/해양플랜트 연관 산업 주요 이슈</h2>
+                <div class="card-grid">
+                    <div class="info-card">
+                        <h3>철강 산업: 후판 가격 협상</h3>
+                        <p>조선업 수익성과 직결되는 핵심 원자재인 후판 가격을 둘러싼 조선-철강업계의 역학 관계와 국내 산업 생태계의 상생 딜레마를 잘 보여주는 이슈입니다.</p>
+                        <a href="https://biz.chosun.com/industry/company/2024/09/23/HY35Z52KGZACNLW6FZSSBQ3YMQ/" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>기계/엔진 산업: 한화의 HSD엔진 인수</h3>
+                        <p>한화그룹의 선박 엔진 기업 인수가 차세대 친환경 엔진 개발 경쟁 구도에 미치는 영향을 분석합니다. 조선-엔진-방산으로 이어지는 그룹 차원의 시너지 전략을 보여줍니다.</p>
+                        <a href="https://www.kmi.re.kr/web/board/download.do?rbsIdx=304&idx=64&fidx=1" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>해운 산업: HMM의 친환경 투자</h3>
+                        <p>최대 고객인 글로벌 해운사의 친환경 선대 전환 계획과 대규모 투자 전략은 미래 선박 발주 시장의 방향성을 예측하는 중요한 단서를 제공합니다.</p>
+                        <a href="https://www.shippingnewsnet.com/news/articleView.html?idxno=61268" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>항만 산업: 스마트 항만 구축</h3>
+                        <p>친환경·스마트 선박이 제 기능을 발휘하기 위해 필수적인 육상 인프라(벙커링, 자동 하역 등) 구축에 대한 정부의 구체적인 계획을 담고 있습니다.</p>
+                        <a href="https://www.shippingnewsnet.com/news/articleView.html?idxno=62981" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>에너지 산업: 메탄올 공급망 구축</h3>
+                        <p>친환경 선박 보급의 선결 과제인 '연료 공급망' 구축을 위해 해운사, 에너지 기업, 종합상사가 국경을 넘어 협력하는 구체적인 사례입니다.</p>
+                        <a href="https://www.newspim.com/news/view/20230214000749" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>IT/소프트웨어 산업: 삼성중공업-AWS 협력</h3>
+                        <p>조선업이 글로벌 IT 기업과 협력하여 데이터 기반의 소프트웨어 및 서비스 산업으로 진화하는 디지털 전환의 구체적인 사례입니다.</p>
+                        <a href="https://zdnet.co.kr/view/?no=20210615115536" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                </div>
+    
+                <div class="conclusion-box">
+                    <h2>마무리하며:</h2>
+                    <p>
+                        2025년 대한민국 조선 산업은 '친환경'과 '디지털'이라는 두 개의 거대한 전환을 성공적으로 수행하며 글로벌 리더십을 재정의하고 있습니다. 현재의 핵심 수익원을 미래 기술에 재투자하는 '선순환 구조'를 확립했으며, 이는 기업, 정부, 후방 산업이 결합된 'K-Trinity' 모델에 의해 강력하게 뒷받침됩니다. 그러나 차세대 연료의 공급망 확보, 국제 표준화 선도, 사이버 보안, 숙련 인력 양성이라는 과제들을 성공적으로 해결할 때, K-조선은 누구도 넘볼 수 없는 '초격차' 지위를 유지하며 글로벌 해양 시대의 진정한 리더로 군림할 것입니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Smart Ship Market Line Chart (Page 3)
+            const data = [
+                { year: 2025, global: 950, domestic: 2.5 },
+                { year: 2030, global: 1500, domestic: 4.5 },
+                { year: 2032, global: 1805, domestic: 6.0 },
+            ];
+
+            const svgElement = document.getElementById("smartship-market-chart");
+            if (svgElement) {
+                const svg = d3.select(svgElement);
+                const tooltip = d3.select("#smartship-tooltip");
+                
+                const { width, height } = svgElement.getBoundingClientRect();
+                const margin = { top: 20, right: 30, bottom: 40, left: 60 };
+
+                // X Scale for Year
+                const x = d3.scaleLinear()
+                    .domain(d3.extent(data, d => d.year))
+                    .range([margin.left, width - margin.right]);
+                
+                // Y Scale for Global Market
+                const yGlobal = d3.scaleLinear()
+                    .domain([0, d3.max(data, d => d.global)]).nice()
+                    .range([height - margin.bottom, margin.top]);
+                    
+                // Y Scale for Domestic Market
+                const yDomestic = d3.scaleLinear()
+                    .domain([0, d3.max(data, d => d.domestic)]).nice()
+                    .range([height - margin.bottom, margin.top]);
+
+                // Axes
+                svg.append("g")
+                    .attr("transform", `translate(0,${height - margin.bottom})`)
+                    .call(d3.axisBottom(x).tickFormat(d3.format("d")).ticks(data.length))
+                    .selectAll("text")
+                    .style("font-family", "'Noto Sans KR', sans-serif")
+                    .style("font-size", "12px");
+                
+                // Global Y Axis
+                svg.append("g")
+                    .attr("transform", `translate(${margin.left},0)`)
+                    .call(d3.axisLeft(yGlobal).ticks(5))
+                    .selectAll("text")
+                    .style("font-family", "'Noto Sans KR', sans-serif")
+                    .style("font-size", "12px");
+                
+                // Domestic Y Axis (on the right) - for reference, though we plot on the same chart
+                // For simplicity, we'll use one grid and two lines, with tooltips providing specific values.
+
+                // Grid lines
+                svg.append("g")
+                    .attr("class", "grid")
+                    .attr("transform", `translate(${margin.left},0)`)
+                    .call(d3.axisLeft(yGlobal).ticks(5).tickSize(-width + margin.left + margin.right).tickFormat(""))
+                    .selectAll(".tick line")
+                    .attr("stroke", "#e0e0e0")
+                    .attr("stroke-dasharray", "2,3");
+                
+                // Tooltip functions
+                const mouseover = (event, d) => {
+                    tooltip.style("opacity", 1);
+                };
+                const mousemove = (event, d) => {
+                    const [xPos, yPos] = d3.pointer(event, svg.node());
+                    tooltip
+                        .html(`<b>${d.year}년</b><br>글로벌: ${d.global}억 $<br>국내: ${d.domestic}조 원`)
+                        .style("left", `${xPos + 15}px`)
+                        .style("top", `${yPos}px`)
+                        .style("transform", "translateY(-50%)");
+                };
+                const mouseleave = (event, d) => {
+                    tooltip.style("opacity", 0);
+                };
+
+                // Global Market Line
+                const lineGlobal = d3.line()
+                    .x(d => x(d.year))
+                    .y(d => yGlobal(d.global));
+                
+                svg.append("path")
+                    .datum(data)
+                    .attr("fill", "none")
+                    .attr("stroke", "#85C1DC")
+                    .attr("stroke-width", 3)
+                    .attr("class", "line-path")
+                    .attr("d", lineGlobal);
+
+                // Domestic Market Line
+                const lineDomestic = d3.line()
+                    .x(d => x(d.year))
+                    .y(d => yGlobal(d.domestic * 100)); // Rough scaling to fit on the same chart visual. Tooltip shows correct value.
+
+                svg.append("path")
+                    .datum(data)
+                    .attr("fill", "none")
+                    .attr("stroke", "#F7A78F")
+                    .attr("stroke-width", 3)
+                    .attr("class", "line-path")
+                    .style("animation-delay", "0.5s")
+                    .attr("d", lineDomestic);
+
+                // Data Points (for tooltips)
+                svg.selectAll("circle.global-point")
+                    .data(data)
+                    .enter()
+                    .append("circle")
+                    .attr("class", "data-point global-point")
+                    .attr("cx", d => x(d.year))
+                    .attr("cy", d => yGlobal(d.global))
+                    .attr("stroke", "#85C1DC")
+                    .on("mouseover", mouseover)
+                    .on("mousemove", mousemove)
+                    .on("mouseleave", mouseleave);
+
+                svg.selectAll("circle.domestic-point")
+                    .data(data)
+                    .enter()
+                    .append("circle")
+                    .attr("class", "data-point domestic-point")
+                    .attr("cx", d => x(d.year))
+                    .attr("cy", d => yGlobal(d.domestic * 100)) // Same scaling
+                    .attr("stroke", "#F7A78F")
+                    .on("mouseover", mouseover)
+                    .on("mousemove", mousemove)
+                    .on("mouseleave", mouseleave);
+            }
+        });
+
+    </script>
+</body>
+</html>

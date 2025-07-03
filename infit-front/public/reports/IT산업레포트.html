@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InFit - IT 산업 분석 통합 레포트</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 기본 스타일 */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #F8F8F8;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 페이지 섹션 공통 스타일 */
+        .page-section {
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* 1페이지 스타일 */
+        #page-1 {
+            background-color: #F8F8F8;
+        }
+
+        #page-1 .container {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        #page-1 .header-section {
+            background-color: #FFF9F2; /* Bubble Cream: 부드러운 크림 배경 */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem 2rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        #page-1 .whale-character {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            width: 80px;
+            height: 80px;
+            opacity: 0.9;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        #page-1 .whale-character:hover {
+            transform: scale(1.1) rotate(5deg);
+            opacity: 1;
+        }
+
+        #page-1 .header-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #85C1DC; /* Whale Sky: 차분한 하늘색 */
+            margin-bottom: 0.75rem;
+        }
+
+        #page-1 .header-section .slogan {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #4D5E70; /* Slate Ink: 읽기 좋은 어두운 그레이 */
+            margin-bottom: 1.5rem;
+        }
+
+        #page-1 .header-section .subtitle {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        #page-1 .card-news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid #E0E0E0;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            #page-1 .card-news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        #page-1 .card {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            overflow: hidden;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        #page-1 .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-1 .card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
+        #page-1 .card-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #4D5E70;
+            margin-bottom: 0.8rem;
+        }
+
+        #page-1 .card-summary {
+            font-size: 0.95rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        #page-1 .card-keywords {
+            font-size: 0.85rem;
+            color: #666;
+            font-weight: 500;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        #page-1 .card-keywords span {
+            background-color: #A8D8C7;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        #page-1 .section-title {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #85C1DC;
+            margin-bottom: 2rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            text-align: center;
+        }
+
+        #page-1 .keyword-section {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            padding: 25px;
+        }
+        
+        .keyword-analysis {
+            padding-bottom: 1.5rem;
+        }
+
+        #page-1 .keyword-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed #E0E0E0;
+        }
+
+        #page-1 .keyword-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        #page-1 .keyword-item h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70;
+            margin-bottom: 0.75rem;
+        }
+
+        #page-1 .keyword-item p {
+            font-size: 0.95em;
+            color: #444;
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+        
+        .visualization-container {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px dashed #E0E0E0;
+        }
+        .visualization-container h3 {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #85C1DC;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+
+        /* 2-4페이지 공통 레포트 스타일 */
+        .report-container {
+            width: 100%;
+            max-width: 960px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .header-section {
+            padding: 40px 30px;
+            text-align: center;
+            background-color: #FFF9F2;
+            border-bottom: 1px solid #A8D8C7;
+        }
+
+        .header-section h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .header-subtitle {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        .article-link {
+            font-size: 0.9em;
+            color: #F7A78F;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: 1px solid #A8D8C7;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .article-link:hover {
+            background-color: #F7A78F;
+            color: white;
+        }
+
+        .main-content-grid {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 25px;
+            padding: 30px;
+        }
+
+        .article-analysis-section, 
+        .keywords-section, 
+        .visualization-section {
+            background-color: #FFF9F2;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+        }
+        
+        .comparison-table-section {
+            background-color: #FFF9F2;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            grid-column: 1 / -1;
+            grid-row: 3;
+        }
+        
+        .comparison-table-section h2 {
+             font-size: 1.6em;
+            color: #85C1DC;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            font-weight: 700;
+        }
+
+        .article-analysis-section {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .keywords-section {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .visualization-section {
+            grid-column: 1 / -1;
+            grid-row: 2;
+        }
+
+        /* 레포트 공통 타이포그래피 */
+        #page-2 h2, #page-3 h2, #page-4 h2 {
+            font-size: 1.6em;
+            color: #85C1DC;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            font-weight: 700;
+        }
+
+        #page-2 p, #page-3 p, #page-4 p {
+            font-size: 0.95em;
+            line-height: 1.7;
+            margin-bottom: 1em;
+            color: #444;
+        }
+
+        #page-2 h3, #page-3 h3, #page-4 h3 {
+            font-size: 1.2em;
+            color: #4D5E70;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* 공통 리스트 스타일 */
+        .article-analysis-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 1em 0;
+        }
+
+        .article-analysis-section ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .article-analysis-section ul li::before {
+            content: '•';
+            color: #F7A78F;
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .keywords-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .keywords-section li {
+            margin-bottom: 15px;
+        }
+
+        .keywords-section li strong {
+            display: block;
+            font-size: 1.1em;
+            color: #4D5E70;
+            margin-bottom: 5px;
+        }
+
+        .keywords-section li p {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        /* 공통 시각화 스타일 */
+        .visualization-section {
+            text-align: center;
+        }
+
+        .visualization-section h2 {
+            font-size: 1.4em;
+        }
+
+        .chart-container {
+            margin-top: 20px;
+            padding: 25px 15px 15px 15px;
+            background-color: #F8F8F8;
+            border-radius: 8px;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .chart-title {
+            font-size: 1.1em;
+            color: #85C1DC;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .chart-note {
+            font-size: 0.8em;
+            color: #777;
+            margin-top: 30px;
+            text-align: left;
+            line-height: 1.5;
+            padding: 0 15px;
+        }
+        
+        /* 그룹형 막대그래프 스타일 (공통) */
+        .grouped-bar-chart {
+            display: flex;
+            justify-content: space-around;
+            height: 280px;
+            padding-top: 20px;
+            align-items: flex-end;
+        }
+        .bar-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            text-align: center;
+            height: 100%;
+        }
+        .bar-pair {
+             display: flex;
+             align-items: flex-end;
+             height: 100%;
+             gap: 8px;
+             flex-grow: 1;
+        }
+        .bar-group .bar {
+            width: 40px;
+            position: relative;
+            animation: grow-bar 1.2s ease-out forwards;
+            transition: background-color 0.3s ease;
+        }
+        .bar-group .bar .bar-value {
+            position: absolute;
+            top: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #4D5E70;
+        }
+        .bar-group .group-label {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+            font-size: 0.9em;
+        }
+        .legend {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 0 15px;
+        }
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            margin-right: 8px;
+            border-radius: 3px;
+        }
+
+        /* 가로 막대그래프 스타일 (공통) */
+        @keyframes fill-bar {
+            from { width: 0; }
+        }
+        .horizontal-bar-chart {
+            padding-top: 10px;
+            max-width: 500px; /* 차트의 최대 너비를 제한 */
+            margin: 0 auto; /* 차트를 부모 요소 안에서 중앙 정렬 */
+        }
+        .horizontal-bar-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        .horizontal-bar-label {
+            width: 140px;
+            text-align: right;
+            padding-right: 15px;
+            font-weight: 600;
+            color: #4D5E70;
+            flex-shrink: 0;
+            font-size: 0.9em;
+        }
+        .horizontal-bar-wrapper {
+            flex-grow: 1;
+            background-color: #e9e9e9;
+            border-radius: 5px;
+            height: 30px;
+        }
+        .horizontal-bar-fill {
+            height: 100%;
+            background-color: #85C1DC;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+            padding-left: 10px;
+            box-sizing: border-box;
+            animation: fill-bar 1.2s ease-out forwards;
+            width: var(--bar-width, 0%);
+            white-space: nowrap;
+        }
+         .horizontal-bar-fill:hover {
+            background-color: #F7A78F;
+        }
+
+
+        /* 4페이지 특화 스타일 */
+        #page-4 .main-content-section {
+            padding: 30px;
+        }
+
+        #page-4 .intro-text {
+            font-size: 1.1em;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        #page-4 .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        #page-4 .info-card {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            padding: 1.5rem;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #page-4 .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-4 .info-card h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70;
+            margin-bottom: 0.75rem;
+            margin-top: 0;
+        }
+
+        #page-4 .info-card p {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        #page-4 .info-card a {
+            color: #F7A78F;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            display: block;
+            margin-top: auto;
+        }
+
+        #page-4 .conclusion-box {
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            border: 1px solid #A8D8C7;
+        }
+
+        #page-4 .conclusion-box h2 {
+            font-size: 1.4em;
+            color: #4D5E70;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        #page-4 .conclusion-box p {
+            color: #333;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* 애니메이션 공통 */
+        @keyframes grow-bar {
+            from { height: 0; }
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .page-section {
+                padding: 10px;
+            }
+            
+            #page-1 .container {
+                padding: 1rem;
+            }
+            
+            #page-1 .card-news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #page-1 .whale-character {
+                width: 60px;
+                height: 60px;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .main-content-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+                padding: 20px;
+            }
+            
+            .article-analysis-section,
+            .keywords-section,
+            .visualization-section,
+            .comparison-table-section {
+                grid-column: 1 / -1;
+                grid-row: auto;
+            }
+
+            #page-4 .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #page-4 .main-content-section {
+                padding: 20px;
+            }
+            
+            .bar-group .bar {
+                width: 30px;
+            }
+
+            .split-chart-group .bar {
+                width: 30px;
+            }
+
+            /* 모바일 차트 스타일 */
+            .horizontal-bar-label {
+                width: 100px;
+                font-size: 0.9em;
+            }
+            
+            /* 비교 테이블 모바일 스타일 */
+            .comparison-table {
+                font-size: 0.8em;
+            }
+            .comparison-table th, .comparison-table td {
+                padding: 8px;
+            }
+        }
+
+        /* Line Chart Specific Styles (for Page 3) */
+        @keyframes draw-line {
+            to { stroke-dashoffset: 0; }
+        }
+        .line-chart-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            padding-top: 20px;
+        }
+        .line-chart-container svg {
+            width: 100%;
+            height: 100%;
+            overflow: visible; /* Prevent clipping of points/tooltips */
+        }
+        .line-chart-container .grid-line {
+            stroke: #e0e0e0;
+            stroke-dasharray: 2, 3;
+        }
+        .line-chart-container .axis-line {
+            stroke: #ccc;
+            stroke-width: 1px;
+        }
+        .line-chart-container .axis-text {
+            font-size: 0.85em;
+            fill: #666;
+        }
+        .line-chart-container .line-path {
+            fill: none;
+            stroke-width: 3px;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw-line 2s ease-out forwards;
+        }
+        .line-chart-container .data-point {
+            r: 5;
+            fill: white;
+            stroke-width: 2;
+            transition: r 0.2s ease, fill 0.2s ease;
+            cursor: pointer;
+        }
+        .line-chart-container .data-point:hover {
+            r: 7;
+        }
+        .line-chart-container .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.75);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s, transform 0.2s;
+            white-space: nowrap;
+        }
+
+        /* Comparison Table Specific Styles (for Page 3) */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #A8D8C7;
+            padding: 12px;
+            text-align: left;
+            font-size: 0.9em;
+            color: #444;
+        }
+        .comparison-table thead th {
+            background-color: #f2f9f6;
+            color: #4D5E70;
+            font-weight: 700;
+            text-align: center;
+        }
+        .comparison-table tbody tr:nth-child(even) {
+            background-color: #fafdfc;
+        }
+        .comparison-table tbody tr:hover {
+            background-color: #e8f5f0;
+        }
+        .comparison-table td:first-child {
+            font-weight: 600;
+            color: #4D5E70;
+            width: 25%;
+        }
+
+        /* Specific fix for chart 1 text wrapping */
+        #page-1 .bar-group .bar-value,
+        #page-1 .bar-group .group-label {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <section id="page-1" class="page-section">
+        <div class="container">
+            <header class="header-section">
+                <img src="../infit_logo.png" alt="InFit 캐릭터" class="whale-character">
+                <h1>Bridging Digital and Reality</h1>
+                <p class="slogan">혁신을 선도하는 IT 산업의 미래 조망</p>
+                <p class="subtitle">
+                    <span style="font-weight: 600;">IT 산업 분석 보고서 (2025년 6월 4주차)</span><br>자율형 AI 에이전트의 부상과 산업의 대응
+                </p>
+            </header>
+
+            <section>
+                <h2 class="section-title">주간 IT 핵심 동향 요약</h2>
+                <div class="card-news-grid">
+                    <div class="card">
+                        <a href="https://brunch.co.kr/@bambooinvesting/5" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">에이전트 시대의 서막, 기업용 자율형 AI 솔루션 출시</h3>
+                            <p class="card-summary">
+                                OpenAI, Anthropic 등 글로벌 AI 선도 기업들이 복잡한 다단계 업무를 자율적으로 수행하는 기업용 AI 에이전트를 발표했습니다. 이는 AI가 단순 보조 도구를 넘어 비즈니스 프로세스 자동화 엔진으로 진화하는 결정적 변곡점입니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#AI에이전트</span> <span>#업무자동화</span> <span>#생산성</span> <span>#OpenAI</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://www.newstheai.com/news/articleView.html?idxno=7442" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">LG의 AI 반격, 초고효율 추론 모델 '엑사원 딥' 공개</h3>
+                            <p class="card-summary">
+                                LG AI연구원이 적은 자원으로 높은 성능을 내는 추론 전용 모델 '엑사원 딥'을 오픈소스로 공개했습니다. 이는 비용 효율성이 중요한 온디바이스 AI 시장에서 기술 리더십을 확보하고, 글로벌 생태계를 주도하려는 전략적 행보입니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#오픈소스</span> <span>#LG</span> <span>#추론AI</span> <span>#엑사원딥</span> <span>#SLM</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://www.yna.co.kr/view/AKR20250605140800003" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">삼성전자 '클라인' 도입, 보안 우선 AI 전략의 신호탄</h3>
+                            <p class="card-summary">
+                                삼성전자가 내부 데이터 유출을 원천 차단하는 자체 AI 코딩 어시스턴트 '클라인'을 도입했습니다. 이는 생산성 향상과 데이터 보안이라는 딜레마에 대한 해법으로, 향후 대기업 AI 도입의 표준 모델이 될 가능성이 높습니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#삼성전자</span> <span>#클라인</span> <span>#AI보안</span> <span>#내부AI</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://www.etnews.com/20250414000260" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">AI 기본법 본격화, '고영향 AI' 정의에 산업계 촉각</h3>
+                            <p class="card-summary">
+                                내년 시행을 앞둔 AI 기본법의 핵심인 '고영향 AI'의 정의를 둘러싼 논의가 본격화되었습니다. 산업계는 과도한 규제를 우려하며, 정부는 혁신을 저해하지 않는 유연한 규제를 약속하며 기술과 사회적 거버넌스 사이의 줄다리기가 시작됐습니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#AI규제</span> <span>#AI기본법</span> <span>#고영향AI</span> <span>#거버넌스</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="keyword-section">
+                <h2 class="section-title">핵심 키워드 분석: 자율형 AI 에이전트</h2>
+                <div class="keyword-analysis">
+                    <div class="keyword-item">
+                        <h3>1. 정의 및 중요성</h3>
+                        <p>
+                           자율형 AI 에이전트는 사용자의 목표를 이해하고, 스스로 계획을 세워 다양한 도구를 활용해 과업을 완수하는 소프트웨어입니다. 단순 질의에 답하는 '어시스턴트'를 넘어, 복잡한 업무를 주도적으로 처리하는 '행위자'로 기능하는 것이 핵심입니다. 이러한 능력은 개별 업무 보조를 넘어 기업의 전체 '프로세스'를 자동화할 잠재력을 지니고 있어, NIA가 2025년 최고의 디지털 트렌드로 선정한 이유이기도 합니다. 이미 절반 이상의 기업이 도입 중일 정도로 빠르게 현실화되고 있어, 디지털 전환의 다음 단계를 상징하는 중요한 기술입니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>2. 기술적 맥락</h3>
+                        <p>
+                           AI 에이전트의 핵심 동력은 고도의 추론 능력을 갖춘 거대언어모델(LLM)과 이를 지원하는 보조 기술의 결합입니다. 예를 들어, Anthropic의 '모델 컨텍스트 프로토콜(MCP)'은 AI가 상황에 맞는 도구를 스스로 찾아 쓰게 하는 '사서' 역할을 합니다. 또한 팔란티어의 '온톨로지' 기술은 기업 내 데이터와 프로세스의 관계를 지도로 만들어 AI가 복잡한 비즈니스 맥락을 이해하도록 돕습니다. 기술은 간단한 단일 과업을 수행하는 봇에서 시작하여, 이제는 코드 작성이나 복잡한 출장 계획처럼 여러 단계로 이루어진 워크플로우를 처리하는 OpenAI의 '오퍼레이터' 같은 정교한 시스템으로 발전하고 있습니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>3. 시장/산업적 영향</h3>
+                        <p>
+                           가장 즉각적인 영향은 운영 효율성의 폭발적 증가입니다. 한 미국 보험사가 2주 걸리던 심사 과정을 AI 에이전트로 3시간 만에 끝낸 사례는 파괴적 혁신의 가능성을 명확히 보여줍니다. 이는 기존 기업용 소프트웨어 시장의 강자들에게 AI 에이전트 기능 통합을 강요하고, IT 서비스 기업의 역할을 시스템 구축에서 AI 전략 컨설팅으로 변화시킬 것입니다. 또한, AI 에이전트를 구동하기 위한 막대한 연산 능력 수요는 엔비디아와 같은 AI 반도체 기업과 클라우드 인프라 제공업체에 지속적인 성장 기회를 제공하며 시장 구조 자체를 재편할 것입니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>4. 사회적/경제적 파급 효과</h3>
+                        <p>
+                           AI 에이전트는 전 세계 약 24억 명으로 추산되는 사무직 노동자의 업무 방식을 근본적으로 바꿀 것입니다. 상당수 반복적인 업무가 자동화되면서 인간은 보다 창의적이고 전략적인 역할에 집중하게 될 것입니다. 이는 NIA가 예측한 '감정 노동의 해방'과도 같은 긍정적 효과를 가져올 수 있습니다. 하지만 이 과정에서 발생하는 일자리 전환과 부의 분배 문제는 피할 수 없는 사회적 과제입니다. 따라서 새로운 기술이 창출하는 경제적 가치를 사회 전체가 공유하기 위해서는 대규모 인력 재교육 프로그램과 사회 안전망에 대한 깊은 고민이 필요합니다.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="visualization-container">
+                    <h3>📊 자율형 AI 에이전트 시장 현황 및 잠재력 (2025)</h3>
+                    <div class="chart-container">
+                        <div class="horizontal-bar-chart">
+                             <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">프로세스 시간 단축</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 99%;">99% (보험사 사례)</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">기업 도입률</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 51%;">51%</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">핵심 트렌드 순위</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 100%;">1위 (NIA 선정)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="chart-note">
+                        * 위 데이터는 보고서 내 '글로벌 자율형 AI 에이전트 시장 도입 및 전망'을 기반으로 재구성되었습니다.<br>
+                        * AI 에이전트가 이미 절반 이상의 기업에 도입되었고, 국가 기관이 최고의 트렌드로 선정했으며, 실제 사례에서 99%의 시간 단축이라는 혁신적 효율성을 보였다는 점은 이 기술이 단순한 기대를 넘어 산업의 현실을 바꾸고 있음을 증명합니다.
+                    </p>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <section id="page-2" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>심층 분석 1: 오픈소스의 진화와 IT 산업 생태계 영향</h1>
+                <div class="header-subtitle">발행일: 2025년 6월 4주차</div>
+                <a href="https://www.oss.kr/news/show/8f29838f-7c86-4e67-ad3e-49192ba61ef4" target="_blank" class="article-link" rel="noopener noreferrer">관련 보고서: 2024 오픈소스 SW 실태조사</a>
+            </div>
+    
+            <div class="main-content-grid">
+                <div class="article-analysis-section">
+                    <h2>분석: 소비자를 넘어 '생태계 기여자'로의 전환</h2>
+                    <p>2025년 대한민국 IT 산업에서 오픈소스 소프트웨어(OSS)의 위상은 근본적으로 변하고 있습니다. 과거에는 비용 절감을 위한 '소비'의 대상이었다면, 이제는 AI라는 핵심 기술 영역에서 시장의 주도권을 잡기 위한 '전략적 기여'의 도구로 진화했습니다. 이러한 변화의 중심에는 AI 기술 혁신이 있습니다. 파이토치(PyTorch) 같은 개발 프레임워크부터 메타의 라마(Llama)에 이르기까지 AI 혁신의 대부분이 오픈소스 기반으로 이루어지면서, 기업들은 더 이상 수동적인 사용자에 머물 수 없게 되었습니다. 기술 종속성을 탈피하고 자체 생태계를 구축하려는 강력한 의지가 국내 기업들의 전략 변화를 이끌고 있습니다. 하지만 기업의 오픈소스 활용률이 96%에 달할 정도로 급증하면서, 코드베이스의 91%가 낡은 버전을 사용하는 등 고질적인 보안 및 라이선스 컴플라이언스 문제도 함께 부상하며 새로운 과제를 던지고 있습니다. 결국, 오픈소스가 제공하는 '개발 속도'와 기업이 요구하는 '보안 및 안정성' 사이의 균형을 맞추는 것이 핵심 경쟁력으로 떠올랐습니다.</p>
+                    
+                    <h3>국내 기업의 전략 분화: 소비에서 기여로</h3>
+                    <ul>
+                        <li><strong>삼성전자 (내부화 및 표준 영향력):</strong> 소프트웨어의 약 70%를 오픈소스에 기반하며, 강력한 내부 거버넌스(OpenChain 인증)를 바탕으로 생산성 극대화에 초점을 맞춥니다. 자체 AI 코딩 비서 '클라인' 도입이 대표적입니다. 동시에 리스크파이브(RISC-V) 같은 미래 표준 기술에 기여하며 장기적 영향력을 확보합니다.</li>
+                        <li><strong>SK텔레콤 (생태계 구축자):</strong> 자사의 핵심 기술인 한국어 AI 모델 'KoBERT'나 빅데이터 플랫폼 '메타트론'을 적극적으로 공개합니다. 이는 자사 플랫폼을 중심으로 개발자 커뮤니티를 형성하고, 통신·클라우드 AI 분야에서 SKT가 주도하는 기술 생태계를 구축하려는 명확한 목표를 가집니다.</li>
+                        <li><strong>LG AI연구원 (기술 리더십 확보):</strong> 고효율 추론 모델 '엑사원 딥'을 공개함으로써, 비용 효율적인 고성능 AI라는 특정 분야에서 글로벌 기술 리더십을 확보하려 합니다. 이를 통해 브랜드 가치를 높이고, LG전자의 핵심 시장인 온디바이스 AI 분야에서 자사 기술의 채택을 유도하는 효과를 노립니다.</li>
+                        <li><strong>네이버/카카오 (플랫폼 경쟁):</strong> '하이퍼클로바X', '카나나' 등 자체 LLM을 공개하며 글로벌 빅테크에 맞서고 있습니다. 국내 개발자들이 자사 모델 위에서 서비스를 개발하게 만들어, 자신들의 AI 플랫폼 영향력을 확대하는 치열한 생태계 경쟁을 벌이고 있습니다.</li>
+                    </ul>
+                </div>
+    
+                <div class="keywords-section">
+                    <h2>핵심 키워드</h2>
+                    <ul>
+                        <li>
+                            <strong>오픈소스 거버넌스</strong>
+                            <p>오픈소스 활용, 기여, 공개 정책을 체계적으로 관리하여 비즈니스 가치를 높이고 법적·보안 리스크를 최소화하는 전략 체계.</p>
+                        </li>
+                        <li>
+                            <strong>라이선스 컴플라이언스</strong>
+                            <p>GPL의 '카피레프트' 등 각 라이선스가 요구하는 의무사항을 준수하여 법적 분쟁을 예방하는 활동.</p>
+                        </li>
+                        <li>
+                            <strong>클라우드 네이티브</strong>
+                            <p>클라우드의 장점을 극대화하는 개발 방식으로, 쿠버네티스 등 오픈소스 기술에 크게 의존함.</p>
+                        </li>
+                        <li>
+                            <strong>컨트리뷰션(기여)</strong>
+                            <p>오픈소스 프로젝트에 코드, 문서 등을 제공하는 행위. 수동적 사용자에서 능동적 참여자로 전환하는 것을 의미.</p>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="visualization-section">
+                    <h2>대한민국 산업별 오픈소스 도입 현황 (2025년)</h2>
+                    <div class="chart-title">산업 전반에 깊숙이 자리 잡은 오픈소스</div>
+                     <div class="chart-container">
+                        <div class="horizontal-bar-chart">
+                             <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">소프트웨어 산업</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 100%;">100%</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">전체 산업 평균</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 82.7%;">82.7%</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">비(非)소프트웨어 산업</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 67.3%;">67.3%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="chart-note">
+                        * 위 데이터는 과기정통부/NIPA '2024 오픈소스 SW 실태조사'를 기반으로 작성되었습니다.<br>
+                        * 소프트웨어 산업에서는 100% 도입률을 보이며 사실상 표준으로 자리 잡았고, 비IT 산업에서도 3분의 2 이상이 활용할 정도로 오픈소스는 더 이상 특정 분야의 기술이 아닌 산업 전반의 핵심 동력임을 알 수 있습니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="page-3" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>심층 분석 2: AI 산업 성장과 규제 동향</h1>
+                <div class="header-subtitle">발행일: 2025년 6월 4주차</div>
+                <a href="https://fkii.org/bbs/board.php?tbl=ictdata&mode=VIEW&num=1398" target="_blank" class="article-link" rel="noopener noreferrer">참고 자료: AI 기본법 가이드라인 논의 동향</a>
+            </div>
+    
+            <div class="main-content-grid">
+                <div class="article-analysis-section">
+                    <h2>분석: '가치 증명'의 단계와 '규제 현실화'의 균형점</h2>
+                    <p>2025년 중반, AI 산업은 '과대광고의 거품'을 걷어내고 실질적인 비즈니스 가치를 증명해야 하는 '환멸의 계곡' 단계에 진입했습니다. 시장의 관심은 이제 신기한 기술 자체에서 벗어나, 특정 산업에 적용 가능한 구체적인 솔루션과 측정 가능한 투자수익률(ROI)로 빠르게 이동하고 있습니다. 이러한 변화 속에서 LLM의 막대한 비용 문제에 대한 대안으로, 더 작고 효율적인 경량 모델(SLM)과 온디바이스 AI가 부상하고 있습니다. 국내 대기업들 역시 기술 내재화에 총력을 기울이며, 네이버와 카카오는 자체 LLM 생태계 확장에, 삼성과 LG는 제품 경쟁력과 직결되는 온디바이스 AI 개발에 사활을 걸고 있습니다. 이와 동시에, AI의 사회적 영향을 통제하려는 글로벌 규제 움직임이 본격화되면서 산업은 새로운 국면을 맞이했습니다. 특히 세계 최초의 포괄적 규제인 EU의 'AI Act'와, '선(先)육성, 후(後)규제'를 표방하는 한국의 'AI 기본법' 사이의 철학적 차이는 향후 글로벌 AI 시장의 경쟁 구도에 중요한 변수가 될 것입니다. 결국, 기술 발전의 속도를 유지하면서 사회적 신뢰를 확보하는 것, 즉 혁신과 책임 사이의 균형점을 찾는 것이 AI 산업의 성숙을 위한 핵심 과제로 부상했습니다.</p>
+                    
+                    <h3>AI 기술의 산업별 적용 및 파급 효과</h3>
+                    <ul>
+                        <li><strong>금융:</strong> 국내에서 AI 도입이 가장 활발한 분야입니다. NH농협은행의 'AI 뱅커'와 같이 고객 접점에서 활용될 뿐만 아니라, 카카오뱅크처럼 대출 심사나 이상거래탐지(FDS)에 적용되어 정확성과 효율성을 높이고 있습니다. 특히 설명가능 AI(XAI) 기술 도입은 AI 추천의 신뢰도를 높이는 중요한 시도입니다.</li>
+                        <li><strong>제조:</strong> '스마트 팩토리'의 핵심 두뇌 역할을 합니다. 디지털 트윈 기술을 활용해 실제 공장을 가상으로 시뮬레이션하고, 센서 데이터를 분석해 설비 고장을 예측하며, 비전 AI로 불량품을 검사하는 등 생산성 극대화에 기여하고 있습니다.</li>
+                        <li><strong>헬스케어:</strong> 의료 영상 분석을 통해 질병의 조기 진단을 돕는 역할이 가장 두드러집니다. 더 나아가 엔비디아의 '바이오니모'와 같은 플랫폼은 신약 개발에 필요한 막대한 시간과 비용을 획기적으로 단축시키며 인류의 건강에 직접적으로 기여할 잠재력을 보여주고 있습니다.</li>
+                    </ul>
+                </div>
+    
+                <div class="keywords-section">
+                    <h2>핵심 키워드</h2>
+                    <ul>
+                        <li>
+                            <strong>생성형 AI</strong>
+                            <p>텍스트, 이미지, 코드 등 새로운 콘텐츠를 창조하는 AI. 2025년에는 구체적인 비즈니스 가치 입증이 핵심 과제.</p>
+                        </li>
+                        <li>
+                            <strong>LLM (거대언어모델)</strong>
+                            <p>현대 생성형 AI의 근간을 이루는 기술로, 방대한 텍스트를 학습하여 인간의 언어를 이해하고 생성하는 모델.</p>
+                        </li>
+                         <li>
+                            <strong>AI 거버넌스</strong>
+                            <p>AI가 책임감 있고 윤리적으로 개발·사용되도록 보장하기 위한 규칙, 관행, 프로세스의 총체.</p>
+                        </li>
+                        <li>
+                            <strong>환각 (Hallucination)</strong>
+                            <p>AI가 사실과 다르거나 논리적으로 맞지 않는 내용을 생성하는 현상으로, 기술의 신뢰성을 저해하는 핵심 한계점.</p>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="visualization-section">
+                    <h2>글로벌 vs 대한민국 AI 시장 규모 전망 (2023-2027)</h2>
+                    <div class="chart-title">동반 성장하는 글로벌 및 국내 AI 시장</div>
+                     <div class="chart-container">
+                        <div class="line-chart-container">
+                            <svg id="ai-market-chart"></svg>
+                            <div id="ai-tooltip" class="tooltip"></div>
+                        </div>
+                    </div>
+                     <div class="legend">
+                        <div class="legend-item"><div class="legend-color" style="background-color: #85C1DC;"></div>글로벌 시장 (10억 달러)</div>
+                        <div class="legend-item"><div class="legend-color" style="background-color: #F7A78F;"></div>대한민국 시장 (조 원)</div>
+                    </div>
+                    <p class="chart-note">
+                        * 위 데이터는 IDC 및 한국IDC의 시장 전망 자료를 기반으로 작성되었습니다.<br>
+                        * 글로벌 시장과 국내 시장 모두 강력한 우상향 성장세를 보이고 있습니다. 이는 AI 기술이 특정 지역에 국한되지 않고 전 세계적인 산업 표준으로 자리 잡고 있으며, 국내 시장 역시 이러한 글로벌 트렌드에 발맞춰 빠르게 성장하고 있음을 보여줍니다.
+                    </p>
+                </div>
+                
+                 <div class="comparison-table-section">
+                    <h2>EU AI Act vs 대한민국 AI 기본법 핵심 비교</h2>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>항목</th>
+                                <th>EU AI Act</th>
+                                <th>대한민국 AI 기본법</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>규제 철학</td>
+                                <td><strong>사전예방 원칙:</strong> 포괄적이고 강력한 사전 규제</td>
+                                <td><strong>혁신 친화적:</strong> '선(先)육성, 후(後)규제' 원칙</td>
+                            </tr>
+                            <tr>
+                                <td>위험 분류</td>
+                                <td><strong>4단계:</strong> 수용불가(금지), 고위험, 제한된 위험, 최소 위험</td>
+                                <td><strong>2단계 중심:</strong> 고영향 AI, 생성형 AI 등</td>
+                            </tr>
+                            <tr>
+                                <td>핵심 의무</td>
+                                <td><strong>출시 전 엄격한 요건 부과</strong> (고위험 AI 대상)</td>
+                                <td><strong>출시 후 안전성/투명성 확보</strong> (고영향 AI 중심)</td>
+                            </tr>
+                            <tr>
+                                <td>제재 수준</td>
+                                <td><strong>강력함:</strong> 전 세계 연 매출의 최대 7% 과징금</td>
+                                <td><strong>온건함:</strong> 최대 3,000만 원 과태료</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                 </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <section id="page-4" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>💡 IT 산업 분석: 참고 자료 및 심화 학습</h1>
+            </div>
+    
+            <div class="main-content-section">
+                <p class="intro-text">
+                    본 보고서에서 심층 분석한 '오픈소스 생태계'와 'AI 산업 및 규제' 동향에 대해 더 깊이 학습하거나 참고할 수 있는 신뢰도 높은 외부 전문 자료들을 정리했습니다.
+                </p>
+    
+                <h2>🔍 심층 분석 주제별 추천 자료</h2>
+                <div class="card-grid">
+                    <div class="info-card">
+                        <h3>[국내 통계] 2024 오픈소스 SW 실태조사</h3>
+                        <p>국내 오픈소스 시장 규모, 기업 도입률, 활용 패턴 등 대한민국 오픈소스 생태계에 대한 가장 최신의 공식 정량 데이터를 담고 있습니다.</p>
+                        <a href="https://www.oss.kr/news/show/8f29838f-7c86-4e67-ad3e-49192ba61ef4" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[국내 정책] AI 기본법 하위법령 공청회 자료</h3>
+                        <p>'고영향 AI'의 정의, 기업 의무사항 등 AI 기본법의 핵심 세부 내용에 대한 정부의 입법 방향과 산업계의 의견을 직접 확인할 수 있습니다.</p>
+                        <a href="https://www.etnews.com/20250414000260" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[국내 가이드] 기업 오픈소스SW 거버넌스 가이드</h3>
+                        <p>국내 기업들이 오픈소스 전담조직(OSPO)을 구성하고, 라이선스 및 보안 리스크를 효과적으로 관리하기 위한 실질적인 방법론을 제시합니다.</p>
+                        <a href="https://www.oss.kr/oss_guide/show/9a73fa3c-c233-4e8b-8527-7d57ed7218f7" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[국내 사례] 2025년 은행권 AI 활용 전망</h3>
+                        <p>국내 주요 은행들의 구체적인 AI 도입 사례와 향후 전망을 상세히 분석하여, AI가 어떻게 비즈니스 가치를 창출하는지 보여주는 사례 연구입니다.</p>
+                        <a href="https://www.samsungsds.com/kr/insights/ai-in-banking-in-2025.html" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>[해외 동향] 2025 State of Open Source Report</h3>
+                        <p>글로벌 오픈소스 도입률, 보안 문제, 관리 현황 등 글로벌 트렌드에 대한 가장 권위 있는 연례 보고서로, 국내 현황과 비교 분석에 유용합니다.</p>
+                        <a href="https://opensource.org/blog/key-insights-from-the-2025-state-of-open-source-report" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>[해외 규제] EU AI Act 주요 내용 분석</h3>
+                        <p>EU AI Act의 위험 기반 접근 방식, 등급별 의무사항, 처벌 규정 등을 상세하게 분석한 보고서. EU 시장 진출 기업의 필독 자료입니다.</p>
+                        <a href="https://www.spri.kr/posts/view/23545?code=data_all" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                </div>
+    
+                <h2>📰 IT 기술 연관 산업 주요 이슈</h2>
+                <div class="card-grid">
+                    <div class="info-card">
+                        <h3>제조업: 스마트 팩토리 AI 활용 사례</h3>
+                        <p>AI 기반 디지털 트윈, 예측 유지보수, 품질 관리 시스템이 국내 스마트 팩토리 현장에서 어떻게 생산 효율성을 높이는지 구체적 사례를 설명합니다.</p>
+                        <a href="https://www.samsungsds.com/kr/insights/ai_use_cases.html" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>금융: 금융분야 AI 활성화 방안</h3>
+                        <p>'금융권 AI 플랫폼' 구축, 규제 샌드박스 운영 등 금융 분야의 AI 도입을 촉진하기 위한 정부의 정책적 지원 방향을 담고 있습니다.</p>
+                        <a href="https://www.fsc.go.kr/no010101" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>헬스케어: AI 문진 시스템 도입 사례</h3>
+                        <p>AI 기반 사전 문진 시스템이 환자 대기 시간을 줄이고 의사에게 정확한 정보를 제공하여 진료 효율을 높이는 혁신 모델을 제시합니다.</p>
+                        <a href="https://www.irsglobal.com/bbs/rwdboard/15883" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>자동차: 생성형 디자인 기술 활용</h3>
+                        <p>AI 기반 '생성형 디자인' 기술을 활용해 더 가볍고 강한 부품을 설계하고, 개발 주기를 단축하며 성능을 개선하는 방식을 설명합니다.</p>
+                        <a href="https://www.ibm.com/kr-ko/think/topics/ai-in-manufacturing" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>미디어/콘텐츠: 한국어 특화 AI 모델 활용</h3>
+                        <p>한국어 특화 생성형 AI 모델이 국내 개발자 및 콘텐츠 창작자들에게 어떻게 활용되어 미디어 산업의 혁신을 촉진하는지 보여주는 사례입니다.</p>
+                        <a href="https://sktelecom.github.io/" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>교육: AI 윤리 원칙과 교육계 적용</h3>
+                        <p>카카오가 발표한 AI 윤리 원칙은 EU AI Act에서도 '고위험' 분야로 분류된 교육 분야에서 AI를 어떻게 윤리적으로 활용할지 중요한 기준을 제공합니다.</p>
+                        <a href="https://www.kakaocorp.com/responsible/algorithm" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                </div>
+    
+                <div class="conclusion-box">
+                    <h2>마무리하며:</h2>
+                    <p>
+                        2025년 IT 산업은 자율형 AI 에이전트의 부상으로 대표되는 전략적 전환기에 접어들었습니다. AI가 단순 보조 도구를 넘어 복잡한 업무를 자율적으로 수행하는 주체로 진화함에 따라, 기업들은 생산성 혁신이라는 거대한 기회와 데이터 보안, 규제 준수라는 어려운 과제에 동시에 직면했습니다. 향후 IT 산업의 경쟁력은 성능, 보안, 규제라는 'AI 트릴레마'를 어떻게 해결하느냐에 따라 결정될 것입니다. 특히 한국 기업에게는 'AI 기본법'의 구체화 방향이 미래 투자를 결정짓는 가장 중요한 변수가 될 것입니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // AI Market Line Chart (Page 3)
+            const aiData = [
+                { year: 2023, global: null, domestic: 2.6 },
+                { year: 2024, global: null, domestic: 3.08 },
+                { year: 2025, global: 307, domestic: 3.55 },
+                { year: 2026, global: 403, domestic: 4.0 },
+                { year: 2027, global: 512, domestic: 4.46 },
+                { year: 2028, global: 632, domestic: null }
+            ];
+
+            const svgElement = document.getElementById("ai-market-chart");
+            const tooltip = d3.select("#ai-tooltip");
+
+            // Check if the element exists before proceeding
+            if (!svgElement) return;
+
+            const width = svgElement.clientWidth;
+            const height = svgElement.clientHeight;
+            const margin = { top: 20, right: 60, bottom: 40, left: 60 };
+
+            // X scale (Year)
+            const x = d3.scaleLinear()
+                .domain([2023, 2028])
+                .range([margin.left, width - margin.right]);
+            
+            svgElement.innerHTML = ''; // Clear previous content
+            const svg = d3.select(svgElement);
+
+            // Y scale for Global market (Left axis)
+            const yGlobal = d3.scaleLinear()
+                .domain([0, d3.max(aiData, d => d.global)]).nice()
+                .range([height - margin.bottom, margin.top]);
+
+            // Y scale for Domestic market (Right axis)
+            const yDomestic = d3.scaleLinear()
+                .domain([0, d3.max(aiData, d => d.domestic)]).nice()
+                .range([height - margin.bottom, margin.top]);
+            
+            // Axes
+            svg.append("g")
+                .attr("transform", `translate(0,${height - margin.bottom})`)
+                .call(d3.axisBottom(x).tickFormat(d3.format("d")).ticks(6))
+                .selectAll("text")
+                .style("font-family", "'Noto Sans KR', sans-serif")
+                .style("font-size", "12px");
+
+            svg.append("g")
+                .attr("transform", `translate(${margin.left},0)`)
+                .call(d3.axisLeft(yGlobal).ticks(5))
+                .selectAll("text")
+                .style("font-family", "'Noto Sans KR', sans-serif")
+                .style("font-size", "12px");
+            
+            svg.append("g")
+                .attr("transform", `translate(${width - margin.right},0)`)
+                .call(d3.axisRight(yDomestic).ticks(5))
+                .selectAll("text")
+                .style("font-family", "'Noto Sans KR', sans-serif")
+                .style("font-size", "12px");
+
+            // Grid lines
+            svg.append("g")
+                .attr("class", "grid")
+                .attr("transform", `translate(${margin.left},0)`)
+                .style("color", "#e0e0e0")
+                .style("stroke-dasharray", "2,3")
+                .call(d3.axisLeft(yGlobal).ticks(5).tickSize(-width + margin.left + margin.right).tickFormat(""));
+
+            // Tooltip functions
+            const mouseover = (event, d) => {
+                tooltip.style("opacity", 1);
+            };
+            const mousemove = (event, d) => {
+                const [xPos, yPos] = d3.pointer(event, document.body); // Use document.body for positioning
+                let content = `<b>${d.year}년</b>`;
+                if (d.global) content += `<br>글로벌: ${d.global} B$`;
+                if (d.domestic) content += `<br>대한민국: ${d.domestic.toFixed(1)} 조 원`;
+                
+                tooltip
+                    .html(content)
+                    .style("left", `${xPos + 15}px`)
+                    .style("top", `${yPos}px`);
+            };
+            const mouseleave = (event, d) => {
+                tooltip.style("opacity", 0);
+            };
+
+            // Global Market Line
+            const lineGlobal = d3.line()
+                .defined(d => d.global !== null)
+                .x(d => x(d.year))
+                .y(d => yGlobal(d.global));
+            
+            svg.append("path")
+                .datum(aiData)
+                .attr("fill", "none")
+                .attr("stroke", "#85C1DC")
+                .attr("stroke-width", 3)
+                .attr("class", "line-path")
+                .attr("d", lineGlobal);
+            
+            // Domestic Market Line
+            const lineDomestic = d3.line()
+                .defined(d => d.domestic !== null)
+                .x(d => x(d.year))
+                .y(d => yDomestic(d.domestic));
+
+            svg.append("path")
+                .datum(aiData)
+                .attr("fill", "none")
+                .attr("stroke", "#F7A78F")
+                .attr("stroke-width", 3)
+                .attr("class", "line-path")
+                .style("animation-delay", "0.5s")
+                .attr("d", lineDomestic);
+
+            // Data Points (for tooltips)
+            svg.selectAll("circle.global-point")
+                .data(aiData.filter(d => d.global !== null))
+                .enter()
+                .append("circle")
+                .attr("class", "data-point global-point")
+                .attr("cx", d => x(d.year))
+                .attr("cy", d => yGlobal(d.global))
+                .attr("stroke", "#85C1DC")
+                .on("mouseover", mouseover)
+                .on("mousemove", mousemove)
+                .on("mouseleave", mouseleave);
+                
+            svg.selectAll("circle.domestic-point")
+                .data(aiData.filter(d => d.domestic !== null))
+                .enter()
+                .append("circle")
+                .attr("class", "data-point domestic-point")
+                .attr("cx", d => x(d.year))
+                .attr("cy", d => yDomestic(d.domestic))
+                .attr("stroke", "#F7A78F")
+                .on("mouseover", mouseover)
+                .on("mousemove", mousemove)
+                .on("mouseleave", mouseleave);
+        });
+
+    </script>
+</body>
+</html>

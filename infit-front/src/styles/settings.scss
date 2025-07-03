@@ -1,0 +1,626 @@
+/**
+ * src/styles/settings.scss
+ *
+ * Configures SASS variables and Vuetify overwrites
+ */
+
+// https://vuetifyjs.com/features/sass-variables/
+@use 'vuetify/settings' with (
+  $color-pack: false
+);
+
+/* 구글 폰트 임포트 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+/* 브랜드 컬러 시스템을 CSS 변수로 정의 */
+:root {
+  --whale-sky: #85C1DC;
+  --bubble-cream: #FFF9F2;
+  --soft-coral: #F7A78F;
+  --ocean-mint: #A8D8C7;
+  --slate-ink: #4D5E70;
+  --sunny-yellow: #FFD983;
+}
+
+/* 기본 스타일 리셋 */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* 컨테이너 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  
+  @media (min-width: 768px) {
+    padding: 0 1.5rem;
+  }
+}
+
+/* 그리드 시스템 */
+.grid {
+  display: grid;
+  gap: 2rem;
+  
+  &.grid-cols-1 {
+    grid-template-columns: 1fr;
+  }
+  
+  &.grid-cols-2 {
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  &.grid-cols-3 {
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+/* 플렉스 유틸리티 */
+.flex {
+  display: flex;
+  
+  &.flex-col {
+    flex-direction: column;
+  }
+  
+  &.items-center {
+    align-items: center;
+  }
+  
+  &.justify-center {
+    justify-content: center;
+  }
+  
+  &.justify-between {
+    justify-content: space-between;
+  }
+  
+  &.gap-2 {
+    gap: 0.5rem;
+  }
+  
+  &.gap-4 {
+    gap: 1rem;
+  }
+  
+  &.gap-8 {
+    gap: 2rem;
+  }
+  
+  &.gap-12 {
+    gap: 3rem;
+  }
+}
+
+/* 텍스트 유틸리티 */
+.text-center {
+  text-align: center;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+}
+
+.text-5xl {
+  font-size: 3rem;
+}
+
+.text-6xl {
+  font-size: 3.75rem;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-extrabold {
+  font-weight: 900;
+}
+
+.leading-tight {
+  line-height: 1.25;
+}
+
+/* 브랜드 컬러 클래스 */
+.bg-whale-sky {
+  background-color: var(--whale-sky);
+}
+
+.text-whale-sky {
+  color: var(--whale-sky);
+}
+
+.bg-bubble-cream {
+  background-color: var(--bubble-cream);
+}
+
+.text-bubble-cream {
+  color: var(--bubble-cream);
+}
+
+.bg-soft-coral {
+  background-color: var(--soft-coral);
+}
+
+.text-soft-coral {
+  color: var(--soft-coral);
+}
+
+.bg-ocean-mint {
+  background-color: var(--ocean-mint);
+}
+
+.text-ocean-mint {
+  color: var(--ocean-mint);
+}
+
+.bg-slate-ink {
+  background-color: var(--slate-ink);
+}
+
+.text-slate-ink {
+  color: var(--slate-ink);
+}
+
+.bg-sunny-yellow {
+  background-color: var(--sunny-yellow);
+}
+
+.text-sunny-yellow {
+  color: var(--sunny-yellow);
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.text-white {
+  color: white;
+}
+
+/* 투명도 */
+.text-slate-ink\/70 {
+  color: rgba(77, 94, 112, 0.7);
+}
+
+.text-slate-ink\/80 {
+  color: rgba(77, 94, 112, 0.8);
+}
+
+.text-bubble-cream\/80 {
+  color: rgba(255, 249, 242, 0.8);
+}
+
+.bg-bubble-cream\/80 {
+  background-color: rgba(255, 249, 242, 0.8);
+}
+
+/* 여백 */
+.p-4 {
+  padding: 1rem;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+.p-8 {
+  padding: 2rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.py-16 {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.py-24 {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-12 {
+  margin-bottom: 3rem;
+}
+
+.mb-16 {
+  margin-bottom: 4rem;
+}
+
+.ml-4 {
+  margin-left: 1rem;
+}
+
+/* 크기 */
+.w-full {
+  width: 100%;
+}
+
+.max-w-2xl {
+  max-width: 42rem;
+}
+
+.max-w-3xl {
+  max-width: 48rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.h-8 {
+  height: 2rem;
+}
+
+.h-9 {
+  height: 2.25rem;
+}
+
+.h-48 {
+  height: 12rem;
+}
+
+.h-80 {
+  height: 20rem;
+}
+
+.w-16 {
+  width: 4rem;
+}
+
+.h-16 {
+  height: 4rem;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+/* 위치 */
+.sticky {
+  position: sticky;
+}
+
+.top-0 {
+  top: 0;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+/* z-index */
+.z-50 {
+  z-index: 50;
+}
+
+.border-0 {
+  border: none;
+}
+
+/* 테두리 */
+.border {
+  border-width: 1px;
+}
+
+.border-2 {
+  border-width: 2px;
+}
+
+.border-4 {
+  border-width: 4px;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+/* 그림자 */
+.shadow-sm {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* 전환 효과 */
+.transition {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition-colors {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition-opacity {
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.duration-300 {
+  transition-duration: 300ms;
+}
+
+/* 호버 효과 */
+.hover\:opacity-90:hover {
+  opacity: 0.9;
+}
+
+.hover\:bg-soft-coral:hover {
+  background-color: var(--soft-coral);
+}
+
+.hover\:text-ocean-mint:hover {
+  color: var(--ocean-mint);
+}
+
+.hover\:text-soft-coral:hover {
+  color: var(--soft-coral);
+}
+
+.hover\:transform:hover {
+  transform: var(--tw-transform);
+}
+
+.hover\:-translate-y-1:hover {
+  transform: translateY(-0.25rem);
+}
+
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* 백드롭 효과 */
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+}
+
+/* 오버플로우 */
+.overflow-hidden {
+  overflow: hidden;
+}
+
+/* 이미지 관련 스타일 */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 커스텀 컴포넌트 스타일 */
+.feature-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.report-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+/* 배경 커버 */
+.bg-cover {
+  background-size: cover;
+}
+
+.bg-center {
+  background-position: center;
+}
+
+/* 플렉스 아이템 */
+.flex-grow {
+  flex-grow: 1;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+/* 공간 */
+.space-y-8 > * + * {
+  margin-top: 2rem;
+}
+
+/* 태그 스타일 */
+.tag {
+  background-color: var(--ocean-mint);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  background-color: var(--soft-coral);
+  transform: scale(1.05);
+}
+
+/* 반응형 디자인 */
+@media (min-width: 768px) {
+  .md\:text-4xl {
+    font-size: 2.25rem;
+  }
+  
+  .md\:text-5xl {
+    font-size: 3rem;
+  }
+  
+  .md\:text-6xl {
+    font-size: 3.75rem;
+  }
+  
+  .md\:text-xl {
+    font-size: 1.25rem;
+  }
+  
+  .md\:py-24 {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+  
+  .md\:mb-16 {
+    margin-bottom: 4rem;
+  }
+  
+  .md\:gap-10 {
+    gap: 2.5rem;
+  }
+  
+  .md\:flex-row {
+    flex-direction: row;
+  }
+  
+  .md\:w-auto {
+    width: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:flex-row {
+    flex-direction: row;
+  }
+  
+  .lg\:w-1\/2 {
+    width: 50%;
+  }
+}

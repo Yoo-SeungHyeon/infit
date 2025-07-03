@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InFit - 항공우주 산업 분석 통합 레포트</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 기본 스타일 */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #F8F8F8;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 페이지 섹션 공통 스타일 */
+        .page-section {
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* 1페이지 스타일 */
+        #page-1 {
+            background-color: #F8F8F8;
+        }
+
+        #page-1 .container {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        #page-1 .header-section {
+            background-color: #FFF9F2; /* Bubble Cream: 부드러운 크림 배경 */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem 2rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        #page-1 .whale-character {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            width: 80px;
+            height: 80px;
+            opacity: 0.9;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        #page-1 .whale-character:hover {
+            transform: scale(1.1) rotate(5deg);
+            opacity: 1;
+        }
+
+        #page-1 .header-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #85C1DC; /* Whale Sky: 차분한 하늘색 */
+            margin-bottom: 0.75rem;
+        }
+
+        #page-1 .header-section .slogan {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #4D5E70; /* Slate Ink: 읽기 좋은 어두운 그레이 */
+            margin-bottom: 1.5rem;
+        }
+
+        #page-1 .header-section .subtitle {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        #page-1 .card-news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid #E0E0E0;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            #page-1 .card-news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        #page-1 .card {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            overflow: hidden;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        #page-1 .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-1 .card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
+        #page-1 .card-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #4D5E70;
+            margin-bottom: 0.8rem;
+        }
+
+        #page-1 .card-summary {
+            font-size: 0.95rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        #page-1 .card-keywords {
+            font-size: 0.85rem;
+            color: #666;
+            font-weight: 500;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        #page-1 .card-keywords span {
+            background-color: #A8D8C7;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        #page-1 .section-title {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #85C1DC;
+            margin-bottom: 2rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            text-align: center;
+        }
+
+        #page-1 .keyword-section {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            padding: 25px;
+        }
+        
+        .keyword-analysis {
+            padding-bottom: 1.5rem;
+        }
+
+        #page-1 .keyword-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed #E0E0E0;
+        }
+
+        #page-1 .keyword-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        #page-1 .keyword-item h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70;
+            margin-bottom: 0.75rem;
+        }
+
+        #page-1 .keyword-item p {
+            font-size: 0.95em;
+            color: #444;
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+        
+        .visualization-container {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px dashed #E0E0E0;
+        }
+        .visualization-container h3 {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #85C1DC;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+
+        /* 2-4페이지 공통 레포트 스타일 */
+        .report-container {
+            width: 100%;
+            max-width: 960px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .header-section {
+            padding: 40px 30px;
+            text-align: center;
+            background-color: #FFF9F2;
+            border-bottom: 1px solid #A8D8C7;
+        }
+
+        .header-section h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .header-subtitle {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        .article-link {
+            font-size: 0.9em;
+            color: #F7A78F;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: 1px solid #A8D8C7;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .article-link:hover {
+            background-color: #F7A78F;
+            color: white;
+        }
+
+        .main-content-grid {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 25px;
+            padding: 30px;
+        }
+
+        .article-analysis-section, 
+        .keywords-section, 
+        .visualization-section {
+            background-color: #FFF9F2;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+        }
+        
+        .comparison-table-section {
+            background-color: #FFF9F2;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            grid-column: 1 / -1;
+            grid-row: 3;
+        }
+        
+        .comparison-table-section h2 {
+             font-size: 1.6em;
+            color: #85C1DC;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            font-weight: 700;
+        }
+
+        .article-analysis-section {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .keywords-section {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .visualization-section {
+            grid-column: 1 / -1;
+            grid-row: 2;
+        }
+
+        /* 레포트 공통 타이포그래피 */
+        #page-2 h2, #page-3 h2, #page-4 h2 {
+            font-size: 1.6em;
+            color: #85C1DC;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            font-weight: 700;
+        }
+
+        #page-2 p, #page-3 p, #page-4 p {
+            font-size: 0.95em;
+            line-height: 1.7;
+            margin-bottom: 1em;
+            color: #444;
+        }
+
+        #page-2 h3, #page-3 h3, #page-4 h3 {
+            font-size: 1.2em;
+            color: #4D5E70;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* 공통 리스트 스타일 */
+        .article-analysis-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 1em 0;
+        }
+
+        .article-analysis-section ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .article-analysis-section ul li::before {
+            content: '•';
+            color: #F7A78F;
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .keywords-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .keywords-section li {
+            margin-bottom: 15px;
+        }
+
+        .keywords-section li strong {
+            display: block;
+            font-size: 1.1em;
+            color: #4D5E70;
+            margin-bottom: 5px;
+        }
+
+        .keywords-section li p {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        /* 공통 시각화 스타일 */
+        .visualization-section {
+            text-align: center;
+        }
+
+        .visualization-section h2 {
+            font-size: 1.4em;
+        }
+
+        .chart-container {
+            margin-top: 20px;
+            padding: 25px 15px 15px 15px;
+            background-color: #F8F8F8;
+            border-radius: 8px;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .chart-title {
+            font-size: 1.1em;
+            color: #85C1DC;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .chart-note {
+            font-size: 0.8em;
+            color: #777;
+            margin-top: 30px;
+            text-align: left;
+            line-height: 1.5;
+            padding: 0 15px;
+        }
+        
+        /* 그룹형 막대그래프 스타일 (공통) */
+        .grouped-bar-chart {
+            display: flex;
+            justify-content: space-around;
+            height: 280px;
+            padding-top: 20px;
+            align-items: flex-end;
+        }
+        .bar-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            text-align: center;
+            height: 100%;
+        }
+        .bar-pair {
+             display: flex;
+             align-items: flex-end;
+             height: 100%;
+             gap: 8px;
+             flex-grow: 1;
+        }
+        .bar-group .bar {
+            width: 40px;
+            position: relative;
+            animation: grow-bar 1.2s ease-out forwards;
+            transition: background-color 0.3s ease;
+        }
+        .bar-group .bar .bar-value {
+            position: absolute;
+            top: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #4D5E70;
+        }
+        .bar-group .group-label {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+            font-size: 0.9em;
+        }
+        .legend {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 0 15px;
+        }
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            margin-right: 8px;
+            border-radius: 3px;
+        }
+
+        /* 가로 막대그래프 스타일 (공통) */
+        @keyframes fill-bar {
+            from { width: 0; }
+        }
+        .horizontal-bar-chart {
+            padding-top: 10px;
+            max-width: 500px; /* 차트의 최대 너비를 제한 */
+            margin: 0 auto; /* 차트를 부모 요소 안에서 중앙 정렬 */
+        }
+        .horizontal-bar-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        .horizontal-bar-label {
+            width: 100px;
+            text-align: right;
+            padding-right: 15px;
+            font-weight: 600;
+            color: #4D5E70;
+            flex-shrink: 0;
+        }
+        .horizontal-bar-wrapper {
+            flex-grow: 1;
+            background-color: #e9e9e9;
+            border-radius: 5px;
+            height: 30px;
+        }
+        .horizontal-bar-fill {
+            height: 100%;
+            background-color: #85C1DC;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+            padding-left: 10px;
+            box-sizing: border-box;
+            animation: fill-bar 1.2s ease-out forwards;
+            width: var(--bar-width, 0%);
+            white-space: nowrap;
+        }
+         .horizontal-bar-fill:hover {
+            background-color: #F7A78F;
+        }
+
+
+        /* 4페이지 특화 스타일 */
+        #page-4 .main-content-section {
+            padding: 30px;
+        }
+
+        #page-4 .intro-text {
+            font-size: 1.1em;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        #page-4 .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        #page-4 .info-card {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            padding: 1.5rem;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #page-4 .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-4 .info-card h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70;
+            margin-bottom: 0.75rem;
+            margin-top: 0;
+        }
+
+        #page-4 .info-card p {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        #page-4 .info-card a {
+            color: #F7A78F;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            display: block;
+            margin-top: auto;
+        }
+
+        #page-4 .conclusion-box {
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            border: 1px solid #A8D8C7;
+        }
+
+        #page-4 .conclusion-box h2 {
+            font-size: 1.4em;
+            color: #4D5E70;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        #page-4 .conclusion-box p {
+            color: #333;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* 애니메이션 공통 */
+        @keyframes grow-bar {
+            from { height: 0; }
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .page-section {
+                padding: 10px;
+            }
+            
+            #page-1 .container {
+                padding: 1rem;
+            }
+            
+            #page-1 .card-news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #page-1 .whale-character {
+                width: 60px;
+                height: 60px;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .main-content-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+                padding: 20px;
+            }
+            
+            .article-analysis-section,
+            .keywords-section,
+            .visualization-section,
+            .comparison-table-section {
+                grid-column: 1 / -1;
+                grid-row: auto;
+            }
+
+            #page-4 .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #page-4 .main-content-section {
+                padding: 20px;
+            }
+            
+            .bar-group .bar {
+                width: 30px;
+            }
+
+            .split-chart-group .bar {
+                width: 30px;
+            }
+
+            /* 모바일 차트 스타일 */
+            .horizontal-bar-label {
+                width: 100px;
+                font-size: 0.9em;
+            }
+            
+            /* 비교 테이블 모바일 스타일 */
+            .comparison-table {
+                font-size: 0.8em;
+            }
+            .comparison-table th, .comparison-table td {
+                padding: 8px;
+            }
+        }
+
+        /* Line Chart Specific Styles (for Page 3) */
+        @keyframes draw-line {
+            to { stroke-dashoffset: 0; }
+        }
+        .line-chart-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            padding-top: 20px;
+        }
+        .line-chart-container svg {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .line-chart-container .grid-line {
+            stroke: #e0e0e0;
+            stroke-dasharray: 2, 3;
+        }
+        .line-chart-container .axis-line {
+            stroke: #ccc;
+            stroke-width: 1px;
+        }
+        .line-chart-container .axis-text {
+            font-size: 0.85em;
+            fill: #666;
+        }
+        .line-chart-container .line-path {
+            fill: none;
+            stroke-width: 3px;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw-line 2s ease-out forwards;
+        }
+        .line-chart-container .data-point {
+            r: 5;
+            fill: white;
+            stroke-width: 2;
+            transition: r 0.2s ease, fill 0.2s ease;
+            cursor: pointer;
+        }
+        .line-chart-container .data-point:hover {
+            r: 7;
+        }
+        .line-chart-container .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.75);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s, transform 0.2s;
+            white-space: nowrap;
+        }
+
+        /* Comparison Table Specific Styles (for Page 3) */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #A8D8C7;
+            padding: 12px;
+            text-align: left;
+            font-size: 0.9em;
+            color: #444;
+        }
+        .comparison-table thead th {
+            background-color: #f2f9f6;
+            color: #4D5E70;
+            font-weight: 700;
+            text-align: center;
+        }
+        .comparison-table tbody tr:nth-child(even) {
+            background-color: #fafdfc;
+        }
+        .comparison-table tbody tr:hover {
+            background-color: #e8f5f0;
+        }
+        .comparison-table td:first-child {
+            font-weight: 600;
+            color: #4D5E70;
+            width: 25%;
+        }
+
+        /* Specific fix for chart 1 text wrapping */
+        #page-1 .bar-group .bar-value,
+        #page-1 .bar-group .group-label {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <section id="page-1" class="page-section">
+        <div class="container">
+            <header class="header-section">
+                <img src="../infit_logo.png" alt="InFit 캐릭터" class="whale-character">
+                <h1>K-Aerospace Ascent</h1>
+                <p class="slogan">민간 주도 생태계로의 전환 항해</p>
+                <p class="subtitle">
+                    <span style="font-weight: 600;">항공우주 산업 분석 보고서 (2025년 6월 4주차)</span><br>정부와 민간의 협력, 뉴스페이스 시대를 열다
+                </p>
+            </header>
+
+            <section>
+                <h2 class="section-title">주간 항공/우주 핵심 동향 요약</h2>
+                <div class="card-news-grid">
+                    <div class="card">
+                        <a href="https://www.chosun.com/economy/science/2024/12/27/C4L3PKTJITN7744BZOSGVHP3TI/" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">누리호 4차 발사 최종 단계, 한화에어로스페이스 주관 첫 시험대</h3>
+                            <p class="card-summary">
+                                2025년 하반기 예정된 누리호 4차 발사가 최종 조립 및 시험 단계에 진입했습니다. 이번 발사는 한화에어로스페이스가 체계종합기업으로서 실질적으로 주관하는 첫 사례로, 민관 협력 우주개발 모델의 성공 가능성을 검증하는 중요한 이정표가 될 것입니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#누리호</span> <span>#민간주도</span> <span>#한화에어로스페이스</span> <span>#기술이전</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://it.chosun.com/news/articleView.html?idxno=2023092115702" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">K-UAM 그랜드챌린지 2단계, 수도권 상공에서 본격 착수</h3>
+                            <p class="card-summary">
+                                2025년 상용화를 목표로 하는 K-UAM 그랜드챌린지가 수도권 상공에서 2단계 실증에 돌입했습니다. 복잡한 도심 환경에서의 통합 시스템 검증은 안전성, 소음, 관제 등에서 큰 도전이며, 실증 성공 여부가 향후 투자와 규제 승인의 핵심 변수입니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#UAM</span> <span>#K-UAM그랜드챌린지</span> <span>#도심항공교통</span> <span>#상용화</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://www.m-i.kr/news/articleView.html?idxno=1071757" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">KAI 개발 차세대중형위성 2기, 스페이스X로 발사 예정</h3>
+                            <p class="card-summary">
+                                KAI가 자체 개발한 차세대중형위성 2기와 4호기가 스페이스X의 팰컨9 로켓으로 발사 대기 중입니다. 이는 독자 발사체(누리호) 개발과 함께, 필요시 검증된 글로벌 발사 서비스를 활용하는 대한민국의 실용적인 '투트랙' 우주 전략을 보여줍니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#KAI</span> <span>#인공위성</span> <span>#스페이스X</span> <span>#투트랙전략</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://www.kasa.go.kr/prog/bbsArticle/BBSMSTR_000000000010/view.do?bbsId=BBSMSTR_000000000010&nttId=B000000000717Lw7oV9" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">우주항공청, 9,649억 원 예산안 확정…민간 성장 강조</h3>
+                            <p class="card-summary">
+                                우주항공청(KASA)이 2025년 예산 9,649억 원의 세부 집행 계획을 발표했습니다. R&D 예산의 상당 부분이 민간 주도 프로젝트에 배정되어, '민간 주도 생태계' 구축이 국가 항공우주 전략의 핵심 기둥임을 재확인했습니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#우주항공청</span> <span>#예산</span> <span>#민간투자</span> <span>#R&D</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="keyword-section">
+                <h2 class="section-title">핵심 키워드 분석: 민간 주도 우주항공 생태계</h2>
+                <div class="keyword-analysis">
+                    <div class="keyword-item">
+                        <h3>1. 정의 및 중요성</h3>
+                        <p>
+                            과거 정부 출연 연구기관이 개발과 운영을 모두 책임지던 모델에서 벗어나, 민간 기업이 설계, 제조, 상업화, 운영 전반을 주도하는 체제로의 전환을 의미합니다. 이는 항공우주 분야를 정부 예산에 의존하는 비용 중심 영역에서, 자생력을 갖추고 수출을 통해 국가 경제를 견인하는 핵심 성장 동력으로 탈바꿈시키려는 우주항공청의 최우선 국정 과제입니다. 이 전환은 산업의 지속 가능성을 확보하고 글로벌 경쟁력을 강화하기 위한 필수적인 과정으로, 그 중요성이 매우 큽니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>2. 기술적 맥락</h3>
+                        <p>
+                            전환의 핵심은 발사체(누리호) 기술의 민간 이전입니다. 한화에어로스페이스는 시스템 통합 및 발사 운용 역할을 순차적으로 이전받고 있으며, 다음 단계는 설계부터 민간이 주도하는 차세대발사체 개발입니다. 위성 분야에서는 KAI가 차세대중형위성 사업을, 쎄트렉아이가 소형 위성 솔루션을 주도하며 이미 민간 역량의 성숙을 증명했습니다. 반면, 미래 항공 모빌리티(AAM/UAM) 분야는 태생부터 민간 주도로, 정부는 규제 환경을 조성하고 기술 실증을 지원하는 '조력자' 역할을 수행하고 있습니다. 
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>3. 시장/산업적 영향</h3>
+                        <p>
+                            정부의 명확한 민간 육성 전략은 현대차그룹의 AAM 투자 등 대규모 민간 자본 유치를 견인하고 있습니다. 이러한 정책은 2045년까지 국내 우주 산업 시장 규모를 세계 10% 수준으로 끌어올리려는 국가 목표의 핵심 촉매제입니다. 또한 민간 주도는 배터리, 경량소재, 5G/6G 통신 등 연관 산업에 새로운 수요를 창출합니다. 특히 쎄트렉아이의 위성 데이터 분석 서비스 확장처럼, 단순 하드웨어 판매를 넘어 고부가가치 서비스 중심의 새로운 비즈니스 모델 창출을 가능하게 합니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>4. 사회적/경제적 파급 효과</h3>
+                        <p>
+                           강력한 민간 생태계는 국산 정찰위성을 독자적으로 개발하고 발사할 수 있는 능력을 확보하게 하여, 국가 안보와 기술 주권을 강화하는 데 결정적인 역할을 합니다. 또한 항공우주 산업은 양질의 고부가가치 일자리를 창출하는 원천이며, KAI의 수출 증가는 무역수지 개선에 직접 기여합니다. 항공우주 산업이 요구하는 극한의 품질과 기술 수준은 국가 전체 제조업 기반의 기술 표준과 경쟁력을 한 단계 끌어올리는 강력한 파급 효과를 가져올 것으로 기대됩니다.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="visualization-container">
+                    <h3>📊 민간 주도 항공우주 생태계 핵심 지표 변화</h3>
+                    <div class="chart-container">
+                        <div class="grouped-bar-chart">
+                            <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 78%; background-color: #85C1DC;"><span class="bar-value">7,598억</span></div>
+                                    <div class="bar" style="height: 100%; background-color: #A8D8C7;"><span class="bar-value">9,649억</span></div>
+                                </div>
+                                <div class="group-label">우주항공청 예산</div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 84%; background-color: #85C1DC;"><span class="bar-value">20.4조</span></div>
+                                    <div class="bar" style="height: 100%; background-color: #A8D8C7;"><span class="bar-value">24.3조</span></div>
+                                </div>
+                                <div class="group-label">현대차그룹 미래 기술 투자</div>
+                            </div>
+                             <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 45%; background-color: #85C1DC;"><span class="bar-value">42.1억$</span></div>
+                                    <div class="bar" style="height: 52%; background-color: #A8D8C7;"><span class="bar-value">50억$</span></div>
+                                </div>
+                                <div class="group-label">글로벌 UAM 시장 (최소치)</div>
+                            </div>
+                        </div>
+                        <div class="legend">
+                            <div class="legend-item"><div class="legend-color" style="background-color: #85C1DC;"></div>2024년</div>
+                            <div class="legend-item"><div class="legend-color" style="background-color: #A8D8C7;"></div>2025년</div>
+                        </div>
+                         <p class="chart-note">
+                            * 위 데이터는 보고서 내 '대한민국 민간 주도 항공우주 생태계 핵심 지표'를 기반으로 재구성되었습니다.<br>
+                            * 정부(우주항공청)의 예산 확대와 민간(현대차)의 투자가 함께 증가하며, 글로벌 신시장(UAM)의 성장에 발맞추는 선순환 구조가 형성되고 있음을 보여줍니다.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <section id="page-2" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>심층 분석 1: 우주 개발 경쟁 심화와 민간 우주 시대 개막</h1>
+                <div class="header-subtitle">기준일: 2025년 6월 4주차</div>
+                <a href="https://www.kasa.go.kr/kor/sub02_02_04.do" target="_blank" class="article-link" rel="noopener noreferrer">관련 보고서: 제4차 우주개발 진흥 기본계획</a>
+            </div>
+    
+            <div class="main-content-grid">
+                <div class="article-analysis-section">
+                    <h2>분석: '포스트-누리호' 시대, 뉴 스페이스 혁명</h2>
+                    <p>대한민국 우주 개발은 누리호의 3차례 성공적 발사를 통해 '신뢰도 확보'라는 중요한 이정표를 세우고, 이제 '포스트-누리호' 시대로 본격 진입했습니다. 이 새로운 시대의 핵심은 과거 정부 주도의 '올드 스페이스'를 넘어, 민간 기업이 우주 개발을 주도하며 상업적 이익을 추구하는 '뉴 스페이스(New Space)' 패러다임으로의 전환입니다. 이제 산업의 초점은 한국항공우주연구원(KARI)이 보유한 발사체 기술과 운영 노하우를 체계종합기업인 한화에어로스페이스로 성공적으로 이전하고, 달 탐사가 가능한 차세대발사체 개발로 옮겨가고 있습니다. 이는 단순한 기술 개발을 넘어, 독자적인 발사체와 위성 제조 역량을 동시에 확보하여 국가 안보 수준을 높이고, 2040년 1.1조 달러 규모로 전망되는 글로벌 우주 경제에서 의미 있는 점유율을 확보하려는 국가적 전략의 일환입니다. KARI의 역할이 선도적 연구기관으로 변모하는 가운데, 한화와 KAI 같은 민간 기업들이 산업의 주역으로 부상하고 있습니다. 이러한 변화는 첨단 제조업, 소프트웨어, 소재 과학 등 연관 산업의 동반 성장을 촉진하며 경제 전반에 긍정적인 파급 효과를 가져올 것으로 기대됩니다.</p>
+                    
+                    <h3>주요 플레이어 전략 분화</h3>
+                    <ul>
+                        <li><strong>한화에어로스페이스:</strong> 누리호 기술 이전을 완벽히 소화해 안정적인 국가 임무를 수행하는 동시에, 차세대발사체 개발을 주도하며 미래 시장을 선점하는 '앵커 기업'으로 자리매김하고 있습니다. 스타트업과의 협력을 통해 재사용 기술 등 비용 경쟁력 확보에도 나서는 '투트랙' 전략을 구사합니다.</li>
+                        <li><strong>한국항공우주산업(KAI):</strong> 차세대중형위성 사업을 통해 위성 제조 기술 내재화에 성공, 독보적인 위치를 점하고 있습니다. 기존 중·대형 위성 중심에서 초소형 위성까지 포트폴리오를 확대하고, 자사의 글로벌 항공기 판매 네트워크를 활용한 '패키지 수출'이라는 새로운 사업 모델을 추진 중입니다.</li>
+                        <li><strong>쎄트렉아이:</strong> 대한민국 '뉴 스페이스'의 상징적 기업입니다. 세계적 수준의 고해상도 관측 위성 개발 역량을 바탕으로, 단순 위성 판매를 넘어 위성 영상 데이터 분석 서비스로 사업 가치를 확장하며 미래 우주 경제의 핵심이 될 부가가치 창출형 비즈니스를 선도하고 있습니다.</li>
+                    </ul>
+    
+                    <h3>기회와 도전 과제</h3>
+                    <ul>
+                        <li><strong>기회:</strong> 독자 발사체(한화)와 위성(KAI, 쎄트렉아이) 역량 동시 확보는 군사 정찰위성 등 국가 안보 자산을 자체적으로 운용할 수 있는 기술 주권 확보로 이어집니다. 또한 2045년 세계 시장의 10% 점유율이라는 국가 목표는 매우 도전적이지만, 달성 시 막대한 경제적 이익을 가져올 것입니다.</li>
+                        <li><strong>도전 과제:</strong> 발사체 개발에 따르는 막대한 비용과 실패 가능성, 급증하는 우주 쓰레기 문제, 그리고 우주 자원 활용을 둘러싼 지정학적 갈등은 산업 성장의 이면에 존재하는 주요 리스크 요인입니다. 현재 세계 시장의 1% 미만인 점유율을 끌어올리기 위해서는 정부의 예산뿐만 아니라 지속적인 민간 투자 활성화가 필수적입니다.</li>
+                    </ul>
+                </div>
+    
+                <div class="keywords-section">
+                    <h2>핵심 키워드</h2>
+                    <ul>
+                        <li>
+                            <strong>뉴 스페이스</strong>
+                            <p>민간 기업이 저비용, 빠른 개발, 재사용 기술을 통해 우주 개발을 주도하고 상업적 이익을 추구하는 새로운 패러다임.</p>
+                        </li>
+                        <li>
+                            <strong>발사체</strong>
+                            <p>위성 등을 우주 공간으로 운송하는 로켓. 누리호(독자개발), 차세대발사체(달 탐사용), 재사용 발사체(비용절감) 등이 핵심.</p>
+                        </li>
+                        <li>
+                            <strong>인공위성</strong>
+                            <p>통신, 관측(정찰), 항법(KPS) 등 특정 임무를 수행하는 인공 물체. 저궤도(LEO) 위성군이 뉴 스페이스의 핵심.</p>
+                        </li>
+                        <li>
+                            <strong>기술 주권</strong>
+                            <p>핵심 우주 기술과 자산을 해외 의존 없이 자체적으로 개발하고 운용할 수 있는 능력. 국가 안보의 핵심 요소.</p>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="visualization-section">
+                    <h2>우주항공청 2025년 주요 R&D 예산 배분 (총 8,064억 원)</h2>
+                    <div class="chart-title">산업 기반 강화에 집중된 전략적 투자</div>
+                     <div class="chart-container">
+                        <div class="horizontal-bar-chart">
+                             <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">우주 수송</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 100%;">3,036억 원</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">위성 시스템</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 28.1%;">852억 원</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">산업 기반</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 20.6%;">627억 원</div>
+                                </div>
+                            </div>
+                             <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">우주 탐사</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 17.2%;">523억 원</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="chart-note">
+                        * 위 데이터는 우주항공청 '2025년 주요 우주 프로그램 R&D 예산 배분' 자료를 기반으로 작성되었습니다.<br>
+                        * '우주 수송(발사체)' 분야에 예산이 집중된 것은, 독자적인 발사 역량 확보를 최우선 과제로 삼고 있음을 보여줍니다. 또한 '산업 기반'에 대한 투자는 단순 기술 개발을 넘어 지속 가능한 민간 생태계 구축에 대한 정부의 강력한 의지를 나타냅니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="page-3" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>심층 분석 2: 미래 항공 모빌리티(AAM/UAM) 기술 발전과 상용화</h1>
+                <div class="header-subtitle">기준일: 2025년 6월 4주차</div>
+                <a href="https://www.kiast.or.kr/kr/sub02_06_03.do" target="_blank" class="article-link" rel="noopener noreferrer">참고 자료: K-UAM Magazine (최신호)</a>
+            </div>
+    
+            <div class="main-content-grid">
+                <div class="article-analysis-section">
+                    <h2>분석: '에어택시' 현실화를 위한 진실의 순간</h2>
+                    <p>미래 항공 모빌리티(AAM), 특히 도심항공교통(UAM)은 더 이상 공상과학 소설의 영역이 아닙니다. 2025년 상용화를 목표로 한 'K-UAM 그랜드챌린지'가 통제된 환경을 벗어나 실제 도심 환경인 수도권 상공에서 2단계 실증에 돌입하며, 대한민국은 '에어택시' 현실화를 위한 가장 중요한 국면을 맞이했습니다. 이 단계의 성공은 개별 eVTOL 기체의 성능을 넘어, 항공기, 교통관리 시스템(UATM), 통신망, 그리고 지상의 이착륙 시설인 버티포트가 하나의 유기체처럼 안전하고 신뢰성 있게 작동하는 '통합운용성'을 증명하는 데 달려있습니다. 이는 단순한 기술 시연이 아니라, 규제 당국의 인증, 투자자의 신뢰, 그리고 대중의 사회적 수용성을 확보하기 위한 '진실의 순간'입니다. 경쟁 구도 역시 단일 기업이 아닌, 완성차 업체, 방산/IT 기업, 통신사, 건설사가 각자의 강점을 결합한 '컨소시엄 대항전'으로 전개되고 있습니다. 이는 UAM 시장의 승리 공식이 최고의 기체를 만드는 것을 넘어, 하드웨어, 소프트웨어, 인프라, 서비스를 가장 완벽하게 통합한 '생태계'를 구축하는 데 있음을 명확히 보여줍니다.</p>
+                    
+                    <h3>K-UAM 컨소시엄 경쟁 구도</h3>
+                    <ul>
+                        <li><strong>현대자동차그룹 중심:</strong> 세계적인 자동차 양산 능력과 MaaS 플랫폼을 UAM에 접목, 지상 교통부터 항공 이동까지 끊김 없는(seamless) 이동 경험을 제공하는 '풀스택' 플레이어를 목표로 합니다.</li>
+                        <li><strong>한화시스템 중심:</strong> 방산 및 IT 기술력을 바탕으로 기체 개발과 함께 항공전자, 자율비행, 관제 시스템 등 핵심 기술 개발에 강점을 보입니다. 한국공항공사와의 협력을 통해 버티포트 등 인프라 영역을 공략합니다.</li>
+                        <li><strong>SK텔레콤 중심:</strong> UAM 운항에 필수적인 5G/6G 통신망과 교통관리 플랫폼(UTM) 개발에 집중합니다. 기체는 글로벌 선두주자인 조비 에비에이션과 파트너십을 맺어 자사의 핵심 역량에 집중하는 전략을 구사합니다.</li>
+                    </ul>
+    
+                    <h3>기회와 도전 과제</h3>
+                    <ul>
+                        <li><strong>기회:</strong> AAM은 기체 제조, MRO(정비), 운영 인력 양성 등 완전히 새로운 시장을 창출합니다. 성공적으로 정착 시, 극심한 도심 교통 체증을 완화하고, 2040년 약 13조 원 규모의 국내 시장을 형성할 잠재력을 가집니다.</li>
+                        <li><strong>도전 과제:</strong> 상업용 여객기 수준의 '안전성' 확보, 기체 소음 및 추락 불안감으로 인한 '사회적 수용성' 문제, 수천 대의 기체를 관리할 '항공 교통 관리(ATM)' 시스템 부재, 그리고 높은 초기 비용으로 인한 '경제성' 확보가 상용화를 위해 반드시 해결해야 할 4대 핵심 과제입니다.</li>
+                    </ul>
+                </div>
+    
+                <div class="keywords-section">
+                    <h2>핵심 키워드</h2>
+                    <ul>
+                        <li>
+                            <strong>UAM/AAM</strong>
+                            <p>도심 내(UAM)와 도시 간(AAM) 저고도 공역을 활용하는 차세대 항공 교통 체계. '에어택시'로 대표됨.</p>
+                        </li>
+                        <li>
+                            <strong>eVTOL</strong>
+                            <p>전기 수직이착륙 항공기. 소음이 적고 친환경적이어서 UAM의 핵심 기체로 주목받고 있음.</p>
+                        </li>
+                         <li>
+                            <strong>버티포트</strong>
+                            <p>eVTOL의 수직 이착륙, 충전, 정비가 이루어지는 터미널. 지상 교통과 연계되는 모빌리티 허브.</p>
+                        </li>
+                        <li>
+                            <strong>K-UAM 그랜드챌린지</strong>
+                            <p>2025년 상용화를 목표로, UAM 생태계 전반의 안전성과 통합운용성을 검증하는 대규모 민관합동 실증사업.</p>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="visualization-section">
+                    <h2>글로벌 AAM/UAM 시장 규모 전망 (2025-2035년)</h2>
+                    <div class="chart-title">폭발적 성장이 예상되는 미래 모빌리티 시장</div>
+                     <div class="chart-container">
+                        <div class="line-chart-container">
+                            <svg id="aam-market-chart"></svg>
+                            <div id="aam-tooltip" class="tooltip"></div>
+                        </div>
+                    </div>
+                     <div class="legend">
+                        <div class="legend-item"><div class="legend-color" style="background-color: #85C1DC;"></div>글로벌 시장 (10억 달러)</div>
+                        <div class="legend-item"><div class="legend-color" style="background-color: #F7A78F;"></div>국내 시장 (10억 달러)</div>
+                    </div>
+                    <p class="chart-note">
+                        * 위 데이터는 보고서 내 '글로벌 및 국내 AAM/UAM 시장 규모 전망'을 기반으로 작성되었습니다.<br>
+                        * 초기 시장 형성기를 지나 2030년을 기점으로 시장이 급격하게 성장하는 J-커브 형태를 보일 것으로 예상됩니다. 국내 시장 역시 글로벌 추세에 맞춰 성장할 것으로 목표하고 있으며, 이는 초기 인프라 투자와 기술 개발의 중요성을 시사합니다.
+                    </p>
+                </div>
+                
+                 <div class="comparison-table-section">
+                    <h2>K-UAM 그랜드챌린지 주요 컨소시엄 비교</h2>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>컨소시엄 주도 기업</th>
+                                <th>eVTOL 파트너</th>
+                                <th>핵심 역량 / 전략적 초점</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>현대자동차그룹</td>
+                                <td>슈퍼널 (자체 개발)</td>
+                                <td><strong>제조 및 MaaS:</strong> 완성차 양산 능력 기반, 모빌리티 서비스 통합</td>
+                            </tr>
+                            <tr>
+                                <td>한화시스템</td>
+                                <td>오버에어 (지분 투자)</td>
+                                <td><strong>방산/IT 및 인프라:</strong> 항공전자, 관제 시스템, 버티포트 운영</td>
+                            </tr>
+                            <tr>
+                                <td>SK텔레콤</td>
+                                <td>조비 에비에이션 (파트너십)</td>
+                                <td><strong>통신 및 플랫폼:</strong> 5G/6G 통신망, 교통관리(UTM) 플랫폼</td>
+                            </tr>
+                            <tr>
+                                <td>GS건설</td>
+                                <td>버티컬 에어로스페이스 (파트너십)</td>
+                                <td><strong>인프라 및 플랫폼:</strong> 버티포트 건설, 모빌리티 플랫폼 연계</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                 </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <section id="page-4" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>💡 항공우주 산업 분석: 참고 자료 및 심화 학습</h1>
+            </div>
+    
+            <div class="main-content-section">
+                <p class="intro-text">
+                    본 보고서에서 심층 분석한 '뉴스페이스'와 '미래 항공 모빌리티(AAM/UAM)' 이슈와 관련하여 더 깊이 학습하거나 참고할 수 있는 신뢰도 높은 외부 전문 자료들을 정리했습니다.
+                </p>
+    
+                <h2>🔍 심층 분석 주제별 추천 자료</h2>
+                <div class="card-grid">
+                    <div class="info-card">
+                        <h3>[정부 계획] 제4차 우주개발 진흥 기본계획</h3>
+                        <p>대한민국의 장기 우주 개발 마스터플랜. 세계 5대 우주 강국 도약을 위한 비전, 목표, 전략 과제를 담고 있으며, 산업 생태계 전반을 포괄합니다.</p>
+                        <a href="https://www.kasa.go.kr/kor/sub02_02_04.do" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[정부 예산] 2025년도 우주항공청 R&D 시행계획</h3>
+                        <p>당해 연도 정부의 전체 항공우주 R&D 투자 계획을 담은 가장 근본적인 문서. 특정 프로젝트별 예산, 일정, 정책 목표를 이해하는 데 필수적입니다.</p>
+                        <a href="https://www.kasa.go.kr/prog/bbsArticle/BBSMSTR_000000000010/view.do?bbsId=BBSMSTR_000000000010&nttId=B000000000980Sx0iF0" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[UAM 동향] K-UAM Magazine (최신호)</h3>
+                        <p>항공안전기술원이 발행하는 매거진으로, K-UAM 생태계에 대한 가장 최신 전문 정보를 제공합니다. 정책, 기술, 그랜드챌린지 현황을 담고 있습니다.</p>
+                        <a href="https://www.kiast.or.kr/kr/sub02_06_03.do" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[산업 통계] 우주산업실태조사 보고서</h3>
+                        <p>국내 우주 산업에 대한 가장 권위 있는 연간 통계 보고서. 매출, 투자, 고용, 참여 기업 등 정량적 분석을 위한 핵심 데이터를 제공합니다.</p>
+                        <a href="http://www.kasp.or.kr/center/download.html?ptype=view&idx=10475&page=1&code=pds" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>[정책/법률] 항공우주정책·법학회지</h3>
+                        <p>우주 자원 소유권, UAM 사고 책임, 국제 우주 조약 등 새롭게 부상하는 이슈에 대한 심도 있는 법률 및 정책 분석을 제공하는 학술지입니다.</p>
+                        <a href="https://koreascience.kr/journal/KHSBBC.pub?&lang=ko" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>[글로벌 시장] Global UAM Market Report</h3>
+                        <p>Deloitte, Morgan Stanley 등 글로벌 컨설팅 기업이 발행하는 시장 보고서. 글로벌 시장의 맥락, 예측, 경쟁 분석을 통해 한국의 위치를 평가할 수 있습니다.</p>
+                        <a href="https://www.deloitte.com/us/en/Industries/energy/articles/the-future-of-mobility-in-aerospace-and-defense.html" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                </div>
+    
+                <h2>📰 항공/우주 연관 산업 주요 이슈</h2>
+                <div class="card-grid">
+                    <div class="info-card">
+                        <h3>방위산업: KAI 지속가능성보고서</h3>
+                        <p>KF-21 등 군용기 개발과 민항기/우주 프로젝트 간의 연결고리를 보여줍니다. 방산 R&D와 수출이 항공우주 분야의 자금과 기술 원천이 되는 구조를 설명합니다.</p>
+                        <a href="https://www.koreaaero.com/KO/data_file/2023_KAI_%EC%A7%80%EC%86%8D%EA%B0%80%EB%8A%A5%EC%84%B1%EB%B3%B4%EA%B3%A0%EC%84%9C_%EC%B5%9C%EC%A2%85.pdf" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>IT/소프트웨어: 위성통신 서비스 동향</h3>
+                        <p>우주 경제의 소프트웨어 및 데이터 분석 계층을 분석합니다. 원시 위성 데이터가 어떻게 가치 있는 상업 서비스로 변환되는지에 초점을 맞춥니다.</p>
+                        <a href="https://www.iitp.kr/kr/1/knowledge/periodicalViewA.it?masterCode=publication&searClassCode=B_ITA_01&identifier=1282" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>통신: 저궤도 위성통신 기술개발 보고서</h3>
+                        <p>미래 6G 네트워크 실현에 저궤도 위성군이 수행하는 역할을 설명하며, 우주 산업과 통신 산업의 융합 현황을 상세히 다룹니다.</p>
+                        <a href="https://www.kistep.re.kr/reportDetail.es?mid=a10305070000&rpt_tp=831-003&rpt_no=RES0220240121" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>소재/부품: 소재기술백서</h3>
+                        <p>항공우주 분야에 필수적인 경량 복합소재, 내열 합금 등 첨단 소재에 대한 개요를 제공하고, 국내 소재 산업의 R&D 과제와 기회를 설명합니다.</p>
+                        <a href="https://www.mtnews.net/news/articleView.html?idxno=15860" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>인프라 건설: UAM 버티포트 입지 연구</h3>
+                        <p>새로운 수십억 달러 시장이 될 버티포트 건설에 대한 전문 보고서. 이 시장을 주도할 기술적, 경제적, 규제적 요인을 분석합니다.</p>
+                        <a href="http://download.kura.kr/download.asp?filename=Upload%2Fpublications%2F6%2E%2520%25uB3C4%25uC2EC%25uD56D%25uACF5%25uAD50%25uD1B5%2528UAM%2529%2520%25uBC84%25uD2F0%25uD3EC%25uD2B8%2528Vertiport%2529%2520%25uC785%25uC9C0%2520%25uC120%25uC815%2520%25uC601%25uD5A5%25uC694%25uC778%2520%25uC5F0%25uAD6C%2Epdf" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>항공 운수: UAM 상용화의 고용 영향</h3>
+                        <p>UAM이 기존 항공 운수 산업의 고용 구조를 어떻게 변화시킬지 분석합니다. 기존 직업군에 미치는 영향과 새롭게 부상할 직업군을 전망합니다.</p>
+                        <a href="https://repository.kli.re.kr/bitstream/2021.oak/11716/2/%28%EA%B3%A0%EC%9A%A9%EC%98%81%ED%96%A5%ED%8F%89%EA%B0%80%292023-16_%EB%8F%84%EC%8B%AC%ED%95%AD%EA%B3%B5%EA%B5%90%ED%86%B5%20%EC%83%81%EC%9A%A9%ED%99%94%EC%97%90%20%EB%94%B0%EB%A5%B8%20%EA%B3%A0%EC%9A%A9%EC%98%81%ED%96%A5.pdf" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                </div>
+    
+                <div class="conclusion-box">
+                    <h2>마무리하며:</h2>
+                    <p>
+                        2025년 대한민국 항공우주 산업은 '민간 주도 생태계'라는 대전환의 항해를 시작했습니다. 정부의 전략적 지원과 민간의 과감한 투자가 만나 '뉴스페이스' 시대를 열고 있으며, UAM이라는 새로운 모빌리티 혁명을 눈앞에 두고 있습니다. 이제 성패는 단순한 기술 개발을 넘어, 지속 가능한 산업 생태계를 구축하고, 글로벌 표준을 선도하며, 대중의 신뢰를 확보하는 데 달리게 될 것입니다. 도전과 기회가 공존하는 이 하늘길에서, 대한민국이 진정한 항공우주 강국으로 도약할 수 있을지 귀추가 주목됩니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // AAM/UAM Market Line Chart (Page 3)
+            const data = [
+                { year: 2025, global: 9.0, domestic: 0.1 }, // 국내 초기 상용화 값은 0에 가깝게 설정
+                { year: 2030, global: 25.0, domestic: 2.0 },
+                { year: 2035, global: 70.0, domestic: 6.0 },
+            ];
+
+            const svgElement = document.getElementById("aam-market-chart");
+            const svg = d3.select(svgElement);
+            const tooltip = d3.select("#aam-tooltip");
+            
+            const width = svgElement.clientWidth;
+            const height = svgElement.clientHeight;
+            const margin = { top: 20, right: 30, bottom: 40, left: 50 };
+
+            const x = d3.scaleLinear()
+                .domain(d3.extent(data, d => d.year))
+                .range([margin.left, width - margin.right]);
+
+            const y = d3.scaleLinear()
+                .domain([0, d3.max(data, d => d.global)]).nice()
+                .range([height - margin.bottom, margin.top]);
+
+            // Axes
+            svg.append("g")
+                .attr("transform", `translate(0,${height - margin.bottom})`)
+                .call(d3.axisBottom(x).tickFormat(d3.format("d")).ticks(data.length))
+                .selectAll("text")
+                .style("font-family", "'Noto Sans KR', sans-serif")
+                .style("font-size", "12px");
+            
+            svg.append("g")
+                .attr("transform", `translate(${margin.left},0)`)
+                .call(d3.axisLeft(y).ticks(5))
+                .selectAll("text")
+                .style("font-family", "'Noto Sans KR', sans-serif")
+                .style("font-size", "12px");
+
+            // Grid lines
+            svg.append("g")
+                .attr("class", "grid")
+                .attr("transform", `translate(${margin.left},0)`)
+                .call(d3.axisLeft(y).ticks(5).tickSize(-width + margin.left + margin.right).tickFormat(""))
+                .selectAll(".tick line")
+                .attr("stroke", "#e0e0e0")
+                .attr("stroke-dasharray", "2,3");
+            
+            // Tooltip functions
+            const mouseover = (event, d) => {
+                tooltip.style("opacity", 1);
+            };
+            const mousemove = (event, d) => {
+                const [xPos, yPos] = d3.pointer(event, svg.node());
+                tooltip
+                    .html(`<b>${d.year}년</b><br>글로벌: ${d.global} B$<br>국내: ${d.domestic} B$`)
+                    .style("left", `${xPos + 15}px`)
+                    .style("top", `${yPos}px`)
+                    .style("transform", "translateY(-50%)");
+            };
+            const mouseleave = (event, d) => {
+                tooltip.style("opacity", 0);
+            };
+
+            // Global Market Line
+            const lineGlobal = d3.line()
+                .x(d => x(d.year))
+                .y(d => y(d.global));
+            
+            svg.append("path")
+                .datum(data)
+                .attr("fill", "none")
+                .attr("stroke", "#85C1DC")
+                .attr("stroke-width", 3)
+                .attr("stroke-linecap", "round")
+                .attr("stroke-linejoin", "round")
+                .attr("d", lineGlobal)
+                .style("stroke-dasharray", "1000")
+                .style("stroke-dashoffset", "1000")
+                .transition()
+                .duration(2000)
+                .ease(d3.easeCubicOut)
+                .style("stroke-dashoffset", 0);
+
+            // Domestic Market Line
+            const lineDomestic = d3.line()
+                .x(d => x(d.year))
+                .y(d => y(d.domestic));
+
+            svg.append("path")
+                .datum(data)
+                .attr("fill", "none")
+                .attr("stroke", "#F7A78F")
+                .attr("stroke-width", 3)
+                .attr("stroke-linecap", "round")
+                .attr("stroke-linejoin", "round")
+                .attr("d", lineDomestic)
+                .style("stroke-dasharray", "1000")
+                .style("stroke-dashoffset", "1000")
+                .transition()
+                .duration(2000)
+                .ease(d3.easeCubicOut)
+                .delay(500) // Start after the first line
+                .style("stroke-dashoffset", 0);
+
+            // Data Points (for tooltips)
+            svg.selectAll("circle.global-point")
+                .data(data)
+                .enter()
+                .append("circle")
+                .attr("class", "data-point global-point")
+                .attr("cx", d => x(d.year))
+                .attr("cy", d => y(d.global))
+                .attr("r", 5)
+                .attr("fill", "white")
+                .attr("stroke", "#85C1DC")
+                .attr("stroke-width", 2)
+                .on("mouseover", mouseover)
+                .on("mousemove", mousemove)
+                .on("mouseleave", mouseleave);
+
+            svg.selectAll("circle.domestic-point")
+                .data(data)
+                .enter()
+                .append("circle")
+                .attr("class", "data-point domestic-point")
+                .attr("cx", d => x(d.year))
+                .attr("cy", d => y(d.domestic))
+                .attr("r", 5)
+                .attr("fill", "white")
+                .attr("stroke", "#F7A78F")
+                .attr("stroke-width", 2)
+                .on("mouseover", mouseover)
+                .on("mousemove", mousemove)
+                .on("mouseleave", mouseleave);
+        });
+
+    </script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</body>
+</html>

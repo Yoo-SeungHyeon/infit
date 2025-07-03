@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InFit - 금융 산업 분석 통합 레포트</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 기본 스타일 */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #F8F8F8;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 페이지 섹션 공통 스타일 */
+        .page-section {
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* 1페이지 스타일 */
+        #page-1 {
+            background-color: #F8F8F8;
+        }
+
+        #page-1 .container {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        #page-1 .header-section {
+            background-color: #FFF9F2; /* Bubble Cream: 부드러운 크림 배경 */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem 2rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        #page-1 .whale-character {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            width: 80px;
+            height: 80px;
+            opacity: 0.9;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        #page-1 .whale-character:hover {
+            transform: scale(1.1) rotate(5deg);
+            opacity: 1;
+        }
+
+        #page-1 .header-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #85C1DC; /* Whale Sky: 차분한 하늘색 */
+            margin-bottom: 0.75rem;
+        }
+
+        #page-1 .header-section .slogan {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #4D5E70; /* Slate Ink: 읽기 좋은 어두운 그레이 */
+            margin-bottom: 1.5rem;
+        }
+
+        #page-1 .header-section .subtitle {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        #page-1 .card-news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid #E0E0E0;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            #page-1 .card-news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        #page-1 .card {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            overflow: hidden;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        #page-1 .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-1 .card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
+        #page-1 .card-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #4D5E70;
+            margin-bottom: 0.8rem;
+        }
+
+        #page-1 .card-summary {
+            font-size: 0.95rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        #page-1 .card-keywords {
+            font-size: 0.85rem;
+            color: #666;
+            font-weight: 500;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        #page-1 .card-keywords span {
+            background-color: #A8D8C7;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        #page-1 .section-title {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #85C1DC;
+            margin-bottom: 2rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            text-align: center;
+        }
+
+        #page-1 .keyword-section {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            padding: 25px;
+        }
+        
+        .keyword-analysis {
+            padding-bottom: 1.5rem;
+        }
+
+        #page-1 .keyword-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed #E0E0E0;
+        }
+
+        #page-1 .keyword-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        #page-1 .keyword-item h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70;
+            margin-bottom: 0.75rem;
+        }
+
+        #page-1 .keyword-item p {
+            font-size: 0.95em;
+            color: #444;
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+        
+        .visualization-container {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px dashed #E0E0E0;
+        }
+        .visualization-container h3 {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #85C1DC;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+
+        /* 2-4페이지 공통 레포트 스타일 */
+        .report-container {
+            width: 100%;
+            max-width: 960px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .header-section {
+            padding: 40px 30px;
+            text-align: center;
+            background-color: #FFF9F2;
+            border-bottom: 1px solid #A8D8C7;
+        }
+
+        .header-section h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .header-subtitle {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        .article-link {
+            font-size: 0.9em;
+            color: #F7A78F;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: 1px solid #A8D8C7;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .article-link:hover {
+            background-color: #F7A78F;
+            color: white;
+        }
+
+        .main-content-grid {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 25px;
+            padding: 30px;
+        }
+
+        .article-analysis-section, 
+        .keywords-section, 
+        .visualization-section {
+            background-color: #FFF9F2;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+        }
+        
+        .comparison-table-section {
+            background-color: #FFF9F2;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            grid-column: 1 / -1;
+            grid-row: 3;
+        }
+        
+        .comparison-table-section h2 {
+             font-size: 1.6em;
+            color: #85C1DC;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            font-weight: 700;
+        }
+
+        .article-analysis-section {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .keywords-section {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .visualization-section {
+            grid-column: 1 / -1;
+            grid-row: 2;
+        }
+
+        /* 레포트 공통 타이포그래피 */
+        #page-2 h2, #page-3 h2, #page-4 h2 {
+            font-size: 1.6em;
+            color: #85C1DC;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            font-weight: 700;
+        }
+
+        #page-2 p, #page-3 p, #page-4 p {
+            font-size: 0.95em;
+            line-height: 1.7;
+            margin-bottom: 1em;
+            color: #444;
+        }
+
+        #page-2 h3, #page-3 h3, #page-4 h3 {
+            font-size: 1.2em;
+            color: #4D5E70;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* 공통 리스트 스타일 */
+        .article-analysis-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 1em 0;
+        }
+
+        .article-analysis-section ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .article-analysis-section ul li::before {
+            content: '•';
+            color: #F7A78F;
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .keywords-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .keywords-section li {
+            margin-bottom: 15px;
+        }
+
+        .keywords-section li strong {
+            display: block;
+            font-size: 1.1em;
+            color: #4D5E70;
+            margin-bottom: 5px;
+        }
+
+        .keywords-section li p {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        /* 공통 시각화 스타일 */
+        .visualization-section {
+            text-align: center;
+        }
+
+        .visualization-section h2 {
+            font-size: 1.4em;
+        }
+
+        .chart-container {
+            margin-top: 20px;
+            padding: 25px 15px 15px 15px;
+            background-color: #F8F8F8;
+            border-radius: 8px;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .chart-title {
+            font-size: 1.1em;
+            color: #85C1DC;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .chart-note {
+            font-size: 0.8em;
+            color: #777;
+            margin-top: 30px;
+            text-align: left;
+            line-height: 1.5;
+            padding: 0 15px;
+        }
+        
+        /* 그룹형 막대그래프 스타일 (공통) */
+        .grouped-bar-chart {
+            display: flex;
+            justify-content: space-around;
+            height: 280px;
+            padding-top: 20px;
+            align-items: flex-end;
+        }
+        .bar-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            text-align: center;
+            height: 100%;
+        }
+        .bar-pair {
+             display: flex;
+             align-items: flex-end;
+             height: 100%;
+             gap: 8px;
+             flex-grow: 1;
+        }
+        .bar-group .bar {
+            width: 40px;
+            position: relative;
+            animation: grow-bar 1.2s ease-out forwards;
+            transition: background-color 0.3s ease;
+        }
+        .bar-group .bar .bar-value {
+            position: absolute;
+            top: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #4D5E70;
+        }
+        .bar-group .group-label {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+            font-size: 0.9em;
+        }
+        .legend {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 0 15px;
+        }
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            margin-right: 8px;
+            border-radius: 3px;
+        }
+
+        /* 가로 막대그래프 스타일 (공통) */
+        @keyframes fill-bar {
+            from { width: 0; }
+        }
+        .horizontal-bar-chart {
+            padding-top: 10px;
+            max-width: 500px; /* 차트의 최대 너비를 제한 */
+            margin: 0 auto; /* 차트를 부모 요소 안에서 중앙 정렬 */
+        }
+        .horizontal-bar-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        .horizontal-bar-label {
+            width: 120px; /* 레이블 너비 조정 */
+            text-align: right;
+            padding-right: 15px;
+            font-weight: 600;
+            color: #4D5E70;
+            flex-shrink: 0;
+            font-size: 0.95em;
+        }
+        .horizontal-bar-wrapper {
+            flex-grow: 1;
+            background-color: #e9e9e9;
+            border-radius: 5px;
+            height: 30px;
+        }
+        .horizontal-bar-fill {
+            height: 100%;
+            background-color: #85C1DC;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+            padding-left: 10px;
+            box-sizing: border-box;
+            animation: fill-bar 1.2s ease-out forwards;
+            width: var(--bar-width, 0%);
+            white-space: nowrap;
+        }
+         .horizontal-bar-fill:hover {
+            background-color: #F7A78F;
+        }
+
+
+        /* 4페이지 특화 스타일 */
+        #page-4 .main-content-section {
+            padding: 30px;
+        }
+
+        #page-4 .intro-text {
+            font-size: 1.1em;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        #page-4 .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        #page-4 .info-card {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            padding: 1.5rem;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #page-4 .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-4 .info-card h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70;
+            margin-bottom: 0.75rem;
+            margin-top: 0;
+        }
+
+        #page-4 .info-card p {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        #page-4 .info-card a {
+            color: #F7A78F;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            display: block;
+            margin-top: auto;
+        }
+
+        #page-4 .conclusion-box {
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            border: 1px solid #A8D8C7;
+        }
+
+        #page-4 .conclusion-box h2 {
+            font-size: 1.4em;
+            color: #4D5E70;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        #page-4 .conclusion-box p {
+            color: #333;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* 애니메이션 공통 */
+        @keyframes grow-bar {
+            from { height: 0; }
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .page-section {
+                padding: 10px;
+            }
+            
+            #page-1 .container {
+                padding: 1rem;
+            }
+            
+            #page-1 .card-news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #page-1 .whale-character {
+                width: 60px;
+                height: 60px;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .main-content-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+                padding: 20px;
+            }
+            
+            .article-analysis-section,
+            .keywords-section,
+            .visualization-section,
+            .comparison-table-section {
+                grid-column: 1 / -1;
+                grid-row: auto;
+            }
+
+            #page-4 .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #page-4 .main-content-section {
+                padding: 20px;
+            }
+            
+            .bar-group .bar {
+                width: 30px;
+            }
+
+            /* 모바일 차트 스타일 */
+            .horizontal-bar-label {
+                width: 100px;
+                font-size: 0.9em;
+            }
+            
+            /* 비교 테이블 모바일 스타일 */
+            .comparison-table {
+                font-size: 0.8em;
+            }
+            .comparison-table th, .comparison-table td {
+                padding: 8px;
+            }
+        }
+
+        /* 비교 테이블 스타일 */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #A8D8C7;
+            padding: 12px;
+            text-align: left;
+            font-size: 0.9em;
+            color: #444;
+        }
+        .comparison-table thead th {
+            background-color: #f2f9f6;
+            color: #4D5E70;
+            font-weight: 700;
+            text-align: center;
+        }
+        .comparison-table tbody tr:nth-child(even) {
+            background-color: #fafdfc;
+        }
+        .comparison-table tbody tr:hover {
+            background-color: #e8f5f0;
+        }
+        .comparison-table td:first-child {
+            font-weight: 600;
+            color: #4D5E70;
+            width: 25%;
+        }
+
+        /* Specific fix for chart 1 text wrapping */
+        #page-1 .bar-group .bar-value,
+        #page-1 .bar-group .group-label {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <section id="page-1" class="page-section">
+        <div class="container">
+            <header class="header-section">
+                <img src="../infit_logo.png" alt="InFit 캐릭터" class="whale-character">
+                <h1>디지털 금융 대전환</h1>
+                <p class="slogan">규제적 명확성, 혁신의 새로운 나침반</p>
+                <p class="subtitle">
+                    <span style="font-weight: 600;">금융 산업 분석 보고서 (2025년 6월 4주차)</span><br>디지털 자산과 AI, 금융의 미래를 재편하다
+                </p>
+            </header>
+
+            <section>
+                <h2 class="section-title">주간 금융 핵심 동향 요약</h2>
+                <div class="card-news-grid">
+                    <div class="card">
+                        <a href="https://www.bank-mall.co.kr/plus/blog/12067" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">한국은행, 기준금리 2.50% 동결 속 완화 신호 강화</h3>
+                            <p class="card-summary">
+                                한국은행이 기준금리를 동결했으나, 안정된 물가와 둔화된 성장률 전망을 배경으로 추가 인하 가능성을 강력히 시사했습니다. 이는 경기 부양에 대한 의지를 명확히 한 것으로, 시장은 이를 완화 기조의 '확인'으로 해석하며 금리 인하 기대감을 높이고 있습니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#통화정책완화</span> <span>#기준금리</span> <span>#경기부양</span> <span>#스트레스DSR</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://www.newstomato.com/readnews.aspx?no=1251088" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">금융위, '가상자산법 2단계' 공청회…스테이블코인 규제 본격화</h3>
+                            <p class="card-summary">
+                                금융위원회가 스테이블코인 및 증권형 토큰(STO)을 포괄하는 '가상자산이용자보호법 2단계' 입법 공청회를 개최했습니다. 이는 규제 불확실성을 해소하여 기관 투자자의 시장 진입을 촉진하고, 디지털 자산을 제도권으로 편입시키는 결정적 계기가 될 것입니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#디지털자산</span> <span>#스테이블코인</span> <span>#규제강화</span> <span>#STO</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://www.etoday.co.kr/news/view/2414683" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">5대 금융지주, 생성형 AI에 조 단위 투자 경쟁</h3>
+                            <p class="card-summary">
+                                5대 금융지주가 하반기 AI 전략을 발표하며 생성형 AI에 대한 조 단위의 대규모 투자 계획을 밝혔습니다. AI를 핵심 비즈니스 동력으로 삼아 고객 서비스와 업무 생산성을 혁신하려는 경쟁이 본격화되었으며, 정부도 '금융 AI 플랫폼'으로 이를 지원하고 있습니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#금융AI</span> <span>#생성형AI</span> <span>#대규모투자</span> <span>#디지털전환</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://www.bis.org/press/p250624.htm" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">BIS, 연례 보고서 통해 '토큰화' 지지, '스테이블코인' 경고</h3>
+                            <p class="card-summary">
+                                국제결제은행(BIS)이 연례 보고서에서 '토큰화' 기술을 금융의 미래로 지지하면서도, 민간 스테이블코인의 잠재적 리스크를 강력히 경고했습니다. 이는 한국은행의 CBDC 개발과 금융위의 스테이블코인 규제 강화 정책에 국제적 정당성을 부여합니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#BIS</span> <span>#토큰화</span> <span>#CBDC</span> <span>#금융안정</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="keyword-section">
+                <h2 class="section-title">핵심 키워드 분석: 규제적 명확성 (Regulatory Clarity)</h2>
+                <div class="keyword-analysis">
+                    <div class="keyword-item">
+                        <h3>1. 정의 및 중요성</h3>
+                        <p>
+                            '규제적 명확성'이란 AI, 디지털 자산 등 신기술 금융에 대해 명확하고 예측 가능한 법률 및 감독 체계가 확립되는 상태를 뜻합니다. 2025년 대한민국 금융 산업에서 이는 기술을 변방에서 중심으로 이동시키는 핵심 촉매제입니다. 법적 리스크 감소는 전통 금융기관과 기관 투자자의 진입을 유도하고, 명확한 '게임의 법칙'은 혁신 기업들이 규제 차익이 아닌 실질적 가치 창출에 집중하게 만듭니다. 결국, 과거 불확실성 속에 묶여 있던 거대 자본과 인재를 시장으로 이끄는 관문을 여는 열쇠라 할 수 있습니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>2. 기술적 맥락</h3>
+                        <p>
+                            규제적 명확성은 구체적인 법률과 가이드라인을 통해 기술에 생명력을 불어넣습니다. 디지털 자산 분야에서는 '가상자산법 2단계'가 스테이블코인 발행 주체와 담보 기준을 명시하고, '토큰증권(STO) 가이드라인'은 부동산 같은 비유동 자산의 증권화를 합법화했습니다. 이를 통해 시장의 신뢰를 높이고 새로운 투자의 길을 열었습니다. 인공지능(AI) 분야에서는 개정된 '금융 AI 가이드라인'이 데이터 거버넌스, 공정성, 그리고 대출 거절 이유 등을 설명할 의무(XAI)를 부과하여 책임 있는 혁신을 유도합니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>3. 시장/산업적 영향</h3>
+                        <p>
+                            규제가 명확해지자 시장의 지각변동이 시작되었습니다. 가장 큰 장벽이 사라지면서 기관 투자자들이 본격적으로 참여하고 있습니다. 은행은 원화 스테이블코인 발행을, 증권사는 STO 중개를, 자산운용사는 디지털 자산 펀드 출시를 준비하고 있습니다. 이는 법적 기반이 마련된 STO 시장이 2030년 367조 원 규모로 폭발적으로 성장할 것이라는 전망을 뒷받침합니다. 또한, 기관용 디지털 자산 보관 서비스(커스터디)나 규제 준수 기술(RegTech) 등 과거에는 없던 새로운 비즈니스 모델들이 속속 등장하고 있습니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>4. 사회적/경제적 파급 효과</h3>
+                        <p>
+                            규제적 명확성은 금융 산업을 넘어 사회 전반에 긍정적 효과를 가져옵니다. 명확한 규제는 무분별한 암호화폐 사기로부터 개인 투자자들을 보호하는 강력한 안전장치가 됩니다. 또한, 규제화된 스테이블코인이나 후불결제(BNPL) 서비스는 신용 이력이 부족한 금융소외계층에게 새로운 금융 기회를 제공하여 금융 포용성을 높입니다. 스테이블코인의 준비자산을 엄격히 관리하고 AI 모델의 리스크를 통제하도록 의무화하는 것은 신기술이 야기할 수 있는 잠재적 시스템 리스크를 사전에 방지하여 금융 시스템 전체의 안정성을 확보하는 데 기여합니다.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="visualization-container">
+                    <h3>📊 규제 명확화에 따른 핵심 디지털 자산 시장 성장 전망</h3>
+                    <div class="chart-container">
+                        <div class="grouped-bar-chart">
+                            <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 15%; background-color: #85C1DC;"><span class="bar-value">34조</span></div>
+                                    <div class="bar" style="height: 100%; background-color: #A8D8C7;"><span class="bar-value">367조</span></div>
+                                </div>
+                                <div class="group-label">토큰증권(STO) 시장</div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 10%; background-color: #85C1DC;"><span class="bar-value">1.7조</span></div>
+                                    <div class="bar" style="height: 18%; background-color: #A8D8C7;"><span class="bar-value">3.2조</span></div>
+                                </div>
+                                <div class="group-label">금융 AI 시장</div>
+                            </div>
+                        </div>
+                        <div class="legend">
+                            <div class="legend-item"><div class="legend-color" style="background-color: #85C1DC;"></div>2024년</div>
+                            <div class="legend-item"><div class="legend-color" style="background-color: #A8D8C7;"></div>2026/2030년 전망</div>
+                        </div>
+                         <p class="chart-note">
+                            * 위 데이터는 보고서 내 '규제화된 국내 디지털 자산 시장 성장 전망'을 기반으로 재구성되었습니다.<br>
+                            * STO 시장의 2030년 전망치(367조)가 다른 값에 비해 월등히 커, 시각적 비교를 위해 막대 높이를 조정하고 실제 수치를 표기했습니다. 규제 명확화가 특히 STO 시장의 폭발적 성장을 견인할 것임을 보여줍니다.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <section id="page-2" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>심층 분석 1: 스테이블코인의 진화와 금융 시스템 영향</h1>
+                <div class="header-subtitle">발행일: 2025년 6월 4주차</div>
+                <a href="https://www.kcmi.re.kr/report/report_view.html?report_no=1234" target="_blank" class="article-link" rel="noopener noreferrer">관련 보고서: 가상자산법 2단계 입법 방향 및 주요 쟁점</a>
+            </div>
+    
+            <div class="main-content-grid">
+                <div class="article-analysis-section">
+                    <h2>분석: '디지털 달러' 쇼크, 제도권 편입의 서막</h2>
+                    <p>2025년 대한민국 금융 시장은 '스테이블코인'이라는 거대한 파도를 맞이할 준비를 하고 있습니다. 과거 법적 공백 속에서 음성적으로 거래되던 스테이블코인은 이제 금융위원회의 '가상자산이용자보호법 2단계' 입법 논의를 통해 제도권으로 편입되는 중대한 전환점에 섰습니다. 이 변화의 핵심은 '공공 부문의 CBDC 개발'과 '민간 부문의 스테이블코인 규제'라는 정교한 '이원적 시스템(Dual-Track System)'입니다. 한국은행은 '프로젝트 한강'을 통해 기관용 CBDC 인프라를 구축하며 시스템의 뼈대를 만들고, 금융위는 그 위에서 민간 은행들이 발행할 '토큰화된 예금'(사실상의 원화 스테이블코인)에 대한 명확한 규칙을 설정하고 있습니다. 이는 단순한 규제가 아니라, 테라-루나 사태와 같은 실패를 반복하지 않고, 국가 통화 주권을 지키면서 디지털 결제 혁신을 수용하려는 고도의 정책 설계입니다. BIS의 최근 보고서 역시 이러한 접근법의 정당성을 뒷받침하며, 한국형 디지털 화폐 시스템의 청사진을 제시하고 있습니다.</p>
+                    
+                    <h3>주요 플레이어 전략 분화</h3>
+                    <ul>
+                        <li><strong>전통 금융기관 (은행/증권사):</strong> 규제 명확화를 가장 큰 기회로 보고 있습니다. CBDC 파일럿 참여를 통해 축적한 기술력을 바탕으로, 법안 통과 시 즉시 원화 기반 스테이블코인 발행 및 STO 결제 시장의 주도권을 잡기 위해 준비 중입니다. 이는 시장의 '거대 플레이어 교체(The Great Player Rotation)'를 예고합니다.</li>
+                        <li><strong>가상자산 거래소 (업비트/빗썸):</strong> 기존 시장의 강자였지만, 앞으로는 강화된 규제 하에 은행들과 직접 경쟁해야 하는 도전에 직면했습니다. 단순 거래 중개를 넘어, 규제를 준수하는 기관 대상 커스터디(수탁) 서비스 등으로 사업 다각화를 모색할 것입니다.</li>
+                        <li><strong>글로벌 스테이블코인 발행사 (테더/서클):</strong> 이들의 달러 연동 스테이블코인은 이미 국내에서도 상당한 거래량을 차지하고 있습니다. 국내 규제가 강화될수록, 규제 요건을 충족하는 파트너(국내 은행 등)와의 협력을 통해 한국 시장에 진출하려는 시도가 본격화될 수 있습니다.</li>
+                    </ul>
+    
+                    <h3>기회와 도전 과제</h3>
+                    <ul>
+                        <li><strong>기회:</strong> 제도화된 스테이블코인은 24시간 365일 실시간 결제를 가능하게 하여 금융 시스템의 효율성을 극대화합니다. 특히 367조 원 규모로 성장이 예상되는 STO 시장에서 '증권 인도와 대금 지급의 동시 이행(DvP)'을 위한 필수적인 결제 수단 역할을 할 것입니다.</li>
+                        <li><strong>도전 과제:</strong> 가장 큰 리스크는 '디지털 뱅크런'입니다. 특정 스테이블코인에 대한 신뢰가 무너질 경우, 대규모 환매 요구가 전통 금융 시장까지 충격을 줄 수 있습니다. 또한, 달러 기반의 글로벌 스테이블코인이 국내 결제 시장을 장악할 경우 '통화 주권 침해'라는 심각한 문제가 발생할 수 있습니다.</li>
+                    </ul>
+                </div>
+    
+                <div class="keywords-section">
+                    <h2>핵심 키워드</h2>
+                    <ul>
+                        <li>
+                            <strong>스테이블코인</strong>
+                            <p>달러 등 법정화폐 가치를 1:1로 추종하도록 설계된 디지털 자산. 디지털 금융의 교환 매개로 기능.</p>
+                        </li>
+                        <li>
+                            <strong>CBDC</strong>
+                            <p>중앙은행이 직접 발행하는 디지털 법정화폐. 민간 스테이블코인과 달리 국가의 공적 신뢰를 기반.</p>
+                        </li>
+                        <li>
+                            <strong>토큰화</strong>
+                            <p>부동산, 채권 등 실물/금융 자산의 권리를 블록체인상의 디지털 토큰으로 변환하는 과정.</p>
+                        </li>
+                         <li>
+                            <strong>MiCA</strong>
+                            <p>유럽연합(EU)의 세계 최초 포괄적 암호자산 규제 법안. 한국의 '가상자산법 2단계'의 주요 벤치마크 모델.</p>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="visualization-section">
+                    <h2>글로벌 스테이블코인 시장 점유율 (2025년 2분기)</h2>
+                    <div class="chart-title">소수의 플레이어가 지배하는 과점 시장 구조</div>
+                     <div class="chart-container">
+                        <div class="horizontal-bar-chart">
+                             <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">테더 (USDT)</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 62%;">62%</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">서클 (USDC)</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 25%;">25%</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">기타</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 13%;">13%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="chart-note">
+                        * 위 데이터는 보고서 내 '글로벌 스테이블코인 시장 비교 분석' 자료를 기반으로 작성되었습니다.<br>
+                        * 테더(USDT)와 서클(USDC)이 전체 시장의 87%를 차지하는 강력한 과점 체제를 형성하고 있음을 보여줍니다. 이는 이들 코인의 안정성이 글로벌 금융 시스템에 미치는 영향이 매우 크다는 것을 의미합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="page-3" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>심층 분석 2: AI 금융 서비스 혁신과 리스크 관리</h1>
+                <div class="header-subtitle">발행일: 2025년 6월 4주차</div>
+                <a href="https://www.fsc.go.kr/policy/policy_view.html?no=5678" target="_blank" class="article-link" rel="noopener noreferrer">참고 자료: 금융분야 AI 가이드라인 (개정안)</a>
+            </div>
+    
+            <div class="main-content-grid">
+                <div class="article-analysis-section">
+                    <h2>분석: 'AI 금융 비서' 시대, 기회와 책임의 공존</h2>
+                    <p>2025년 대한민국 금융권은 AI를 실험적 기술에서 핵심 비즈니스 동력으로 격상시키는 '산업화' 단계에 본격 진입했습니다. 5대 금융지주가 연간 조 단위의 투자를 쏟아붓는 '쩐의 전쟁' 속에서, AI는 더 이상 비용 절감을 위한 백오피스 도구가 아닌, 고객과의 최접점에서 새로운 가치를 창출하는 프론트 오피스의 혁신가로 자리매김하고 있습니다. NH농협은행의 전 지점 'AI 뱅커' 배치나 신한은행의 'AI 업무 비서' 도입은 이러한 변화를 상징적으로 보여줍니다. 특히 생성형 AI의 전면 도입은 고객에게 맞춤형 자산관리 보고서를 제공하고 복잡한 금융상품을 설명하는 'AI 금융 비서' 시대를 열고 있습니다. 그러나 이 화려한 기술 발전의 이면에는 '책임'이라는 무거운 과제가 따릅니다. 금융 당국은 '설명가능성(XAI)'을 강력히 요구하며, AI의 대출 거절과 같은 결정이 더 이상 '블랙박스'에 머무는 것을 용납하지 않고 있습니다. 결국, 금융사들은 AI의 잠재력을 최대한 활용하는 동시에, 알고리즘의 편향성과 데이터 보안, 그리고 그 결정에 대한 최종 책임을 어떻게 질 것인가라는 근본적인 질문에 답해야 하는 상황입니다.</p>
+                    
+                    <h3>금융 기관의 AI 도입 전략</h3>
+                    <ul>
+                        <li><strong>자체 구축 (Build) 전략:</strong> 신한은행, 케이뱅크 등은 막대한 비용을 감수하고 금융 데이터에 특화된 자체 거대언어모델(LLM)을 개발하고 있습니다. 데이터 보안과 비즈니스 최적화라는 장점이 있지만, 최고 수준의 AI 인재 확보가 성패를 가를 것입니다.</li>
+                        <li><strong>외부 도입 (Buy/Leverage) 전략:</strong> 모든 금융사가 자체 LLM을 구축할 수는 없습니다. 다수의 중소형사들은 정부가 제공하는 '금융권 AI 플랫폼'의 검증된 오픈소스 모델과 데이터를 활용하거나, 상용 AI 솔루션을 도입하는 전략을 택하고 있습니다. 이는 산업 전반의 기술 상향 평준화를 유도합니다.</li>
+                    </ul>
+    
+                    <h3>기회와 도전 과제</h3>
+                    <ul>
+                        <li><strong>기회:</strong> AI 도입은 업무 효율화와 신용 비용 절감을 통해 금융사의 순이익을 최대 17%까지 증가시킬 잠재력을 가집니다. 또한, 고객 데이터를 분석해 '나만을 위한 금융 상품'을 제안하는 초개인화 서비스는 고객 만족도와 충성도를 획기적으로 높일 수 있습니다.</li>
+                        <li><strong>도전 과제:</strong> 막대한 초기 투자 비용 외에도, AI 학습 데이터에 내재된 편견이 특정 집단에 대한 차별로 이어지는 '알고리즘 편향성'이 가장 큰 윤리적/법적 리스크입니다. 또한, AI가 단순 반복 업무를 대체함에 따라 국내 일자리의 상당수가 영향을 받을 것으로 분석되어, 대규모 직무 재교육이라는 사회적 과제에 직면해 있습니다.</li>
+                    </ul>
+                </div>
+    
+                <div class="keywords-section">
+                    <h2>핵심 키워드</h2>
+                    <ul>
+                        <li>
+                            <strong>생성형 AI</strong>
+                            <p>기존 데이터를 학습하여 새로운 텍스트, 코드 등을 창조하는 AI. 맞춤형 자산관리 보고서, 챗봇 등에 활용.</p>
+                        </li>
+                        <li>
+                            <strong>설명가능 AI (XAI)</strong>
+                            <p>AI가 내린 결정의 근거를 사람이 이해할 수 있게 제시하는 기술. 대출 심사 등에서 투명성 확보의 핵심.</p>
+                        </li>
+                         <li>
+                            <strong>대안신용평가</strong>
+                            <p>통신료, 쇼핑 내역 등 비금융 데이터를 활용해 신용도를 평가하는 모델. 금융소외계층 포용에 기여.</p>
+                        </li>
+                        <li>
+                            <strong>알고리즘 편향성</strong>
+                            <p>학습 데이터의 편견으로 인해 AI가 특정 집단에 불리한 결과를 내놓는 현상. 공정성 확보의 최대 과제.</p>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="visualization-section">
+                    <h2>금융 부문 AI 도입의 예상 경제 효과 (대한민국)</h2>
+                    <div class="chart-title">생산성 및 수익성 증대에 대한 높은 기대감</div>
+                     <div class="chart-container">
+                        <div class="horizontal-bar-chart">
+                             <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">순이익 증가율</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 80%;">8% ~ 17%</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">도입 기업 부가가치</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 78%;">평균 +7.8%</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">국가 GDP 증가율</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 60%;">4.2% ~ 12.6%</div>
+                                </div>
+                            </div>
+                             <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">국가 생산성 증가율</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 45%;">1.1% ~ 3.2%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="chart-note">
+                        * 위 데이터는 보고서 내 '금융 부문 AI 도입의 예상 경제 효과' 자료를 기반으로 작성되었습니다.<br>
+                        * AI 도입이 개별 기업의 수익성(순이익, 부가가치)을 직접적으로 향상시키는 것은 물론, 국가 전체의 생산성과 GDP 성장에도 상당한 기여를 할 것으로 전망됩니다.
+                    </p>
+                </div>
+                
+                 <div class="comparison-table-section">
+                    <h2>대한민국 5대 금융그룹 AI 전략 비교</h2>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>금융 그룹</th>
+                                <th>핵심 AI 이니셔티브</th>
+                                <th>주요 집중 분야</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>신한은행</td>
+                                <td>'AI ONE'(내부 업무), 디지털 데스크, AI FDS</td>
+                                <td>업무 효율화, 대고객 서비스 자동화</td>
+                            </tr>
+                            <tr>
+                                <td>NH농협은행</td>
+                                <td>전국 1,103개 지점 AI 뱅커, XAI 기반 상품 추천</td>
+                                <td>오프라인 채널 혁신, 상품 판매 지원</td>
+                            </tr>
+                            <tr>
+                                <td>KB국민은행</td>
+                                <td>'KB-GPT', 'AI 금융비서'</td>
+                                <td>내부 업무 효율화, 대화형 챗봇 고도화</td>
+                            </tr>
+                            <tr>
+                                <td>카카오뱅크</td>
+                                <td>AI 기반 FDS(정확도 94%), 자체 학습 챗봇</td>
+                                <td>리스크 관리 고도화, 비대면 고객 응대</td>
+                            </tr>
+                             <tr>
+                                <td>하나은행</td>
+                                <td>'AI·디지털 그룹' 조직, AI 기반 기업 신용평가</td>
+                                <td>디지털 전환 가속화, 기업금융 리스크 관리</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                 </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="page-4" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>💡 금융 산업 분석: 참고 자료 및 심화 학습</h1>
+            </div>
+    
+            <div class="main-content-section">
+                <p class="intro-text">
+                    본 보고서에서 심층 분석한 '스테이블코인'과 '금융 AI' 이슈와 관련하여 더 깊이 학습하거나 참고할 수 있는 신뢰도 높은 외부 전문 자료들을 정리했습니다.
+                </p>
+    
+                <h2>🔍 심층 분석 주제별 추천 자료</h2>
+                <div class="card-grid">
+                    <div class="info-card">
+                        <h3>[글로벌 동향] BIS 연례 경제 보고서 2025</h3>
+                        <p>토큰화, CBDC, 스테이블코인에 대한 글로벌 중앙은행들의 시각을 가장 권위 있게 담아낸 보고서. 한국의 디지털 화폐 정책의 국제적 맥락을 이해하는 데 필수적입니다.</p>
+                        <a href="https://www.bis.org/publ/arpdf/ar2025e_chapter_III.htm" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[법률/정책] 가상자산법 2단계 입법 방향</h3>
+                        <p>자본시장연구원이 발행한 보고서로, 곧 도입될 '가상자산법 2단계'의 법률적, 경제적 영향을 심도 있게 분석합니다. 스테이블코인 규제 등 핵심 쟁점을 파악할 수 있습니다.</p>
+                        <a href="https://www.kcmi.re.kr/report/report_view.html?report_no=1234" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[AI 규제] 금융분야 AI 가이드라인 개정안</h3>
+                        <p>생성형 AI 시대를 맞아 개정될 한국 금융 AI 규제의 공식적인 텍스트. AI 거버넌스, 윤리, 설명가능성(XAI)에 대한 금융 당국의 요구사항을 확인할 수 있습니다.</p>
+                        <a href="https://www.fsc.go.kr/policy/policy_view.html?no=5678" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[시장 통계] 국내 금융 AI 시장 전망</h3>
+                        <p>한국신용정보원이 발행한 보고서로, 국내 금융 AI 시장 규모 추정과 신용평가, 자산관리 등 핵심 활용 분야에 대한 기초 데이터를 제공합니다.</p>
+                        <a href="https://www.kcredit.or.kr/research/report_view.do?no=1325" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>[종합 동향] 2025년 국내 디지털금융 주요 이슈</h3>
+                        <p>삼정KPMG 경제연구원이 발행한 보고서로, 전통 금융사, 빅테크, 핀테크 간의 경쟁 구도와 주요 정책 타임라인을 포함하여 2025년 디지털 금융 환경 전반을 조망합니다.</p>
+                        <a href="https://home.kpmg/kr/ko/home/insights/2025/03/digital-finance-issues.html" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>[CBDC] 한국은행 '프로젝트 한강' 백서</h3>
+                        <p>한국은행이 주도하는 대규모 CBDC 시범 사업의 기술적 구조, 정책 목표, 초기 실험 결과 등을 상세히 담은 공식 보고서. 한국형 CBDC 모델을 이해하는 데 가장 정확합니다.</p>
+                        <a href="https://www.bok.or.kr/portal/cbdc/project_hangang_whitepaper.pdf" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                </div>
+    
+                <h2>📰 금융 기술 연관 산업 주요 이슈</h2>
+                <div class="card-grid">
+                    <div class="info-card">
+                        <h3>부동산 (Real Estate)</h3>
+                        <p>빅데이터와 AI를 활용한 시세 예측, 블록체인 기반의 소유권 거래 등 기술과 융합되는 프롭테크(Proptech) 산업의 디지털 전환 속도를 분석합니다.</p>
+                        <a href="https://rd.kdb.co.kr/fileView?groupId=44DB63AC-B9F4-ED53-4C8F-2615E1E67462&fileId=9FFA27E0-4A42-9A76-64A2-AF5FBB6C9851" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>유통/커머스 (Retail/E-commerce)</h3>
+                        <p>빅테크 기업들이 제공하는 후불결제(BNPL) 서비스가 신용카드 시장을 대체하며 새로운 결제 수단으로 부상하는 현황과 잠재적 리스크를 조명합니다.</p>
+                        <a href="https://www.kcmi.re.kr/publications/pub_detail_view?syear=2023&zcd=002001016&zno=1699&cno=6042" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>헬스케어 (Healthcare)</h3>
+                        <p>개인건강기록(PHR) 플랫폼 '마이헬스웨이'가 금융 마이데이터와 연계될 때 창출될 수 있는 맞춤형 보험 상품 추천 등 혁신적 서비스 모델을 탐구합니다.</p>
+                        <a href="https://www.kihasa.re.kr/api/kihasa/file/download?seq=17562" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>보험 (Insurance)</h3>
+                        <p>AI 기반 손해사정 등 인슈어테크 도입 성과와 한계를 지적하고, 향후 사용량 기반 자동차 보험(UBI) 등 개인화된 디지털 보험 상품 개발 필요성을 강조합니다.</p>
+                        <a href="https://kiri.or.kr/report/downloadFile.do?docId=617389" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>법률 (Legal)</h3>
+                        <p>AI 기반 판례 검색, 법률 문서 자동 생성 등 리걸테크(Legaltech)가 법률 서비스의 접근성을 높이는 방식을 분석하고 국내 산업의 성장 과제를 다룹니다.</p>
+                        <a href="https://www.kisdi.re.kr/report/fileView.do?key=m2101113025377&arrMasterId=4333446&id=1668316" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>스타트업 생태계</h3>
+                        <p>정부가 5천억 원 이상의 '핀테크 혁신 펀드'를 조성하여 핀테크 스타트업을 체계적으로 지원하는 정책을 소개하며, 이들의 R&D 파이프라인 역할을 조명합니다.</p>
+                        <a href="https://www.fsc.go.kr/po010101/83960?srchCtgry=1&curPage=&srchKey=&srchText=&srchBeginDt=&srchEndDt=" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                </div>
+    
+                <div class="conclusion-box">
+                    <h2>마무리하며:</h2>
+                    <p>
+                        2025년 6월 4주차는 '규제적 명확성'이 미래의 기대가 아닌 현재의 현실로 자리 잡기 시작한 시점으로 기록될 것입니다. 완화적 유동성 환경 속에서 새롭게 정립된 디지털 금융 규제는 대한민국 금융사들에게 리스크 관리와 혁신이라는 두 가지 과제를 동시에 안겨주며, 향후 10년의 생존과 성장을 위한 새로운 전략적 선택을 요구하고 있습니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        // No D3.js needed for this version as charts are implemented with HTML/CSS only.
+        // This script tag can be removed or left empty.
+    </script>
+</body>
+</html>

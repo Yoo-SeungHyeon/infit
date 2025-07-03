@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InFit - 유통/리테일 산업 분석 통합 레포트</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 기본 스타일 */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #F8F8F8;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 페이지 섹션 공통 스타일 */
+        .page-section {
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* 1페이지 스타일 */
+        #page-1 {
+            background-color: #F8F8F8;
+        }
+
+        #page-1 .container {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        #page-1 .header-section {
+            background-color: #FFF9F2; /* Bubble Cream: 부드러운 크림 배경 */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem 2rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        #page-1 .whale-character {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            width: 80px;
+            height: 80px;
+            opacity: 0.9;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        #page-1 .whale-character:hover {
+            transform: scale(1.1) rotate(5deg);
+            opacity: 1;
+        }
+
+        #page-1 .header-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #85C1DC; /* Whale Sky: 차분한 하늘색 */
+            margin-bottom: 0.75rem;
+        }
+
+        #page-1 .header-section .slogan {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #4D5E70; /* Slate Ink: 읽기 좋은 어두운 그레이 */
+            margin-bottom: 1.5rem;
+        }
+
+        #page-1 .header-section .subtitle {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        #page-1 .card-news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid #E0E0E0;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            #page-1 .card-news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        #page-1 .card {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            overflow: hidden;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        #page-1 .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-1 .card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
+        #page-1 .card-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #4D5E70;
+            margin-bottom: 0.8rem;
+        }
+
+        #page-1 .card-summary {
+            font-size: 0.95rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        #page-1 .card-keywords {
+            font-size: 0.85rem;
+            color: #666;
+            font-weight: 500;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        #page-1 .card-keywords span {
+            background-color: #A8D8C7;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        #page-1 .section-title {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #85C1DC;
+            margin-bottom: 2rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            text-align: center;
+        }
+
+        #page-1 .keyword-section {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            padding: 25px;
+        }
+        
+        .keyword-analysis {
+            padding-bottom: 1.5rem;
+        }
+
+        #page-1 .keyword-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed #E0E0E0;
+        }
+
+        #page-1 .keyword-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        #page-1 .keyword-item h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70;
+            margin-bottom: 0.75rem;
+        }
+
+        #page-1 .keyword-item p {
+            font-size: 0.95em;
+            color: #444;
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+        
+        .visualization-container {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px dashed #E0E0E0;
+        }
+        .visualization-container h3 {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #85C1DC;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+
+        /* 2-4페이지 공통 레포트 스타일 */
+        .report-container {
+            width: 100%;
+            max-width: 960px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .header-section {
+            padding: 40px 30px;
+            text-align: center;
+            background-color: #FFF9F2;
+            border-bottom: 1px solid #A8D8C7;
+        }
+
+        .header-section h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .header-subtitle {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        .article-link {
+            font-size: 0.9em;
+            color: #F7A78F;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: 1px solid #A8D8C7;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .article-link:hover {
+            background-color: #F7A78F;
+            color: white;
+        }
+
+        .main-content-grid {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 25px;
+            padding: 30px;
+        }
+
+        .article-analysis-section, 
+        .keywords-section, 
+        .visualization-section {
+            background-color: #FFF9F2;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+        }
+        
+        .comparison-table-section {
+            background-color: #FFF9F2;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            grid-column: 1 / -1;
+            grid-row: 3;
+        }
+        
+        .comparison-table-section h2 {
+             font-size: 1.6em;
+            color: #85C1DC;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            font-weight: 700;
+        }
+
+        .article-analysis-section {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .keywords-section {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .visualization-section {
+            grid-column: 1 / -1;
+            grid-row: 2;
+        }
+
+        /* 레포트 공통 타이포그래피 */
+        #page-2 h2, #page-3 h2, #page-4 h2 {
+            font-size: 1.6em;
+            color: #85C1DC;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            font-weight: 700;
+        }
+
+        #page-2 p, #page-3 p, #page-4 p {
+            font-size: 0.95em;
+            line-height: 1.7;
+            margin-bottom: 1em;
+            color: #444;
+        }
+
+        #page-2 h3, #page-3 h3, #page-4 h3 {
+            font-size: 1.2em;
+            color: #4D5E70;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* 공통 리스트 스타일 */
+        .article-analysis-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 1em 0;
+        }
+
+        .article-analysis-section ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .article-analysis-section ul li::before {
+            content: '•';
+            color: #F7A78F;
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .keywords-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .keywords-section li {
+            margin-bottom: 15px;
+        }
+
+        .keywords-section li strong {
+            display: block;
+            font-size: 1.1em;
+            color: #4D5E70;
+            margin-bottom: 5px;
+        }
+
+        .keywords-section li p {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        /* 공통 시각화 스타일 */
+        .visualization-section {
+            text-align: center;
+        }
+
+        .visualization-section h2 {
+            font-size: 1.4em;
+        }
+
+        .chart-container {
+            margin-top: 20px;
+            padding: 25px 15px 15px 15px;
+            background-color: #F8F8F8;
+            border-radius: 8px;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .chart-title {
+            font-size: 1.1em;
+            color: #85C1DC;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .chart-note {
+            font-size: 0.8em;
+            color: #777;
+            margin-top: 30px;
+            text-align: left;
+            line-height: 1.5;
+            padding: 0 15px;
+        }
+        
+        /* 그룹형 막대그래프 스타일 (공통) */
+        .grouped-bar-chart {
+            display: flex;
+            justify-content: space-around;
+            height: 280px;
+            padding-top: 20px;
+            align-items: flex-end;
+        }
+        .bar-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            text-align: center;
+            height: 100%;
+        }
+        .bar-pair {
+             display: flex;
+             align-items: flex-end;
+             height: 100%;
+             gap: 8px;
+             flex-grow: 1;
+        }
+        .bar-group .bar {
+            width: 40px;
+            position: relative;
+            animation: grow-bar 1.2s ease-out forwards;
+            transition: background-color 0.3s ease;
+        }
+        .bar-group .bar .bar-value {
+            position: absolute;
+            top: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #4D5E70;
+        }
+        .bar-group .group-label {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+            font-size: 0.9em;
+        }
+        .legend {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 0 15px;
+        }
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            margin-right: 8px;
+            border-radius: 3px;
+        }
+
+        /* 가로 막대그래프 스타일 (공통) */
+        @keyframes fill-bar {
+            from { width: 0; }
+        }
+        .horizontal-bar-chart {
+            padding-top: 10px;
+            max-width: 500px; /* 차트의 최대 너비를 제한 */
+            margin: 0 auto; /* 차트를 부모 요소 안에서 중앙 정렬 */
+        }
+        .horizontal-bar-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        .horizontal-bar-label {
+            width: 100px;
+            text-align: right;
+            padding-right: 15px;
+            font-weight: 600;
+            color: #4D5E70;
+            flex-shrink: 0;
+            font-size: 0.9em;
+        }
+        .horizontal-bar-wrapper {
+            flex-grow: 1;
+            background-color: #e9e9e9;
+            border-radius: 5px;
+            height: 30px;
+            position: relative;
+        }
+        .horizontal-bar-fill {
+            height: 100%;
+            background-color: #85C1DC;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+            padding-left: 10px;
+            box-sizing: border-box;
+            animation: fill-bar 1.2s ease-out forwards;
+            animation-fill-mode: forwards;
+            width: var(--bar-width, 0%);
+            white-space: nowrap;
+        }
+        .horizontal-bar-fill.negative {
+            background-color: #F7A78F;
+            justify-content: flex-end;
+            padding-right: 10px;
+            border-radius: 5px;
+        }
+        .horizontal-bar-wrapper .zero-line {
+            position: absolute;
+            left: calc(var(--zero-offset, 20%) - 1px);
+            top: -5px;
+            bottom: -5px;
+            width: 2px;
+            background-color: #999;
+        }
+         .horizontal-bar-fill:hover {
+            opacity: 0.8;
+        }
+
+        /* Diverging Bar Chart for dual-sided comparison */
+        .diverging-bar-container {
+            padding-top: 10px;
+        }
+
+        .diverging-bar-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            min-height: 28px;
+        }
+
+        .diverging-bar-label {
+            width: 130px;
+            flex-shrink: 0;
+            font-weight: 600;
+            color: #4D5E70;
+            font-size: 0.9em;
+            text-align: right;
+            padding-right: 15px;
+        }
+
+        .diverging-bar-wrapper {
+            flex-grow: 1;
+            position: relative;
+            height: 25px;
+        }
+        
+        .diverging-bar-fill {
+            height: 100%;
+            position: absolute;
+            top: 0;
+            animation: fill-bar 1.2s ease-out forwards;
+            width: var(--bar-width, 0%);
+        }
+
+        .diverging-bar-fill.positive {
+            background-color: #85C1DC; /* Whale Sky */
+            left: 50%;
+            transform: translateX(2.5px); /* Creates a 5px gap in the middle */
+            border-radius: 0 4px 4px 0;
+        }
+
+        .diverging-bar-fill.negative {
+            background-color: #F7A78F; /* Salmon pink */
+            right: 50%;
+            transform: translateX(-2.5px); /* Creates a 5px gap in the middle */
+            border-radius: 4px 0 0 4px;
+        }
+
+        .diverging-bar-value {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.9em;
+            color: #333;
+            white-space: nowrap;
+        }
+
+        .diverging-bar-fill.positive .diverging-bar-value {
+            right: 8px;
+        }
+
+        .diverging-bar-fill.negative .diverging-bar-value {
+            left: 8px;
+        }
+
+
+        /* 4페이지 특화 스타일 */
+        #page-4 .main-content-section {
+            padding: 30px;
+        }
+
+        #page-4 .intro-text {
+            font-size: 1.1em;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        #page-4 .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        #page-4 .info-card {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            padding: 1.5rem;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #page-4 .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-4 .info-card h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70;
+            margin-bottom: 0.75rem;
+            margin-top: 0;
+        }
+
+        #page-4 .info-card p {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        #page-4 .info-card a {
+            color: #F7A78F;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            display: block;
+            margin-top: auto;
+        }
+
+        #page-4 .conclusion-box {
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            border: 1px solid #A8D8C7;
+        }
+
+        #page-4 .conclusion-box h2 {
+            font-size: 1.4em;
+            color: #4D5E70;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        #page-4 .conclusion-box p {
+            color: #333;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* 애니메이션 공통 */
+        @keyframes grow-bar {
+            from { height: 0; }
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .page-section {
+                padding: 10px;
+            }
+            
+            #page-1 .container {
+                padding: 1rem;
+            }
+            
+            #page-1 .card-news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #page-1 .whale-character {
+                width: 60px;
+                height: 60px;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .main-content-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+                padding: 20px;
+            }
+            
+            .article-analysis-section,
+            .keywords-section,
+            .visualization-section,
+            .comparison-table-section {
+                grid-column: 1 / -1;
+                grid-row: auto;
+            }
+
+            #page-4 .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #page-4 .main-content-section {
+                padding: 20px;
+            }
+            
+            .bar-group .bar {
+                width: 30px;
+            }
+
+            .split-chart-group .bar {
+                width: 30px;
+            }
+
+            /* 모바일 차트 스타일 */
+            .horizontal-bar-label {
+                width: 80px;
+                font-size: 0.8em;
+            }
+            
+            /* 비교 테이블 모바일 스타일 */
+            .comparison-table {
+                font-size: 0.8em;
+            }
+            .comparison-table th, .comparison-table td {
+                padding: 8px;
+            }
+        }
+
+        /* Line Chart Specific Styles (for Page 3) */
+        @keyframes draw-line {
+            to { stroke-dashoffset: 0; }
+        }
+        .line-chart-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            padding-top: 20px;
+        }
+        .line-chart-container svg {
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+        }
+        .line-chart-container .grid-line {
+            stroke: #e0e0e0;
+            stroke-dasharray: 2, 3;
+        }
+        .line-chart-container .axis-line {
+            stroke: #ccc;
+            stroke-width: 1px;
+        }
+        .line-chart-container .axis-text {
+            font-size: 0.85em;
+            fill: #666;
+        }
+        .line-chart-container .line-path {
+            fill: none;
+            stroke-width: 3px;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw-line 2s ease-out forwards;
+        }
+        .line-chart-container .data-point {
+            r: 5;
+            fill: white;
+            stroke-width: 2;
+            transition: r 0.2s ease, fill 0.2s ease;
+            cursor: pointer;
+        }
+        .line-chart-container .data-point:hover {
+            r: 7;
+        }
+        .line-chart-container .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.75);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s, transform 0.2s;
+            white-space: nowrap;
+        }
+
+        /* Comparison Table Specific Styles (for Page 3) */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #A8D8C7;
+            padding: 12px;
+            text-align: left;
+            font-size: 0.9em;
+            color: #444;
+        }
+        .comparison-table thead th {
+            background-color: #f2f9f6;
+            color: #4D5E70;
+            font-weight: 700;
+            text-align: center;
+        }
+        .comparison-table tbody tr:nth-child(even) {
+            background-color: #fafdfc;
+        }
+        .comparison-table tbody tr:hover {
+            background-color: #e8f5f0;
+        }
+        .comparison-table td:first-child {
+            font-weight: 600;
+            color: #4D5E70;
+            width: 25%;
+        }
+
+        /* Specific fix for chart 1 text wrapping */
+        #page-1 .bar-group .bar-value,
+        #page-1 .bar-group .group-label {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <section id="page-1" class="page-section">
+        <div class="container">
+            <header class="header-section">
+                <img src="../infit_logo.png" alt="InFit 캐릭터" class="whale-character">
+                <h1>K-Retail Revolution</h1>
+                <p class="slogan">데이터와 경험으로 생존을 증명하다</p>
+                <p class="subtitle">
+                    <span style="font-weight: 600;">유통/리테일 산업 분석 보고서 (2025년 6월 4주차)</span><br>초저가 공습과 규제 속에서 피어나는 새로운 기회
+                </p>
+            </header>
+
+            <section>
+                <h2 class="section-title">주간 유통/리테일 핵심 동향 요약</h2>
+                <div class="card-news-grid">
+                    <div class="card">
+                        <a href="https://mindocean.tistory.com/129" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">C-커머스, '초저가' 넘어 K-셀러 영입 및 현지화 전략 심화</h3>
+                            <p class="card-summary">
+                                알리·테무 등 중국계 이커머스가 단순 가격 파괴를 넘어 국내 판매자(K-셀러)를 유치하며 상품 구색과 신뢰도 확보에 나섰습니다. 이는 국내 오픈마켓의 근간인 판매자 네트워크를 직접 위협하며, 시장의 장기적인 지배력을 노리는 체계적인 현지화 전략으로 분석됩니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#C-커머스</span> <span>#현지화</span> <span>#K-셀러</span> <span>#생태계교란</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://zdnet.co.kr/view/?no=20250108170006" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">공정위, 플랫폼 독과점 규제 강화 예고…'최혜대우' 정조준</h3>
+                            <p class="card-summary">
+                                공정거래위원회가 거대 플랫폼의 '최혜대우(MFN)' 요구, '자사우대' 등 불공정 행위에 대한 규제 강화를 공식화했습니다. 이는 입점업체를 보호하려는 취지이나, 단기적으로는 플랫폼의 수익 모델에 제약으로 작용하여 업계 전반의 위축을 야기할 수 있다는 우려도 나옵니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#플랫폼규제</span> <span>#공정위</span> <span>#최혜대우</span> <span>#자사우대</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://zdnet.co.kr/view/?no=20240417094936" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">롯데·신세계, '리테일 미디어' 경쟁 본격화…AI로 활로 모색</h3>
+                            <p class="card-summary">
+                                전통 유통 강자인 롯데와 신세계가 AI 기반의 '리테일 미디어 네트워크(RMN)'를 새로운 성장 동력으로 삼고 경쟁에 돌입했습니다. 자사 온·오프라인 플랫폼과 방대한 고객 데이터를 활용해 광고 수익을 창출하며, C-커머스와의 차별화에 나섰습니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#리테일미디어</span> <span>#RMN</span> <span>#AI활용</span> <span>#신세계</span> <span>#롯데</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://www.korcham.net/nCham/Service/Economy/appl/KcciReportDetail.asp?SEQ_NO_C010=20120940234&CHAM_CD=B001" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">대한상의, 하반기 유통업 경기 비관적 전망…성장률 0.4% 예측</h3>
+                            <p class="card-summary">
+                                대한상공회의소 조사 결과, 유통기업 대다수가 하반기 시장을 비관적으로 평가했으며 2025년 전체 소매시장 성장률은 0.4%에 그칠 것으로 전망되었습니다. 고물가로 인한 소비심리 위축이 핵심 원인이며, 온라인 쇼핑마저 성장세 둔화가 뚜렷해졌습니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#경기전망</span> <span>#소비심리위축</span> <span>#저성장</span> <span>#대한상의</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="keyword-section">
+                <h2 class="section-title">핵심 키워드 분석: C-커머스 공습</h2>
+                <div class="keyword-analysis">
+                    <div class="keyword-item">
+                        <h3>1. 정의 및 중요성</h3>
+                        <p>
+                            'C-커머스(China E-commerce)'는 알리익스프레스, 테무 등 중국 기반 이커머스 플랫폼을 지칭합니다. 이들은 '초저가'와 '공격적 마케팅'을 통해 2024년부터 국내 시장을 강타했으며, 단순한 경쟁자 등장을 넘어 국내 가격 기준, 경쟁 구도, 소비자 행동, 정부 규제 논의까지 전방위적으로 뒤흔드는 '게임 체인저'로 부상했습니다. 이들의 확산은 국내 유통 산업이 내수 중심의 안정된 구도에서 벗어나, 국경 없는 글로벌 플랫폼과의 무한 경쟁 시대에 본격적으로 진입했음을 알리는 명백한 신호탄입니다. 따라서 이들의 전략을 이해하고 대응하는 것은 국내 모든 유통 기업의 생존과 직결된 최우선 과제가 되었습니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>2. 기술적 맥락</h3>
+                        <p>
+                            C-커머스의 파괴력은 기술 기반의 공급망 및 마케팅 혁신에서 비롯됩니다. 핵심은 중간 유통을 제거하고 중국 공장과 소비자를 직접 연결하는 'M2C(Manufacturer to Consumer)' 모델로, 이를 통해 극단적인 가격 경쟁력을 확보합니다. 더 나아가, 테무는 AI를 활용한 정교한 수요예측으로 재고 비용을 최소화하고, AI가 최적 판매가를 자동 설정하는 모델을 도입했습니다. 또한 틱톡 등 숏폼 콘텐츠를 활용한 바이럴 마케팅과 '테무깡' 현상 유도, 중독성 강한 인앱 프로모션 등은 소비자를 플랫폼에 묶어두는 고도의 디지털 마케팅 기술이 집약된 결과물입니다. 이는 단순한 저가 공세가 아닌, 기술로 무장한 비즈니스 모델임을 보여줍니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>3. 시장/산업적 영향</h3>
+                        <p>
+                            C-커머스의 공습은 국내 유통 시장의 지형을 근본적으로 바꾸고 있습니다. 가격 민감도가 높은 공산품, 생활용품 등에서 국내 중소형 플랫폼과 소상공인의 매출 타격이 심각하며, 국내 온라인 쇼핑 성장률 둔화의 직접적인 원인으로 작용하고 있습니다. 이에 쿠팡, 네이버 등 대기업들은 소모적인 가격 경쟁을 피하고 멤버십 강화, 신선식품·명품 등 버티컬 커머스 전문화, 체험형 매장 강화 등 차별화 전략으로 대응하고 있습니다. 결과적으로 막대한 자본과 차별점을 가진 상위 플랫폼과 그렇지 못한 중소형 플랫폼 간의 양극화가 더욱 심화되는 촉매제 역할을 하고 있습니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>4. 사회적/경제적 파급 효과</h3>
+                        <p>
+                           C-커머스의 확산은 고물가 시대에 소비자 선택의 폭을 넓히고 가계 부담을 덜어준다는 명백한 긍정적 효과를 낳았습니다. 하지만 그 이면에는 수많은 사회적 비용이 발생합니다. 유해물질 검출 등 '제품 안전성' 문제, 사진과 다른 '품질 저하', '짝퉁' 유통, 개인정보 유출 우려, 사실상 불가능한 교환/환불 등은 심각한 소비자 불신을 야기합니다. 더 근본적으로는, 가격 경쟁에서 밀리는 국내 중소 제조기업과 소상공인의 생존을 위협하여 국내 제조업 기반을 약화시키고 관련 일자리 감소로 이어질 수 있다는 중대한 문제를 안고 있습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="visualization-container">
+                    <h3>📊 C-커머스 플랫폼 월간 활성 이용자(MAU) 추이 (추정)</h3>
+                    <div class="chart-container">
+                        <div class="grouped-bar-chart">
+                            <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 76%; background-color: #85C1DC;"><span class="bar-value">670만</span></div>
+                                    <div class="bar" style="height: 100%; background-color: #A8D8C7;"><span class="bar-value">880만</span></div>
+                                </div>
+                                <div class="group-label">알리익스프레스</div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 64%; background-color: #85C1DC;"><span class="bar-value">565만</span></div>
+                                    <div class="bar" style="height: 91%; background-color: #A8D8C7;"><span class="bar-value">800만</span></div>
+                                </div>
+                                <div class="group-label">테무</div>
+                            </div>
+                        </div>
+                        <div class="legend">
+                            <div class="legend-item"><div class="legend-color" style="background-color: #85C1DC;"></div>2024년</div>
+                            <div class="legend-item"><div class="legend-color" style="background-color: #A8D8C7;"></div>2025년 상반기</div>
+                        </div>
+                         <p class="chart-note">
+                            * 위 데이터는 보고서 내 'C-커머스 국내 시장 침투 현황' 자료를 기반으로 재구성되었습니다.<br>
+                            * 두 플랫폼 모두 폭발적인 이용자 수 증가를 보이며 국내 시장에 빠르게 침투하고 있음을 알 수 있습니다. 이러한 성장은 낮은 소비자 만족도에도 불구하고 '압도적인 가격'이라는 단일 요인에 의해 견인되고 있습니다.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <section id="page-2" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>심층 분석 1: 온라인 리테일 경쟁 지형 변화와 옴니채널 2.0 전략</h1>
+                <div class="header-subtitle">발행일: 2025년 6월 4주차</div>
+                <a href="https://www.e-jcr.org/archive/view_article?pid=jcr-29-1-1" target="_blank" class="article-link" rel="noopener noreferrer">관련 보고서: 옴니채널 커머스 연구(한국유통학회)</a>
+            </div>
+    
+            <div class="main-content-grid">
+                <div class="article-analysis-section">
+                    <h2>분석: '생존'을 위한 재편, 옴니채널 2.0 시대</h2>
+                    <p>대한민국 온라인 리테일 시장은 C-커머스의 공습과 소비 심리 위축이라는 이중고 속에서 폭발적인 성장기를 지나 '수익성 있는 생존'을 모색해야 하는 성숙기에 접어들었습니다. 과거처럼 출혈 경쟁을 통한 점유율 확대 전략은 더 이상 유효하지 않으며, 기업들은 저마다의 생존 공식을 찾아 전략적 분화를 가속화하고 있습니다. 이러한 환경 속에서 온라인과 오프라인의 경계를 허무는 '옴니채널' 전략은 새로운 국면을 맞이했습니다. 과거의 옴니채널이 온라인 주문 상품을 오프라인 매장에서 찾는(O2O) 수준의 단순 연계에 그쳤다면, 이제 '옴니채널 2.0'은 오프라인 매장의 역할을 근본적으로 재정의합니다. 오프라인은 이제 단순 판매 공간을 넘어 ▲새로운 경험을 제공하는 '체험과 영감의 공간'(더현대서울) ▲도심 속 물류 거점으로서 퀵커머스를 지원하는 '라스트마일 배송 허브'(SSM, 편의점) ▲상권을 세분화하여 접근성을 높이는 '소형화 및 도심 근접화'(GS더프레시) 등 다기능 중심으로 빠르게 재편되고 있습니다. 이는 온라인과 오프라인이 단순히 연결되는 것을 넘어, 각 채널의 강점을 유기적으로 결합하여 총체적인 고객 경험을 설계하고 시너지를 창출하는 고도화된 전략 단계로의 진입을 의미합니다.</p>
+                    
+                    <h3>주요 플레이어 전략 분화</h3>
+                    <ul>
+                        <li><strong>쿠팡 & 네이버:</strong> '멤버십'을 기반으로 한 생태계 '락인(Lock-in)' 효과 극대화에 집중합니다. 쿠팡은 '로켓배송'이라는 압도적 물류 인프라로, 네이버는 '검색-쇼핑-결제'로 이어지는 데이터 기반 개인화 쇼핑 경험으로 양강 체제를 더욱 공고히 하고 있습니다.</li>
+                        <li><strong>전통 유통 강자 (신세계/롯데):</strong> 그룹사의 모든 역량을 총동원한 옴니채널 전략에 사활을 걸고 있습니다. 전국의 백화점과 마트를 온라인 사업의 물류 거점이자 고객 경험 채널로 활용하며 시너지를 모색하고 있으나, 아직 온라인 사업에서 뚜렷한 수익성 확보에는 어려움을 겪고 있습니다.</li>
+                        <li><strong>C-커머스 (알리/테무):</strong> '초저가'로 확보한 시장 점유율을 바탕으로 국내 물류센터 투자와 K-셀러 영입을 통해 '배송'과 '신뢰도'라는 약점을 보완하며 국내 시장의 구조적 위협 요인으로 자리 잡고 있습니다.</li>
+                        <li><strong>중소형 플랫폼:</strong> 생존을 위한 합종연횡이 활발합니다. 신선식품 강자 '오아시스'의 '티몬' 인수 추진 사례는, M&A를 통해 부족한 카테고리를 보완하고 규모의 경제를 확보하려는 생존 전략의 대표적인 예시입니다.</li>
+                    </ul>
+    
+                    <h3>기회와 도전 과제</h3>
+                    <ul>
+                        <li><strong>기회:</strong> 오프라인 매장은 온라인이 제공 못 하는 '체험'을 극대화하고, 퀵커머스 배송 거점으로서의 가치가 부각되는 등 역할 재정의를 통해 새로운 활로를 찾고 있습니다. 퀵커머스 시장은 5년간 14배 성장하며 새로운 성장 동력으로 부상했습니다.</li>
+                        <li><strong>도전 과제:</strong> 옴니채널과 빠른 배송의 이면에는 풀필먼트 센터 구축 등 막대한 투자 비용이라는 그림자가 존재합니다. 이는 기업의 단기 수익성을 악화시키는 주된 요인이며, 자금력이 취약한 후발 주자들은 물류 비용 부담을 이기지 못하고 경쟁에서 뒤처지고 있습니다.</li>
+                    </ul>
+                </div>
+    
+                <div class="keywords-section">
+                    <h2>핵심 키워드</h2>
+                    <ul>
+                        <li>
+                            <strong>옴니채널</strong>
+                            <p>온·오프라인 등 다양한 채널을 넘나들며 일관된 경험을 제공하는 유통 전략. 단순 연계를 넘어 각 채널의 강점을 유기적으로 결합하는 단계로 진화 중.</p>
+                        </li>
+                        <li>
+                            <strong>퀵커머스</strong>
+                            <p>고객이 상품을 주문하면 30분~1시간 이내에 즉시 배송해주는 서비스. 도심형 물류 거점(MFC) 확보 경쟁을 촉발시켰다.</p>
+                        </li>
+                        <li>
+                            <strong>풀필먼트</strong>
+                            <p>상품의 입고, 보관, 피킹, 배송 및 재고관리에 이르는 물류 전 과정을 통합 관리하는 서비스. 이커머스의 핵심 경쟁력.</p>
+                        </li>
+                        <li>
+                            <strong>라스트마일 배송</strong>
+                            <p>물류센터에서 최종 소비자에게 상품을 전달하는 마지막 배송 단계. 배송 속도와 경험이 구매 결정의 중요 요인이 됨.</p>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="visualization-section">
+                    <h2>국내 유통 채널별 매출 성장률 비교 (2025년 5월, 전년 동월 대비)</h2>
+                    <div class="chart-title">온라인 내에서도 명암이 엇갈리는 구조적 변화</div>
+                    <div class="chart-container" style="max-width: 600px; background: none; box-shadow: none; padding: 0;">
+                        <div class="diverging-bar-container">
+                            <div class="diverging-bar-item">
+                                <div class="diverging-bar-label">온라인(전체)</div>
+                                <div class="diverging-bar-wrapper">
+                                    <div class="diverging-bar-fill positive" style="width: 50%;">
+                                        <span class="diverging-bar-value">+13.0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="diverging-bar-item">
+                                <div class="diverging-bar-label">백화점</div>
+                                <div class="diverging-bar-wrapper">
+                                    <div class="diverging-bar-fill positive" style="width: 8.9%;">
+                                        <span class="diverging-bar-value">+2.3%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="diverging-bar-item">
+                                <div class="diverging-bar-label">SSM</div>
+                                <div class="diverging-bar-wrapper">
+                                    <div class="diverging-bar-fill positive" style="width: 3.9%;">
+                                        <span class="diverging-bar-value">+1.0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="diverging-bar-item">
+                                <div class="diverging-bar-label">대형마트</div>
+                                <div class="diverging-bar-wrapper">
+                                    <div class="diverging-bar-fill positive" style="width: 0.8%;">
+                                        <span class="diverging-bar-value">+0.2%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="diverging-bar-item">
+                                <div class="diverging-bar-label">편의점</div>
+                                <div class="diverging-bar-wrapper">
+                                    <div class="diverging-bar-fill negative" style="width: 0.8%;">
+                                        <span class="diverging-bar-value">-0.2%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="diverging-bar-item">
+                                <div class="diverging-bar-label" style="color: #F7A78F;">온라인(패션/의류)</div>
+                                <div class="diverging-bar-wrapper">
+                                    <div class="diverging-bar-fill negative" style="width: 17.7%;">
+                                        <span class="diverging-bar-value">-4.6%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="chart-note">
+                        * 위 데이터는 산업통상자원부 '2025년 5월 유통업체 매출 동향' 자료를 기반으로 작성되었습니다.<br>
+                        * 오프라인 채널 대부분이 현상 유지 또는 역성장한 반면, 온라인은 높은 성장을 유지했습니다. 하지만 온라인 내에서도 '패션/의류' 카테고리는 유일하게 큰 폭의 역성장을 기록했는데, 이는 C-커머스의 초저가 의류 공세가 국내 패션 플랫폼에 직접적인 타격을 주고 있음을 시사합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="page-3" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>심층 분석 2: 리테일 테크(Retail Tech)의 발전과 고객 경험 혁신</h1>
+                <div class="header-subtitle">발행일: 2025년 6월 4주차</div>
+                <a href="https://www.samsungsds.com/kr/insights/2025-it-investment-prospects-in-retail-industry.html" target="_blank" class="article-link" rel="noopener noreferrer">참고 자료: 2025년 유통/리테일 IT 투자 전망(삼성SDS)</a>
+            </div>
+    
+            <div class="main-content-grid">
+                <div class="article-analysis-section">
+                    <h2>분석: 기술이 곧 경쟁력, 리테일 테크 각축전</h2>
+                    <p>리테일 테크는 더 이상 미래 기술이 아닌, 유통 기업의 성패를 가르는 현재의 핵심 역량입니다. AI, 빅데이터 등을 유통 전반에 접목하여 운영을 효율화하고 고객에게 최적화된 경험을 제공하는 것은 이제 선택이 아닌 생존 전략이 되었습니다. 2025년, 이 경쟁은 '생성형 AI의 전면 도입'과 '초개인화 기술의 고도화'라는 두 가지 큰 흐름을 중심으로 전개되고 있습니다. 유통 기업의 55%가 생성형 AI 투자를 최우선 순위로 꼽았으며, 현대백화점의 AI 카피라이터 '루이스', 롯데쇼핑의 AI 광고 제작 등은 이미 현업에 깊숙이 적용되고 있습니다. 또한 AI는 고객의 구매 이력, 검색 패턴, 심지어 마우스 움직임까지 분석하여 1:1 맞춤형 상품을 실시간으로 추천하는 수준으로 발전했습니다. 이러한 기술 도입은 '운영 효율화'와 '고객 경험 혁신'이라는 두 가지 목표 아래, 각 기업의 핵심 역량과 전략에 따라 명확한 분화 현상을 보이고 있습니다. '속도'로 승부하는 기업은 물류 자동화에, '경험'으로 승부하는 기업은 AI 기반 개인화에, '연결'로 승부하는 기업은 기술 솔루션에 집중 투자하며 각자의 해법을 찾고 있습니다.</p>
+                    
+                    <h3>리테일 테크 도입 전략 분화</h3>
+                    <ul>
+                        <li><strong>운영 효율화 집중 (쿠팡):</strong> 압도적인 투자를 물류 자동화라는 '백엔드(Back-end)' 기술에 집중합니다. 무인 운반 로봇(AGV) 등을 통해 '로켓배송'이라는 대체 불가능한 핵심 경쟁력을 강화하고, 규모의 경제를 통해 비용 우위를 확보하는 명확한 전략입니다.</li>
+                        <li><strong>고객 경험 혁신 집중 (롯데/신세계):</strong> 투자가 고객에게 직접 보이는 '프론트엔드(Front-end)' 기술에 집중됩니다. 더현대서울의 체험형 로봇, 롯데의 가상 쇼호스트 '루시' 등은 오프라인 공간의 매력도를 높여 고객을 유인하고, '속도'가 아닌 '경험'으로 승부하려는 전략입니다.</li>
+                        <li><strong>플랫폼 솔루션 집중 (네이버):</strong> 프론트엔드(초개인화 추천)와 백엔드(중소상공인용 커머스 솔루션)를 연결하는 '플랫폼' 전략을 구사합니다. 자체 물류는 최소화하되, 판매자와 구매자 모두에게 강력한 기술 솔루션을 제공하여 생태계에 묶어두는 방식입니다.</li>
+                    </ul>
+    
+                    <h3>기회와 도전 과제</h3>
+                    <ul>
+                        <li><strong>기회:</strong> AI 기반 수요 예측을 통한 재고관리 최적화, 로봇 도입을 통한 인건비 절감 등 운영 효율성을 크게 높일 수 있습니다. 또한, 고도화된 개인화 마케팅은 구매 전환율을 높여 매출 증대에 직접 기여하며, 리테일 미디어(RMN)와 같은 데이터 기반 신사업은 새로운 수익 창출의 기회를 열어줍니다.</li>
+                        <li><strong>도전 과제:</strong> 기술 도입에 필요한 높은 초기 투자 비용은 큰 부담입니다. 또한 데이터를 활용하는 과정에서 발생하는 개인정보보호 및 보안 문제, AI 알고리즘의 편향성 문제, 그리고 자동화로 인한 기존 인력의 일자리 감소 문제는 반드시 해결해야 할 사회적, 윤리적 과제입니다.</li>
+                    </ul>
+                </div>
+    
+                <div class="keywords-section">
+                    <h2>핵심 키워드</h2>
+                    <ul>
+                        <li>
+                            <strong>리테일 테크</strong>
+                            <p>AI, 빅데이터, IoT, 로봇 등을 유통 산업에 접목하여 운영 효율화와 고객 경험 혁신을 추구하는 모든 기술 및 서비스.</p>
+                        </li>
+                        <li>
+                            <strong>초개인화</strong>
+                            <p>고객의 행동 데이터를 실시간으로 분석하여 개인의 취향과 상황에 맞는 상품이나 서비스를 1:1로 제안하는 기술.</p>
+                        </li>
+                         <li>
+                            <strong>생성형 AI</strong>
+                            <p>마케팅 문구, 광고 이미지, 고객 응대 챗봇 등 다양한 콘텐츠를 자동으로 생성하여 업무 효율을 획기적으로 높이는 AI 기술.</p>
+                        </li>
+                        <li>
+                            <strong>리테일 미디어(RMN)</strong>
+                            <p>유통업체가 가진 고객의 구매 데이터를 활용하여 자사 플랫폼을 광고 매체로 만들어 새로운 수익을 창출하는 사업 모델.</p>
+                        </li>
+                    </ul>
+                </div>
+    
+                 <div class="visualization-section">
+                    <h2>국내 유통 기업의 리테일 테크 투자 우선순위 (2025년)</h2>
+                    <div class="chart-title">생성형 AI를 필두로 한 지능화 기술에 투자 집중</div>
+                     <div class="chart-container" style="max-width: 550px;">
+                        <div class="horizontal-bar-chart">
+                             <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">생성형 AI</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 100%;">55%</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">데이터 분석</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 81.8%;">45%</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">AI 컨택센터</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 70.9%;">39%</div>
+                                </div>
+                            </div>
+                             <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">자동화(물류/매장)</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 63.6%;">35%</div>
+                                </div>
+                            </div>
+                             <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">클라우드</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 61.8%;">34%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="chart-note">
+                        * 위 데이터는 삼성SDS '2025년 유통/리테일 산업의 IT 투자 동향' 설문조사 결과를 기반으로 재구성되었습니다. (응답률: 투자를 늘릴 것이라고 답한 기업의 비율)<br>
+                        * 생성형 AI가 압도적인 1위를 차지하며, 유통업계가 기술을 통한 비즈니스 혁신에 얼마나 집중하고 있는지 보여줍니다. 데이터 분석, AI 고객센터 등 AI 관련 기술이 상위권을 차지하며 산업의 '지능화'가 핵심 과제임을 나타냅니다.
+                    </p>
+                </div>
+
+                 <div class="comparison-table-section">
+                    <h2>주요 플레이어별 리테일 테크 전략 비교</h2>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>플레이어 유형</th>
+                                <th>핵심 목표</th>
+                                <th>주요 투자 영역 (기술)</th>
+                                <th>대표 사례</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>쿠팡</strong></td>
+                                <td>속도 & 효율 (비용 우위)</td>
+                                <td>백엔드 자동화, 물류 로봇, 수요 예측</td>
+                                <td>무인운반로봇(AGV) 기반 풀필먼트 센터</td>
+                            </tr>
+                            <tr>
+                                <td><strong>롯데/신세계</strong></td>
+                                <td>경험 & 차별화</td>
+                                <td>프론트엔드 AI, 체험형 기술, 리테일 미디어</td>
+                                <td>AI 카피라이터, 가상 쇼호스트, 체험형 로봇</td>
+                            </tr>
+                            <tr>
+                                <td><strong>네이버</strong></td>
+                                <td>연결 & 생태계 (솔루션)</td>
+                                <td>초개인화 추천 AI, 커머스 솔루션(for SME)</td>
+                                <td>AI 추천 '에이아이템즈', 도착보장 솔루션</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                 </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <section id="page-4" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>💡 유통/리테일 산업 분석: 참고 자료 및 심화 학습</h1>
+            </div>
+    
+            <div class="main-content-section">
+                <p class="intro-text">
+                    본 보고서에서 심층 분석한 '온라인 리테일/옴니채널' 및 '리테일 테크' 주제와 관련하여 더 깊이 학습하거나 참고할 수 있는 신뢰도 높은 외부 전문 자료들을 정리했습니다.
+                </p>
+    
+                <h2>🔍 심층 분석 주제별 추천 자료</h2>
+                <div class="card-grid">
+                    <div class="info-card">
+                        <h3>[옴니채널 전략] 옴니채널 커머스 특징 연구</h3>
+                        <p>옴니채널의 어떤 특징(편의성, 가격 공정성 등)이 고객의 재이용 의도에 영향을 미치는지 실증 분석한 학술 논문. 성공 전략의 구체적 요소를 파악하는 데 유용합니다.</p>
+                        <a href="https://www.e-jcr.org/archive/view_article?pid=jcr-29-1-1" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[IT 투자 동향] 2025년 유통/리테일 IT 투자 전망</h3>
+                        <p>국내 유통 기업 대상 설문조사를 바탕으로 생성형 AI, 데이터 등 기술 분야별 투자 계획을 정량 데이터로 제시. 시장의 실제 투자 동향을 파악하는 데 가장 직접적인 정보를 제공합니다.</p>
+                        <a href="https://www.samsungsds.com/kr/insights/2025-it-investment-prospects-in-retail-industry.html" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[디지털 트렌드] NIA 전망 2025년 12대 디지털 트렌드</h3>
+                        <p>AI 에이전트, 범용 로봇 등 유통 산업의 미래에 직접적인 영향을 미칠 근미래 디지털 기술 트렌드를 조망합니다. 미래 비즈니스 모델 구상에 영감을 줄 수 있습니다.</p>
+                        <a href="https://www.nia.or.kr/site/nia_kor/ex/bbs/View.do?cbIdx=90549&bcIdx=27596&parentSeq=27596" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[디지털 전환] 디지털 전환을 통한 사회 혁신 전략</h3>
+                        <p>유통 산업을 포함한 사회 전반의 디지털 전환 현황과 과제를 분석한 보고서. 리테일 테크 도입 시 고려해야 할 데이터 윤리, 인력 양성 등 거시적 정책 방향을 이해하는 데 필수적입니다.</p>
+                        <a href="https://www.kisdi.re.kr/report/view.do?key=m2101113024770&masterId=3934580&arrMasterId=3934580&artId=1779556" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>[글로벌 테크] 글로벌 리테일테크 시장 동향</h3>
+                        <p>세계 최대 리테일 IT 전시회 'EuroCIS'의 최신 트렌드 분석. POS, 커넥티드 리테일, 로보틱스 등 글로벌 기술 동향과 국내 수준을 비교하며 경쟁 구도를 이해하는 데 도움을 줍니다.</p>
+                        <a href="https://industryjournal.co.kr/news/240093" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>[C커머스 평가] C커머스 소비자 평가 총정리</h3>
+                        <p>실제 소비자를 대상으로 알리·테무의 이용률, 만족도, 불만 요인 등을 상세히 분석한 설문조사 보고서. C커머스의 강점과 약점을 데이터로 확인할 수 있습니다.</p>
+                        <a href="https://blog.opensurvey.co.kr/article/online-shopping-2024-2/" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                </div>
+    
+                <h2>📰 유통/리테일 연관 산업 주요 이슈</h2>
+                <div class="card-grid">
+                    <div class="info-card">
+                        <h3>물류 산업: 이커머스 시대, 물류센터 투자의 기회</h3>
+                        <p>이커머스 성장이 풀필먼트, 라스트마일 등 고도화된 물류 서비스 활성화를 견인하는 현상을 분석. 유통과 물류의 불가분 관계를 설명하는 기초 자료입니다.</p>
+                        <a href="https://assets.kpmg.com/content/dam/kpmg/kr/pdf/2021/kr-im-opportunities-in-logistics-center-20211110.pdf" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>광고/마케팅 산업: 리테일 미디어 네트워크(RMN) 시장</h3>
+                        <p>유통업체가 가진 구매 데이터를 활용하는 RMN 시장이 높은 ROI를 기반으로 빠르게 성장하며 전통 광고 산업의 패러다임을 바꾸고 있음을 분석합니다.</p>
+                        <a href="https://www.mordorintelligence.kr/industry-reports/retail-media-networks-market" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>식품 산업: 가정간편식(HMR) 시장 성장</h3>
+                        <p>1인 가구 증가와 온라인 배송 발달로 HMR 시장이 고성장하며 식품 산업 구조를 바꾸고 있다는 점을 설명합니다. 퀵커머스 확대의 직접적인 수혜 산업입니다.</p>
+                        <a href="https://repository.krei.re.kr/bitstream/2018.oak/26041/1/R898.pdf" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>패션/뷰티 산업: 2025 패션 이커머스 트렌드</h3>
+                        <p>글로벌 패션 이커머스에서 생성형 AI를 활용한 마케팅, AR 가상 피팅룸, 그리고 '지속가능성'이 핵심 트렌드로 부상하고 있음을 분석합니다.</p>
+                        <a href="https://www.shopify.com/kr/blog/ecommerce-fashion-industry" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>핀테크 산업: 유통 공룡과 BNPL(선구매 후결제)</h3>
+                        <p>쿠팡의 '나중결제' 사례를 통해 유통업체가 자체 결제 시스템과 BNPL을 도입하여 수수료 절감, 데이터 확보, 고객 락인(Lock-in)을 강화하는 전략을 분석합니다.</p>
+                        <a href="https://monthly.newspim.com/news/view/5390/?yymm=2025-05" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>부동산 산업: 물류센터 공급 및 투자 시장 변화</h3>
+                        <p>이커머스 경쟁 심화가 물류센터의 수요와 공급, 투자 시장의 양극화에 미치는 영향을 분석. 유통 산업의 변화가 상업용 부동산 시장을 어떻게 바꾸는지 보여줍니다.</p>
+                        <a href="https://pdf.savills.asia/asia-pacific-research/asia-pacific-research/2025-korea-logistics-market-outlook-kr.pdf" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                </div>
+    
+                <div class="conclusion-box">
+                    <h2>마무리하며:</h2>
+                    <p>
+                        2025년 대한민국 유통 산업은 '저성장 고착화'와 '글로벌 플랫폼의 공습'이라는 거대한 파도 속에서 생존을 위한 대항해를 시작했습니다. 과거의 성공 공식이었던 가격 경쟁과 점유율 확대는 더 이상 유효하지 않으며, 이제 기업의 성패는 데이터와 기술, 그리고 차별화된 고객 경험을 어떻게 설계하고 융합하는지에 달리게 될 것입니다. C-커머스의 위협은 역설적으로 국내 기업들이 AI와 옴니채널 전략을 통해 본원적 경쟁력을 강화하는 촉매제가 되고 있습니다. 위기와 기회가 공존하는 이 역동적인 시장에서, 변화의 흐름을 읽고 혁신에 성공하는 기업만이 미래의 승자가 될 것입니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        // No D3 script needed for this version as there's no line chart.
+        // All charts are implemented with HTML/CSS.
+    </script>
+</body>
+</html>

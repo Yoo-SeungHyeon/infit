@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InFit - 반도체 산업 분석 통합 레포트</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 기본 스타일 */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #F8F8F8;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 페이지 섹션 공통 스타일 */
+        .page-section {
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* 1페이지 스타일 */
+        #page-1 {
+            background-color: #F8F8F8;
+        }
+
+        #page-1 .container {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        #page-1 .header-section {
+            background-color: #FFF9F2; /* Bubble Cream: 부드러운 크림 배경 */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem 2rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        #page-1 .whale-character {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            width: 80px;
+            height: 80px;
+            opacity: 0.9;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        #page-1 .whale-character:hover {
+            transform: scale(1.1) rotate(5deg);
+            opacity: 1;
+        }
+
+        #page-1 .header-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #85C1DC; /* Whale Sky: 차분한 하늘색 */
+            margin-bottom: 0.75rem;
+        }
+
+        #page-1 .header-section .slogan {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #4D5E70; /* Slate Ink: 읽기 좋은 어두운 그레이 */
+            margin-bottom: 1.5rem;
+        }
+
+        #page-1 .header-section .subtitle {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        #page-1 .card-news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid #E0E0E0;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            #page-1 .card-news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        #page-1 .card {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            overflow: hidden;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        #page-1 .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-1 .card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
+        #page-1 .card-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #4D5E70;
+            margin-bottom: 0.8rem;
+        }
+
+        #page-1 .card-summary {
+            font-size: 0.95rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        #page-1 .card-keywords {
+            font-size: 0.85rem;
+            color: #666;
+            font-weight: 500;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        #page-1 .card-keywords span {
+            background-color: #A8D8C7;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        #page-1 .section-title {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #85C1DC;
+            margin-bottom: 2rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            text-align: center;
+        }
+
+        #page-1 .keyword-section {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            padding: 25px;
+        }
+        
+        .keyword-analysis {
+            padding-bottom: 1.5rem;
+        }
+
+        #page-1 .keyword-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed #E0E0E0;
+        }
+
+        #page-1 .keyword-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        #page-1 .keyword-item h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70;
+            margin-bottom: 0.75rem;
+        }
+
+        #page-1 .keyword-item p {
+            font-size: 0.95em;
+            color: #444;
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+        
+        .visualization-container {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px dashed #E0E0E0;
+        }
+        .visualization-container h3 {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #85C1DC;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+
+        /* 2-4페이지 공통 레포트 스타일 */
+        .report-container {
+            width: 100%;
+            max-width: 960px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .header-section {
+            padding: 40px 30px;
+            text-align: center;
+            background-color: #FFF9F2;
+            border-bottom: 1px solid #A8D8C7;
+        }
+
+        .header-section h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .header-subtitle {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        .article-link {
+            font-size: 0.9em;
+            color: #F7A78F;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: 1px solid #A8D8C7;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .article-link:hover {
+            background-color: #F7A78F;
+            color: white;
+        }
+
+        .main-content-grid {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 25px;
+            padding: 30px;
+        }
+
+        .article-analysis-section, 
+        .keywords-section, 
+        .visualization-section {
+            background-color: #FFF9F2;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+        }
+        
+        .comparison-table-section {
+            background-color: #FFF9F2;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            grid-column: 1 / -1;
+            grid-row: 3;
+        }
+        
+        .comparison-table-section h2 {
+             font-size: 1.6em;
+            color: #85C1DC;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            font-weight: 700;
+        }
+
+        .article-analysis-section {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .keywords-section {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .visualization-section {
+            grid-column: 1 / -1;
+            grid-row: 2;
+        }
+
+        /* 레포트 공통 타이포그래피 */
+        #page-2 h2, #page-3 h2, #page-4 h2 {
+            font-size: 1.6em;
+            color: #85C1DC;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            font-weight: 700;
+        }
+
+        #page-2 p, #page-3 p, #page-4 p {
+            font-size: 0.95em;
+            line-height: 1.7;
+            margin-bottom: 1em;
+            color: #444;
+        }
+
+        #page-2 h3, #page-3 h3, #page-4 h3 {
+            font-size: 1.2em;
+            color: #4D5E70;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* 공통 리스트 스타일 */
+        .article-analysis-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 1em 0;
+        }
+
+        .article-analysis-section ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .article-analysis-section ul li::before {
+            content: '•';
+            color: #F7A78F;
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .keywords-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .keywords-section li {
+            margin-bottom: 15px;
+        }
+
+        .keywords-section li strong {
+            display: block;
+            font-size: 1.1em;
+            color: #4D5E70;
+            margin-bottom: 5px;
+        }
+
+        .keywords-section li p {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        /* 공통 시각화 스타일 */
+        .visualization-section {
+            text-align: center;
+        }
+
+        .visualization-section h2 {
+            font-size: 1.4em;
+        }
+
+        .chart-container {
+            margin-top: 20px;
+            padding: 25px 15px 15px 15px;
+            background-color: #F8F8F8;
+            border-radius: 8px;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .chart-title {
+            font-size: 1.1em;
+            color: #85C1DC;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .chart-note {
+            font-size: 0.8em;
+            color: #777;
+            margin-top: 30px;
+            text-align: left;
+            line-height: 1.5;
+            padding: 0 15px;
+        }
+        
+        /* 그룹형 막대그래프 스타일 (공통) */
+        .grouped-bar-chart {
+            display: flex;
+            justify-content: space-around;
+            height: 280px;
+            padding-top: 20px;
+            align-items: flex-end;
+        }
+        .bar-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            text-align: center;
+            height: 100%;
+        }
+        .bar-pair {
+             display: flex;
+             align-items: flex-end;
+             height: 100%;
+             gap: 8px;
+             flex-grow: 1;
+        }
+        .bar-group .bar {
+            width: 40px;
+            position: relative;
+            animation: grow-bar 1.2s ease-out forwards;
+            transition: background-color 0.3s ease;
+        }
+        .bar-group .bar .bar-value {
+            position: absolute;
+            top: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #4D5E70;
+            white-space: nowrap;
+        }
+        .bar-group .group-label {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+        .legend {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 0 15px;
+        }
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            margin-right: 8px;
+            border-radius: 3px;
+        }
+
+        /* 가로 막대그래프 스타일 (공통) */
+        @keyframes fill-bar {
+            from { width: 0; }
+        }
+        .horizontal-bar-chart {
+            padding-top: 10px;
+            max-width: 550px; /* 차트의 최대 너비를 제한 */
+            margin: 0 auto; /* 차트를 부모 요소 안에서 중앙 정렬 */
+        }
+        .horizontal-bar-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        .horizontal-bar-label {
+            width: 140px; /* 라벨 너비 증가 */
+            text-align: right;
+            padding-right: 15px;
+            font-weight: 600;
+            color: #4D5E70;
+            flex-shrink: 0;
+            font-size: 0.9em;
+        }
+        .horizontal-bar-wrapper {
+            flex-grow: 1;
+            background-color: #e9e9e9;
+            border-radius: 5px;
+            height: 30px;
+        }
+        .horizontal-bar-fill {
+            height: 100%;
+            background-color: #85C1DC;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+            padding-left: 10px;
+            box-sizing: border-box;
+            animation: fill-bar 1.2s ease-out forwards;
+            animation-fill-mode: forwards;
+            width: var(--bar-width, 0%);
+            white-space: nowrap;
+            transition: background-color 0.3s ease;
+        }
+         .horizontal-bar-fill:hover {
+            background-color: #F7A78F;
+        }
+
+
+        /* 4페이지 특화 스타일 */
+        #page-4 .main-content-section {
+            padding: 30px;
+        }
+
+        #page-4 .intro-text {
+            font-size: 1.1em;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        #page-4 .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        #page-4 .info-card {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            padding: 1.5rem;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #page-4 .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-4 .info-card h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70;
+            margin-bottom: 0.75rem;
+            margin-top: 0;
+        }
+
+        #page-4 .info-card p {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        #page-4 .info-card a {
+            color: #F7A78F;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            display: block;
+            margin-top: auto;
+        }
+
+        #page-4 .conclusion-box {
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            border: 1px solid #A8D8C7;
+        }
+
+        #page-4 .conclusion-box h2 {
+            font-size: 1.4em;
+            color: #4D5E70;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        #page-4 .conclusion-box p {
+            color: #333;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* 애니메이션 공통 */
+        @keyframes grow-bar {
+            from { height: 0; }
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .page-section {
+                padding: 10px;
+            }
+            
+            #page-1 .container {
+                padding: 1rem;
+            }
+            
+            #page-1 .card-news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #page-1 .whale-character {
+                width: 60px;
+                height: 60px;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .main-content-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+                padding: 20px;
+            }
+            
+            .article-analysis-section,
+            .keywords-section,
+            .visualization-section,
+            .comparison-table-section {
+                grid-column: 1 / -1;
+                grid-row: auto;
+            }
+
+            #page-4 .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #page-4 .main-content-section {
+                padding: 20px;
+            }
+            
+            .bar-group .bar {
+                width: 30px;
+            }
+
+            /* 모바일 차트 스타일 */
+            .horizontal-bar-label {
+                width: 120px;
+                font-size: 0.85em;
+            }
+            
+            /* 비교 테이블 모바일 스타일 */
+            .comparison-table {
+                font-size: 0.8em;
+            }
+            .comparison-table th, .comparison-table td {
+                padding: 8px;
+            }
+        }
+
+        /* Line Chart Specific Styles (for Page 3) */
+        @keyframes draw-line {
+            to { stroke-dashoffset: 0; }
+        }
+        .line-chart-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+        }
+        .line-chart-container svg {
+            width: 100%;
+            height: 100%;
+            overflow: visible; /* Prevent clipping of points/tooltips */
+        }
+        .line-chart-container .grid-line {
+            stroke: #e0e0e0;
+            stroke-dasharray: 2, 3;
+        }
+        .line-chart-container .axis-line {
+            stroke: #ccc;
+            stroke-width: 1px;
+        }
+        .line-chart-container .axis-text {
+            font-size: 0.85em;
+            fill: #666;
+        }
+        .line-chart-container .line-path {
+            fill: none;
+            stroke-width: 3px;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw-line 2s ease-out forwards;
+            animation-fill-mode: forwards;
+        }
+        .line-chart-container .data-point {
+            r: 5;
+            fill: white;
+            stroke-width: 2;
+            transition: r 0.2s ease, fill 0.2s ease;
+            cursor: pointer;
+        }
+        .line-chart-container .data-point:hover {
+            r: 7;
+        }
+        .line-chart-container .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.75);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s, transform 0.2s;
+            white-space: nowrap;
+        }
+
+        /* Comparison Table Specific Styles (for Page 3) */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #A8D8C7;
+            padding: 12px;
+            text-align: left;
+            font-size: 0.9em;
+            color: #444;
+        }
+        .comparison-table thead th {
+            background-color: #f2f9f6;
+            color: #4D5E70;
+            font-weight: 700;
+            text-align: center;
+        }
+        .comparison-table tbody tr:nth-child(even) {
+            background-color: #fafdfc;
+        }
+        .comparison-table tbody tr:hover {
+            background-color: #e8f5f0;
+        }
+        .comparison-table td:first-child {
+            font-weight: 600;
+            color: #4D5E70;
+            width: 20%;
+        }
+    </style>
+</head>
+<body>
+    <section id="page-1" class="page-section">
+        <div class="container">
+            <header class="header-section">
+                <img src="../infit_logo.png" alt="InFit 캐릭터" class="whale-character">
+                <h1>K-Semicon Hegemony</h1>
+                <p class="slogan">첨단 패키징, AI 시대의 판도를 바꾸다</p>
+                <p class="subtitle">
+                    <span style="font-weight: 600;">대한민국 반도체 산업 분석 보고서 (2025년 6월 4주차)</span><br>AI 패권 경쟁과 기술 지형의 재편
+                </p>
+            </header>
+
+            <section>
+                <h2 class="section-title">주간 반도체 핵심 동향 요약</h2>
+                <div class="card-news-grid">
+                    <div class="card">
+                        <a href="https://biz.chosun.com/it-science/ict/2025/06/13/MJR2TINDKJFH7BKMEAHFVBCLCI/" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">삼성전자, HBM3E 12단 AMD 공급 확정 및 엔비디아 퀄 테스트 막바지</h3>
+                            <p class="card-summary">
+                                삼성전자가 AMD 차세대 AI 가속기에 HBM3E 12단 공급을 확정하고, 엔비디아 품질 검증도 순조롭게 진행하며 HBM 사업 정상화에 대한 기대감을 높였습니다. 이는 SK하이닉스가 독주하던 시장에 거대 경쟁자가 본격 진입했음을 알리는 신호탄입니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#삼성전자</span> <span>#HBM3E</span> <span>#AMD</span> <span>#엔비디아</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://www.fntoday.co.kr/news/articleView.html?idxno=355507" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">SK하이닉스, 'HPE 디스커버 2025'서 차세대 HBM4 16단 로드맵 공개</h3>
+                            <p class="card-summary">
+                                HBM3E 선두주자 SK하이닉스는 차세대 HBM4 16단 로드맵을 공개하며 기술 리더십 굳히기에 나섰습니다. 현행 MR-MUF 기술을 고도화하는 동시에 '하이브리드 본딩'을 병행 개발하는 투트랙 전략으로 미래 시장을 선도하겠다는 의지를 보였습니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#SK하이닉스</span> <span>#HBM4</span> <span>#MR-MUF</span> <span>#하이브리드본딩</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://srome.keit.re.kr/srome/biz/perform/opnnPrpsl/retrieveTaskAnncmInfoView.do?pageIndex=&ancmId=I08922&bsnsYy=2025&srchGubun=&srchKwd=&startDate=&endDate=&rcveStatus=A" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">정부, 178억 원 규모 '반도체 첨단 패키징' R&D 투자</h3>
+                            <p class="card-summary">
+                                정부가 첨단 패키징을 국가 전략 기술로 인식하고 178억 원 규모의 R&D 지원에 나섰습니다. 이는 AI 시대 기술 주도권이 패키징에서 결정될 것임을 시사하며, 국내 소부장 생태계를 강화하고 HBM 초격차 경쟁을 뒷받침하려는 정책 의지를 반영합니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#첨단패키징</span> <span>#정부지원</span> <span>#R&D</span> <span>#소부장</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://zdnet.co.kr/view/?no=20250626140953" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">대한상의, "하반기 반도체 경기 '대체로 맑음', 단 미 관세 리스크 상존"</h3>
+                            <p class="card-summary">
+                                대한상공회의소는 AI발 수요 호조로 하반기 반도체 경기를 '대체로 맑음'으로 전망했습니다. 그러나 미국 대선 결과에 따른 보편적 관세 정책 가능성과 심화되는 기술 패권 경쟁이 중대한 지정학적 리스크로 작용할 수 있다고 경고했습니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#산업전망</span> <span>#지정학적리스크</span> <span>#대한상의</span> <span>#수출</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="keyword-section">
+                <h2 class="section-title">핵심 키워드 분석: 첨단 패키징 (Advanced Packaging)</h2>
+                <div class="keyword-analysis">
+                    <div class="keyword-item">
+                        <h3>1. 정의 및 중요성</h3>
+                        <p>
+                            '무어의 법칙'의 물리적 한계에 부딪히면서, 반도체 성능 향상의 패러다임이 전공정의 미세화에서 후공정의 통합 기술로 이동하고 있습니다. 첨단 패키징은 단순히 칩을 보호하는 것을 넘어, 여러 개의 다른 칩(이종 칩)을 하나의 패키지 안에 3D로 통합하여 단일 시스템처럼 작동시키는 핵심 기술입니다. 특히 여러 D램을 수직으로 쌓는 HBM 같은 AI 반도체 시대에는, 패키징 기술력이 곧 제품의 성능과 수율, 가격 경쟁력을 좌우하는 결정적 요소가 되었습니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>2. 기술적 맥락</h3>
+                        <p>
+                            삼성과 SK하이닉스의 경쟁은 패키징 기술 전략에서 극명하게 갈립니다. SK하이닉스는 현재 HBM3E에 성공적으로 적용해 높은 수율을 검증받은 MR-MUF 기술을 고도화하여 16단 HBM까지 안정적으로 적용하려는 '현실주의적' 전략을 택했습니다. 반면, 삼성전자는 범프 없이 칩을 직접 붙이는 '하이브리드 본딩'이라는 혁신 기술을 HBM4에 선제적으로 도입하여, 기술적 난이도라는 리스크를 감수하고서라도 기술 리더십을 단번에 탈환하려는 '공격적인' 승부수를 던졌습니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>3. 시장/산업적 영향</h3>
+                        <p>
+                            첨단 패키징 시대는 국내 소부장 기업들에게 전례 없는 기회입니다. 삼성과 SK의 조 단위 HBM 증설 경쟁은 곧 첨단 패키징 라인 증설 경쟁으로 이어져, 관련 장비(테크윙, 이오테크닉스) 및 기판(대덕전자), 소재(ISC) 기업들의 수주 확대로 직결됩니다. 나아가 삼성 파운드리는 메모리, 파운드리, 패키징을 일괄 제공하는 '통합 AI 솔루션'이라는 새로운 비즈니스 모델을 제시하며 TSMC에 도전하는 강력한 무기로 활용하고 있습니다. 이는 생태계 전체의 동반 성장을 이끄는 선순환 구조를 만듭니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>4. 사회적/경제적 파급 효과</h3>
+                        <p>
+                           첨단 패키징은 국가 경제 안보와 직결됩니다. HBM 생산의 핵심 고리인 이 기술의 내재화는 미·중 패권 경쟁 속에서 흔들리지 않는 '기술 주권' 확보의 결정적 요소입니다. 또한 일반 D램의 수 배에 달하는 HBM의 높은 수출 단가는 국가 무역 수지 개선에 크게 기여하고 있습니다. 폭발적으로 증가하는 관련 R&D 및 공정 인력 수요는 재료, 화학, 기계 등 다양한 분야의 고급 일자리 창출로 이어져, 국가 전체의 기술 경쟁력과 경제 성장을 견인하는 핵심 동력이 되고 있습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="visualization-container">
+                    <h3>📊 2025년 정부 반도체 R&D 신규 지원 예산</h3>
+                    <div class="chart-container">
+                        <div class="chart-title">핵심 기술 확보 및 인재 양성에 집중 투자</div>
+                        <div class="horizontal-bar-chart">
+                             <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">첨단 패키징 선도 기술</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 100%;">178억 원</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">반도체 고급인력 양성</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 25.8%;">46억 원</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">온디바이스 AI 기술</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 24.2%;">43.2억 원</div>
+                                </div>
+                            </div>
+                             <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">PIM 인공지능 반도체</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 11.2%;">20억 원</div>
+                                </div>
+                            </div>
+                        </div>
+                         <p class="chart-note">
+                            * 위 데이터는 '2025년 대한민국 정부 반도체 R&D 신규 지원 예산' 자료를 기반으로 재구성되었습니다.<br>
+                            * '첨단 패키징'에 가장 큰 예산이 배정된 것은, 정부가 AI 시대의 기술 주도권이 후공정에서 결정될 것으로 보고 국가적 지원을 집중하고 있음을 명확히 보여줍니다.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <section id="page-2" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>심층 분석 1: 고대역폭 메모리(HBM), 반도체 시장의 판도를 바꾸다</h1>
+                <div class="header-subtitle">발행일: 2025년 6월 4주차</div>
+                <a href="https://www.samsungpop.com/common.do?cmd=down&contentType=application/pdf&inlineYn=Y&saveKey=research.pdf&fileName=2020/2024061713394562K_02_06.pdf" target="_blank" class="article-link" rel="noopener noreferrer">관련 보고서: 삼성증권 "HBM, 기회비용의 증가"</a>
+            </div>
+    
+            <div class="main-content-grid">
+                <div class="article-analysis-section">
+                    <h2>분석: '초격차' 유지를 위한 기술 로드맵과 공급망 전쟁</h2>
+                    <p>HBM은 단순한 고성능 메모리를 넘어, AI 반도체의 성능을 정의하고 글로벌 기술 패권의 향방을 가늠하는 전략 자산이 되었습니다. 2025년 중반, 대한민국은 전 세계 HBM 공급의 90% 이상을 책임지는 압도적 플레이어로서, 기술 로드맵과 공급망 관리라는 두 개의 전장에서 치열한 주도권 다툼을 벌이고 있습니다. 시장의 핵심은 현재 주력인 HBM3E의 양산 경쟁 심화와 차세대 HBM4 기술 표준 선점을 위한 로드맵 경쟁으로 요약됩니다. 삼성전자가 AMD 공급 확정과 엔비디아 퀄 테스트 통과 임박 소식으로 SK하이닉스의 독주 체제에 균열을 내면서, HBM3E 12단 제품의 수율과 공급량이 하반기 시장 점유율을 가를 최대 변수로 떠올랐습니다. 더 나아가, 경쟁의 본질은 AI 가속기 기업들에게 1~2년 뒤의 미래를 약속하는 차세대(HBM4) 기술 비전과, TSMC-엔비디아로 이어지는 글로벌 핵심 공급망에 대한 신뢰 관계 구축 능력으로 심화되고 있습니다. 이는 현재의 양산 능력과 미래 기술 리더십을 동시에 증명해야만 최종 승자가 될 수 있는 복합적인 경쟁 구도를 보여줍니다.</p>
+                    
+                    <h3>HBM4 기술 전략 분화: 안정 vs 혁신</h3>
+                    <ul>
+                        <li><strong>SK하이닉스 (안정 지향):</strong> 현재의 주력 기술인 MR-MUF 공정의 완성도를 극대화하여 HBM4 16단 제품까지 안정적으로 적용하겠다는 현실적인 로드맵을 제시했습니다. 이는 검증된 기술을 바탕으로 높은 수율과 신뢰성을 유지하며 시장 지배력을 공고히 하려는 전략입니다.</li>
+                        <li><strong>삼성전자 (혁신 추구):</strong> HBM4부터 범프 없이 칩을 직접 연결하는 '하이브리드 본딩' 기술을 전면 도입하여 경쟁 구도를 한 번에 뒤집겠다는 야심 찬 계획을 발표했습니다. 기술적 난제가 크지만, 성공 시 패키지 두께와 전력 효율을 획기적으로 개선하며 '게임 체인저'가 될 수 있습니다.</li>
+                    </ul>
+    
+                    <h3>시장 구조와 위협 요인</h3>
+                    <ul>
+                        <li><strong>Capa 잠식 효과:</strong> HBM은 일반 D램보다 칩 크기가 커 생산성이 낮습니다. 따라서 HBM 생산을 늘리면 범용 D램 생산 능력이 줄어드는 'Capa 잠식' 효과가 발생하며, 이는 하반기 범용 D램의 가격 상승으로 이어질 수 있는 중요한 변수입니다.</li>
+                        <li><strong>미국 마이크론의 추격:</strong> 2025년까지 시장 점유율을 25%까지 끌어올리겠다는 공격적인 목표를 제시한 미국 마이크론의 부상은 국내 양사에게 가장 큰 위협 요인입니다. 미국 정부의 지원을 등에 업은 마이크론의 추격은 HBM 시장을 한-미 경쟁 구도로 재편할 수 있습니다.</li>
+                    </ul>
+                </div>
+    
+                <div class="keywords-section">
+                    <h2>핵심 키워드</h2>
+                    <ul>
+                        <li>
+                            <strong>HBM</strong>
+                            <p>여러 D램을 수직으로 쌓아 데이터 처리 속도를 극대화한 고성능 메모리. AI 가속기의 성능을 좌우하는 핵심 부품.</p>
+                        </li>
+                        <li>
+                            <strong>PIM</strong>
+                            <p>메모리 내부에 연산 기능을 통합해 데이터 이동을 최소화하는 차세대 지능형 메모리 기술. HBM과 결합 시 AI 연산 효율을 극대화.</p>
+                        </li>
+                        <li>
+                            <strong>칩렛 (Chiplet)</strong>
+                            <p>다른 기능의 작은 반도체 조각(칩렛)을 레고처럼 묶어 하나의 고성능 칩으로 만드는 기술. 첨단 패키징의 핵심.</p>
+                        </li>
+                        <li>
+                            <strong>GAA</strong>
+                            <p>전류가 흐르는 채널 4면을 게이트가 감싸 누설 전류를 줄이고 성능을 높이는 차세대 트랜지스터 구조. 3나노 이하 공정에 적용.</p>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="visualization-section">
+                    <h2>글로벌 HBM 시장 점유율 전망 (매출 기준)</h2>
+                    <div class="chart-title">삼성전자의 추격과 마이크론의 부상</div>
+                     <div class="chart-container">
+                        <div class="grouped-bar-chart">
+                            <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 100%; background-color: #85C1DC;"><span class="bar-value">53%</span></div>
+                                    <div class="bar" style="height: 94.3%; background-color: #A8D8C7;"><span class="bar-value">50%</span></div>
+                                </div>
+                                <div class="group-label">SK하이닉스</div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 71.7%; background-color: #85C1DC;"><span class="bar-value">38%</span></div>
+                                    <div class="bar" style="height: 80.2%; background-color: #A8D8C7;"><span class="bar-value">42.5%</span></div>
+                                </div>
+                                <div class="group-label">삼성전자</div>
+                            </div>
+                             <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 17%; background-color: #85C1DC;"><span class="bar-value">9%</span></div>
+                                    <div class="bar" style="height: 18.9%; background-color: #A8D8C7;"><span class="bar-value">10%</span></div>
+                                </div>
+                                <div class="group-label">마이크론</div>
+                            </div>
+                        </div>
+                        <div class="legend">
+                            <div class="legend-item"><div class="legend-color" style="background-color: #85C1DC;"></div>2023년</div>
+                            <div class="legend-item"><div class="legend-color" style="background-color: #A8D8C7;"></div>2025년 (전망)</div>
+                        </div>
+                    </div>
+                    <p class="chart-note">
+                        * 위 데이터는 보고서 내 '글로벌 HBM 시장 점유율 추이 및 2025년 전망' 자료를 기반으로 작성되었습니다.<br>
+                        * SK하이닉스가 선두를 유지하지만, 삼성전자가 HBM3E 양산 본격화로 점유율 격차를 크게 좁히고, 마이크론이 3위 자리를 유지하며 경쟁이 심화될 전망입니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="page-3" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>심층 분석 2: AI 반도체 시장의 확장과 K-팹리스의 도전</h1>
+                <div class="header-subtitle">발행일: 2025년 6월 4주차</div>
+                <a href="https://file.kdb.co.kr/fileView?groupId=E49EC0E6-F243-5B37-9586-D097FD724BD2&fileId=59D62619-83C0-01EC-F6FC-83BCAAC00856" target="_blank" class="article-link" rel="noopener noreferrer">관련 보고서: KDB산업은행 "AI 반도체 기술 동향"</a>
+            </div>
+    
+            <div class="main-content-grid">
+                <div class="article-analysis-section">
+                    <h2>분석: '대안적 공급자'를 향한 K-반도체의 길</h2>
+                    <p>AI 기술이 클라우드를 넘어 스마트폰, 자동차 등 일상 기기로 확산되면서 AI 반도체 시장은 '서버(고성능화)'와 '엣지(저전력화)'라는 두 방향으로 동시에 진화하고 있습니다. 이 거대한 시장은 엔비디아의 'CUDA'라는 강력한 소프트웨어 생태계가 지배하고 있어, 하드웨어 성능만으로 정면 승부하는 것은 매우 어렵습니다. 따라서 한국의 AI 반도체 전략은 엔비디아를 추격하는 '추격자'가 아닌, 한국만이 가진 강점을 융합하여 시장에 새로운 가치를 제공하는 '대안적 공급자'로 자리매김하는 것이 현실적입니다. 즉, 세계 최고 수준의 HBM 메모리(삼성/SK하이닉스)와 첨단 파운드리(삼성) 제조 역량을 경쟁력 있는 NPU 설계(리벨리온/사피온 등)와 결합하는 것입니다. 이 세 가지를 묶어 고객의 AI 모델에 최적화된 '고객 맞춤형 통합 AI 솔루션'을 턴키(Turn-key)로 제공하는 전략은, 엔비디아의 범용 솔루션과 차별화된 독자적 가치를 창출할 수 있습니다. 이는 한국이 가진 강점(메모리, 제조)은 극대화하고 약점(소프트웨어)은 우회하는 가장 합리적인 경로입니다.</p>
+                    
+                    <h3>주요 플레이어 전략</h3>
+                    <ul>
+                        <li><strong>엔비디아:</strong> 'CUDA'라는 폐쇄적이지만 강력한 소프트웨어 생태계를 기반으로 시장의 75% 이상을 장악한 독점적 강자. 개발자들이 쉽게 AI 모델을 만들 수 있는 압도적인 개발 환경이 최대 무기.</li>
+                        <li><strong>삼성전자:</strong> 세계 유일의 '통합 AI 솔루션' 제공자. HBM 메모리, 첨단 파운드리, 패키징 기술을 모두 보유한 강점을 활용해 고객사에게 턴키 솔루션을 제공하는 새로운 비즈니스 모델을 제시.</li>
+                        <li><strong>SK ICT 연합 (SKT, SK하이닉스, 사피온):</strong> 통신, 메모리, 팹리스의 역량을 결합한 독자 생태계 구축. SKT의 데이터센터와 SK하이닉스의 메모리 기술을 자체 개발한 NPU '사피온'과 연계하여 시너지 창출.</li>
+                    </ul>
+    
+                    <h3>기회와 도전 과제</h3>
+                    <ul>
+                        <li><strong>기회:</strong> AI 반도체는 한국이 취약했던 시스템 반도체, 특히 팹리스 분야를 단숨에 세계적 수준으로 끌어올릴 기회이며, 자율주행, AI 가전 등 거대한 신시장을 창출합니다.</li>
+                        <li><strong>도전 과제:</strong> 가장 큰 장벽은 엔비디아의 'CUDA' 소프트웨어 생태계입니다. 하드웨어 성능을 아무리 높여도 개발자들이 사용하기 불편하면 외면받을 수 있습니다. 또한 세계적 수준의 설계 인력이 만성적으로 부족한 문제도 시급히 해결해야 할 과제입니다.</li>
+                    </ul>
+                </div>
+    
+                <div class="keywords-section">
+                    <h2>핵심 키워드</h2>
+                    <ul>
+                        <li>
+                            <strong>NPU</strong>
+                            <p>인공신경망 연산에 최적화된 프로세서. GPU보다 전력 효율이 높아 온디바이스 AI, 엣지 AI의 핵심으로 꼽힘.</p>
+                        </li>
+                        <li>
+                            <strong>ASIC</strong>
+                            <p>특정 용도에 맞춰 설계된 주문형 반도체. 범용성은 낮지만 특정 작업에서 최고의 효율을 발휘. (예: 구글 TPU)</p>
+                        </li>
+                         <li>
+                            <strong>팹리스 (Fabless)</strong>
+                            <p>반도체 생산 시설 없이 설계와 개발만 전문으로 하는 회사. (예: 엔비디아, 리벨리온, 사피온)</p>
+                        </li>
+                        <li>
+                            <strong>IDM</strong>
+                            <p>설계부터 생산, 패키징까지 모든 과정을 자체적으로 수행하는 종합 반도체 기업. (예: 삼성전자, 인텔)</p>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="visualization-section">
+                    <h2>글로벌 AI 반도체 시장 규모 전망</h2>
+                    <div class="chart-title">연평균 24%의 폭발적 성장 예상</div>
+                     <div class="chart-container" style="height: 320px;">
+                        <div class="line-chart-container">
+                            <svg id="aam-market-chart"></svg>
+                            <div id="aam-tooltip" class="tooltip"></div>
+                        </div>
+                    </div>
+                     <div class="legend">
+                        <div class="legend-item"><div class="legend-color" style="background-color: #85C1DC;"></div>글로벌 시장 (십억 달러)</div>
+                    </div>
+                    <p class="chart-note">
+                        * 위 데이터는 보고서 내 '글로벌 AI 반도체 시장 규모 전망' 자료를 기반으로 작성되었습니다.<br>
+                        * AI 기술이 데이터센터를 넘어 모든 산업으로 확산되면서, 관련 반도체 시장은 2028년까지 1,590억 달러 규모로 성장할 것으로 전망됩니다. 이는 한국 반도체 산업에 거대한 기회 요인입니다.
+                    </p>
+                </div>
+                
+                 <div class="comparison-table-section">
+                    <h2>국내 주요 AI 팹리스 NPU 성능 비교 (자체 발표 기준)</h2>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>기업</th>
+                                <th>칩 모델</th>
+                                <th>타겟 시장</th>
+                                <th>비교 대상 (NVIDIA)</th>
+                                <th>성능 우위 (자체 주장)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>사피온</td>
+                                <td>X330</td>
+                                <td>데이터센터 추론</td>
+                                <td>L40S</td>
+                                <td>연산 성능 2배, 전력 효율 1.3배</td>
+                            </tr>
+                            <tr>
+                                <td>리벨리온</td>
+                                <td>ATOM</td>
+                                <td>데이터센터 추론</td>
+                                <td>T4</td>
+                                <td>처리 속도 3.4배</td>
+                            </tr>
+                            <tr>
+                                <td>퓨리오사AI</td>
+                                <td>Renegade (2세대)</td>
+                                <td>데이터센터 추론/학습</td>
+                                <td>H100</td>
+                                <td>성능 경쟁 목표</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                 </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <section id="page-4" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>💡 반도체 산업 분석: 참고 자료 및 심화 학습</h1>
+            </div>
+    
+            <div class="main-content-section">
+                <p class="intro-text">
+                    본 보고서에서 심층 분석한 '고대역폭 메모리(HBM)'와 'AI 반도체' 이슈와 관련하여 더 깊이 학습하거나 참고할 수 있는 신뢰도 높은 외부 전문 자료들을 정리했습니다.
+                </p>
+    
+                <h2>🔍 심층 분석 주제별 추천 자료</h2>
+                <div class="card-grid">
+                    <div class="info-card">
+                        <h3>[종합보고서] AI 반도체 기술 및 산업 동향</h3>
+                        <p>KDB산업은행 미래전략연구소가 발행한 보고서. 국내 AI 반도체 시장 현황, 기술 동향(프로세서, 메모리), HBM의 중요성, 정부 정책 등을 종합적으로 분석합니다.</p>
+                        <a href="https://file.kdb.co.kr/fileView?groupId=E49EC0E6-F243-5B37-9586-D097FD724BD2&fileId=59D62619-83C0-01EC-F6FC-83BCAAC00856" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[기술보고서] 인공지능 반도체 시장 및 기술 동향</h3>
+                        <p>한국전자통신연구원(ETRI)이 AI 반도체를 GPU, NPU 등 기술적 관점에서 심도 있게 분류하고, 각 기술별 시장 전망과 발전 방향을 상세히 분석합니다.</p>
+                        <a href="https://ksp.etri.re.kr/ksp/plan-report/file/833.pdf" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[시장분석] HBM, 기회비용의 증가</h3>
+                        <p>삼성증권 리서치센터 리포트. HBM 생산 확대가 범용 D램 시장에 미치는 'Capa 잠식' 효과를 데이터로 분석하고, D램 시장의 수급과 가격을 전망합니다.</p>
+                        <a href="https://www.samsungpop.com/common.do?cmd=down&contentType=application/pdf&inlineYn=Y&saveKey=research.pdf&fileName=2020/2024061713394562K_02_06.pdf" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[정책자료] 반도체 분야 신규 R&D 과제 공고</h3>
+                        <p>산업통상자원부의 R&D 투자 방향과 구체적인 예산 배분 내역을 직접 확인할 수 있는 1차 자료. '첨단 패키징' 등 핵심 기술에 대한 정부 의지를 파악할 수 있습니다.</p>
+                        <a href="https://www.iris.go.kr/contents/retrieveBsnsAncmView.do?ancmId=008922" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>[글로벌동향] 반도체 패권 전쟁 보고서</h3>
+                        <p>삼일PwC 경영연구원이 미·중 기술 패권 경쟁이라는 지정학적 구도 속에서 글로벌 데이터를 기반으로 한국 반도체 산업의 위치와 전략을 분석한 보고서입니다.</p>
+                        <a href="https://www.pwc.com/kr/ko/insights/industry-focus/samilpwc_semiconductor-hegemony-war.pdf" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>[기업뉴스룸] 삼성/SK하이닉스 뉴스룸</h3>
+                        <p>각 기업이 직접 최신 기술(하이브리드 본딩, MR-MUF)과 제품 로드맵, 사업 전략을 설명하는 가장 정확하고 신뢰도 높은 1차 정보 소스입니다.</p>
+                        <a href="https://news.samsung.com/kr/" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                </div>
+    
+                <h2>📰 반도체 연관 산업 주요 이슈</h2>
+                <div class="card-grid">
+                    <div class="info-card">
+                        <h3>자동차 (자율주행)</h3>
+                        <p>Research Nester의 시장 분석. ADAS, 전기차 확산이 차량용 반도체 시장 성장을 견인하는 방식을 분석하고, 자율주행 기술 발전에 따른 고성능 칩 수요를 전망합니다.</p>
+                        <a href="https://www.researchnester.com/kr/reports/automotive-semiconductor-market/4158" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>데이터센터/클라우드</h3>
+                        <p>KDB산업은행 등의 보고서. AI 데이터센터의 폭발적인 전력 소모 문제를 지적하고, 이를 해결하기 위한 저전력/고효율 반도체(HBM, PIM 등)의 기술 동향을 다룹니다.</p>
+                        <a href="https://ssongsong23.tistory.com/entry/%EC%A0%80%EC%A0%84%EB%A0%A5-%EB%B0%98%EB%8F%84%EC%B2%B4-%EC%A7%80%EC%86%8D-%EA%B0%80%EB%8A%A5%ED%95%9C-IT%EB%A5%BC-%EC%9C%84%ED%95%9C-%EC%A0%80%EC%A0%84%EB%A0%A5-%EB%B0%98%EB%8F%84%EC%B2%B4-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%84%BC%ED%84%B0" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>IT 하드웨어 (스마트폰, PC)</h3>
+                        <p>한-EU 연구혁신센터 보고서. 온디바이스 AI 트렌드에 맞춰 개인용 기기에서 저전력으로 실시간 AI를 구현하기 위한 반도체 기술 개발 동향을 분석합니다.</p>
+                        <a href="https://k-erc.eu/wp-content/uploads/2024/11/KERC-Issue-Report-2024-6-%EC%9C%A0%EB%9F%BD-%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5-%EB%B0%98%EB%8F%84%EC%B2%B4-%EC%97%B0%EA%B5%AC%EA%B0%9C%EB%B0%9C-%EB%8F%99%ED%96%A5.pdf" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>통신 (5G/6G)</h3>
+                        <p>한국무역협회 수출입 전망. 5G/6G 네트워크 인프라 확충에 필요한 고성능 통신용 반도체(RF칩, 베이스밴드 프로세서 등)의 수요를 간접적으로 파악할 수 있습니다.</p>
+                        <a href="https://www.kita.net/researchTrade/report/tradeFocus/tradeFocusDetail.do?no=2817" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>가전 (스마트 가전)</h3>
+                        <p>산업통상자원부의 월간 수출입 동향. AI 기능이 탑재된 스마트 가전 시장의 성장세를 통해, 제품의 두뇌 역할을 하는 시스템 반도체 및 센서 수요를 추적할 수 있습니다.</p>
+                        <a href="https://www.motie.go.kr/portal/search/searchResult.do?brdCd=M_9533&srchWord=%EC%88%98%EC%B6%9C%EC%9E%85%EB%8F%99%ED%96%A5" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>국방/우주</h3>
+                        <p>국방기술진흥연구소 등의 발간물. 첨단 유도 무기, 레이더, 인공위성 등 극한 환경에서 작동하는 고신뢰성 특수 반도체의 중요성을 다룹니다.</p>
+                        <a href="https://www.krit.re.kr/board.es?mid=a10301010000&bid=0005" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                </div>
+    
+                <div class="conclusion-box">
+                    <h2>마무리하며:</h2>
+                    <p>
+                        2025년 대한민국 반도체 산업은 '첨단 패키징'을 중심으로 한 기술 지형 재편의 중심에 서 있습니다. HBM 시장의 주도권을 둘러싼 국내 기업 간의 치열한 경쟁은 AI 시대의 기술 패러다임이 전공정에서 후공정으로 넘어가고 있음을 명확히 보여줍니다. 이제 승패는 단순히 좋은 칩을 만드는 것을 넘어, 이종 칩을 통합하고 고객에게 최적화된 솔루션을 제공하는 '종합 기술력'에 달리게 될 것입니다. 메모리, 파운드리, 팹리스, 그리고 강력한 소부장 생태계가 선순환을 이루어, 대한민국이 'AI 반도체 강국'으로 도약할 수 있을지 귀추가 주목됩니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Check if we are on Page 3 before running the chart script
+            if (document.getElementById("page-3")) {
+                const data = [
+                    { year: 2023, value: 537 },
+                    { year: 2025, value: 975 },
+                    { year: 2028, value: 1590 },
+                ];
+
+                const svgElement = document.getElementById("aam-market-chart");
+                const svg = d3.select(svgElement);
+                const tooltip = d3.select("#aam-tooltip");
+
+                // Use a resize observer to make the chart responsive
+                const resizeObserver = new ResizeObserver(entries => {
+                    for (let entry of entries) {
+                        const { width, height } = entry.contentRect;
+                        drawChart(width, height);
+                    }
+                });
+
+                resizeObserver.observe(svgElement.parentElement);
+                
+                function drawChart(width, height) {
+                    svg.selectAll("*").remove(); // Clear previous chart elements
+
+                    const margin = { top: 20, right: 30, bottom: 40, left: 50 };
+
+                    const x = d3.scaleLinear()
+                        .domain(d3.extent(data, d => d.year))
+                        .range([margin.left, width - margin.right]);
+
+                    const y = d3.scaleLinear()
+                        .domain([0, d3.max(data, d => d.value)]).nice()
+                        .range([height - margin.bottom, margin.top]);
+
+                    // Axes
+                    svg.append("g")
+                        .attr("transform", `translate(0,${height - margin.bottom})`)
+                        .call(d3.axisBottom(x).tickFormat(d3.format("d")).ticks(data.length))
+                        .selectAll("text")
+                        .attr("class", "axis-text")
+                        .style("font-family", "'Noto Sans KR', sans-serif");
+                    
+                    svg.append("g")
+                        .attr("transform", `translate(${margin.left},0)`)
+                        .call(d3.axisLeft(y).ticks(5))
+                        .selectAll("text")
+                        .attr("class", "axis-text")
+                        .style("font-family", "'Noto Sans KR', sans-serif");
+
+                    // Grid lines
+                    svg.append("g")
+                        .attr("class", "grid-line")
+                        .attr("transform", `translate(${margin.left},0)`)
+                        .call(d3.axisLeft(y).ticks(5).tickSize(-width + margin.left + margin.right).tickFormat(""));
+                    
+                    // Tooltip functions
+                    const mouseover = (event, d) => {
+                        tooltip.style("opacity", 1);
+                    };
+                    const mousemove = (event, d) => {
+                        const [xPos, yPos] = d3.pointer(event, svgElement.parentElement);
+                        tooltip
+                            .html(`<b>${d.year}년</b><br>시장 규모: $${d.value}B`)
+                            .style("left", `${xPos + 15}px`)
+                            .style("top", `${yPos}px`)
+                            .style("transform", "translateY(-50%)");
+                    };
+                    const mouseleave = (event, d) => {
+                        tooltip.style("opacity", 0);
+                    };
+
+                    // Global Market Line
+                    const line = d3.line()
+                        .x(d => x(d.year))
+                        .y(d => y(d.value))
+                        .curve(d3.curveMonotoneX);
+                    
+                    svg.append("path")
+                        .datum(data)
+                        .attr("class", "line-path")
+                        .attr("d", line)
+                        .style("stroke", "#85C1DC");
+
+                    // Data Points
+                    svg.selectAll("circle.data-point")
+                        .data(data)
+                        .enter()
+                        .append("circle")
+                        .attr("class", "data-point")
+                        .attr("cx", d => x(d.year))
+                        .attr("cy", d => y(d.value))
+                        .attr("stroke", "#85C1DC")
+                        .on("mouseover", mouseover)
+                        .on("mousemove", mousemove)
+                        .on("mouseleave", mouseleave);
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InFit - 콘텐츠/미디어 산업 분석 통합 레포트</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 기본 스타일 */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #F8F8F8;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 페이지 섹션 공통 스타일 */
+        .page-section {
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* 1페이지 스타일 */
+        #page-1 {
+            background-color: #F8F8F8;
+        }
+
+        #page-1 .container {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        #page-1 .header-section {
+            background-color: #FFF9F2; /* Bubble Cream: 부드러운 크림 배경 */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem 2rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        #page-1 .whale-character {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            width: 80px;
+            height: 80px;
+            opacity: 0.9;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        #page-1 .whale-character:hover {
+            transform: scale(1.1) rotate(5deg);
+            opacity: 1;
+        }
+
+        #page-1 .header-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #85C1DC; /* Whale Sky: 차분한 하늘색 */
+            margin-bottom: 0.75rem;
+        }
+
+        #page-1 .header-section .slogan {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #4D5E70; /* Slate Ink: 읽기 좋은 어두운 그레이 */
+            margin-bottom: 1.5rem;
+        }
+
+        #page-1 .header-section .subtitle {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        #page-1 .card-news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid #E0E0E0;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            #page-1 .card-news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        #page-1 .card {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            overflow: hidden;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        #page-1 .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-1 .card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
+        #page-1 .card-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #4D5E70;
+            margin-bottom: 0.8rem;
+        }
+
+        #page-1 .card-summary {
+            font-size: 0.95rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        #page-1 .card-keywords {
+            font-size: 0.85rem;
+            color: #666;
+            font-weight: 500;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        #page-1 .card-keywords span {
+            background-color: #A8D8C7;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        #page-1 .section-title {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #85C1DC;
+            margin-bottom: 2rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            text-align: center;
+        }
+
+        #page-1 .keyword-section {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            padding: 25px;
+        }
+        
+        .keyword-analysis {
+            padding-bottom: 1.5rem;
+        }
+
+        #page-1 .keyword-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed #E0E0E0;
+        }
+
+        #page-1 .keyword-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        #page-1 .keyword-item h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70;
+            margin-bottom: 0.75rem;
+        }
+
+        #page-1 .keyword-item p {
+            font-size: 0.95em;
+            color: #444;
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+        
+        .visualization-container {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px dashed #E0E0E0;
+        }
+        .visualization-container h3 {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #85C1DC;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+
+        /* 2-4페이지 공통 레포트 스타일 */
+        .report-container {
+            width: 100%;
+            max-width: 960px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .header-section {
+            padding: 40px 30px;
+            text-align: center;
+            background-color: #FFF9F2;
+            border-bottom: 1px solid #A8D8C7;
+        }
+
+        .header-section h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .header-subtitle {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        .article-link {
+            font-size: 0.9em;
+            color: #F7A78F;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: 1px solid #A8D8C7;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .article-link:hover {
+            background-color: #F7A78F;
+            color: white;
+        }
+
+        .main-content-grid {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 25px;
+            padding: 30px;
+        }
+
+        .article-analysis-section, 
+        .keywords-section, 
+        .visualization-section {
+            background-color: #FFF9F2;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+        }
+
+        .article-analysis-section {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .keywords-section {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .visualization-section {
+            grid-column: 1 / -1;
+            grid-row: 2;
+        }
+
+        /* 레포트 공통 타이포그래피 */
+        #page-2 h2, #page-3 h2, #page-4 h2 {
+            font-size: 1.6em;
+            color: #85C1DC;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            font-weight: 700;
+        }
+
+        #page-2 p, #page-3 p, #page-4 p {
+            font-size: 0.95em;
+            line-height: 1.7;
+            margin-bottom: 1em;
+            color: #444;
+        }
+
+        #page-2 h3, #page-3 h3, #page-4 h3 {
+            font-size: 1.2em;
+            color: #4D5E70;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* 공통 리스트 스타일 */
+        .article-analysis-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 1em 0;
+        }
+
+        .article-analysis-section ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .article-analysis-section ul li::before {
+            content: '•';
+            color: #F7A78F;
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .keywords-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .keywords-section li {
+            margin-bottom: 15px;
+        }
+
+        .keywords-section li strong {
+            display: block;
+            font-size: 1.1em;
+            color: #4D5E70;
+            margin-bottom: 5px;
+        }
+
+        .keywords-section li p {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        /* 공통 시각화 스타일 */
+        .visualization-section {
+            text-align: center;
+        }
+
+        .visualization-section h2 {
+            font-size: 1.4em;
+        }
+
+        .chart-container {
+            margin-top: 20px;
+            padding: 25px 15px 15px 15px;
+            background-color: #F8F8F8;
+            border-radius: 8px;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .chart-title {
+            font-size: 1.1em;
+            color: #85C1DC;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .chart-note {
+            font-size: 0.8em;
+            color: #777;
+            margin-top: 30px;
+            text-align: left;
+            line-height: 1.5;
+            padding: 0 15px;
+        }
+        
+        /* 그룹형 막대그래프 스타일 (공통) */
+        .grouped-bar-chart {
+            display: flex;
+            justify-content: space-around;
+            height: 280px;
+            padding-top: 20px;
+            align-items: flex-end;
+        }
+        .bar-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            text-align: center;
+            height: 100%;
+        }
+        .bar-pair {
+             display: flex;
+             align-items: flex-end;
+             height: 100%;
+             gap: 8px;
+             flex-grow: 1;
+        }
+        .bar-group .bar {
+            width: 40px;
+            position: relative;
+            animation: grow-bar 1.2s ease-out forwards;
+            transition: background-color 0.3s ease;
+        }
+        .bar-group .bar .bar-value {
+            position: absolute;
+            top: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #4D5E70;
+        }
+        .bar-group .group-label {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+            font-size: 0.9em;
+        }
+        .legend {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 0 15px;
+        }
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            margin-right: 8px;
+            border-radius: 3px;
+        }
+
+        /* 가로 막대그래프 스타일 (공통) */
+        @keyframes fill-bar {
+            from { width: 0; }
+        }
+        .horizontal-bar-chart {
+            padding-top: 10px;
+        }
+        .horizontal-bar-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        .horizontal-bar-label {
+            width: 160px;
+            text-align: right;
+            padding-right: 15px;
+            font-weight: 600;
+            color: #4D5E70;
+            flex-shrink: 0;
+        }
+        .horizontal-bar-wrapper {
+            flex-grow: 1;
+            background-color: #e9e9e9;
+            border-radius: 5px;
+            height: 30px;
+        }
+        .horizontal-bar-fill {
+            height: 100%;
+            background-color: #85C1DC;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+            padding-left: 10px;
+            box-sizing: border-box;
+            animation: fill-bar 1.2s ease-out forwards;
+            width: var(--bar-width, 0%);
+            white-space: nowrap;
+        }
+         .horizontal-bar-fill:hover {
+            background-color: #F7A78F;
+        }
+
+
+        /* 4페이지 특화 스타일 */
+        #page-4 .main-content-section {
+            padding: 30px;
+        }
+
+        #page-4 .intro-text {
+            font-size: 1.1em;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        #page-4 .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        #page-4 .info-card {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            padding: 1.5rem;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #page-4 .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-4 .info-card h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70;
+            margin-bottom: 0.75rem;
+            margin-top: 0;
+        }
+
+        #page-4 .info-card p {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        #page-4 .info-card a {
+            color: #F7A78F;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            display: block;
+            margin-top: auto;
+        }
+
+        #page-4 .conclusion-box {
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            border: 1px solid #A8D8C7;
+        }
+
+        #page-4 .conclusion-box h2 {
+            font-size: 1.4em;
+            color: #4D5E70;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        #page-4 .conclusion-box p {
+            color: #333;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* 애니메이션 공통 */
+        @keyframes grow-bar {
+            from { height: 0; }
+        }
+        
+        @keyframes grow-line {
+            from {
+                stroke-dashoffset: 1000;
+            }
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .page-section {
+                padding: 10px;
+            }
+            
+            #page-1 .container {
+                padding: 1rem;
+            }
+            
+            #page-1 .card-news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #page-1 .whale-character {
+                width: 60px;
+                height: 60px;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .main-content-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+                padding: 20px;
+            }
+            
+            .article-analysis-section,
+            .keywords-section,
+            .visualization-section {
+                grid-column: 1 / -1;
+                grid-row: auto;
+            }
+
+            #page-4 .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #page-4 .main-content-section {
+                padding: 20px;
+            }
+            
+            .bar-group .bar {
+                width: 30px;
+            }
+
+            .split-chart-group .bar {
+                width: 30px;
+            }
+
+            /* 모바일 차트 스타일 */
+            .horizontal-bar-label {
+                width: 120px;
+                font-size: 0.9em;
+            }
+        }
+
+        /* Chart 2: Split Bar Chart for positive/negative values */
+        .split-chart-container {
+            height: 280px;
+            display: flex;
+            justify-content: space-around;
+            padding: 20px 0;
+            box-sizing: border-box;
+        }
+
+        .split-chart-group {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 18%; /* 5 groups */
+            text-align: center;
+        }
+
+        .split-chart-bars {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .positive-area {
+            flex-basis: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; /* Align bars to the bottom (the axis) */
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .negative-area {
+            flex-basis: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Align bars to the top (the axis) */
+        }
+
+        .split-chart-group .bar {
+            width: 40px;
+            margin: 0 auto;
+            position: relative;
+            animation: grow-bar 1.2s ease-out forwards;
+                transition: background-color 0.3s ease;
+        }
+
+        .split-chart-group .bar .bar-value {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #4D5E70;
+            white-space: nowrap;
+        }
+
+        .positive-area .bar .bar-value {
+            top: -22px;
+        }
+
+        .negative-area .bar .bar-value {
+            bottom: -22px;
+        }
+
+        .split-chart-group .group-label {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+            font-size: 0.9em;
+        }
+        
+        /* Line Chart (Page 3) */
+        .line-chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            height: 300px; /* 고정 높이 지정 */
+        }
+        .line-chart-container svg {
+             width: 100%;
+             height: 100%;
+             overflow: visible;
+        }
+        .line-chart-container .grid-line {
+            stroke: #e0e0e0;
+            stroke-dasharray: 2,2;
+        }
+        .line-chart-container .axis-line {
+            stroke: #aaa;
+        }
+        .line-chart-container .axis-text {
+            fill: #555;
+            font-size: 12px;
+        }
+        .line-chart-container .data-line {
+            fill: none;
+            stroke: #85C1DC;
+            stroke-width: 3;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: grow-line 2s ease-out forwards;
+        }
+        .line-chart-container .data-point {
+            fill: #F7A78F;
+            stroke: white;
+            stroke-width: 2;
+        }
+        .line-chart-container .data-label {
+            fill: #4D5E70;
+            font-size: 13px;
+            font-weight: bold;
+            text-anchor: middle;
+        }
+
+        /* Specific fix for chart 1 text wrapping */
+        #page-1 .bar-group .bar-value,
+        #page-1 .bar-group .group-label {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <section id="page-1" class="page-section">
+        <div class="container">
+            <header class="header-section">
+                <img src="../infit_logo.png" alt="InFit 캐릭터" class="whale-character">
+                <h1>InFit</h1>
+                <p class="slogan">K-콘텐츠, IP와 AI 기술을 만나 새로운 시대를 열다</p>
+                <p class="subtitle">
+                    <span style="font-weight: 600;">콘텐츠/미디어 산업 분석 보고서 (2025년 6월 4주차)</span><br>글로벌 확장과 기술 혁신, 두 날개로 비상하는 K-콘텐츠
+                </p>
+            </header>
+
+            <section>
+                <h2 class="section-title">주간 콘텐츠/미디어 핵심 동향 요약</h2>
+                <div class="card-news-grid">
+                    <div class="card">
+                        <a href="https://www.mcst.go.kr/kor/s_policy/plan2025/plan2025.jsp" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">정부, 'K-콘텐츠 펀드' 운용 및 AI 저작권 체계 확립 계획 발표</h3>
+                            <p class="card-summary">
+                                문화체육관광부가 5,000억 원 규모의 펀드 조성과 해외 비즈니스센터 확대를 통해 콘텐츠 산업의 글로벌 성장을 지원합니다. 동시에 AI 시대에 맞춰 창작자 보호를 위한 저작권법 개정 등 정책적 기반을 마련할 계획입니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#정부정책</span> <span>#K콘텐츠펀드</span> <span>#AI저작권</span> <span>#글로벌진출</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://www.mediatoday.co.kr/news/articleView.html?idxno=320498" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">국내 OTT, '수익성' 중심으로 전략 재편 가속화</h3>
+                            <p class="card-summary">
+                                국내 OTT 시장이 가입자 유치 경쟁을 넘어 수익성 확보 단계로 진입했습니다. 넷플릭스가 킬러 콘텐츠로 독주하는 가운데, 티빙-웨이브 합병, 요금제 개편 등 생존과 성장을 위한 플랫폼들의 경쟁이 치열해지고 있습니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#OTT</span> <span>#수익성개선</span> <span>#플랫폼경쟁</span> <span>#인수합병</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://cjnews.cj.net/cj-enm-%EB%B6%80%EC%82%B0%EC%BD%98%ED%85%90%EC%B8%A0%EB%A7%88%EC%BC%93-2025%EC%84%9C-%EA%B8%80%EB%A1%9C%EB%B2%8C-ip-%EC%98%81%ED%96%A5%EB%A0%A5-%ED%99%95%EB%8C%80/" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">CJ ENM, IP 다각화와 AI 애니메이션으로 미래 성장 동력 확보</h3>
+                            <p class="card-summary">
+                                CJ ENM이 '부산콘텐츠마켓 2025'에서 드라마 포맷 수출 등 '글로벌 IP 파워하우스' 전략을 강화했습니다. 특히 AI 기술로 제작한 애니메이션 '캣 비기'를 공개하며 기술 융합 콘텐츠 시장 선점 의지를 보였습니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#CJENM</span> <span>#IP비즈니스</span> <span>#AI애니메이션</span> <span>#기술융합</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://www.lecturernews.com/news/articleView.html?idxno=168809" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">콘텐츠 수출, 장르별 양극화 심화...음악 '맑음', 방송 '흐림'</h3>
+                            <p class="card-summary">
+                                한국콘텐츠진흥원 전망에 따르면, K-팝과 신기술융합콘텐츠의 수출은 긍정적인 반면, 방송 분야는 제작비 상승과 OTT 의존도 심화로 어려움이 예상됩니다. 산업 포트폴리오 다변화의 필요성이 대두되고 있습니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#콘텐츠수출</span> <span>#양극화</span> <span>#K팝</span> <span>#신기술융합</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="keyword-section">
+                <h2 class="section-title">핵심 키워드 분석: 생성형 AI (Generative AI)</h2>
+                <div class="keyword-analysis">
+                    <div class="keyword-item">
+                        <h3>1. 정의 및 중요성</h3>
+                        <p>
+                            생성형 AI는 텍스트, 이미지, 영상 등 기존 데이터를 학습해 새로운 창작물을 만들어내는 인공지능 기술입니다. 이는 단순 자동화를 넘어 창의적 결과물을 생성하는 능력으로, 국내 콘텐츠 산업에서는 제작 비용과 시간을 획기적으로 절감하고, 개인 맞춤형 서비스를 고도화하며, 새로운 비즈니스 모델을 창출하는 핵심 동력으로 부상했습니다. 기술의 발전이 '누구나 창작자'가 될 수 있는 시대를 열면서, 콘텐츠 생태계 전반의 패러다임을 바꾸고 있습니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>2. 기술적 맥락</h3>
+                        <p>
+                            국내외 IT 기업들은 거대언어모델(LLM)과 확산 모델(Diffusion Model)을 기반으로 생성형 AI 기술을 고도화하고 있습니다. 카카오의 KoGPT, 네이버의 하이퍼클로바X 등 자체 모델 개발과 더불어, 뤼튼과 같은 솔루션 기업들은 사용자 친화적 서비스를 제공하며 시장을 확대하고 있습니다. 특히 AI 기술은 음악, 웹툰 등 기존 장르 및 XR, 메타버스 같은 신기술과 적극적으로 융합하며 디지털 휴먼, 버추얼 아이돌 등 완전히 새로운 형태의 콘텐츠를 만들어내고 있습니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>3. 시장/산업적 영향</h3>
+                        <p>
+                            국내 AI 시장은 2027년 약 4.5조 원 규모로 성장이 전망되며, 기업의 AI 도입률은 86%에 달합니다. 특히 미디어/엔터테인먼트 기업들은 제작 효율화와 콘텐츠 다양성 증대를 위해 AI 도입에 적극적입니다. AI는 기획, 편집, 유통 전 과정에 활용되어 디지털 휴먼, 맞춤형 추천 시스템 등 새로운 서비스를 창출하고 있습니다. 이러한 변화는 AI 기술을 빠르게 내재화하는 기업이 시장을 선도하게 만들며, 중소기업과의 기술 격차가 곧 경쟁력 격차로 이어져 산업 재편을 가속화할 것입니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>4. 사회적/경제적 파급 효과</h3>
+                        <p>
+                           생성형 AI는 국가 경제의 생산성을 높일 잠재력을 지녔지만, 동시에 일자리 변화와 저작권 문제를 야기합니다. 국내 일자리의 절반 이상이 AI의 영향을 받을 것으로 예측되며, 창작자들은 AI의 데이터 학습에 대한 정당한 보상 체계 마련을 요구하고 있습니다. 'AI 기본법'이 산업 진흥에 초점을 맞추면서도 창작자 보호 장치가 미비하다는 비판이 존재합니다. 기술의 혜택을 공정하게 분배하고, 윤리적 문제를 해결하기 위한 사회적 합의와 제도적 보완이 시급한 과제입니다.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="visualization-container">
+                    <h3>📊 국내 기업 AI 도입 및 투자 현황 (2025년)</h3>
+                    <div class="chart-container">
+                        <div class="horizontal-bar-chart">
+                             <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">AI 도입률</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 86%; background-color: #85C1DC;">86%</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">생성형 AI 도입률</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 72%; background-color: #A8D8C7;">72%</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">생성형 AI 투자 비중</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 43%; background-color: #F7A78F;">43%</div>
+                                </div>
+                            </div>
+                        </div>
+                         <p class="chart-note">
+                            * 위 데이터는 보고서 내 '국내 AI 시장 규모 및 성장률 전망' 자료(tobetong.com, 연합뉴스)를 기반으로 재구성되었습니다.<br>
+                            * 높은 AI 도입률은 AI가 기업 경쟁력의 핵심 요소로 자리 잡았음을 보여줍니다. 특히 전체 AI 도입 기업 중 72%가 생성형 AI를 활용하고 있다는 점은, 이 기술이 콘텐츠 제작 및 서비스 혁신에 얼마나 직접적으로 기여하고 있는지를 시사합니다.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <section id="page-2" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>심층 분석 1: K-콘텐츠의 글로벌 영향력 확대와 IP 비즈니스 강화</h1>
+                <div class="header-subtitle">기준일: 2025년 6월 4주차</div>
+                <a href="https://www.lecturernews.com/news/articleView.html?idxno=168809" target="_blank" class="article-link" rel="noopener noreferrer">관련 보고서: 2025년 대한민국 콘텐츠 수출 전망 (KOCCA)</a>
+            </div>
+    
+            <div class="main-content-grid">
+                <div class="article-analysis-section">
+                    <h2>분석: IP, 기술과 만나 글로벌 생태계를 구축하다</h2>
+                    <p>
+                        2025년 K-콘텐츠 산업은 단순한 글로벌 인기를 넘어, 지식재산권(IP)을 기반으로 한 '비즈니스 생태계'를 구축하는 단계로 진화하고 있습니다. 과거 웹툰 원작 드라마의 성공과 같은 OSMU(One Source Multi Use) 전략이 IP 확장의 기본 공식이었다면, 이제는 여기에 AI, NFT, 메타버스 등 첨단 기술을 융합하여 IP의 가치를 극대화하고 새로운 수익 모델을 창출하는 것이 핵심 경쟁력으로 부상했습니다. 이는 K-콘텐츠가 일방적인 문화 전파를 넘어, 현지 시장에 깊이 뿌리내리고 기술력을 바탕으로 한 '콘텐츠 테크 기업'으로 변모하고 있음을 의미합니다.
+                    </p>
+                    
+                    <h3>핵심 동향: 기술 융합과 비즈니스 모델 다각화</h3>
+                    <ul>
+                        <li><strong>기술 기반 IP 가치 극대화:</strong> CJ ENM의 AI 애니메이션 공개, 카카오엔터의 AI 기반 IP 발굴, 하이브의 아티스트 IP 기반 NFT 사업 진출 등은 기술을 통해 IP의 생명력을 연장하고 새로운 팬 경험을 창출하는 대표적인 사례입니다. 기술은 이제 콘텐츠 제작의 효율화 도구를 넘어, IP의 가치를 재창조하는 핵심 동력입니다.</li>
+                        <li><strong>글로벌 협력 및 현지화 강화:</strong> CJ ENM이 필리핀, 태국 미디어 기업과 드라마를 공동 제작하는 것처럼, 현지 파트너와의 협력을 통해 문화적 장벽을 낮추고 시장 안착 가능성을 높이는 전략이 활발히 추진되고 있습니다. 이는 K-콘텐츠 IP의 글로벌 확장을 위한 필수적인 과정입니다.</li>
+                        <li><strong>팬덤 경제의 진화:</strong> K-POP 팬덤은 이제 거대한 산업으로 자리 잡았습니다. 하이브가 '위버스'를 통해 팬덤 플랫폼을 구축하고, 이를 기반으로 NFT, 메타버스 등 신사업을 모색하는 것은 팬덤의 강력한 충성도와 구매력을 비즈니스로 연결하는 고도화된 전략입니다.</li>
+                    </ul>
+    
+                    <h3>시사점 및 전망</h3>
+                    <p>
+                        K-콘텐츠의 글로벌 성공은 이제 '지속 가능성'이라는 새로운 과제에 직면해 있습니다. 제작비 급등과 글로벌 OTT에 대한 높은 의존도는 장기적인 성장에 부담으로 작용할 수 있습니다. 따라서 IP를 활용한 다각적인 수익 모델 구축과 기술 융합을 통한 새로운 경쟁력 확보는 선택이 아닌 필수입니다. K-콘텐츠가 글로벌 시장에서 영향력을 계속 확대하기 위해서는, 문화적 매력과 함께 기술적 혁신을 겸비한 '콘텐츠 생태계'를 구축하는 노력이 지속되어야 할 것입니다.
+                    </p>
+                </div>
+    
+                <div class="keywords-section">
+                    <h2>핵심 키워드</h2>
+                    <ul>
+                        <li>
+                            <strong>IP(지식재산권)</strong>
+                            <p>콘텐츠의 창작물에 대한 법적 권리로, 부가가치 창출과 확장의 핵심 요소.</p>
+                        </li>
+                        <li>
+                            <strong>OSMU</strong>
+                            <p>하나의 원천 콘텐츠를 다양한 장르와 상품으로 재활용해 부가가치를 극대화하는 전략.</p>
+                        </li>
+                        <li>
+                            <strong>팬덤 경제</strong>
+                            <p>아티스트나 콘텐츠에 대한 팬들의 충성도를 기반으로 형성되는 경제 활동.</p>
+                        </li>
+                        <li>
+                            <strong>콘텐츠 테크</strong>
+                            <p>콘텐츠에 AI, 메타버스 등 첨단 기술을 융합하여 새로운 가치를 창출하는 분야.</p>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="visualization-section">
+                    <h2>2025년 대한민국 콘텐츠 장르별 수출 전망</h2>
+                    <div class="chart-title">음악/신기술은 '맑음', 방송은 '흐림'... 장르별 명암 교차</div>
+                    <div class="chart-container" style="max-width: 600px; margin: 0 auto;">
+                        <div class="horizontal-bar-chart">
+                             <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">음악</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 78.6%; background-color: #85C1DC;">5.5점 (맑음)</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">신기술융합</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 78.6%; background-color: #85C1DC;">5.5점 (맑음)</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">스토리</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 70.0%; background-color: #A8D8C7;">4.9점</div>
+                                </div>
+                            </div>
+                             <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">게임</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 67.1%; background-color: #A8D8C7;">4.7점 (갬)</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">만화/웹툰</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 67.1%; background-color: #A8D8C7;">4.7점 (갬)</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">방송</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 41.4%; background-color: #F7A78F;">2.9점 (흐림)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="chart-note">
+                        * 위 데이터는 한국콘텐츠진흥원 '2025년 대한민국 콘텐츠 수출 전망' 보고서를 기반으로 작성되었습니다. (7점 척도 기준)<br>
+                        * K-팝의 글로벌 팬덤과 AI 등 신기술 기반 콘텐츠의 높은 잠재력을 명확히 보여주는 반면, 전통적인 방송 콘텐츠는 제작비 상승 등으로 어려움이 예상되어 장르별 전략 차별화가 시급함을 시사합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="page-3" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>심층 분석 2: 생성형 AI 기반 콘텐츠 제작 및 유통 혁신</h1>
+                <div class="header-subtitle">기준일: 2025년 6월 4주차</div>
+                <a href="https://notavoid.tistory.com/256" target="_blank" class="article-link" rel="noopener noreferrer">참고 자료: 2025년 AI 윤리 법제도 전환점 (AI 기본법 분석)</a>
+            </div>
+    
+            <div class="main-content-grid">
+                <div class="article-analysis-section">
+                    <h2>분석: 혁신과 윤리의 갈림길에 선 AI 콘텐츠</h2>
+                    <p>
+                        2025년, 생성형 인공지능(AI)은 콘텐츠 산업에 '혁명'과 '과제'를 동시에 안겨주고 있습니다. AI는 기획부터 제작, 유통에 이르는 전 과정을 혁신하며 생산성을 극대화하고 있습니다. CJ ENM의 AI 애니메이션, 네이버와 카카오의 자체 LLM 기반 서비스 등은 AI 기술이 더 이상 미래가 아닌 현재의 경쟁력임을 증명합니다. AI 도입은 제작 비용과 시간을 획기적으로 줄여, 중소 제작사나 신인 창작자에게도 새로운 기회의 문을 열어주고 있습니다. '창작의 민주화'가 가속화되면서 콘텐츠의 다양성이 폭발적으로 증가할 것으로 기대됩니다.
+                    </p>
+                    
+                    <h3>기회와 도전: 양날의 검, AI</h3>
+                    <ul>
+                        <li><strong>기회 (생산성 혁신):</strong> AI는 콘텐츠 제작 프로세스를 자동화하여 효율성을 극대화합니다. 특히 AI 기반 디지털 휴먼, 개인 맞춤형 추천 시스템 등은 완전히 새로운 시장을 창출하며 산업의 성장을 견인하고 있습니다. 국내 기업의 AI 도입률이 86%에 달하는 것은 이러한 긍정적 측면에 대한 높은 기대를 반영합니다.</li>
+                        <li><strong>도전 (윤리적, 법적 과제):</strong> 기술의 발전 이면에는 어두운 그림자도 존재합니다. AI가 학습하는 데이터의 저작권 문제, 딥페이크 기술을 악용한 가짜뉴스 확산, 알고리즘의 편향성 등 해결해야 할 과제가 산적해 있습니다. 특히 AI로 인해 대체될 수 있는 일자리에 대한 사회적 논의와 창작자에 대한 정당한 보상 체계 마련은 시급한 과제입니다.</li>
+                    </ul>
+    
+                    <h3>정책 및 규제 동향과 미래 전망</h3>
+                    <p>
+                        이러한 상황 속에서 정부와 기업은 '신뢰 가능한 AI 생태계' 구축을 위해 노력하고 있습니다. 2026년 시행될 'AI 기본법'은 산업 진흥과 위험 예방 사이의 균형을 맞추려는 시도이며, 문화체육관광부는 AI 학습 데이터 공개 의무화 등 저작권법 개정을 추진하고 있습니다. 결국 AI 시대의 진정한 승자는 기술을 가장 잘 활용하는 기업일 뿐만 아니라, 기술에 따르는 사회적, 윤리적 책임을 다하는 기업이 될 것입니다. 혁신과 규제의 조화 속에서 지속 가능한 AI 콘텐츠 생태계를 만드는 것이 우리 모두의 과제입니다.
+                    </p>
+                </div>
+    
+                <div class="keywords-section">
+                    <h2>핵심 키워드</h2>
+                    <ul>
+                        <li>
+                            <strong>AIGC</strong>
+                            <p>AI Generated Content. 인공지능 기술을 통해 생성된 모든 종류의 콘텐츠.</p>
+                        </li>
+                        <li>
+                            <strong>딥페이크</strong>
+                            <p>AI를 이용해 특정 인물의 얼굴이나 목소리를 합성하는 기술. 오용 시 큰 사회적 문제 야기.</p>
+                        </li>
+                        <li>
+                            <strong>AI 윤리</strong>
+                            <p>AI 개발 및 활용 과정에서 발생 가능한 편향성, 책임 소재 등 윤리적 문제에 대한 원칙.</p>
+                        </li>
+                         <li>
+                            <strong>AI 기본법</strong>
+                            <p>AI 산업 육성과 안전한 활용을 위한 법적 기반. 산업 진흥과 규제의 균형이 핵심.</p>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="visualization-section">
+                    <h2>글로벌 생성형 AI 시장 규모 전망 (2022-2030)</h2>
+                    <div class="chart-title">폭발적으로 성장하는 AI 콘텐츠 시장</div>
+                     <div class="chart-container">
+                        <div class="line-chart-container">
+                            <svg viewBox="0 0 600 300">
+                                <line x1="50" y1="250" x2="550" y2="250" class="axis-line"></line> <line x1="50" y1="50" x2="50" y2="250" class="axis-line"></line> <line x1="50" y1="50" x2="550" y2="50" class="grid-line"></line>
+                                <line x1="50" y1="150" x2="550"y2="150" class="grid-line"></line>
+                                
+                                <text x="40" y="55" class="axis-text" text-anchor="end">$700B</text>
+                                <text x="40" y="155" class="axis-text" text-anchor="end">$350B</text>
+                                <text x="40" y="255" class="axis-text" text-anchor="end">$0</text>
+                                
+                                <polyline class="data-line" points="100,242 500,55"></polyline>
+                                <circle cx="100" cy="242" r="5" class="data-point"></circle>
+                                <text x="100" y="232" class="data-label" dy="-10">$29B</text>
+                                <circle cx="500" cy="55" r="5" class="data-point"></circle>
+                                <text x="500" y="45" class="data-label" dy="-10">$6,680B</text>
+                                
+                                <text x="100" y="270" class="axis-text" text-anchor="middle">2022년</text>
+                                <text x="500" y="270" class="axis-text" text-anchor="middle">2030년 (전망)</text>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="chart-note">
+                        * 위 데이터는 Fortune Business Insights의 글로벌 생성형 AI 시장 분석 자료를 기반으로 작성되었습니다.<br>
+                        * 2022년 290억 달러 규모였던 시장이 2030년 약 6,680억 달러까지 성장할 것으로 예상되며, 연평균 47.5%라는 폭발적인 성장률을 보입니다. 이는 생성형 AI가 전 산업에 걸쳐 막대한 부가가치를 창출할 핵심 기술임을 명확히 보여줍니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="page-4" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>💡 콘텐츠/미디어 산업 분석: 참고 자료 및 심화 학습</h1>
+            </div>
+    
+            <div class="main-content-section">
+                <p class="intro-text">
+                    본 보고서에서 심층 분석한 K-콘텐츠 IP 비즈니스 및 생성형 AI 혁신과 관련하여, 더 깊이 학습하거나 참고할 수 있는 신뢰도 높은 외부 전문 자료들을 정리했습니다.
+                </p>
+    
+                <h2>🔍 심층 분석 주제별 추천 자료</h2>
+                <div class="card-grid">
+                    <div class="info-card">
+                        <h3>[보고서] 2025년 대한민국 콘텐츠 수출 전망</h3>
+                        <p>한국콘텐츠진흥원(KOCCA)이 장르별, 지역별 K-콘텐츠 수출 전망과 지원 전략을 심층 분석한 보고서입니다. 산업 전문가 167명의 설문조사를 바탕으로 신뢰도 높은 데이터를 제공합니다.</p>
+                        <a href="https://www.lecturernews.com/news/articleView.html?idxno=168809" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[보고서] 2025년 국내 AI 시장 현주소와 전망</h3>
+                        <p>국내 AI 시장의 매출, 기업 도입률, 투자 동향 등 최신 데이터를 바탕으로 시장의 현황과 미래를 심층적으로 분석합니다. AI 시장의 역동적인 변화를 구체적인 수치로 확인할 수 있습니다.</p>
+                        <a href="https://tobetong.com/2025-ai-market-trends-korea/" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[정책] AI 시대 콘텐츠산업 미래 전략 (2025~2035)</h3>
+                        <p>문화체육관광부가 수립한 중장기 계획으로, AI 콘텐츠 산업 육성을 위한 정책 방향과 비전을 제시합니다. AI 저작권 체계 확립 등 중요한 정책 변화를 미리 파악할 수 있습니다.</p>
+                        <a href="https://www.mcst.go.kr/kor/s_policy/plan2025/plan2025.jsp" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[보고서] 글로벌 게임산업 트렌드 2025</h3>
+                        <p>한국콘텐츠진흥원이 발행하는 자료로, 전 세계 게임 산업의 최신 동향과 주요 이슈를 심도 있게 분석합니다. 게임 콘텐츠 제작 및 유통의 최신 변화를 파악하는 데 유용합니다.</p>
+                        <a href="https://www.i-boss.co.kr/ab-3208-1510" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>[기사] AI 기본법 제정의 의미와 주요 내용</h3>
+                        <p>2026년 시행될 'AI 기본법'의 핵심 내용과 의미를 EU의 AI Act와 비교 분석하여 국내 AI 규제 환경의 특징을 설명합니다. 기술과 윤리의 균형에 대한 통찰을 제공합니다.</p>
+                        <a href="https://notavoid.tistory.com/256" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>[기사] 지식재산권(IP) 1건당 매출 4.1% 증가</h3>
+                        <p>K-콘텐츠 산업에서 IP의 경제적 가치를 정량적으로 분석한 기사입니다. 신규 IP 확보가 기업 매출에 미치는 긍정적 영향을 구체적인 수치로 제시하여 IP 비즈니스의 중요성을 강조합니다.</p>
+                        <a href="https://www.ipdaily.co.kr/2025/04/12/04/17/28/38881/%EC%A7%80%EC%8B%9D%EC%9E%AC%EC%82%B0%EA%B6%8Cip-%ED%95%9C-%EA%B1%B4%EB%8B%B9-%EB%A7%A4%EC%B6%9C-4-1-%EC%A6%9D%EA%B0%80-k-%EC%BD%98%ED%85%90%EC%B8%A0-%EC%82%B0%EC%97%85/" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                </div>
+    
+                <h2>📰 콘텐츠/미디어 연관 산업 주요 이슈</h2>
+                <div class="card-grid">
+                    <div class="info-card">
+                        <h3>IT/통신: AI, 6G가 이끄는 콘텐츠 창의 혁명</h3>
+                        <p>AI 에이전트, 6G 네트워크 등 ICT 기술의 발전이 AI 영상 제작과 몰입형 공간 컴퓨팅 환경의 확장을 가속화하며 콘텐츠 제작 및 유통의 기술적 기반을 혁신하고 있습니다.</p>
+                        <a href="https://www.iitp.kr/kr/1/knowledge/policyDataViewA.it?searClassCode=B_ITA_17&masterCode=publication&identifier=02-001-250120-000005" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>광고/마케팅: AI 기반 초개인화 광고 시대</h3>
+                        <p>생성형 AI 기술은 AI 검색 및 에이전트 시장을 부상시키고, 초개인화된 맞춤형 광고를 가능하게 하여 디지털 광고 시장의 성장을 견인하고 있습니다. CTV 광고 예산이 급증하는 추세입니다.</p>
+                        <a href="https://www.hsad.co.kr/kor/insight/info/IST_202504080921370247" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>플랫폼(OTT): 수익성 중심의 생존 경쟁</h3>
+                        <p>OTT 시장이 수익성 중심으로 재편되면서 광고 모델 도입, 플랫폼 간 합병(티빙-웨이브) 등이 가속화되고 있습니다. K-콘텐츠와 스포츠 중계권이 핵심 경쟁력으로 작용합니다.</p>
+                        <a href="https://www.mediatoday.co.kr/news/articleView.html?idxno=320498" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>게임: K-콘텐츠 IP의 새로운 영토</h3>
+                        <p>웹툰, 웹소설 등 K-콘텐츠 IP의 게임화는 새로운 수익 모델을 창출하고 있습니다. AI 기술은 게임 개발 효율성을 높이고, 소규모 스튜디오의 콘텐츠 다양성을 증대시킬 것입니다.</p>
+                        <a href="https://www.i-boss.co.kr/ab-3208-1510" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>엔터테인먼트: AI와 글로벌 팬덤의 만남</h3>
+                        <p>K-POP의 글로벌 팬덤을 활용한 메타버스 콘서트, NFT 등 새로운 비즈니스 모델이 활성화되고 있습니다. AI 기반 버추얼 아이돌의 등장은 엔터테인먼트 산업의 새로운 트렌드입니다.</p>
+                        <a href="https://cine21.com/news/view/?mag_id=106937" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>관광: 세계를 홀리는 K-콘텐츠의 힘</h3>
+                        <p>K-콘텐츠의 글로벌 인기가 방한 관광객 유치의 핵심 동력으로 활용됩니다. 정부는 '올인원 한류 티켓'을 확대하고, AI/AR 기술을 활용한 인터랙티브 관광 콘텐츠 개발을 추진합니다.</p>
+                        <a href="http://www.ttlnews.com/news/articleView.html?idxno=17351" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                </div>
+    
+                <div class="conclusion-box">
+                    <h2>마무리하며:</h2>
+                    <p>
+                        2025년 대한민국 콘텐츠/미디어 산업은 K-콘텐츠라는 강력한 IP와 생성형 AI라는 혁신적 기술의 결합을 통해 새로운 도약의 전기를 맞이했습니다. 글로벌 시장에서의 영향력 확대, 기술 융합을 통한 비즈니스 모델 다각화는 이제 거스를 수 없는 흐름이 되었습니다. 그러나 이 과정에서 발생하는 저작권, 일자리, 윤리 문제에 대한 사회적 합의와 제도적 기반을 마련하는 것은 지속 가능한 성장을 위한 필수 과제입니다. 결국 미래 콘텐츠 산업의 리더는 변화를 주도하며 기술의 혜택과 사회적 책임을 조화시키는 기업이 될 것입니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        // 스크립트 불필요. 모든 애니메이션은 CSS로 처리됩니다.
+    </script>
+</body>
+</html>

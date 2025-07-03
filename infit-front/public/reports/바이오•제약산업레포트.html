@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InFit - 바이오/제약 산업 분석 통합 레포트</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 기본 스타일 */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #F8F8F8;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 페이지 섹션 공통 스타일 */
+        .page-section {
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* 1페이지 스타일 */
+        #page-1 {
+            background-color: #F8F8F8;
+        }
+
+        #page-1 .container {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        #page-1 .header-section {
+            background-color: #FFF9F2; /* Bubble Cream: 부드러운 크림 배경 */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem 2rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        #page-1 .whale-character {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            width: 80px;
+            height: 80px;
+            opacity: 0.9;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        #page-1 .whale-character:hover {
+            transform: scale(1.1) rotate(5deg);
+            opacity: 1;
+        }
+
+        #page-1 .header-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #85C1DC; /* Whale Sky: 차분한 하늘색 */
+            margin-bottom: 0.75rem;
+        }
+
+        #page-1 .header-section .slogan {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #4D5E70; /* Slate Ink: 읽기 좋은 어두운 그레이 */
+            margin-bottom: 1.5rem;
+        }
+
+        #page-1 .header-section .subtitle {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        #page-1 .card-news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid #E0E0E0;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            #page-1 .card-news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        #page-1 .card {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            overflow: hidden;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        #page-1 .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-1 .card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
+        #page-1 .card-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #4D5E70;
+            margin-bottom: 0.8rem;
+        }
+
+        #page-1 .card-summary {
+            font-size: 0.95rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        #page-1 .card-keywords {
+            font-size: 0.85rem;
+            color: #666;
+            font-weight: 500;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        #page-1 .card-keywords span {
+            background-color: #A8D8C7;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        #page-1 .section-title {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #85C1DC;
+            margin-bottom: 2rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            text-align: center;
+        }
+
+        #page-1 .keyword-section {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            padding: 25px;
+        }
+        
+        .keyword-analysis {
+            padding-bottom: 1.5rem;
+        }
+
+        #page-1 .keyword-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed #E0E0E0;
+        }
+
+        #page-1 .keyword-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        #page-1 .keyword-item h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70;
+            margin-bottom: 0.75rem;
+        }
+
+        #page-1 .keyword-item p {
+            font-size: 0.95em;
+            color: #444;
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+        
+        .visualization-container {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px dashed #E0E0E0;
+        }
+        .visualization-container h3 {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #85C1DC;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+
+        /* 2-4페이지 공통 레포트 스타일 */
+        .report-container {
+            width: 100%;
+            max-width: 960px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .header-section {
+            padding: 40px 30px;
+            text-align: center;
+            background-color: #FFF9F2;
+            border-bottom: 1px solid #A8D8C7;
+        }
+
+        .header-section h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .header-subtitle {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        .article-link {
+            font-size: 0.9em;
+            color: #F7A78F;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: 1px solid #A8D8C7;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .article-link:hover {
+            background-color: #F7A78F;
+            color: white;
+        }
+
+        .main-content-grid {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 25px;
+            padding: 30px;
+        }
+
+        .article-analysis-section, 
+        .keywords-section, 
+        .visualization-section {
+            background-color: #FFF9F2;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+        }
+        
+        .comparison-table-section {
+            background-color: #FFF9F2;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            grid-column: 1 / -1;
+            grid-row: 3;
+        }
+        
+        .comparison-table-section h2 {
+             font-size: 1.6em;
+            color: #85C1DC;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            font-weight: 700;
+        }
+
+        .article-analysis-section {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .keywords-section {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .visualization-section {
+            grid-column: 1 / -1;
+            grid-row: 2;
+        }
+
+        /* 레포트 공통 타이포그래피 */
+        #page-2 h2, #page-3 h2, #page-4 h2 {
+            font-size: 1.6em;
+            color: #85C1DC;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            font-weight: 700;
+        }
+
+        #page-2 p, #page-3 p, #page-4 p {
+            font-size: 0.95em;
+            line-height: 1.7;
+            margin-bottom: 1em;
+            color: #444;
+        }
+
+        #page-2 h3, #page-3 h3, #page-4 h3 {
+            font-size: 1.2em;
+            color: #4D5E70;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* 공통 리스트 스타일 */
+        .article-analysis-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 1em 0;
+        }
+
+        .article-analysis-section ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .article-analysis-section ul li::before {
+            content: '•';
+            color: #F7A78F;
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .keywords-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .keywords-section li {
+            margin-bottom: 15px;
+        }
+
+        .keywords-section li strong {
+            display: block;
+            font-size: 1.1em;
+            color: #4D5E70;
+            margin-bottom: 5px;
+        }
+
+        .keywords-section li p {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        /* 공통 시각화 스타일 */
+        .visualization-section {
+            text-align: center;
+        }
+
+        .visualization-section h2 {
+            font-size: 1.4em;
+        }
+
+        .chart-container {
+            margin-top: 20px;
+            padding: 25px 15px 15px 15px;
+            background-color: #F8F8F8;
+            border-radius: 8px;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .chart-title {
+            font-size: 1.1em;
+            color: #85C1DC;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .chart-note {
+            font-size: 0.8em;
+            color: #777;
+            margin-top: 30px;
+            text-align: left;
+            line-height: 1.5;
+            padding: 0 15px;
+        }
+        
+        /* 그룹형 막대그래프 스타일 (공통) */
+        .grouped-bar-chart {
+            display: flex;
+            justify-content: space-around;
+            height: 280px;
+            padding-top: 20px;
+            align-items: flex-end;
+        }
+        .bar-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            text-align: center;
+            height: 100%;
+        }
+        .bar-pair {
+             display: flex;
+             align-items: flex-end;
+             height: 100%;
+             gap: 8px;
+             flex-grow: 1;
+        }
+        .bar-group .bar {
+            width: 40px;
+            position: relative;
+            animation: grow-bar 1.2s ease-out forwards;
+            transition: background-color 0.3s ease;
+        }
+        .bar-group .bar .bar-value {
+            position: absolute;
+            top: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #4D5E70;
+        }
+        .bar-group .group-label {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+            font-size: 0.9em;
+        }
+        .legend {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 0 15px;
+        }
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            margin-right: 8px;
+            border-radius: 3px;
+        }
+
+        /* 가로 막대그래프 스타일 (공통) */
+        @keyframes fill-bar {
+            from { width: 0; }
+        }
+        .horizontal-bar-chart {
+            padding-top: 10px;
+            max-width: 500px; /* 차트의 최대 너비를 제한 */
+            margin: 0 auto; /* 차트를 부모 요소 안에서 중앙 정렬 */
+        }
+        .horizontal-bar-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        .horizontal-bar-label {
+            width: 100px;
+            text-align: right;
+            padding-right: 15px;
+            font-weight: 600;
+            color: #4D5E70;
+            flex-shrink: 0;
+        }
+        .horizontal-bar-wrapper {
+            flex-grow: 1;
+            background-color: #e9e9e9;
+            border-radius: 5px;
+            height: 30px;
+        }
+        .horizontal-bar-fill {
+            height: 100%;
+            background-color: #85C1DC;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+            padding-left: 10px;
+            box-sizing: border-box;
+            animation: fill-bar 1.2s ease-out forwards;
+            width: var(--bar-width, 0%);
+            white-space: nowrap;
+        }
+         .horizontal-bar-fill:hover {
+            background-color: #F7A78F;
+        }
+
+
+        /* 4페이지 특화 스타일 */
+        #page-4 .main-content-section {
+            padding: 30px;
+        }
+
+        #page-4 .intro-text {
+            font-size: 1.1em;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        #page-4 .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        #page-4 .info-card {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            padding: 1.5rem;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #page-4 .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-4 .info-card h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70;
+            margin-bottom: 0.75rem;
+            margin-top: 0;
+        }
+
+        #page-4 .info-card p {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        #page-4 .info-card a {
+            color: #F7A78F;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            display: block;
+            margin-top: auto;
+        }
+
+        #page-4 .conclusion-box {
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            border: 1px solid #A8D8C7;
+        }
+
+        #page-4 .conclusion-box h2 {
+            font-size: 1.4em;
+            color: #4D5E70;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        #page-4 .conclusion-box p {
+            color: #333;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* 애니메이션 공통 */
+        @keyframes grow-bar {
+            from { height: 0; }
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .page-section {
+                padding: 10px;
+            }
+            
+            #page-1 .container {
+                padding: 1rem;
+            }
+            
+            #page-1 .card-news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #page-1 .whale-character {
+                width: 60px;
+                height: 60px;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .main-content-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+                padding: 20px;
+            }
+            
+            .article-analysis-section,
+            .keywords-section,
+            .visualization-section,
+            .comparison-table-section {
+                grid-column: 1 / -1;
+                grid-row: auto;
+            }
+
+            #page-4 .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #page-4 .main-content-section {
+                padding: 20px;
+            }
+            
+            .bar-group .bar {
+                width: 30px;
+            }
+
+            .split-chart-group .bar {
+                width: 30px;
+            }
+
+            /* 모바일 차트 스타일 */
+            .horizontal-bar-label {
+                width: 100px;
+                font-size: 0.9em;
+            }
+            
+            /* 비교 테이블 모바일 스타일 */
+            .comparison-table {
+                font-size: 0.8em;
+            }
+            .comparison-table th, .comparison-table td {
+                padding: 8px;
+            }
+        }
+
+        /* Line Chart Specific Styles (for Page 3) */
+        @keyframes draw-line {
+            to { stroke-dashoffset: 0; }
+        }
+        .line-chart-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            padding-top: 20px;
+        }
+        .line-chart-container svg {
+            width: 100%;
+            height: 100%;
+            overflow: visible; /* Prevent clipping of data points */
+        }
+        .line-chart-container .grid-line {
+            stroke: #e0e0e0;
+            stroke-dasharray: 2, 3;
+        }
+        .line-chart-container .axis-line {
+            stroke: #ccc;
+            stroke-width: 1px;
+        }
+        .line-chart-container .axis-text {
+            font-size: 0.85em;
+            fill: #666;
+        }
+        .line-chart-container .line-path {
+            fill: none;
+            stroke-width: 3px;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw-line 2s ease-out forwards;
+        }
+        .line-chart-container .data-point {
+            r: 5;
+            fill: white;
+            stroke-width: 2;
+            transition: r 0.2s ease, fill 0.2s ease;
+            cursor: pointer;
+        }
+        .line-chart-container .data-point:hover {
+            r: 7;
+        }
+        .line-chart-container .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.75);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s, transform 0.2s;
+            white-space: nowrap;
+            z-index: 10;
+        }
+
+        /* Comparison Table Specific Styles (for Page 3) */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #A8D8C7;
+            padding: 12px;
+            text-align: left;
+            font-size: 0.9em;
+            color: #444;
+        }
+        .comparison-table thead th {
+            background-color: #f2f9f6;
+            color: #4D5E70;
+            font-weight: 700;
+            text-align: center;
+        }
+        .comparison-table tbody tr:nth-child(even) {
+            background-color: #fafdfc;
+        }
+        .comparison-table tbody tr:hover {
+            background-color: #e8f5f0;
+        }
+        .comparison-table td:first-child {
+            font-weight: 600;
+            color: #4D5E70;
+            width: 30%;
+        }
+
+        /* Specific fix for chart 1 text wrapping */
+        #page-1 .bar-group .bar-value,
+        #page-1 .bar-group .group-label {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <section id="page-1" class="page-section">
+        <div class="container">
+            <header class="header-section">
+                <img src="../infit_logo.png" alt="InFit 캐릭터" class="whale-character">
+                <h1>K-바이오의 항해</h1>
+                <p class="slogan">혁신 기술, 상업적 가치를 입증하다</p>
+                <p class="subtitle">
+                    <span style="font-weight: 600;">대한민국 바이오/제약 산업 분석 (2025년 6월 4주차)</span><br>치료 플랫폼 상업화와 글로벌 시장 진입의 본격적인 전환기
+                </p>
+            </header>
+
+            <section>
+                <h2 class="section-title">주간 바이오/제약 핵심 동향 요약</h2>
+                <div class="card-news-grid">
+                    <div class="card">
+                        <a href="https://www.pharmnews.com/news/articleView.html?idxno=260325" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">앱클론 '네스페셀', 국산 CAR-T 치료제 새 시대 예고</h3>
+                            <p class="card-summary">
+                                앱클론의 CAR-T 치료제 '네스페셀'이 임상 2상에서 객관적 반응률(ORR) 94%라는 경이적인 중간 결과를 발표했습니다. 이는 기존 블록버스터 약물을 크게 상회하는 수치로, 국산 세포치료제 기술의 글로벌 경쟁력을 입증하며 신속처리대상 지정을 추진 중입니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#앱클론</span> <span>#CAR-T</span> <span>#네스페셀</span> <span>#상업화</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                         <a href="http://www.medisobizanews.com/news/articleView.html?idxno=117667" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">정부, 'K-MELLODY' 출범… AI 신약 개발 국가 전략 본격화</h3>
+                            <p class="card-summary">
+                                정부가 5년간 348억 원을 투입하는 'K-MELLODY' 프로젝트를 공식 출범시켰습니다. 연합학습 기술을 이용해 민감한 데이터를 공유하지 않고도 AI 신약 개발 모델을 공동 개발함으로써, 고질적인 데이터 부족 문제를 해결하고 국가 R&D 경쟁력을 상향 평준화할 계획입니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#K-MELLODY</span> <span>#AI신약개발</span> <span>#연합학습</span> <span>#데이터</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://www.biopharmadive.com/news/crispr-sickle-cell-price-millions-gene-therapy-vertex-bluebird/702066/" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">최초 CRISPR 치료제 '카스게비', 국내 업계에 던지는 교훈</h3>
+                            <p class="card-summary">
+                                30억 원에 달하는 세계 최초 CRISPR 치료제 '카스게비'의 상업화 과정은 국내 기업에 중요한 교훈을 줍니다. 영국 NHS와의 급여 계약 성공 사례는, 혁신 기술의 가치를 임상 데이터뿐 아니라 정교한 보건 경제학적 논리로 증명해야 함을 보여줍니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#카스게비</span> <span>#CRISPR</span> <span>#유전자치료제</span> <span>#시장접근</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://mobile.newsis.com/view/NISX20241024_0002932425" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">상반기 VC 투자 회복세 속 '옥석 가리기' 심화</h3>
+                            <p class="card-summary">
+                                2025년 상반기 바이오 분야 VC 투자가 전년 대비 84.8% 급증하며 회복세를 보였습니다. 그러나 자금은 AI, 세포치료제 등 명확한 플랫폼 기술을 보유하고 상업화 경로가 뚜렷한 소수 기업으로 집중되며, 투자 시장의 질적 성숙과 '선택과 집중' 현상이 심화되고 있습니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#VC투자</span> <span>#플랫폼기술</span> <span>#선택과집중</span> <span>#바이오</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="keyword-section">
+                <h2 class="section-title">핵심 키워드 분석: 치료 플랫폼의 상업화</h2>
+                <div class="keyword-analysis">
+                    <div class="keyword-item">
+                        <h3>1. 정의 및 중요성</h3>
+                        <p>
+                            '치료 플랫폼의 상업화'란 개별 신약 후보물질의 성공에 의존하던 과거 모델에서 벗어나, CAR-T, 유전자 편집, AI 신약 발굴처럼 확장 가능한 '기술 엔진'을 구축하고 이를 통해 지속 가능한 수익을 창출하는 전략을 의미합니다. 이는 고위험-고수익 구조의 단일 파이프라인 리스크를 극복하고, 기술 라이선스 아웃이나 공동 개발 파트너십 같은 이중 전략을 통해 R&D 과정에서도 현금을 창출하여 재무 안정성을 높이는, 국내 바이오 산업의 지속 가능한 성장 모델로의 전환을 의미하기에 매우 중요합니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>2. 기술적 맥락</h3>
+                        <p>
+                           대한민국은 다양한 차세대 플랫폼에서 글로벌 수준의 기술력을 보여주고 있습니다. 세포 치료 분야에서는 앱클론의 CAR-T 플랫폼이 독자 항체 기술로 기존 치료제보다 우월한 임상 결과를 도출했습니다. 유전자 편집 분야에서는 툴젠이 CRISPR-Cas9 원천 기술을, 진코어는 초소형 유전자 가위 플랫폼으로 기술적 차별화를 꾀하고 있습니다. 또한 AI 신약 개발 분야에서는 온코크로스의 약물 재창출 플랫폼과 정부 주도의 'K-MELLODY'가 국가적 ADMET 예측 플랫폼을 구축하며 신약 개발 초기 단계의 효율성을 극대화하고 있습니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>3. 시장/산업적 영향</h3>
+                        <p>
+                            플랫폼 중심 전략은 국내 바이오 산업의 비즈니스 모델을 근본적으로 바꾸고 있습니다. 과거 최종 신약 승인 후의 로열티 수익 모델에서, 이제는 개발 초기 단계부터 플랫폼 기술 자체를 라이선스 아웃하여 수익을 창출하는 모델이 보편화되고 있습니다. AI 기업 온코크로스가 자체 파이프라인보다 플랫폼 서비스에 집중하는 것이 대표적 예입니다. 이러한 변화는 바이오 기업의 재무 안정성을 높여 장기적 R&D 투자를 가능하게 하는 선순환 구조를 만들며, 2023년 바이오의약품 시장이 연평균 18.4%의 높은 성장률을 기록한 핵심 배경이 되고 있습니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>4. 사회적/경제적 파급 효과</h3>
+                        <p>
+                           플랫폼의 성공적인 상업화는 경제와 사회 전반에 막대한 파급 효과를 가집니다. 경제적으로는 2021년 12조 원을 돌파한 바이오 산업 수출액에서 보듯, 고부가가치 기술 수출을 통해 반도체를 잇는 차세대 주력 산업으로 성장할 발판이 됩니다. 이는 양질의 일자리 창출로도 이어집니다. 사회적으로는 기존 치료법이 없던 희귀난치성 질환 환자들에게 새로운 치료 기회를 제공하여 국민 건강에 기여합니다. 그러나 '카스게비' 사례처럼 수십억 원의 높은 약가는 건강보험 재정과 환자 접근성에 큰 부담을 주므로, 기술 혁신과 사회적 수용성을 조율하는 정교한 정책 논의가 반드시 필요합니다.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="visualization-container">
+                    <h3>📊 K-바이오 혁신 성장 핵심 지표 변화 (2024년 vs 2025년 전망)</h3>
+                    <div class="chart-container">
+                        <div class="grouped-bar-chart">
+                            <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 84%; background-color: #85C1DC;"><span class="bar-value">1.35조</span></div>
+                                    <div class="bar" style="height: 100%; background-color: #A8D8C7;"><span class="bar-value">1.6조</span></div>
+                                </div>
+                                <div class="group-label">VC 신규 투자액</div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 84%; background-color: #85C1DC;"><span class="bar-value">42건</span></div>
+                                    <div class="bar" style="height: 100%; background-color: #A8D8C7;"><span class="bar-value">50건</span></div>
+                                </div>
+                                <div class="group-label">유전자/세포치료제<br>임상 승인</div>
+                            </div>
+                             <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 92%; background-color: #85C1DC;"><span class="bar-value">16.5%</span></div>
+                                    <div class="bar" style="height: 100%; background-color: #A8D8C7;"><span class="bar-value">18.0%</span></div>
+                                </div>
+                                <div class="group-label">바이오의약품<br>시장 비중</div>
+                            </div>
+                        </div>
+                        <div class="legend">
+                            <div class="legend-item"><div class="legend-color" style="background-color: #85C1DC;"></div>2024년 (추정)</div>
+                            <div class="legend-item"><div class="legend-color" style="background-color: #A8D8C7;"></div>2025년 (전망)</div>
+                        </div>
+                         <p class="chart-note">
+                            * 위 데이터는 보고서 내 '대한민국 바이오/제약 산업 핵심 지표'를 기반으로 재구성되었습니다.<br>
+                            * 시장의 신뢰를 보여주는 VC 투자와 미래 성장 동력인 첨단 바이오 임상 승인 건수가 동반 상승하며, 전체 시장에서 바이오의약품의 중요성이 지속적으로 커지고 있음을 보여줍니다.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <section id="page-2" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>심층 분석 1: 유전자 편집 기술의 발전과 바이오 산업의 미래</h1>
+                <div class="header-subtitle">발행일: 2025년 6월 4주차</div>
+                <a href="https://www.mohw.go.kr/board.es?mid=a10503010100&bid=0028" target="_blank" class="article-link" rel="noopener noreferrer">관련 보고서: 제1차 첨단재생의료 및 첨단바이오의약품 기본계획</a>
+            </div>
+    
+            <div class="main-content-grid">
+                <div class="article-analysis-section">
+                    <h2>분석: '완치'의 가능성을 여는 유전자 가위 혁명</h2>
+                    <p>유전자 편집 기술, 특히 CRISPR-Cas9의 등장은 질병의 원인을 근본적으로 제거하는 '완치'의 가능성을 현실로 만들며 치료의 패러다임을 바꾸고 있습니다. 대한민국은 이 분야에서 최고 기술국 미국을 빠르게 추격하는 '패스트 팔로워' 전략을 성공적으로 구사하며, 독자적인 플랫폼 기술 확보 단계에 진입했습니다. 정부는 '첨단재생의료 기본계획' 등을 통해 집중적인 R&D 투자를 단행하고 있으며, 식약처 역시 관련 가이드라인을 선제적으로 마련하며 상업화를 지원하고 있습니다. 글로벌 유전자 치료제 시장은 연평균 20% 이상의 폭발적 성장이 예고된 거대 시장입니다. 이러한 흐름 속에서 국내 기업들은 단순 기술 도입을 넘어, 글로벌 시장에서 경쟁할 수 있는 독자적 역량을 구축하고 있습니다. 이제 유전자 편집 기술의 성패는 기술적 완성도를 넘어, 초고가의 치료 비용을 감당할 수 있는 사회적, 경제적 해법을 찾는 데 달려있습니다.</p>
+                    
+                    <h3>주요 플레이어 전략 분화</h3>
+                    <ul>
+                        <li><strong>툴젠(Toolgen):</strong> 20년 이상 유전자 가위 기술에 집중해 온 1세대 선구자입니다. CRISPR-Cas9 원천 기술 특허를 유럽 등에서 확보하며 강력한 IP 포트폴리오를 구축하고, 이를 바탕으로 샤르코-마리-투스병 등 난치성 질환 치료제를 개발하며 상업화를 향해 나아가고 있습니다.</li>
+                        <li><strong>진코어(Gencore):</strong> 기존 기술보다 크기가 작아 체내 전달에 유리한 '초소형 유전자 가위'라는 차별화된 플랫폼 기술로 주목받는 신흥 강자입니다. 이 독자 기술을 바탕으로 글로벌 제약사와 공동 연구 계약을 체결하며 기술력을 입증하고, 틈새 시장을 효과적으로 공략하고 있습니다.</li>
+                        <li><strong>앱클론(Abclon):</strong> 직접적인 유전자 편집 기업은 아니지만, 유전자 기술이 적용된 CAR-T 세포치료제 '네스페셀'의 압도적인 임상 성공은 매우 중요한 의미를 갖습니다. 이는 국내 기업이 첨단 유전자 기반 치료제를 성공적으로 개발하고 상업화할 수 있는 역량을 갖추었음을 시장에 증명한 상징적인 사례입니다.</li>
+                    </ul>
+    
+                    <h3>기회와 도전 과제</h3>
+                    <ul>
+                        <li><strong>기회:</strong> 단일 유전자 결함으로 발생하는 수많은 희귀난치성 질환에 대해 '증상 완화'가 아닌 '근원적 치료'라는 새로운 해법을 제시합니다. 이는 완전히 새로운 시장을 창출하며, 맞춤형 정밀 의료 시대를 본격적으로 여는 기폭제가 될 것입니다.</li>
+                        <li><strong>도전 과제:</strong> 의도치 않은 DNA를 편집하는 '비표적 효과(Off-target effect)' 등 기술적 안전성 문제는 여전히 극복해야 할 과제입니다. 또한, '카스게비'의 30억 원대 약가에서 보듯 초고가 치료 비용은 환자 접근성을 제한하고 건강보험 재정에 막대한 부담을 주어, 심각한 사회적 불평등을 야기할 수 있는 가장 큰 리스크입니다.</li>
+                    </ul>
+                </div>
+    
+                <div class="keywords-section">
+                    <h2>핵심 키워드</h2>
+                    <ul>
+                        <li>
+                            <strong>CRISPR</strong>
+                            <p>3세대 유전자 가위 기술. 높은 효율성, 정확성, 간편함으로 유전자 편집 연구의 혁명을 가져온 핵심 기술.</p>
+                        </li>
+                        <li>
+                            <strong>유전자 치료제</strong>
+                            <p>비정상 유전자를 교정하거나 치료 유전자를 세포에 전달하여 질병을 근본적으로 치료하는 혁신 의약품.</p>
+                        </li>
+                        <li>
+                            <strong>비표적 효과</strong>
+                            <p>유전자 가위가 목표 DNA가 아닌 다른 부위를 편집하는 현상. 유전자 치료제의 안전성을 위협하는 핵심 기술적 난제.</p>
+                        </li>
+                        <li>
+                            <strong>생명윤리</strong>
+                            <p>기술의 발전에 따라 발생하는 윤리적, 법적, 사회적 문제. 인간 배아 편집, 유전 정보 차별 등이 주요 쟁점.</p>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="visualization-section">
+                    <h2>유전자 치료제 시장 연평균 성장률(CAGR) 전망 (2025-2030년)</h2>
+                    <div class="chart-title">가장 높은 성장 잠재력을 가진 대한민국 시장</div>
+                     <div class="chart-container">
+                        <div class="horizontal-bar-chart">
+                             <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">대한민국</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 100%;">31.0%</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">아시아태평양</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 86.8%;">26.9%</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">북미</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 67.4%;">20.9%</div>
+                                </div>
+                            </div>
+                             <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">글로벌</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 64.8%;">20.1%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="chart-note">
+                        * 위 데이터는 보고서 내 '글로벌 및 국내 유전자 치료제 시장 전망' 자료를 기반으로 작성되었습니다.<br>
+                        * 대한민국 유전자 치료제 시장은 정부의 강력한 육성 정책과 선도 기업의 기술력을 바탕으로, 글로벌 평균을 크게 상회하는 폭발적인 성장률을 보일 것으로 전망됩니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="page-3" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>심층 분석 2: AI 기반 신약 개발 및 정밀 의료의 발전</h1>
+                <div class="header-subtitle">발행일: 2025년 6월 4주차</div>
+                <a href="https://kmelloddy.org/" target="_blank" class="article-link" rel="noopener noreferrer">참고 자료: K-MELLODY 사업단</a>
+            </div>
+    
+            <div class="main-content-grid">
+                <div class="article-analysis-section">
+                    <h2>분석: 데이터가 석유인 시대, AI 신약 개발 혁명</h2>
+                    <p>인공지능(AI)은 10년 이상 걸리던 신약 개발 기간과 비용을 획기적으로 단축시키며 산업의 모든 단계를 혁신하고 있습니다. 대한민국은 세계 최고 수준의 IT 인프라와 양질의 공공 의료 데이터를 바탕으로 이 분야의 글로벌 강자로 도약할 잠재력을 지녔습니다. 2025년 현재, 국내 AI 활용은 실험 단계를 넘어 생성형 AI를 통한 신약 후보물질 설계, 임상시험 성공률 예측 등 실제 성과를 창출하는 단계로 진입했습니다. 이러한 변화에 발맞춰 대형 제약사들은 자체 플랫폼을 구축하거나 AI 바이오텍과 적극적인 오픈 이노베이션에 나서고 있으며, 정부는 'K-MELLODDY' 프로젝트를 통해 국가적 데이터 활용 생태계를 조성하고 있습니다. 하지만 이러한 기회 이면에는 데이터 표준화 부족, 개인정보보호 규제라는 '데이터 거버넌스' 문제와, 기술력을 인정받아도 수익을 내기 어려운 '낮은 보험 수가'라는 상업화의 가장 큰 장벽이 존재합니다. 결국 한국 AI 신약 개발의 성패는 이 두 가지 핵심 과제를 어떻게 해결하느냐에 달려 있습니다.</p>
+                    
+                    <h3>기관별 AI 도입 전략</h3>
+                    <ul>
+                        <li><strong>대형 제약사 (대웅/한미 등):</strong> AI를 '선택이 아닌 필수'로 인식, 자체 플랫폼 구축과 AI 전문 바이오텍과의 오픈 이노베이션을 병행하는 '투트랙 전략'으로 신약 파이프라인의 속도와 성공률을 높이는 데 주력하고 있습니다.</li>
+                        <li><strong>AI 전문 바이오텍 (온코크로스 등):</strong> 특정 질환에 대한 신약 개발보다는, 자체 개발한 AI 플랫폼을 다른 제약사에 서비스로 제공하거나 기술이전하는 비즈니스 모델에 집중합니다. 이를 통해 리스크를 최소화하고 안정적인 수익 기반을 마련하는 전략을 구사합니다.</li>
+                        <li><strong>정부 (보건복지부 등):</strong> 'K-MELLODY' 프로젝트를 통해 각 기관의 데이터를 직접 공유하지 않고도 공동 연구가 가능한 '연합학습' 플랫폼을 구축하고 있습니다. 이는 데이터 사일로와 프라이버시 문제를 해결하고, 국가 전체의 R&D 인프라를 상향 평준화하려는 핵심 전략입니다.</li>
+                    </ul>
+    
+                    <h3>기회와 도전 과제</h3>
+                    <ul>
+                        <li><strong>기회:</strong> AI는 전통적으로 10~15년, 수조 원이 소요되던 신약 개발 기간과 비용을 획기적으로 단축할 잠재력을 지닙니다. 이는 자본력이 부족한 국내 기업이 글로벌 빅파마와 경쟁할 수 있는 강력한 '비대칭 전력'이 될 수 있습니다.</li>
+                        <li><strong>도전 과제:</strong> 국내 AI 의료기기 선도 기업인 루닛과 뷰노의 사례에서 보듯, 세계적 기술력으로 식약처 허가를 받아도 건강보험 수가 등재가 지연되거나 매우 낮게 책정되어 실질적 수익 창출에 어려움을 겪는 것이 현실입니다. 이 '상업화 장벽'은 혁신 기술의 국내 도입을 가로막는 가장 시급히 해결해야 할 정책적 과제입니다.</li>
+                    </ul>
+                </div>
+    
+                <div class="keywords-section">
+                    <h2>핵심 키워드</h2>
+                    <ul>
+                        <li>
+                            <strong>AI 신약 개발</strong>
+                            <p>AI를 활용하여 후보물질 발굴, 임상 설계 등 신약 개발 전 과정의 효율성(시간, 비용, 성공률)을 높이는 기술.</p>
+                        </li>
+                        <li>
+                            <strong>연합학습</strong>
+                            <p>개별 기관이 민감한 원본 데이터를 외부에 공유하지 않고도, 각자의 데이터를 활용해 AI 모델을 공동으로 훈련시키는 기술.</p>
+                        </li>
+                         <li>
+                            <strong>데이터 거버넌스</strong>
+                            <p>AI 개발의 핵심인 데이터의 품질, 표준, 보안, 개인정보보호 등을 관리하고 통제하는 체계. 현재 가장 큰 장벽.</p>
+                        </li>
+                        <li>
+                            <strong>보험 수가</strong>
+                            <p>건강보험이 AI 의료기기/서비스에 대해 지불하는 비용. 낮거나 부재할 경우, 기술이 상용화되기 어려운 핵심 규제 장벽.</p>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="visualization-section">
+                    <h2>AI 신약 개발 시장 규모 전망 (2025-2030년)</h2>
+                    <div class="chart-title">J-커브 성장이 예상되는 차세대 시장</div>
+                     <div class="chart-container">
+                        <div class="line-chart-container">
+                            <svg id="ai-market-chart"></svg>
+                            <div id="ai-tooltip" class="tooltip"></div>
+                        </div>
+                    </div>
+                     <div class="legend">
+                        <div class="legend-item"><div class="legend-color" style="background-color: #85C1DC;"></div>글로벌 시장 (억 달러)</div>
+                        <div class="legend-item"><div class="legend-color" style="background-color: #F7A78F;"></div>국내 시장 (억 달러)</div>
+                    </div>
+                    <p class="chart-note">
+                        * 위 데이터는 보고서 내 '글로벌 및 국내 AI 신약 개발 시장 전망'을 기반으로 작성되었습니다.<br>
+                        * 초기 시장 형성기를 지나 2025년 이후 시장이 급격하게 성장할 것으로 예상됩니다. 특히 대한민국 시장은 우수한 IT 인프라와 정부 지원을 바탕으로 글로벌 평균보다 높은 성장률을 보일 것으로 기대됩니다.
+                    </p>
+                </div>
+                
+                 <div class="comparison-table-section">
+                    <h2>대한민국 정부의 주요 AI-바이오 이니셔티브 비교</h2>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>프로젝트 명칭</th>
+                                <th>핵심 목표</th>
+                                <th>총 예산 / 기간</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>K-MELLODY 프로젝트</td>
+                                <td><strong>연합학습</strong> 기반 ADMET 예측 AI 모델 및 플랫폼 개발</td>
+                                <td>348억 원 / 2024~2028년</td>
+                            </tr>
+                            <tr>
+                                <td>국가 통합 바이오 빅데이터</td>
+                                <td>100만 명 규모의 <strong>임상/유전체 데이터 통합 DB</strong> 구축</td>
+                                <td>2023년 착수</td>
+                            </tr>
+                            <tr>
+                                <td>AI 신약개발 플랫폼 구축</td>
+                                <td>후보물질 디자인 등 6개 분야 특화 AI 플랫폼 구축 지원</td>
+                                <td>258억 원 / 2019~2022년</td>
+                            </tr>
+                             <tr>
+                                <td>디지털 바이오헬스 인재양성</td>
+                                <td>5년간 AI, 데이터 등 융합 분야 <strong>핵심 인재 11만 명 양성</strong></td>
+                                <td>2023년 착수</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                 </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <section id="page-4" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>💡 바이오/제약 산업 분석: 참고 자료 및 심화 학습</h1>
+            </div>
+    
+            <div class="main-content-section">
+                <p class="intro-text">
+                    본 보고서에서 심층 분석한 '유전자 편집 기술'과 'AI 기반 신약 개발' 이슈와 관련하여 더 깊이 학습하거나 참고할 수 있는 신뢰도 높은 외부 전문 자료들을 정리했습니다.
+                </p>
+    
+                <h2>🔍 심층 분석 주제별 추천 자료</h2>
+                <div class="card-grid">
+                    <div class="info-card">
+                        <h3>[정부 계획] 첨단재생의료 기본계획</h3>
+                        <p>대한민국 정부의 유전자/세포치료제 분야에 대한 5개년 종합 발전 전략을 담은 최상위 정책 문서로, R&D, 규제, 인프라 등 국가 목표를 파악할 수 있습니다.</p>
+                        <a href="https://www.mohw.go.kr/board.es?mid=a10503010100&bid=0028" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[규제 동향] 유전자 가위기술 동향 보고서</h3>
+                        <p>식품의약품안전처가 발간한 보고서로, 유전자 가위 기술의 개요부터 비임상/임상 연구, 그리고 규제 현황까지 국내 규제 당국의 시각을 이해하는 데 필수적입니다.</p>
+                        <a href="https://www.mfds.go.kr/brd/m_386/view.do?seq=27472" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[윤리/법률] 유전자 편집 기술의 쟁점과 과제</h3>
+                        <p>기술의 상업화 과정에서 반드시 고려해야 할 생명윤리(ELSI) 문제를 심도 있게 분석한 학술 자료. 배아 편집, 사회적 격차 등 핵심 쟁점을 다룹니다.</p>
+                        <a href="https://scienceon.kisti.re.kr/srch/selectPORSrchArticle.do?cn=DIKO0015011269" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[시장 분석] KPMG: AI-Healthcare Revolution</h3>
+                        <p>글로벌 컨설팅사 KPMG가 한국의 AI 헬스케어 산업을 집중 분석한 보고서. 한국이 가진 독보적인 강점과 시장 성장 전망을 데이터와 함께 제시합니다.</p>
+                        <a href="https://assets.kpmg.com/content/dam/kpmg/kr/pdf/2024/insight/kpmg-korea-ai-healthcare-20240625.pdf" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>[정책 동향] AI 신약개발 정책 동향</h3>
+                        <p>한국제약바이오협회가 발간하는 자료로, 정부 정책, 예산 투입, 민간 기업 개발 동향 등을 산업계의 시각에서 종합적으로 정리하여 제공합니다.</p>
+                        <a href="https://www.kpbma.or.kr/resources/koboard/global/list" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>[프로젝트] K-MELLODDY 사업단 자료</h3>
+                        <p>대한민국 AI 신약 개발의 핵심인 K-MELLODY 프로젝트의 목표, 추진 체계, 기술적 원리(연합학습) 등을 가장 정확하게 파악할 수 있는 1차 자료입니다.</p>
+                        <a href="https://kmelloddy.org/info_news" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                </div>
+    
+                <h2>📰 바이오/제약 연관 산업 주요 이슈</h2>
+                <div class="card-grid">
+                    <div class="info-card">
+                        <h3>스마트 병원 (헬스케어 서비스)</h3>
+                        <p>정밀 의료 및 개인 맞춤형 치료제가 등장하면서, 이를 효과적으로 투여하고 데이터를 관리하기 위한 AI 기반 환자 모니터링 등 스마트 병원 인프라 구축이 가속화되고 있습니다.</p>
+                        <a href="http://journal.auric.kr/kiee/XmlViewer/f425617" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>동반진단 (의료기기)</h3>
+                        <p>특정 바이오마커를 가진 환자에게만 작용하는 표적치료제가 개발됨에 따라, 치료제와 '짝'을 이루어 투여 대상을 선별하는 '동반진단' 기기 시장이 동반 성장하고 있습니다.</p>
+                        <a href="https://www.kobia.kr/bbs/board.php?tbl=data02&mode=VIEW&num=588" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>웨어러블 기기 (디지털 헬스)</h3>
+                        <p>신약 임상시험에서 실제 세계 데이터(RWD)의 중요성이 커지고 디지털 치료제가 부상하면서, 환자의 생체 신호를 실시간 수집하는 의료용 웨어러블 기기 수요가 급증하고 있습니다.</p>
+                        <a href="https://www.kca.go.kr/home/sub.do?menukey=4083" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>푸드테크 (식품/농업)</h3>
+                        <p>바이오의약품 생산에 사용되는 정교한 세포 배양, 발효 기술이 식품 산업으로 이전되면서, 동물 세포를 배양해 만드는 '배양육' 등 푸드테크 혁명을 이끌고 있습니다.</p>
+                        <a href="https://www.mafra.go.kr/mafra/292/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGbWFmcmElMkYxMSUyRjM0MjQxNCUyRmFydGNsVmlldy5kbyUzRg%3D%3D" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>코스메슈티컬 (화장품)</h3>
+                        <p>피부 질환 치료를 위해 연구되던 '피부 마이크로바이옴' 기술이 화장품에 적용되면서, 피부 본연의 건강을 개선하는 고기능성 '코스메슈티컬' 시장이 급성장하고 있습니다.</p>
+                        <a href="https://business.hwahae.co.kr/insight/beauty-microbiome-trend" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>유전자 검진 (헬스케어 인프라)</h3>
+                        <p>유전자 치료제가 상용화되면서, 질병 발현 전 유전적 위험도를 미리 확인하려는 수요가 폭발적으로 증가하며 소비자 직접(DTC) 유전자 검사 시장 성장을 견인하고 있습니다.</p>
+                        <a href="https://www.databridgemarketresearch.com/ko/reports/global-genetic-testing-market" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                </div>
+    
+                <div class="conclusion-box">
+                    <h2>마무리하며:</h2>
+                    <p>
+                        2025년 대한민국 바이오/제약 산업은 단순한 R&D 역량을 넘어, 혁신 기술을 상업적 성공으로 연결하는 정교한 전략 실행 능력이 성패를 좌우하는 '상업화 최전선'이라는 새로운 시험대에 올랐습니다. CAR-T, 유전자 편집, AI와 같은 플랫폼 기술의 잠재력은 폭발적이지만, 높은 약가와 규제, 보험 등재라는 현실의 장벽 또한 거대합니다. 이제 산업의 미래는 기술 혁신과 함께 사회적 수용성, 그리고 경제적 가치 증명이라는 세 가지 축을 얼마나 균형 있게 발전시키느냐에 달려 있습니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // AI Market Line Chart (Page 3)
+            const aiData = [
+                { year: 2025, global: 22.1, domestic: 0.8 },
+                { year: 2027, global: 75.0, domestic: 2.5 }, // Interpolated value
+                { year: 2030, global: 209.2, domestic: 6.7 },
+            ];
+
+            const svgElement = document.getElementById("ai-market-chart");
+            if (svgElement) {
+                const svg = d3.select(svgElement);
+                const tooltip = d3.select("#ai-tooltip");
+                
+                // Use a resize observer to make the chart responsive
+                const resizeObserver = new ResizeObserver(entries => {
+                    for (let entry of entries) {
+                        const { width, height } = entry.contentRect;
+                        drawAiChart(svg, tooltip, aiData, width, height);
+                    }
+                });
+                resizeObserver.observe(svgElement.parentElement);
+
+                const { width, height } = svgElement.parentElement.getBoundingClientRect();
+                drawAiChart(svg, tooltip, aiData, width, height);
+            }
+        });
+        
+        function drawAiChart(svg, tooltip, data, width, height) {
+             svg.selectAll("*").remove(); // Clear previous chart elements on resize
+
+            const margin = { top: 20, right: 30, bottom: 40, left: 50 };
+            const innerWidth = width - margin.left - margin.right;
+            const innerHeight = height - margin.top - margin.bottom;
+
+            const x = d3.scaleLinear()
+                .domain(d3.extent(data, d => d.year))
+                .range([margin.left, innerWidth + margin.left]);
+
+            const y = d3.scaleLinear()
+                .domain([0, d3.max(data, d => d.global)]).nice()
+                .range([innerHeight, margin.top]);
+
+            // Axes
+            const xAxis = g => g
+                .attr("transform", `translate(0,${innerHeight})`)
+                .call(d3.axisBottom(x).tickFormat(d3.format("d")).ticks(data.length))
+                .selectAll("text")
+                .style("font-family", "'Noto Sans KR', sans-serif")
+                .style("font-size", "12px");
+            
+            const yAxis = g => g
+                .attr("transform", `translate(${margin.left},0)`)
+                .call(d3.axisLeft(y).ticks(5))
+                .selectAll("text")
+                .style("font-family", "'Noto Sans KR', sans-serif")
+                .style("font-size", "12px");
+            
+             svg.append("g").call(xAxis);
+             svg.append("g").call(yAxis);
+
+
+            // Grid lines
+            svg.append("g")
+                .attr("class", "grid")
+                .attr("transform", `translate(${margin.left},0)`)
+                .call(d3.axisLeft(y).ticks(5).tickSize(-innerWidth).tickFormat(""))
+                .selectAll(".tick line")
+                .attr("stroke", "#e0e0e0")
+                .attr("stroke-dasharray", "2,3");
+            
+            // Tooltip functions
+            const mouseover = (event, d) => {
+                tooltip.style("opacity", 1);
+            };
+            const mousemove = (event, d) => {
+                const [xPos, yPos] = d3.pointer(event, document.body); // Use document.body for positioning
+                tooltip
+                    .html(`<b>${d.year}년</b><br>글로벌: ${d.global} B$<br>국내: ${d.domestic} B$`)
+                    .style("left", `${xPos + 15}px`)
+                    .style("top", `${yPos - 15}px`);
+            };
+            const mouseleave = (event, d) => {
+                tooltip.style("opacity", 0);
+            };
+
+            // Global Market Line
+            const lineGlobal = d3.line()
+                .x(d => x(d.year))
+                .y(d => y(d.global));
+            
+            svg.append("path")
+                .datum(data)
+                .attr("fill", "none")
+                .attr("stroke", "#85C1DC")
+                .attr("stroke-width", 3)
+                .attr("stroke-linecap", "round")
+                .attr("stroke-linejoin", "round")
+                .attr("class", "line-path")
+                .attr("d", lineGlobal);
+
+            // Domestic Market Line
+            const lineDomestic = d3.line()
+                .x(d => x(d.year))
+                .y(d => y(d.domestic));
+
+            const domesticPath = svg.append("path")
+                .datum(data)
+                .attr("fill", "none")
+                .attr("stroke", "#F7A78F")
+                .attr("stroke-width", 3)
+                .attr("stroke-linecap", "round")
+                .attr("stroke-linejoin", "round")
+                .attr("class", "line-path")
+                .attr("d", lineDomestic);
+            
+            // Set animation delay for the second line
+            domesticPath.node().style.animationDelay = "0.5s";
+
+            // Data Points (for tooltips)
+            svg.selectAll("circle.data-point")
+                .data(data)
+                .join("circle")
+                .attr("class", "data-point")
+                .attr("cx", d => x(d.year))
+                .attr("cy", d => y(d.global)) // Base on global line for initial positioning
+                .attr("r", 0) // Start with radius 0
+                .on("mouseover", mouseover)
+                .on("mousemove", mousemove)
+                .on("mouseleave", mouseleave)
+                .transition().duration(500).delay((d, i) => i * 150 + 500) // Staggered appearance
+                .attr("r", 5);
+
+            // Re-select to apply styles for global points
+            svg.selectAll(".data-point")
+                .data(data)
+                .attr("cy", d => y(d.global))
+                .attr("fill", "white")
+                .attr("stroke", "#85C1DC")
+                .attr("stroke-width", 2);
+
+            // Add domestic points separately
+             svg.selectAll("circle.domestic-point")
+                .data(data)
+                .join("circle")
+                .attr("class", "data-point domestic-point")
+                .attr("cx", d => x(d.year))
+                .attr("cy", d => y(d.domestic))
+                .attr("r", 0) // Start with radius 0
+                .attr("fill", "white")
+                .attr("stroke", "#F7A78F")
+                .attr("stroke-width", 2)
+                .on("mouseover", mouseover)
+                .on("mousemove", mousemove)
+                .on("mouseleave", mouseleave)
+                .transition().duration(500).delay((d, i) => i * 150 + 1000) // Staggered appearance
+                .attr("r", 5);
+        }
+
+    </script>
+</body>
+</html>

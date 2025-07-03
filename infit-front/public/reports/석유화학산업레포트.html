@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InFit - 석유화학 산업 분석 통합 레포트</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 기본 스타일 */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #F8F8F8;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 페이지 섹션 공통 스타일 */
+        .page-section {
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* 1페이지 스타일 */
+        #page-1 {
+            background-color: #F8F8F8;
+        }
+
+        #page-1 .container {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        #page-1 .header-section {
+            background-color: #FFF9F2; /* Bubble Cream: 부드러운 크림 배경 */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem 2rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        #page-1 .whale-character {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            width: 80px;
+            height: 80px;
+            opacity: 0.9;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        #page-1 .whale-character:hover {
+            transform: scale(1.1) rotate(5deg);
+            opacity: 1;
+        }
+
+        #page-1 .header-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #85C1DC; /* Whale Sky: 차분한 하늘색 */
+            margin-bottom: 0.75rem;
+        }
+
+        #page-1 .header-section .slogan {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #4D5E70; /* Slate Ink: 읽기 좋은 어두운 그레이 */
+            margin-bottom: 1.5rem;
+        }
+
+        #page-1 .header-section .subtitle {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        #page-1 .card-news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid #E0E0E0;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            #page-1 .card-news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        #page-1 .card {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            overflow: hidden;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        #page-1 .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-1 .card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
+        #page-1 .card-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #4D5E70;
+            margin-bottom: 0.8rem;
+        }
+
+        #page-1 .card-summary {
+            font-size: 0.95rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        #page-1 .card-keywords {
+            font-size: 0.85rem;
+            color: #666;
+            font-weight: 500;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        #page-1 .card-keywords span {
+            background-color: #A8D8C7;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        #page-1 .section-title {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #85C1DC;
+            margin-bottom: 2rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            text-align: center;
+        }
+
+        #page-1 .keyword-section {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            padding: 25px;
+        }
+        
+        .keyword-analysis {
+            padding-bottom: 1.5rem;
+        }
+
+        #page-1 .keyword-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed #E0E0E0;
+        }
+
+        #page-1 .keyword-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        #page-1 .keyword-item h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70;
+            margin-bottom: 0.75rem;
+        }
+
+        #page-1 .keyword-item p {
+            font-size: 0.95em;
+            color: #444;
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+        
+        .visualization-container {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px dashed #E0E0E0;
+        }
+        .visualization-container h3 {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #85C1DC;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+
+        /* 2-4페이지 공통 레포트 스타일 */
+        .report-container {
+            width: 100%;
+            max-width: 960px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .header-section {
+            padding: 40px 30px;
+            text-align: center;
+            background-color: #FFF9F2;
+            border-bottom: 1px solid #A8D8C7;
+        }
+
+        .header-section h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .header-subtitle {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        .article-link {
+            font-size: 0.9em;
+            color: #F7A78F;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: 1px solid #A8D8C7;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .article-link:hover {
+            background-color: #F7A78F;
+            color: white;
+        }
+
+        .main-content-grid {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 25px;
+            padding: 30px;
+        }
+
+        .article-analysis-section, 
+        .keywords-section, 
+        .visualization-section {
+            background-color: #FFF9F2;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+        }
+        
+        .comparison-table-section {
+            background-color: #FFF9F2;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            grid-column: 1 / -1;
+            grid-row: 3;
+        }
+        
+        .comparison-table-section h2 {
+             font-size: 1.6em;
+            color: #85C1DC;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            font-weight: 700;
+        }
+
+        .article-analysis-section {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .keywords-section {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .visualization-section {
+            grid-column: 1 / -1;
+            grid-row: 2;
+        }
+
+        /* 레포트 공통 타이포그래피 */
+        #page-2 h2, #page-3 h2, #page-4 h2 {
+            font-size: 1.6em;
+            color: #85C1DC;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            font-weight: 700;
+        }
+
+        #page-2 p, #page-3 p, #page-4 p {
+            font-size: 0.95em;
+            line-height: 1.7;
+            margin-bottom: 1em;
+            color: #444;
+        }
+
+        #page-2 h3, #page-3 h3, #page-4 h3 {
+            font-size: 1.2em;
+            color: #4D5E70;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* 공통 리스트 스타일 */
+        .article-analysis-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 1em 0;
+        }
+
+        .article-analysis-section ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .article-analysis-section ul li::before {
+            content: '•';
+            color: #F7A78F;
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .keywords-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .keywords-section li {
+            margin-bottom: 15px;
+        }
+
+        .keywords-section li strong {
+            display: block;
+            font-size: 1.1em;
+            color: #4D5E70;
+            margin-bottom: 5px;
+        }
+
+        .keywords-section li p {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        /* 공통 시각화 스타일 */
+        .visualization-section {
+            text-align: center;
+        }
+
+        .visualization-section h2 {
+            font-size: 1.4em;
+        }
+
+        .chart-container {
+            margin-top: 20px;
+            padding: 25px 15px 15px 15px;
+            background-color: #F8F8F8;
+            border-radius: 8px;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .chart-title {
+            font-size: 1.1em;
+            color: #85C1DC;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .chart-note {
+            font-size: 0.8em;
+            color: #777;
+            margin-top: 30px;
+            text-align: left;
+            line-height: 1.5;
+            padding: 0 15px;
+        }
+        
+        /* 그룹형 막대그래프 스타일 (공통) */
+        .grouped-bar-chart {
+            display: flex;
+            justify-content: space-around;
+            height: 280px;
+            padding-top: 20px;
+            align-items: flex-end;
+        }
+        .bar-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            text-align: center;
+            height: 100%;
+        }
+        .bar-pair {
+             display: flex;
+             align-items: flex-end;
+             height: 100%;
+             gap: 8px;
+             flex-grow: 1;
+        }
+        .bar-group .bar {
+            width: 40px;
+            position: relative;
+            animation: grow-bar 1.2s ease-out forwards;
+            transition: background-color 0.3s ease;
+        }
+        .bar-group .bar .bar-value {
+            position: absolute;
+            top: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #4D5E70;
+        }
+        .bar-group .group-label {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+            font-size: 0.9em;
+        }
+        .legend {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 0 15px;
+        }
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            margin-right: 8px;
+            border-radius: 3px;
+        }
+
+        /* 가로 막대그래프 스타일 (공통) */
+        @keyframes fill-bar {
+            from { width: 0; }
+        }
+        .horizontal-bar-chart {
+            padding-top: 10px;
+            max-width: 500px; /* 차트의 최대 너비를 제한 */
+            margin: 0 auto; /* 차트를 부모 요소 안에서 중앙 정렬 */
+        }
+        .horizontal-bar-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        .horizontal-bar-label {
+            width: 120px;
+            text-align: right;
+            padding-right: 15px;
+            font-weight: 600;
+            color: #4D5E70;
+            flex-shrink: 0;
+        }
+        .horizontal-bar-wrapper {
+            flex-grow: 1;
+            background-color: #e9e9e9;
+            border-radius: 5px;
+            height: 30px;
+        }
+        .horizontal-bar-fill {
+            height: 100%;
+            background-color: #85C1DC;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+            padding-left: 10px;
+            box-sizing: border-box;
+            animation: fill-bar 1.2s ease-out forwards;
+            width: var(--bar-width, 0%);
+            white-space: nowrap;
+        }
+         .horizontal-bar-fill:hover {
+            background-color: #F7A78F;
+        }
+
+
+        /* 4페이지 특화 스타일 */
+        #page-4 .main-content-section {
+            padding: 30px;
+        }
+
+        #page-4 .intro-text {
+            font-size: 1.1em;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        #page-4 .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        #page-4 .info-card {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            padding: 1.5rem;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #page-4 .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-4 .info-card h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70;
+            margin-bottom: 0.75rem;
+            margin-top: 0;
+        }
+
+        #page-4 .info-card p {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        #page-4 .info-card a {
+            color: #F7A78F;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            display: block;
+            margin-top: auto;
+        }
+
+        #page-4 .conclusion-box {
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            border: 1px solid #A8D8C7;
+        }
+
+        #page-4 .conclusion-box h2 {
+            font-size: 1.4em;
+            color: #4D5E70;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        #page-4 .conclusion-box p {
+            color: #333;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* 애니메이션 공통 */
+        @keyframes grow-bar {
+            from { height: 0; }
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .page-section {
+                padding: 10px;
+            }
+            
+            #page-1 .container {
+                padding: 1rem;
+            }
+            
+            #page-1 .card-news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #page-1 .whale-character {
+                width: 60px;
+                height: 60px;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .main-content-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+                padding: 20px;
+            }
+            
+            .article-analysis-section,
+            .keywords-section,
+            .visualization-section,
+            .comparison-table-section {
+                grid-column: 1 / -1;
+                grid-row: auto;
+            }
+
+            #page-4 .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #page-4 .main-content-section {
+                padding: 20px;
+            }
+            
+            .bar-group .bar {
+                width: 30px;
+            }
+
+            .split-chart-group .bar {
+                width: 30px;
+            }
+
+            /* 모바일 차트 스타일 */
+            .horizontal-bar-label {
+                width: 100px;
+                font-size: 0.9em;
+            }
+            
+            /* 비교 테이블 모바일 스타일 */
+            .comparison-table {
+                font-size: 0.8em;
+            }
+            .comparison-table th, .comparison-table td {
+                padding: 8px;
+            }
+        }
+
+        /* Line Chart Specific Styles (for Page 3) */
+        @keyframes draw-line {
+            to { stroke-dashoffset: 0; }
+        }
+        .line-chart-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            padding-top: 20px;
+        }
+        .line-chart-container svg {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .line-chart-container .grid-line {
+            stroke: #e0e0e0;
+            stroke-dasharray: 2, 3;
+        }
+        .line-chart-container .axis-line {
+            stroke: #ccc;
+            stroke-width: 1px;
+        }
+        .line-chart-container .axis-text {
+            font-size: 0.85em;
+            fill: #666;
+        }
+        .line-chart-container .line-path {
+            fill: none;
+            stroke-width: 3px;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw-line 2s ease-out forwards;
+        }
+        .line-chart-container .data-point {
+            r: 5;
+            fill: white;
+            stroke-width: 2;
+            transition: r 0.2s ease, fill 0.2s ease;
+            cursor: pointer;
+        }
+        .line-chart-container .data-point:hover {
+            r: 7;
+        }
+        .line-chart-container .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.75);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s, transform 0.2s;
+            white-space: nowrap;
+        }
+
+        /* Comparison Table Specific Styles (for Page 3) */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #A8D8C7;
+            padding: 12px;
+            text-align: left;
+            font-size: 0.9em;
+            color: #444;
+        }
+        .comparison-table thead th {
+            background-color: #f2f9f6;
+            color: #4D5E70;
+            font-weight: 700;
+            text-align: center;
+        }
+        .comparison-table tbody tr:nth-child(even) {
+            background-color: #fafdfc;
+        }
+        .comparison-table tbody tr:hover {
+            background-color: #e8f5f0;
+        }
+        .comparison-table td:first-child {
+            font-weight: 600;
+            color: #4D5E70;
+            width: 25%;
+        }
+
+        /* Specific fix for chart 1 text wrapping */
+        #page-1 .bar-group .bar-value,
+        #page-1 .bar-group .group-label {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <section id="page-1" class="page-section">
+        <div class="container">
+            <header class="header-section">
+                <img src="../infit_logo.png" alt="InFit 캐릭터" class="whale-character">
+                <h1>K-Petrochem Under Pressure</h1>
+                <p class="slogan">시련 속의 항해, 구조 재편과 재창조</p>
+                <p class="subtitle">
+                    <span style="font-weight: 600;">석유화학 산업 분석 보고서 (2025년 6월 4주차)</span><br>공급 과잉과 친환경 전환의 기로에 서다
+                </p>
+            </header>
+
+            <section>
+                <h2 class="section-title">주간 석유화학 핵심 동향 요약</h2>
+                <div class="card-news-grid">
+                    <div class="card">
+                        <a href="https://www.chosun.com/economy/money/2025/06/16/NCDECEEB5AP272AP3CLE27RSZA/" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">NCC 통합 논의 본격화, 산업 재편 신호탄</h3>
+                            <p class="card-summary">
+                                HD현대와 롯데케미칼의 대산 NCC 통합 운영 논의가 구체적인 자산 가치 평가 단계에 진입했습니다. 이는 국내 석유화학 산업의 고질적인 과잉 설비 문제를 해결하기 위한 첫 중대 시도로, 향후 업계 전반의 구조조정 향방을 가늠할 중요한 척도가 될 전망입니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#NCC통합</span> <span>#구조조정</span> <span>#HD현대</span> <span>#롯데케미칼</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://www.yna.co.kr/view/AKR20250630163200008" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">신용평가사, '부정적' 전망 공식화…위기 심화</h3>
+                            <p class="card-summary">
+                                한국기업평가가 석유화학 산업의 등급 전망을 '부정적'으로 공식 발표했습니다. 이는 LG화학, 롯데케미칼 등의 신용등급 하향 조정에 이은 것으로, 자금 조달 비용 상승을 유발하여 친환경 전환 투자 등을 위축시키는 악순환을 낳을 수 있습니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#신용등급</span> <span>#재무위기</span> <span>#부정적전망</span> <span>#자금조달</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://biz.chosun.com/industry/company/2025/07/01/3P5IXHNG5NC3JGHARLVPFOOOHI/" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">정부, 구조조정 지원 공식화로 '소프트랜딩' 유도</h3>
+                            <p class="card-summary">
+                                정부가 산업 위기를 구조적 문제로 인식하고, 기업의 자율적 사업 재편을 촉진하기 위한 규제 완화와 R&D 지원책을 공식화했습니다. 이는 산업의 급격한 붕괴를 막고 고부가가치 분야로의 질서 있는 전환을 유도하려는 전략적 개입으로 해석됩니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#정부지원</span> <span>#사업재편</span> <span>#R&D</span> <span>#규제완화</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://www.korea.kr/briefing/policyBriefingView.do?newsId=156696220" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">6월 수출 실적, 석유화학 부문 깊은 부진 드러내</h3>
+                            <p class="card-summary">
+                                6월 총수출액이 역대 최대를 기록했음에도, 석유화학 제품 수출액은 전년 동월 대비 15.5% 급감했습니다. 특히 수출 물량은 유지됐으나 단가가 14.1% 폭락하며, '수익성 없는 수출' 구조가 고착화되고 있음을 명확히 보여주었습니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#수출부진</span> <span>#수익성악화</span> <span>#단가하락</span> <span>#공급과잉</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="keyword-section">
+                <h2 class="section-title">핵심 키워드 분석: 사업 재편 (Business Restructuring)</h2>
+                <div class="keyword-analysis">
+                    <div class="keyword-item">
+                        <h3>1. 정의 및 중요성</h3>
+                        <p>
+                            2025년 석유화학 산업의 '사업 재편'은 과거의 성공 공식이었던 범용 제품 중심의 수출 주도형 성장 모델이 한계에 봉착했음을 인정하고, 새로운 생존 모델을 모색하는 과정 전체를 의미합니다. 이는 단순한 비용 절감을 넘어, 경쟁력이 약화된 범용 설비를 통폐합하고(효율화), 기존 사업을 매각하여 확보된 자원을 친환경·고부가 신사업에 재투자하며(포트폴리오 전환), 디지털 기술을 도입해 원가 구조를 근본적으로 개선하는(운영 최적화) 세 가지 축으로 구성됩니다. 이 3대 전략의 성공적인 실행 여부가 글로벌 공급 과잉과 환경 규제라는 거대한 파고를 넘어 산업의 지속 가능성을 결정할 핵심 변수입니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>2. 기술적 맥락</h3>
+                        <p>
+                            사업 재편의 기술적 배경에는 나프타 기반 NCC 공정의 원가 경쟁력 상실이 자리 잡고 있습니다. 북미의 셰일가스 기반 저가 에탄(ECC)과 중국의 석탄 기반(CTO) 신규 설비가 대규모로 증설되면서, 국내 NCC의 경제성은 구조적으로 약화되었습니다. 이로 인해 핵심 수익성 지표인 '에틸렌-나프타 스프레드'는 손익분기점을 밑도는 수준으로 축소되었고, 국내 NCC 가동률은 만성적인 저조 상태를 벗어나지 못하고 있습니다. 결국 기술적으로 기존 공정의 한계가 명확해지면서, 기업들은 설비 통폐합으로 운영 효율을 극대화하거나, 생산된 기초 유분을 고부가가치 스페셜티 제품의 원료로 전환하여 새로운 부가가치를 창출해야 하는 필연적인 선택의 기로에 놓였습니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>3. 시장/산업적 영향</h3>
+                        <p>
+                           사업 재편은 국내 석유화학 시장의 경쟁 패러다임을 '규모의 경제'에서 '기술의 경제'로 전환시키고 있습니다. 과거에는 대규모 설비로 범용 제품을 많이 생산해 수출하는 것이 핵심이었지만, 이제는 기술 차별화를 통해 대체 불가능한 고부가가치 제품을 생산하는 것이 생존의 조건이 되었습니다. LG화학이 수처리 사업을 매각하고 배터리 소재에 집중하거나, 롯데케미칼이 NCC 통합으로 미래 투자 재원을 확보하려는 시도는 이러한 전환을 명확히 보여줍니다. 이는 자동차, 전자 등 전방 산업에도 큰 변화를 가져옵니다. 단순 원료 공급 관계를 넘어, 공동 R&D를 통한 고기능성 소재 솔루션 파트너로 발전하며 안정적인 수요처 확보와 부가가치 상승을 동시에 꾀할 수 있는 새로운 기회가 열리고 있습니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>4. 사회/경제적 파급 효과</h3>
+                        <p>
+                           성공적인 사업 재편은 대한민국 산업 구조를 한 단계 고도화하는 계기가 될 수 있습니다. 저수익 범용 제품 위주에서 벗어나 기술 집약적 고부가가치 산업으로 체질을 개선함으로써, 외부 환경 변화에 덜 민감하고 안정적인 수익을 창출하는 경제 구조를 만드는 데 기여할 수 있습니다. 하지만 그 과정은 순탄치 않습니다. 석유화학 산업은 울산, 여수, 대산 등 주요 공업 도시의 경제와 고용을 책임지는 기간산업이므로, NCC 설비 통폐합과 같은 구조조정은 필연적으로 해당 지역의 고용 불안과 협력업체의 연쇄적인 어려움을 유발할 수 있습니다. 따라서 정부의 '산업위기 선제대응지역' 지정과 같은 정책을 통해 사회적 충격을 최소화하며 '공정한 전환'을 이끄는 것이 중대한 과제입니다.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="visualization-container">
+                    <h3>📊 석유화학 산업 수익성 지표 변화 (에틸렌-나프타 스프레드)</h3>
+                    <div class="chart-container">
+                        <div class="grouped-bar-chart">
+                            <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 77%; background-color: #85C1DC;"><span class="bar-value">$230</span></div>
+                                </div>
+                                <div class="group-label">2024년 1분기</div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 67%; background-color: #85C1DC;"><span class="bar-value">$200</span></div>
+                                </div>
+                                <div class="group-label">2024년 4분기</div>
+                            </div>
+                             <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 70%; background-color: #A8D8C7;"><span class="bar-value">$210</span></div>
+                                </div>
+                                <div class="group-label">2025년 6월</div>
+                            </div>
+                        </div>
+                         <p class="chart-note">
+                            * 위 데이터는 보고서 내 '주요 석유화학 제품 스프레드 동향' 테이블을 기반으로 재구성되었습니다.<br>
+                            * 에틸렌-나프타 스프레드는 석유화학 기업의 핵심 수익성 지표로, 손익분기점은 통상 $300/톤으로 알려져 있습니다. 차트에서 볼 수 있듯, 스프레드가 장기간 손익분기점을 크게 하회하며 산업의 구조적인 위기가 지속되고 있음을 보여줍니다.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <section id="page-2" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>심층 분석 1: 글로벌 공급 과잉과 생존을 위한 구조조정</h1>
+                <div class="header-subtitle">발행일: 2025년 6월 4주차</div>
+                <a href="https://eiec.kdi.re.kr/policy/callDownload.do?num=261574&filenum=3&dtime=20241231104213" target="_blank" class="article-link" rel="noopener noreferrer">관련 보고서: 석유화학산업 경쟁력 제고 방안</a>
+            </div>
+    
+            <div class="main-content-grid">
+                <div class="article-analysis-section">
+                    <h2>분석: '현실의 벽'에 직면한 K-석유화학</h2>
+                    <p>대한민국 석유화학 산업이 마주한 글로벌 공급 과잉은 일시적 불황이 아닌, 구조적 위기로 고착화되었습니다. 그 진원지는 단연 최대 수출 시장이었던 중국입니다. 중국은 석유화학 제품의 자급자족을 넘어 순수출국으로 전환하기 위해 공격적인 설비 투자를 단행, 다수 범용 제품의 자급률을 90% 이상으로 끌어올렸습니다. 과거의 최대 고객이 이제 가장 위협적인 경쟁자로 변모한 것입니다. 여기에 북미의 저가 셰일가스 기반 ECC, 중동의 대규모 신증설이 가세하면서 나프타를 주원료로 사용하는 국내 기업들은 원가 경쟁에서 삼중고를 겪고 있습니다. 이로 인해 핵심 수익성 지표인 에틸렌 스프레드는 장기간 손익분기점을 밑돌고 있으며, NCC 가동률 저하와 대규모 영업적자로 이어지는 악순환이 현실화되었습니다. S-OIL의 적자 전환, 롯데케미칼의 6분기 연속 적자 전망 등은 이러한 위기가 개별 기업의 생존을 위협하는 수준에 이르렀음을 명확히 보여주고 있습니다. 이제 과거의 성공 방정식이었던 '범용 제품 대량 생산 및 수출' 모델은 완전히 폐기해야 할 시점이며, 고강도의 사업 재편을 통해 새로운 활로를 모색하는 것 외에는 다른 선택지가 없는 절체절명의 과제에 직면했습니다.</p>
+                    
+                    <h3>주요 기업의 생존 전략</h3>
+                    <ul>
+                        <li><strong>방어적 전략 (효율화):</strong> HD현대와 롯데케미칼의 NCC 통합 논의가 대표적입니다. 이는 개별적으로는 경쟁력이 약화된 설비를 하나로 합쳐 중복 투자를 줄이고 고정비를 절감함으로써, '규모의 경제'를 통해 원가 경쟁력을 극한으로 끌어올리려는 생존을 위한 합리적 선택입니다.</li>
+                        <li><strong>공격적 전략 (포트폴리오 전환):</strong> 위기를 기회로 삼아 산업의 판도를 바꾸려는 시도입니다. 기업들은 범용 제품의 비중을 과감히 줄이고, 기술 장벽이 높은 고부가가치 스페셜티 화학 및 신사업으로 자원과 역량을 집중하고 있습니다.</li>
+                        <li><strong>성공 사례:</strong> 금호석유화학은 합성고무 등 상대적으로 경쟁력 있는 다운스트림 제품에 집중하고, 바이오·지속가능 소재로의 전환을 가속화하며 차별화에 나서고 있습니다. 한화솔루션 역시 석유화학 부문의 부진을 태양광 등 신재생에너지 사업의 성장으로 만회하며 포트폴리오 다각화의 중요성을 보여주고 있습니다.</li>
+                    </ul>
+    
+                    <h3>기회와 도전 과제</h3>
+                    <ul>
+                        <li><strong>기회:</strong> 이번 위기는 과거의 성공에 안주했던 산업 구조를 근본적으로 혁신할 강력한 동기를 부여합니다. 범용 제품 비중을 줄이고 기술 중심의 고부가가치·친환경 솔루션 기업으로 재탄생한다면, 외부 환경에 흔들리지 않는 견고한 수익 구조를 갖출 수 있습니다.</li>
+                        <li><strong>도전 과제:</strong> 가장 큰 도전은 '전환에 필요한 시간과 자본'입니다. 핵심 사업이 대규모 적자를 기록하며 현금 창출 능력이 악화된 상황에서 미래를 위한 대규모 투자를 단행해야 하는 '캐즘(Chasm)' 구간에 놓여 있습니다. 또한, 설비 통폐합 과정에서 발생하는 지역 경제 충격과 고용 문제도 반드시 해결해야 할 과제입니다.</li>
+                    </ul>
+                </div>
+    
+                <div class="keywords-section">
+                    <h2>핵심 키워드</h2>
+                    <ul>
+                        <li>
+                            <strong>공급 과잉</strong>
+                            <p>수요를 초과하는 공급으로 제품 가격이 폭락하고 기업 수익성이 악화되는 상태. 중국의 대규모 증설이 핵심 원인.</p>
+                        </li>
+                        <li>
+                            <strong>NCC</strong>
+                            <p>나프타 분해 설비. 국내 석유화학의 근간이었으나, 저가 원료 기반의 CTO/PDH/ECC 대비 원가 경쟁력이 약화됨.</p>
+                        </li>
+                        <li>
+                            <strong>스프레드</strong>
+                            <p>제품(에틸렌) 가격에서 원료(나프타) 가격을 뺀 값. 석유화학 기업의 핵심 수익성 지표로, 현재 손익분기점을 하회.</p>
+                        </li>
+                        <li>
+                            <strong>사업 재편</strong>
+                            <p>수익성이 악화된 범용 사업을 축소·통합하고, 고부가가치 신사업으로 전환하는 등 기업의 포트폴리오를 근본적으로 바꾸는 활동.</p>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="visualization-section">
+                    <h2>중국의 에틸렌 생산능력 급증 추이 (vs 한국)</h2>
+                    <div class="chart-title">공급 과잉의 근원을 보여주는 압도적 격차</div>
+                     <div class="chart-container">
+                        <div class="horizontal-bar-chart">
+                             <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">중국 (2020년)</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 63%;">3,520만 톤</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">중국 (2025년 전망)</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 100%; background-color: #F7A78F;">5,600만 톤 이상</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">한국 (2025년)</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 23%;">1,302만 톤</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="chart-note">
+                        * 위 데이터는 보고서 내 '중국의 에틸렌 생산능력 증가 추이' 테이블을 기반으로 작성되었습니다.<br>
+                        * 불과 5년 만에 폭발적으로 증가한 중국의 생산 능력은 국내 총생산 능력을 압도합니다. 이는 한국 석유화학 산업이 왜 구조적인 공급 과잉 위기에 직면했는지를 명확하게 보여주는 지표입니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="page-3" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>심층 분석 2: 친환경 전환, 위기 속 새로운 기회</h1>
+                <div class="header-subtitle">발행일: 2025년 6월 4주차</div>
+                <a href="https://www.kplic.or.kr/_pcin/board_down.asp?idx=5150" target="_blank" class="article-link" rel="noopener noreferrer">참고 자료: 국내·외 생분해성 인증 동향 및 정책 제언</a>
+            </div>
+    
+            <div class="main-content-grid">
+                <div class="article-analysis-section">
+                    <h2>분석: '지속 가능성'이라는 새로운 성장 동력</h2>
+                    <p>친환경 전환은 위기에 처한 석유화학 기업들에게 새로운 '기회의 문'을 열어주고 있습니다. 글로벌 환경 규제 강화와 소비자의 인식 변화로 과거 '규모의 경제'를 상징했던 플라스틱은 이제 '지속 가능성'이라는 새로운 가치를 입증해야 하는 시험대에 올랐습니다. 이러한 변화 속에서 친환경 및 바이오 플라스틱 시장은 폭발적인 성장이 예고된 새로운 전쟁터로 부상하고 있습니다. 2025년 현재, 국내 석유화학 기업들의 친환경 전략은 단순 R&D 단계를 넘어 본격적인 상업 생산 및 포트폴리오 확장 단계로 진입했습니다. 과거 개별 제품 개발에 머물렀던 것과 달리, 이제는 '탄소중립'과 '순환경제'라는 거시적 목표 아래 체계적인 전략이 추진되고 있습니다. 특히 폐플라스틱을 화학적으로 분해하여 순수한 원료 상태로 되돌리는 '화학적 재활용' 기술은 오염되거나 여러 재질이 섞인 플라스틱도 무한 반복하여 재활용할 수 있어, 순환경제 실현의 핵심 기술로 주목받고 있습니다. 이는 기존의 범용 플라스틱 생산 비중을 점차 줄이고, 그 자리를 고부가가치 친환경 소재로 대체하는 구조적 변화를 이끌고 있습니다.</p>
+                    
+                    <h3>주요 기업의 친환경 전략</h3>
+                    <ul>
+                        <li><strong>LG화학:</strong> 배터리 소재와 함께 친환경 소재를 3대 신성장 동력으로 선정, 생분해성 신소재(PBAT)와 바이오 원료 기반 플라스틱의 상업 생산을 확대하며 시장을 선도하고 있습니다.</li>
+                        <li><strong>롯데케미칼:</strong> '2030 탄소중립 성장 전략'의 핵심으로 친환경 사업을 설정하고, 울산에 대규모 화학적 재활용(폐PET 리사이클) 공장을 증설하며 물리적 인프라 확보에 집중하고 있습니다.</li>
+                        <li><strong>SK지오센트릭:</strong> '폐플라스틱을 다시 석유로'라는 비전 아래, 울산에 세계 최초의 폐플라스틱 재활용 종합단지(ARC)를 구축하고 글로벌 기술 기업들과의 합작을 통해 세계 최고 수준의 화학적 재활용 기술 확보에 사활을 걸고 있습니다.</li>
+                    </ul>
+    
+                    <h3>시장 성장과 파급 효과</h3>
+                    <ul>
+                        <li><strong>시장 성장:</strong> 글로벌 바이오플라스틱 시장은 2025년부터 연평균 19.6% 이상 성장하여 2037년에는 1,735억 달러에 이를 것으로 전망됩니다. 국내 시장 역시 최소 5조 원 이상의 잠재력을 가진 것으로 평가됩니다.</li>
+                        <li><strong>연관 산업 영향:</strong> 식품, 자동차, 건설, 섬유 등 전방 산업에서 친환경·고기능성 소재 수요가 급증하고 있습니다. 이는 석유화학 기업들에게 기존 범용 제품 시장을 대체할 새로운 시장을 열어주는 동시에, 공동 R&D를 통한 고부가가치 솔루션 파트너로 발전할 기회를 제공합니다.</li>
+                        <li><strong>정책적 지원:</strong> 정부 역시 '2050 탄소중립' 목표 달성을 위해 재생원료 사용 의무화, R&D 자금 지원, 세제 혜택 등 다각적인 지원책을 마련하며 기업들의 친환경 전환 투자를 강력하게 유도하고 있습니다.</li>
+                    </ul>
+                </div>
+    
+                <div class="keywords-section">
+                    <h2>핵심 키워드</h2>
+                    <ul>
+                        <li>
+                            <strong>바이오 플라스틱</strong>
+                            <p>옥수수, 사탕수수 등 재생 가능한 바이오매스로 만들거나, 미생물에 의해 분해되는 플라스틱.</p>
+                        </li>
+                        <li>
+                            <strong>화학적 재활용</strong>
+                            <p>폐플라스틱을 화학적으로 분해하여 순수 원료(모노머) 상태로 되돌리는 기술. 무한 반복 재활용이 가능.</p>
+                        </li>
+                         <li>
+                            <strong>순환 경제</strong>
+                            <p>자원을 채취-사용-폐기하는 선형 경제에서 벗어나, 사용된 자원을 계속 순환시키는 경제 시스템.</p>
+                        </li>
+                        <li>
+                            <strong>ESG 경영</strong>
+                            <p>환경(E), 사회(S), 지배구조(G)를 핵심 경영 가치로 삼아 기업의 장기적 지속가능성을 추구하는 것.</p>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="visualization-section">
+                    <h2>글로벌 바이오 플라스틱 시장 규모 전망 (2024-2037년)</h2>
+                    <div class="chart-title">기하급수적 성장이 예상되는 미래 시장</div>
+                     <div class="chart-container">
+                        <div class="line-chart-container">
+                            <svg id="bio-market-chart"></svg>
+                            <div id="bio-tooltip" class="tooltip"></div>
+                        </div>
+                    </div>
+                     <div class="legend">
+                        <div class="legend-item"><div class="legend-color" style="background-color: #85C1DC;"></div>글로벌 시장 (억 달러)</div>
+                    </div>
+                    <p class="chart-note">
+                        * 위 데이터는 Research Nester의 '글로벌 바이오플라스틱 시장 규모 전망'을 기반으로 작성되었습니다.<br>
+                        * 2025년부터 연평균 19.6%라는 높은 성장률을 보이며 시장이 급격하게 팽창하는 J-커브 형태를 보일 것으로 예상됩니다. 이는 석유화학 기업들이 왜 친환경 전환에 사활을 걸고 있는지를 명확히 보여줍니다.
+                    </p>
+                </div>
+                
+                 <div class="comparison-table-section">
+                    <h2>국내 주요 기업 친환경 사업 투자 및 목표 비교 (2025년 기준)</h2>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>기업명</th>
+                                <th>대표 기술 / 제품</th>
+                                <th>2030년 목표</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>LG화학</td>
+                                <td>생분해성 소재(PBAT), 바이오 납사, 화학적 재활용</td>
+                                <td>친환경 소재 매출 8조원 달성</td>
+                            </tr>
+                            <tr>
+                                <td>롯데케미칼</td>
+                                <td>화학적 재활용 PET(C-rPET), 바이오 PET</td>
+                                <td>친환경 리사이클 제품 100만 톤 생산</td>
+                            </tr>
+                             <tr>
+                                <td>한화솔루션</td>
+                                <td>바이오 기반 폴리올레핀(PO), 그린수소 연계 공정</td>
+                                <td>그린수소 생산 및 활용 확대</td>
+                            </tr>
+                            <tr>
+                                <td>SK지오센트릭</td>
+                                <td>열분해, 해중합 등 3대 화학적 재활용 기술</td>
+                                <td>연 90만 톤 폐플라스틱 처리 능력 확보</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                 </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <section id="page-4" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>💡 석유화학 산업 분석: 참고 자료 및 심화 학습</h1>
+            </div>
+    
+            <div class="main-content-section">
+                <p class="intro-text">
+                    본 보고서에서 심층 분석한 '글로벌 공급 과잉'과 '친환경 전환' 이슈와 관련하여 더 깊이 학습하거나 참고할 수 있는 신뢰도 높은 외부 전문 자료들을 정리했습니다.
+                </p>
+    
+                <h2>🔍 심층 분석 주제별 추천 자료</h2>
+                <div class="card-grid">
+                    <div class="info-card">
+                        <h3>[정부 정책] 석유화학산업 경쟁력 제고 방안</h3>
+                        <p>정부가 진단하는 위기 원인과 이를 극복하기 위한 종합 정책(사업재편 지원, R&D, 규제개선 등)이 담긴 핵심 보고서. 정부 시각 이해에 필수적입니다.</p>
+                        <a href="https://eiec.kdi.re.kr/policy/callDownload.do?num=261574&filenum=3&dtime=20241231104213" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[국책은행 분석] 석유화학산업의 위기 장기화 가능성 점검</h3>
+                        <p>수출입은행의 시각에서 중국발 공급과잉 등 구조적 위기 요인을 심도 있게 분석하고, 고부가가치·친환경 전환의 당위성을 제시합니다.</p>
+                        <a href="https://eiec.kdi.re.kr/policy/domesticView.do?ac=0000186159" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[산업 전망] 2025년 경제·산업 전망 (산업연구원)</h3>
+                        <p>석유화학 산업의 2025년 수출, 내수, 생산 등을 구체적인 수치로 예측하여 제시합니다. 산업의 단기 업황을 객관적인 데이터로 파악하는 데 유용합니다.</p>
+                        <a href="https://eiec.kdi.re.kr/policy/domesticView.do?ac=0000190069" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[신용평가사 분석] 주요 산업별 정기평가 결과 및 하반기 전망</h3>
+                        <p>한국기업평가 등 신용평가사의 관점에서 석유화학 산업의 재무적 리스크와 수익성 전망을 분석. 기업들의 재무 건전성 변화를 이해하는 데 중요합니다.</p>
+                        <a href="https://www.yna.co.kr/view/AKR20250630163200008" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>[글로벌 동향] 석유화학전망 세미나 발표 자료 (석유화학협회)</h3>
+                        <p>S&P Global Platts 등 글로벌 시장분석기관 전문가들이 참여하여 중국의 공급과잉 실태와 글로벌 시장 전망에 대해 발표한 생생한 분석 자료입니다.</p>
+                        <a href="https://www.ajunews.com/view/20240903153334822" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>[친환경 정책] 국내·외 생분해성 인증 동향 및 정책 제언</h3>
+                        <p>생분해성 플라스틱에 특화된 보고서로, 국내 시장 규모 예측, 국내외 인증 제도, 정책 동향 등 실무적인 정보를 상세히 다루고 있습니다.</p>
+                        <a href="https://www.kplic.or.kr/_pcin/board_down.asp?idx=5150" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                </div>
+    
+                <h2>📰 석유화학 연관 산업 주요 이슈</h2>
+                <div class="card-grid">
+                    <div class="info-card">
+                        <h3>자동차 산업: 자동차 경량화 기술 동향</h3>
+                        <p>전기차 시대, 연비 규제 강화로 기존 금속 부품을 대체하는 엔지니어링 플라스틱, CFRP 등 고기능성 화학 소재의 수요 증가를 보여주는 보고서입니다.</p>
+                        <a href="https://www.reseat.or.kr/portal/cmmn/file/fileDown.do?menuNo=200019&atchFileId=4bdb8c45f00e4e478b46ea54bc4f43e0&fileSn=1&bbsId=" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>건설 산업: 월간 건설시장 동향</h3>
+                        <p>건물 에너지 효율 기준 강화로 고성능 단열재, 고내구성 파이프 등 플라스틱 건축자재의 역할이 중요해지고 있습니다. 잠재적 수요 변화를 가늠할 수 있습니다.</p>
+                        <a href="http://www.cerik.re.kr/material" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>가전/IT 산업: 글로벌 주방 가전 트렌드</h3>
+                        <p>글로벌 가전 제조사들이 ESG 경영의 일환으로 제품에 재활용 플라스틱 사용을 확대하는 트렌드. 새로운 고부가가치 시장이 열리고 있음을 시사합니다.</p>
+                        <a href="https://reads.alibaba.com/ko/how-to-choose-the-right-kitchen-appliances-global-trends-and-tips/" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>섬유 산업: 글로벌 합성 섬유 시장 보고서</h3>
+                        <p>패션 산업에서 '지속 가능성'이 부상하며 폐PET를 재활용한 리사이클 섬유 등 친환경 합성섬유 수요가 급증하는 트렌드를 보여줍니다.</p>
+                        <a href="https://www.globalgrowthinsights.com/ko/market-reports/synthetic-fibers-market-108109" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>포장재 산업: 2025년 포장 산업 동향</h3>
+                        <p>일회용품 규제 강화로 가장 빠르게 친환경으로 전환되는 분야. 생분해성, 종이 기반, 재활용 용이 소재의 적용 사례와 시장 변화를 보여줍니다.</p>
+                        <a href="https://seo.goover.ai/report/202503/go-public-report-ko-f435b2bd-ed69-4833-97cb-3ca7891a4f1c-0-0.html" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>재생에너지 산업: 한화솔루션 기업 분석</h3>
+                        <p>태양광 패널의 핵심 소재인 EVA 시트, 풍력발전기 블레이드의 에폭시 수지 등 석유화학 기업의 신재생에너지 소재 공급자로서의 역할을 조명합니다.</p>
+                        <a href="https://seo.goover.ai/report/202506/go-public-report-ko-7264ad0d-4c0e-4657-b8c6-290fb07d5f17-0-0.html" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                </div>
+    
+                <div class="conclusion-box">
+                    <h2>마무리하며:</h2>
+                    <p>
+                        2025년 대한민국 석유화학 산업은 '중국발 공급 과잉'이라는 거대한 현실의 벽과 '친환경 전환'이라는 미래의 기회 사이에서 고통스러운 구조 재편의 터널을 지나고 있습니다. 범용 제품 위주의 성장 모델은 그 한계를 명확히 드러냈으며, 이제 생존을 넘어 미래 성장을 위해서는 고부가가치 스페셜티 및 친환경 소재 중심으로 사업 포트폴리오를 재편하는 것이 유일한 해법입니다. 이 전환의 과정에서 발생하는 고통을 최소화하고, 기술 경쟁력을 확보하기 위한 기업의 자구 노력과 정부의 전략적 지원이 그 어느 때보다 중요한 시점입니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Bio Plastics Market Line Chart (Page 3)
+            const data = [
+                { year: 2024, value: 169.4 },
+                { year: 2025, value: 192.6 },
+                { year: 2030, value: 550.0 },
+                { year: 2037, value: 1735.5 }
+            ];
+
+            const svgElement = document.getElementById("bio-market-chart");
+            if (svgElement) {
+                const svg = d3.select(svgElement);
+                const tooltip = d3.select("#bio-tooltip");
+                
+                const width = svgElement.clientWidth;
+                const height = svgElement.clientHeight;
+                const margin = { top: 20, right: 30, bottom: 40, left: 60 };
+
+                const x = d3.scaleLinear()
+                    .domain(d3.extent(data, d => d.year))
+                    .range([margin.left, width - margin.right]);
+
+                const y = d3.scaleLog() // Use log scale for exponential growth
+                    .domain([100, d3.max(data, d => d.value)])
+                    .range([height - margin.bottom, margin.top]);
+
+                // Axes
+                svg.append("g")
+                    .attr("transform", `translate(0,${height - margin.bottom})`)
+                    .call(d3.axisBottom(x).tickFormat(d3.format("d")).ticks(data.length))
+                    .selectAll("text")
+                    .style("font-family", "'Noto Sans KR', sans-serif")
+                    .style("font-size", "12px");
+                
+                svg.append("g")
+                    .attr("transform", `translate(${margin.left},0)`)
+                    .call(d3.axisLeft(y).ticks(5, d3.format(".0s")))
+                    .selectAll("text")
+                    .style("font-family", "'Noto Sans KR', sans-serif")
+                    .style("font-size", "12px");
+
+                // Grid lines
+                svg.append("g")
+                    .attr("class", "grid")
+                    .attr("transform", `translate(${margin.left},0)`)
+                    .call(d3.axisLeft(y).ticks(5).tickSize(-width + margin.left + margin.right).tickFormat(""))
+                    .selectAll(".tick line")
+                    .attr("stroke", "#e0e0e0")
+                    .attr("stroke-dasharray", "2,3");
+                
+                // Tooltip functions
+                const mouseover = (event, d) => {
+                    tooltip.style("opacity", 1);
+                };
+                const mousemove = (event, d) => {
+                    const [xPos, yPos] = d3.pointer(event, svg.node());
+                    tooltip
+                        .html(`<b>${d.year}년</b>: ${d.value.toFixed(1)}억 달러`)
+                        .style("left", `${xPos + 15}px`)
+                        .style("top", `${yPos}px`)
+                        .style("transform", "translateY(-50%)");
+                };
+                const mouseleave = (event, d) => {
+                    tooltip.style("opacity", 0);
+                };
+
+                // Line
+                const line = d3.line()
+                    .x(d => x(d.year))
+                    .y(d => y(d.value))
+                    .curve(d3.curveMonotoneX); // Make it a smooth curve
+                
+                svg.append("path")
+                    .datum(data)
+                    .attr("class", "line-path")
+                    .attr("d", line)
+                    .style("stroke", "#85C1DC");
+                    
+
+                // Data Points
+                svg.selectAll("circle.data-point")
+                    .data(data)
+                    .enter()
+                    .append("circle")
+                    .attr("class", "data-point")
+                    .attr("cx", d => x(d.year))
+                    .attr("cy", d => y(d.value))
+                    .attr("stroke", "#85C1DC")
+                    .on("mouseover", mouseover)
+                    .on("mousemove", mousemove)
+                    .on("mouseleave", mouseleave);
+            }
+        });
+
+    </script>
+</body>
+</html>

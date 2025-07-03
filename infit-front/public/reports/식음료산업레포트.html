@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InFit - 식음료(F&B) 산업 분석 통합 레포트</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 기본 스타일 */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #F8F8F8;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 페이지 섹션 공통 스타일 */
+        .page-section {
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* 1페이지 스타일 */
+        #page-1 {
+            background-color: #F8F8F8;
+        }
+
+        #page-1 .container {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        #page-1 .header-section {
+            background-color: #FFF9F2; /* Bubble Cream: 부드러운 크림 배경 */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem 2rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        #page-1 .whale-character {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            width: 80px;
+            height: 80px;
+            opacity: 0.9;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        #page-1 .whale-character:hover {
+            transform: scale(1.1) rotate(5deg);
+            opacity: 1;
+        }
+
+        #page-1 .header-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #85C1DC; /* Whale Sky: 차분한 하늘색 */
+            margin-bottom: 0.75rem;
+        }
+
+        #page-1 .header-section .slogan {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #4D5E70; /* Slate Ink: 읽기 좋은 어두운 그레이 */
+            margin-bottom: 1.5rem;
+        }
+
+        #page-1 .header-section .subtitle {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        #page-1 .card-news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid #E0E0E0;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            #page-1 .card-news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        #page-1 .card {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            overflow: hidden;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        #page-1 .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-1 .card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
+        #page-1 .card-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #4D5E70;
+            margin-bottom: 0.8rem;
+        }
+
+        #page-1 .card-summary {
+            font-size: 0.95rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        #page-1 .card-keywords {
+            font-size: 0.85rem;
+            color: #666;
+            font-weight: 500;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        #page-1 .card-keywords span {
+            background-color: #A8D8C7;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        #page-1 .section-title {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #85C1DC;
+            margin-bottom: 2rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            text-align: center;
+        }
+
+        #page-1 .keyword-section {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            padding: 25px;
+        }
+        
+        .keyword-analysis {
+            padding-bottom: 1.5rem;
+        }
+
+        #page-1 .keyword-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed #E0E0E0;
+        }
+
+        #page-1 .keyword-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        #page-1 .keyword-item h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70;
+            margin-bottom: 0.75rem;
+        }
+
+        #page-1 .keyword-item p {
+            font-size: 0.95em;
+            color: #444;
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+        
+        .visualization-container {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px dashed #E0E0E0;
+        }
+        .visualization-container h3 {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #85C1DC;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+
+        /* 2-4페이지 공통 레포트 스타일 */
+        .report-container {
+            width: 100%;
+            max-width: 960px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .header-section {
+            padding: 40px 30px;
+            text-align: center;
+            background-color: #FFF9F2;
+            border-bottom: 1px solid #A8D8C7;
+        }
+
+        .header-section h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .header-subtitle {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        .article-link {
+            font-size: 0.9em;
+            color: #F7A78F;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: 1px solid #A8D8C7;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .article-link:hover {
+            background-color: #F7A78F;
+            color: white;
+        }
+
+        .main-content-grid {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 25px;
+            padding: 30px;
+        }
+
+        .article-analysis-section, 
+        .keywords-section, 
+        .visualization-section {
+            background-color: #FFF9F2;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+        }
+
+        .article-analysis-section {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .keywords-section {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .visualization-section {
+            grid-column: 1 / -1;
+            grid-row: 2;
+        }
+
+        /* 레포트 공통 타이포그래피 */
+        #page-2 h2, #page-3 h2, #page-4 h2 {
+            font-size: 1.6em;
+            color: #85C1DC;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8D8C7;
+            font-weight: 700;
+        }
+
+        #page-2 p, #page-3 p, #page-4 p {
+            font-size: 0.95em;
+            line-height: 1.7;
+            margin-bottom: 1em;
+            color: #444;
+        }
+
+        #page-2 h3, #page-3 h3, #page-4 h3 {
+            font-size: 1.2em;
+            color: #4D5E70;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* 공통 리스트 스타일 */
+        .article-analysis-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 1em 0;
+        }
+
+        .article-analysis-section ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .article-analysis-section ul li::before {
+            content: '•';
+            color: #F7A78F;
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .keywords-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .keywords-section li {
+            margin-bottom: 15px;
+        }
+
+        .keywords-section li strong {
+            display: block;
+            font-size: 1.1em;
+            color: #4D5E70;
+            margin-bottom: 5px;
+        }
+
+        .keywords-section li p {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        /* 공통 시각화 스타일 */
+        .visualization-section {
+            text-align: center;
+        }
+
+        .visualization-section h2 {
+            font-size: 1.4em;
+        }
+
+        .chart-container {
+            margin-top: 20px;
+            padding: 25px 15px 15px 15px;
+            background-color: #F8F8F8;
+            border-radius: 8px;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .chart-title {
+            font-size: 1.1em;
+            color: #85C1DC;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .chart-note {
+            font-size: 0.8em;
+            color: #777;
+            margin-top: 30px;
+            text-align: left;
+            line-height: 1.5;
+            padding: 0 15px;
+        }
+        
+        /* 그룹형 막대그래프 스타일 (공통) */
+        .grouped-bar-chart {
+            display: flex;
+            justify-content: space-around;
+            height: 280px;
+            padding-top: 20px;
+            align-items: flex-end;
+        }
+        .bar-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            text-align: center;
+            height: 100%;
+        }
+        .bar-pair {
+             display: flex;
+             align-items: flex-end;
+             height: 100%;
+             gap: 8px;
+             flex-grow: 1;
+        }
+        .bar-group .bar {
+            width: 40px;
+            position: relative;
+            animation: grow-bar 1.2s ease-out forwards;
+            transition: background-color 0.3s ease;
+        }
+        .bar-group .bar .bar-value {
+            position: absolute;
+            top: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #4D5E70;
+            white-space: nowrap;
+        }
+        .bar-group .group-label {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+            font-size: 0.9em;
+        }
+        .legend {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 0 15px;
+        }
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            margin-right: 8px;
+            border-radius: 3px;
+        }
+
+        /* 가로 막대그래프 스타일 (공통) */
+        @keyframes fill-bar {
+            from { width: 0; }
+        }
+        .horizontal-bar-chart {
+            padding-top: 10px;
+        }
+        .horizontal-bar-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        .horizontal-bar-label {
+            width: 120px;
+            text-align: right;
+            padding-right: 15px;
+            font-weight: 600;
+            color: #4D5E70;
+            flex-shrink: 0;
+        }
+        .horizontal-bar-wrapper {
+            flex-grow: 1;
+            background-color: #e9e9e9;
+            border-radius: 5px;
+            height: 30px;
+        }
+        .horizontal-bar-fill {
+            height: 100%;
+            background-color: #85C1DC;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+            padding-left: 10px;
+            box-sizing: border-box;
+            animation: fill-bar 1.2s ease-out forwards;
+            width: var(--bar-width, 0%);
+            white-space: nowrap;
+        }
+         .horizontal-bar-fill:hover {
+            background-color: #F7A78F;
+        }
+
+
+        /* 4페이지 특화 스타일 */
+        #page-4 .main-content-section {
+            padding: 30px;
+        }
+
+        #page-4 .intro-text {
+            font-size: 1.1em;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        #page-4 .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        #page-4 .info-card {
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #A8D8C7;
+            padding: 1.5rem;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #page-4 .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #page-4 .info-card h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #4D5E70;
+            margin-bottom: 0.75rem;
+            margin-top: 0;
+        }
+
+        #page-4 .info-card p {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        #page-4 .info-card a {
+            color: #F7A78F;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            display: block;
+            margin-top: auto;
+        }
+
+        #page-4 .conclusion-box {
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: #FFF9F2;
+            border-radius: 8px;
+            border: 1px solid #A8D8C7;
+        }
+
+        #page-4 .conclusion-box h2 {
+            font-size: 1.4em;
+            color: #4D5E70;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        #page-4 .conclusion-box p {
+            color: #333;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* 애니메이션 공통 */
+        @keyframes grow-bar {
+            from { height: 0; }
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .page-section {
+                padding: 10px;
+            }
+            
+            #page-1 .container {
+                padding: 1rem;
+            }
+            
+            #page-1 .card-news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #page-1 .whale-character {
+                width: 60px;
+                height: 60px;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .main-content-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+                padding: 20px;
+            }
+            
+            .article-analysis-section,
+            .keywords-section,
+            .visualization-section {
+                grid-column: 1 / -1;
+                grid-row: auto;
+            }
+
+            #page-4 .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #page-4 .main-content-section {
+                padding: 20px;
+            }
+            
+            .bar-group .bar {
+                width: 30px;
+            }
+
+            .split-chart-group .bar {
+                width: 30px;
+            }
+
+            /* 모바일 차트 스타일 */
+            .horizontal-bar-label {
+                width: 100px;
+                font-size: 0.9em;
+            }
+        }
+
+        /* Chart 2: Split Bar Chart for positive/negative values */
+        .split-chart-container {
+            height: 280px;
+            display: flex;
+            justify-content: space-around;
+            padding: 20px 0;
+            box-sizing: border-box;
+        }
+
+        .split-chart-group {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 18%; /* 5 groups */
+            text-align: center;
+        }
+
+        .split-chart-bars {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .positive-area {
+            flex-basis: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; /* Align bars to the bottom (the axis) */
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .negative-area {
+            flex-basis: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Align bars to the top (the axis) */
+        }
+
+        .split-chart-group .bar {
+            width: 40px;
+            margin: 0 auto;
+            position: relative;
+            animation: grow-bar 1.2s ease-out forwards;
+                transition: background-color 0.3s ease;
+        }
+
+        .split-chart-group .bar .bar-value {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #4D5E70;
+            white-space: nowrap;
+        }
+
+        .positive-area .bar .bar-value {
+            top: -22px;
+        }
+
+        .negative-area .bar .bar-value {
+            bottom: -22px;
+        }
+
+        .split-chart-group .group-label {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+            font-size: 0.9em;
+        }
+
+        /* Specific fix for chart 1 text wrapping */
+        #page-1 .bar-group .bar-value,
+        #page-1 .bar-group .group-label {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <section id="page-1" class="page-section">
+        <div class="container">
+            <header class="header-section">
+                <img src="../infit_logo.png" alt="InFit 캐릭터" class="whale-character">
+                <h1>InFit</h1>
+                <p class="slogan">고물가와 기술 혁신, F&B 산업의 미래를 재정의하다</p>
+                <p class="subtitle">
+                    <span style="font-weight: 600;">식음료(F&B) 산업 분석 보고서 (2025년 6월 4주차)</span><br>편의성, 건강, 지속가능성을 향한 패러다임 전환
+                </p>
+            </header>
+
+            <section>
+                <h2 class="section-title">주간 식음료(F&B) 핵심 동향 요약</h2>
+                <div class="card-news-grid">
+                    <div class="card">
+                        <a href="https://www.pressian.com/pages/articles/2025051313100479289" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">HMR '고공행진' vs 밀키트 '성장 정체'</h3>
+                            <p class="card-summary">
+                                1인 가구 증가와 편의성 추구 트렌드에 힘입어 HMR 시장은 7조 원 규모로 꾸준히 성장하고 있습니다. 반면, 밀키트 시장은 고물가와 HMR과의 경쟁 심화로 성장세가 둔화되며 시장의 양극화가 뚜렷해지고 있습니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#HMR</span> <span>#밀키트</span> <span>#시장양극화</span> <span>#가성비</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://m.health.chosun.com/svc/news_view.html?contid=2025031803077" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">'로우 스펙'과 '초개인화', 건강 트렌드 심화</h3>
+                            <p class="card-summary">
+                                제로 슈거, 저당 등 '로우 스펙' 식품 출시가 활발한 가운데, 개인의 건강 상태에 맞춰 영양을 제안하는 맞춤형 건기식 시장이 본격적으로 열렸습니다. 건강과 맛을 동시에 잡으려는 소비자의 니즈가 더욱 커지고 있습니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#로우 스펙 푸드</span> <span>#건강기능식품</span> <span>#초개인화</span> <span>#헬시플레저</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://www.korea.kr/briefing/pressReleaseView.do?newsId=156656154&pWise=sub&pWiseSub=C6" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">푸드테크, 산업의 판도를 바꾸다</h3>
+                            <p class="card-summary">
+                                정부가 1조 원이 넘는 R&D 예산을 투입하며 푸드테크 육성에 나섰습니다. AI 레시피 개발, 조리 로봇, 스마트 공장 등 기술이 생산부터 소비까지 전 과정에 확산되며 산업의 효율성과 경쟁력을 높이고 있습니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#푸드테크</span> <span>#AI</span> <span>#로봇</span> <span>#정부투자</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://futurechosun.com/archives/77821" target="_blank" rel="noopener noreferrer">
+                            <h3 class="card-title">대체 식품, 잠재력과 현실 사이</h3>
+                            <p class="card-summary">
+                                지속가능성과 가치 소비 트렌드에 힘입어 대체 식품 시장이 23조 원 규모로 성장이 전망되나, 높은 생산 비용과 소비자 인식은 여전히 과제로 남아있습니다. 기술 개발과 상용화 노력이 가속화되고 있습니다.
+                            </p>
+                            <div class="card-keywords">
+                                <span>#대체식품</span> <span>#지속가능성</span> <span>#배양육</span> <span>#시장과제</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="keyword-section">
+                <h2 class="section-title">핵심 키워드 분석: 푸드테크 (Food Tech)</h2>
+                <div class="keyword-analysis">
+                    <div class="keyword-item">
+                        <h3>1. 정의 및 중요성</h3>
+                        <p>
+                            푸드테크는 식품(Food)과 기술(Technology)의 합성어로, 식품의 생산부터 소비까지 전 과정에 AI, 로봇, 바이오 기술 등을 접목해 새로운 가치를 만드는 산업입니다. 현재 국내 식음료 산업은 낮은 영업이익률, 원가 상승, 인력난이라는 삼중고에 직면해 있습니다. 이러한 상황에서 푸드테크는 단순히 미래 기술이 아닌, 생산성을 높이고 비용을 절감하여 기업의 생존을 돕는 핵심 동력으로 부상했습니다. 또한, 건강, 편의성, 지속가능성을 중시하는 소비자들의 새로운 요구에 부응하는 혁신적인 제품과 서비스를 창출하는 필수 전략으로 자리매김하며, 산업의 패러다임을 근본적으로 바꾸고 있습니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>2. 기술적 맥락</h3>
+                        <p>
+                            푸드테크는 AI, 로봇, 블록체인 등 다양한 첨단 기술의 융복합을 통해 발전하고 있습니다. 대표적으로 AI는 개인의 건강 데이터를 분석해 맞춤형 식단을 제안하고, 조리 로봇은 일관된 맛과 품질을 보장하며 궂은일을 대신합니다. 블록체인 기술은 생산부터 유통까지 전 과정을 투명하게 기록하여 식품 안전에 대한 신뢰를 높입니다. 최근에는 삼성SDS의 AI 기반 웰니스 솔루션, 바른치킨의 조리 로봇 '바른봇', 농심의 '푸드QR' 도입 등 대기업과 스타트업을 가리지 않고 기술 도입이 활발합니다. 이러한 기술들은 개별적으로 작용하기보다 상호 연동되어 '초개인화', '자동화', '투명성'이라는 가치를 실현하며 시너지를 창출하고 있습니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>3. 시장/산업적 영향</h3>
+                        <p>
+                            푸드테크는 식음료 산업의 지형도를 바꾸고 있습니다. 스마트 공장 도입으로 제조 방식이 자동화되면서 생산성과 품질이 향상되고, 인력난 문제가 해소되고 있습니다. 유통 분야에서는 37조 원 규모로 성장한 온라인 시장과 퀵커머스가 핵심 채널로 부상했습니다. 로봇이 조리하는 식당과 편의점이 등장하면서 외식과 간편식의 경계도 허물어지고 있습니다. 이는 AI 기반 식단 구독 서비스, 식품 부산물을 활용한 업사이클링 스낵 개발 등 이전에는 없던 새로운 비즈니스 모델의 탄생을 이끌고 있습니다. 푸드테크는 온·오프라인을 넘나드는 '스마트한 경험'을 제공하며 산업의 융합을 가속화하는 게임 체인저 역할을 하고 있습니다.
+                        </p>
+                    </div>
+                    <div class="keyword-item">
+                        <h3>4. 사회적/경제적 파급 효과</h3>
+                        <p>
+                            푸드테크의 영향력은 산업을 넘어 사회 전반으로 확산되고 있습니다. 개인 맞춤형 영양 솔루션은 국민 건강 증진에 기여하며, 이력 추적 시스템은 먹거리 불안을 해소합니다. 스마트팜과 대체 식품 기술은 기후 변화와 식량 안보 문제에 대한 중요한 해결책을 제시하며 '국가적 생존 전략'의 일환으로 평가받고 있습니다. 정부의 1조 원대 R&D 투자는 푸드테크를 국가 전략 산업으로 육성하겠다는 의지를 보여줍니다. 또한, 로봇 도입은 위험한 업무를 대체하여 노동 환경을 개선하고, 푸드테크 스타트업들은 새로운 양질의 일자리를 창출하며 경제에 활력을 불어넣는 등 다각적인 긍정적 효과를 만들어내고 있습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="visualization-container">
+                    <h3>📊 푸드테크 연관 주요 시장 규모 전망 (2025-2026년)</h3>
+                    <div class="chart-container">
+                        <div class="horizontal-bar-chart">
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">온라인 식품</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 100%;">37.5조 원</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">대체 식품</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 62.7%;">23.5조 원</div>
+                                </div>
+                            </div>
+                             <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">HMR</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 18.7%;">7조 원</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">건강기능식품</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 16.1%;">6.04조 원</div>
+                                </div>
+                            </div>
+                             <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">정부 R&D 예산</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 3%;">1.12조 원</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <p class="chart-note">
+                        * 위 데이터는 보고서 내 푸드테크 관련 분석 자료(한국농촌경제연구원, 삼일PwC 등)를 기반으로 재구성되었습니다.<br>
+                        * 온라인 식품과 대체 식품 시장의 압도적인 규모는 푸드테크의 영향력이 유통 구조의 변화와 미래 먹거리 개발에 집중되고 있음을 보여줍니다.
+                    </p>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <section id="page-2" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>심층 분석 1: HMR 및 밀키트 시장의 진화와 푸드테크의 역할</h1>
+                <div class="header-subtitle">발행일: 2025년 6월 4주차</div>
+                <a href="https://www.krei.re.kr/board.es?mid=a10403020000&bid=0008" target="_blank" class="article-link" rel="noopener noreferrer">관련 보고서: 2025 식품외식산업 전망 (KREI)</a>
+            </div>
+    
+            <div class="main-content-grid">
+                <div class="article-analysis-section">
+                    <h2>분석: '편리함'을 넘어 '맞춤형 경험'으로 진화하는 간편식</h2>
+                    <p>
+                        바쁜 현대 사회와 1인 가구의 증가는 국내 간편식 시장의 폭발적인 성장을 이끌었습니다. 특히 가정간편식(HMR)은 2026년 7조 원 규모로 성장할 것으로 예측되며 시장의 주류로 자리 잡았습니다. 하지만 팬데믹 이후 시장은 새로운 국면을 맞이했습니다. 고물가 장기화와 HMR 제품의 경쟁력 강화로 인해, 한때 HMR의 대안으로 떠올랐던 밀키트 시장은 4,000억 원대에서 성장이 정체되는 양상을 보이고 있습니다. 이는 소비자들이 단순히 '요리하는 즐거움'보다는 '즉각적인 편리함'과 '가격 효율성'을 더욱 중요하게 여기기 시작했음을 의미합니다. 이러한 시장 변화에 대응하기 위해 기업들은 푸드테크 기술을 적극적으로 활용하며, 단순한 간편함을 넘어 개인에게 최적화된 경험을 제공하는 방향으로 진화하고 있습니다. 이제 간편식 시장의 경쟁력은 '누가 더 편리한가'를 넘어 '누가 더 똑똑하게 개인의 니즈를 만족시키는가'에 달려있습니다.
+                    </p>
+                    
+                    <h3>최신 간편식 및 푸드테크 트렌드 (2025년 중반 기준)</h3>
+                    <ul>
+                        <li><strong>프리미엄·건강 지향 제품 다양화:</strong> '로우 스펙 푸드'처럼 특정 성분을 줄인 건강 지향 간편식과 유명 셰프의 레시피를 활용한 프리미엄 제품 출시가 활발합니다.</li>
+                        <li><strong>AI 기반 초개인화 서비스:</strong> 개인의 건강 데이터를 분석해 최적의 식단을 추천하고 배송해주는 AI 식단 구독 서비스(랭킹닭컴 등)가 새로운 시장을 열고 있습니다.</li>
+                        <li><strong>로봇 기술의 확산:</strong> 외식 프랜차이즈(바른치킨)는 물론 단체급식소까지 조리 로봇이 도입되어 일관된 품질과 운영 효율성을 높이고, 인력난 해소에 기여하고 있습니다.</li>
+                         <li><strong>유통 채널의 진화:</strong> 배달앱의 구독 서비스 경쟁과 퀵커머스의 확산은 간편식의 접근성을 극대화하며 온라인 식품 시장의 성장을 가속화하고 있습니다.</li>
+                    </ul>
+    
+                    <h3>주요 플레이어 전략 분화</h3>
+                    <ul>
+                        <li><strong>CJ제일제당 & 풀무원:</strong> 글로벌 시장 공략과 함께 '헬스케어', '식물성 지향' 등 미래 가치를 중심으로 포트폴리오를 다각화하고 있습니다.</li>
+                        <li><strong>프레시지 & 마이셰프:</strong> 정체된 밀키트 시장의 돌파구로 유명 맛집·셰프와의 IP 협업을 강화하고, 가전제품과 연계한 구독 모델 등 혁신적 비즈니스를 시도하고 있습니다.</li>
+                        <li><strong>유통사 (CU 등):</strong> PB 상품 개발을 넘어, 건강기능식품 특화 매장을 확대하는 등 소비자 트렌드에 맞춰 채널 자체를 특화하며 시장 영향력을 강화하고 있습니다.</li>
+                    </ul>
+                </div>
+    
+                <div class="keywords-section">
+                    <h2>핵심 키워드</h2>
+                    <ul>
+                        <li>
+                            <strong>HMR(가정간편식)</strong>
+                            <p>데우거나 간단한 조리로 바로 먹을 수 있는 가공식품. Ready-to-Eat, Ready-to-Heat 등이 포함됩니다.</p>
+                        </li>
+                        <li>
+                            <strong>밀키트(Meal Kit)</strong>
+                            <p>손질된 식재료와 양념, 조리법으로 구성되어 직접 요리하는 경험을 제공하는 제품입니다.</p>
+                        </li>
+                        <li>
+                            <strong>푸드테크</strong>
+                            <p>식품 산업 전반에 AI, 로봇, IoT 등 기술을 접목하여 가치를 창출하는 분야입니다.</p>
+                        </li>
+                        <li>
+                            <strong>퀵 커머스</strong>
+                            <p>주문 후 1시간 이내 상품을 배송하는 초고속 배달 서비스로, 간편식의 주요 유통 채널입니다.</p>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="visualization-section">
+                    <h2>국내 HMR 및 밀키트 시장 규모 전망 비교</h2>
+                    <div class="chart-title">압도적 성장세의 HMR과 정체된 밀키트 시장</div>
+                    <div class="chart-container">
+                        <div class="grouped-bar-chart">
+                            <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 100%; background-color: #85C1DC;"><span class="bar-value">7조 원</span></div>
+                                </div>
+                                <div class="group-label">HMR (2026년 전망)</div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-pair">
+                                    <div class="bar" style="height: 5.7%; background-color: #A8D8C7;"><span class="bar-value">4,000억 원</span></div>
+                                </div>
+                                <div class="group-label">밀키트 (2025년 전망)</div>
+                            </div>
+                        </div>
+                        <div class="legend">
+                            <div class="legend-item"><div class="legend-color" style="background-color: #85C1DC;"></div>HMR 시장</div>
+                            <div class="legend-item"><div class="legend-color" style="background-color: #A8D8C7;"></div>밀키트 시장</div>
+                        </div>
+                    </div>
+                    <p class="chart-note">
+                        * 위 데이터는 프레시안, 비즈워치 등의 보도자료를 기반으로 작성되었습니다.<br>
+                        * HMR 시장의 압도적인 성장세는 '편의성'과 '가성비'를 중시하는 소비 트렌드를 명확히 보여줍니다. 반면, 밀키트 시장은 차별화된 가치를 제공하지 못하면 시장에서 도태될 수 있다는 위기감을 시사합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="page-3" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>심층 분석 2: 건강기능식품 및 대체식품 시장의 성장</h1>
+                <div class="header-subtitle">발행일: 2025년 6월 4주차</div>
+                <a href="https://www.marqvision.com/kr/blog-kr/explore-health-supplement-market-trend-2025-risk-unsales-online-marketplaces" target="_blank" class="article-link" rel="noopener noreferrer">참고 자료: 2025 건기식 시장 트렌드 분석 (마크비전)</a>
+            </div>
+    
+            <div class="main-content-grid">
+                <div class="article-analysis-section">
+                    <h2>분석: '가치 소비'와 '지속가능성'이 이끄는 미래 먹거리 시장</h2>
+                    <p>
+                        '무엇을 먹는가'가 '어떻게 사는가'를 결정하는 시대가 되었습니다. 건강 증진, 질병 예방을 넘어 환경 보호와 동물 복지까지 고려하는 '가치 소비' 트렌드는 건강기능식품과 대체식품 시장을 식음료 산업의 핵심 성장 동력으로 만들었습니다. 국내 건강기능식품 시장은 약 6조 원 규모로 안정적인 성장을 이어가고 있으며, 특히 2025년부터 시행된 '맞춤형 건강기능식품 판매 제도'는 시장의 패러다임을 '대중 제품'에서 '초개인화 솔루션'으로 전환시키는 기폭제가 되고 있습니다. 동시에, ESG 경영과 비거니즘 확산에 힘입어 대체식품 시장은 2025년 23조 원 규모로의 성장이 전망되는 등 폭발적인 잠재력을 보여주고 있습니다. 하지만 이 거대한 기회 이면에는 높은 R&D 비용, 소비자 인식 부족, 규제 불확실성이라는 현실적인 과제들이 존재합니다.
+                    </p>
+                    
+                    <h3>최신 건강/대체식품 트렌드 (2025년 중반 기준)</h3>
+                    <ul>
+                        <li><strong>개인 맞춤형 건기식 본격화:</strong> 전문가가 개인의 건강 상태에 맞춰 영양제를 소분·판매하는 서비스가 합법화되면서 시장이 빠르게 성장하고 있습니다.</li>
+                        <li><strong>기능성 원료의 진화:</strong> 장 건강을 위한 프로바이오틱스, 피부 미용을 위한 콜라겐 등 전통적인 인기 품목 외에, 체중 감량 약물(GLP-1)과 연계된 보충제, 흡수율을 높인 리포좀 기술 등 새로운 기술과 트렌드가 시장을 주도하고 있습니다.</li>
+                        <li><strong>대체식품 기술 혁신:</strong> 신세계푸드의 식물성 간편식(PMR) 출시, 코랄로의 미세조류 기반 대체 수산물 개발 등 대기업과 스타트업이 기술 혁신을 통해 제품의 맛과 형태를 다각화하고 있습니다.</li>
+                        <li><strong>'제로' 트렌드의 확산:</strong> '제로 슈거', '저당' 트렌드가 일반 식품을 넘어 건강기능식품 분야까지 확산되며 건강에 대한 소비자의 높은 관심을 반영하고 있습니다.</li>
+                    </ul>
+    
+                    <h3>기회와 도전 과제</h3>
+                    <ul>
+                        <li><strong>기회:</strong> 고령화와 건강에 대한 관심 증가는 안정적인 수요 기반을 제공하며, 개인 맞춤형 서비스는 새로운 고부가가치 시장 창출의 기회입니다. 대체식품은 지속가능성이라는 시대적 요구와 맞물려 장기적인 성장 잠재력이 매우 큽니다.</li>
+                        <li><strong>도전 과제:</strong> 배양육 등 첨단 기술은 높은 생산 단가로 가격 경쟁력 확보가 어렵습니다. 또한, 새로운 식품에 대한 소비자의 낮은 인지도와 안전성에 대한 우려는 시장 확대의 가장 큰 걸림돌이며, 관련 법규와 제도의 정비도 시급한 과제입니다.</li>
+                    </ul>
+                </div>
+    
+                <div class="keywords-section">
+                    <h2>핵심 키워드</h2>
+                    <ul>
+                        <li>
+                            <strong>건강기능식품</strong>
+                            <p>인체에 유용한 기능성 원료를 사용해 건강 증진에 도움을 주는 식품입니다.</p>
+                        </li>
+                        <li>
+                            <strong>대체육/배양육</strong>
+                            <p>식물성 원료나 세포 배양 기술로 기존 육류를 대체하는 식품. 지속가능성의 핵심입니다.</p>
+                        </li>
+                        <li>
+                            <strong>비건(Vegan)</strong>
+                            <p>동물성 제품을 소비하지 않는 라이프스타일. 관련 식품 시장이 빠르게 성장하고 있습니다.</p>
+                        </li>
+                         <li>
+                            <strong>ESG 경영</strong>
+                            <p>환경(E), 사회(S), 지배구조(G)를 고려하는 경영 방식. 식품 기업의 핵심 가치가 되고 있습니다.</p>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="visualization-section">
+                    <h2>대체식품(배양육)에 대한 소비자 인식 조사 (2024)</h2>
+                    <div class="chart-title">높은 잠재력과 낮은 인지도 사이의 간극</div>
+                     <div class="chart-container">
+                        <div class="horizontal-bar-chart">
+                             <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">구매 의향 있음</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 100%;">41.8%</div>
+                                </div>
+                            </div>
+                            <div class="horizontal-bar-item">
+                                <div class="horizontal-bar-label">들어본 적 있음</div>
+                                <div class="horizontal-bar-wrapper">
+                                    <div class="horizontal-bar-fill" style="--bar-width: 33.7%;">14.1%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="chart-note">
+                        * 위 데이터는 한국농촌경제연구원(KREI)의 2024년 조사 결과를 기반으로 작성되었습니다.<br>
+                        * 배양육에 대해 들어본 인지도(14.1%)는 낮지만, 설명을 들은 후 구매 의향을 밝힌 비율(41.8%)은 상대적으로 높게 나타났습니다. 이는 제품의 특성과 가치에 대한 적극적인 정보 제공과 소통이 시장 확대의 핵심 과제임을 시사합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="page-4" class="page-section">
+        <div class="report-container">
+            <div class="header-section">
+                <h1>💡 식음료(F&B) 산업 분석: 참고 자료 및 심화 학습</h1>
+            </div>
+    
+            <div class="main-content-section">
+                <p class="intro-text">
+                    본 보고서에서 심층 분석한 간편식 시장, 푸드테크, 건강/대체식품 이슈와 관련하여 더 깊이 학습하거나 참고할 수 있는 신뢰도 높은 외부 전문 자료들을 정리했습니다.
+                </p>
+    
+                <h2>🔍 심층 분석 주제별 추천 자료</h2>
+                <div class="card-grid">
+                    <div class="info-card">
+                        <h3>[보고서] 2025 식품외식산업 전망대회</h3>
+                        <p>한국농촌경제연구원(KREI)이 발표한 자료로, 식품 물가, 푸드테크, 간편식 등 2025년 F&B 산업의 주요 이슈와 전망을 깊이 있게 다룹니다.</p>
+                        <a href="https://www.krei.re.kr/board.es?mid=a10403020000&bid=0008" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[정책] 푸드테크 산업 육성 방안</h3>
+                        <p>농림축산식품부가 발표한 자료로, 푸드테크 산업의 현황과 성장 잠재력, 정부의 구체적인 육성 전략 및 정책 방향을 상세히 확인할 수 있습니다.</p>
+                        <a href="https://mafra.go.kr/bbs/home/795/564660/download.do" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[시장] 푸드테크의 시대: 대체식품</h3>
+                        <p>삼일PwC가 발간한 보고서로, 대체식품의 정의부터 글로벌 시장 전망, 투자 동향, 그리고 산업의 도전 과제까지 심층적으로 분석합니다.</p>
+                        <a href="https://www.pwc.com/kr/ko/publications/samil-pwc-issue-focus-202310.html" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>[트렌드] 2025 건강기능식품 시장 트렌드</h3>
+                        <p>마크비전이 분석한 2025년 건기식 시장의 핵심 트렌드와 온라인 시장의 리스크 요인을 제시하여, 시장의 기회와 위협을 동시에 파악할 수 있습니다.</p>
+                        <a href="https://www.marqvision.com/kr/blog-kr/explore-health-supplement-market-trend-2025-risk-unsales-online-marketplaces" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>[연구] 대체식품이 축산업에 미치는 영향</h3>
+                        <p>KREI가 대체식품 확산이 국내 축산업에 미치는 영향을 분석하고, 소비자의 인식 및 윤리적 쟁점까지 종합적으로 다룬 연구 보고서입니다.</p>
+                        <a href="https://repository.krei.re.kr/bitstream/2018.oak/31480/1/R2024-11.pdf" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>[규제] 2025년 달라지는 식품안전 제도</h3>
+                        <p>식품의약품안전처가 발표한 자료로, 맞춤형 건기식 판매 제도 등 2025년에 새롭게 시행되거나 변경되는 식품 안전 규제를 확인할 수 있습니다.</p>
+                        <a href="https://www.mfds.go.kr/brd/m_99/down.do?brd_id=ntc0021&seq=48787&data_tp=A&file_seq=2" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                </div>
+    
+                <h2>📰 식음료(F&B) 연관 산업 주요 이슈</h2>
+                <div class="card-grid">
+                    <div class="info-card">
+                        <h3>유통/리테일: 건기식 특화 편의점의 등장</h3>
+                        <p>편의점 CU의 건강식품 매출이 85% 급증하며 특화 매장을 확대하는 등, F&B의 건강 트렌드가 오프라인 유통 채널의 전략을 바꾸고 있습니다.</p>
+                        <a href="https://magazine.hankyung.com/business/article/202507010223b" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>외식 서비스: 조리 로봇 도입 확대</h3>
+                        <p>대기업 구내식당, 정부청사, 프랜차이즈 등 외식 산업 전반에 조리 로봇 도입이 확산되며 인력난 해소와 운영 효율화에 기여하고 있습니다.</p>
+                        <a href="https://zdnet.co.kr/view/?no=20250615125624" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>농업: 스마트팜을 통한 생산성 향상</h3>
+                        <p>푸드테크의 성장은 스마트팜 기술 도입을 촉진하여, 기후 변화에 대응하고 국내 농업의 생산성을 높이는 핵심 동력이 되고 있습니다.</p>
+                        <a href="https://www.agrinet.co.kr/news/articleView.html?idxno=323161" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>가공 기계: 스마트 공장으로의 전환</h3>
+                        <p>정부 지원을 통한 스마트 공장 구축이 확산되면서 식품 제조 공정의 자동화, 지능화가 가속화되고 식품 가공 기계 산업이 함께 발전하고 있습니다.</p>
+                        <a href="https://geri.re.kr/webzine/32/geri01.pdf" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                     <div class="info-card">
+                        <h3>포장재: 친환경 포장재 개발 경쟁</h3>
+                        <p>간편식 시장 성장에 따른 폐기물 문제가 대두되면서, 식음료 산업의 지속가능성 요구는 친환경 소재 개발 등 포장재 산업의 혁신을 이끌고 있습니다.</p>
+                        <a href="https://www.sisajournal-e.com/news/articleView.html?idxno=235479" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>IT/물류: 배달앱 구독 전쟁 심화</h3>
+                        <p>배달의민족과 쿠팡이츠의 구독 서비스 경쟁이 전국으로 확산되며, 이는 간편식의 접근성을 높이고 IT 플랫폼과 물류 산업의 성장을 견인하고 있습니다.</p>
+                        <a href="https://biz.chosun.com/distribution/channel/2025/02/02/UX3IWJVLSZGDPAFSLXZ6GRBHPE/" target="_blank" rel="noopener noreferrer">자료 보기 →</a>
+                    </div>
+                </div>
+    
+                <div class="conclusion-box">
+                    <h2>마무리하며:</h2>
+                    <p>
+                        2025년 대한민국 식음료(F&B) 산업은 고물가와 인구 구조 변화라는 거대한 파도 속에서 '푸드테크'라는 강력한 엔진을 장착했습니다. 이제 기업의 경쟁력은 단순히 맛있는 제품을 만드는 것을 넘어, 기술을 통해 개인에게 최적화된 건강과 편리함을 제공하고, 지속가능한 방식으로 사회적 가치를 실현하는 능력에 의해 결정될 것입니다. HMR, 건강기능식품, 대체식품 등 각자의 영역에서 벌어지는 혁신 경쟁은 결국 '더 나은 먹거리, 더 나은 삶'이라는 하나의 목표를 향하고 있습니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        // 스크립트 불필요. 모든 애니메이션은 CSS로 처리됩니다.
+    </script>
+</body>
+</html>
